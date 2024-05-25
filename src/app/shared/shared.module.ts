@@ -27,6 +27,7 @@ import { NavigationTabsComponent } from './components/atoms/navigation-tabs/navi
 import { DataDisplayBadgeComponent } from './components/atoms/data-display-badge/data-display-badge.component';
 import { TitleTerciarioComponent } from './components/atoms/title-terciario/title-terciario.component';
 import { TextFieldComponent } from './components/atoms/text-field/text-field.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -63,8 +64,10 @@ import { TextFieldComponent } from './components/atoms/text-field/text-field.com
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
+  
   
 })
 export class SharedModule { }

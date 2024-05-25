@@ -1,0 +1,19 @@
+.navigation-stepper {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 400px;
+  }
+  
+  .step {
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 180px;
+  }
+  
+  .step.active {
+    background-color: #007bff;
+    color: white;
+  }
+  

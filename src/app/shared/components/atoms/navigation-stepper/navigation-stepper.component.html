@@ -1,1 +1,6 @@
-<p>navigation-stepper works!</p>
+<div class="navigation-stepper">
+    <div *ngFor="let step of steps; let i = index" class="step" [ngClass]="{'active': currentStep === i}">
+      {{ step }}
+    </div>
+    <button (click)="nextStep()" [disabled]="currentStep === steps.length - 1">Siguiente</button>
+  </div>

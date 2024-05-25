@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.label-container {
+    position: relative;
+    display: inline-block;
+}
+
+.label-placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.underline {
+    width: 10rem;
+    height: 1px;
+    background-color: #aaa;
+    margin-top: 5px;
+}
