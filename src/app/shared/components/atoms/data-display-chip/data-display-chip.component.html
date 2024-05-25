@@ -1,1 +1,8 @@
-<p>data-display-chip works!</p>
+<div class="container-chip">
+<div 
+  class="data-display-chip" 
+  [class.selected]="selected" 
+  (click)="onChipClick()">
+  <span class="chip-content">{{ chipContent }}</span>
+</div>
+</div>

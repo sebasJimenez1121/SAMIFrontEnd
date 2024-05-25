@@ -1,0 +1,26 @@
+.data-display-chip {
+    font-family: 'Poppins', sans-serif;
+    width: 110px;
+    height: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 392px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 1px solid #307BC4;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .data-display-chip.selected {
+    background-color: #307BC4;
+    color: white;
+  }
+  
+  .container-chip {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 392px;
+  }
+  

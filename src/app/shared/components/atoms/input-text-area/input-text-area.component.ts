@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './input-text-area.component.html',
   styleUrl: './input-text-area.component.css'
 })
-export class InputTextAreaComponent {
+export class InputTextAreaComponent{
+  text: string = '';
 
+  constructor() { }
 }

@@ -1,0 +1,15 @@
+.custom-textarea {
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical; 
+  }
+  
+  .custom-textarea:focus {
+    outline: none; 
+    border-color: #007bff; 
+  }
+  

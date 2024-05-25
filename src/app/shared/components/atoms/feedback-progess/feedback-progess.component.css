@@ -1,0 +1,40 @@
+.heartbeat-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.heartbeat-1 svg {
+    height: 60px;
+    fill: none;
+    stroke: #203B8F;
+    stroke-width: 20; 
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: heartbeat-1 3s ease infinite;    
+}
+@keyframes heartbeat-1 {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.heartbeat-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.heartbeat-2 svg {
+    stroke: #203B8F;
+    height: 60px;
+    stroke-width: 2px;
+    fill: none;
+    stroke-dasharray: 200, 300;
+    stroke-dashoffset: 0;
+    animation: heartbeat-2 10s infinite linear;
+}
+@keyframes heartbeat-2 {
+    to {
+        stroke-dashoffset: 1080;
+    }
+}

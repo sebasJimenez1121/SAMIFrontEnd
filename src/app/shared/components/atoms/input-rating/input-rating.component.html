@@ -1,1 +1,13 @@
-<p>input-rating works!</p>
+<div class="star">
+    <input type="radio" id="r1" [checked]="isStarFilled(1)">
+    <label for="r1" (click)="rate(1)"></label>
+    <input type="radio" id="r2" [checked]="isStarFilled(2)">
+    <label for="r2" (click)="rate(2)"></label>
+    <input type="radio" id="r3" [checked]="isStarFilled(3)">
+    <label for="r3" (click)="rate(3)"></label>
+    <input type="radio" id="r4" [checked]="isStarFilled(4)">
+    <label for="r4" (click)="rate(4)"></label>
+    <input type="radio" id="r5" [checked]="isStarFilled(5)">
+    <label for="r5" (click)="rate(5)"></label>
+  </div>
+  

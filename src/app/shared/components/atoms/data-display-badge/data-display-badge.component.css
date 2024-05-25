@@ -1,0 +1,25 @@
+.badge {
+   
+    display: inline-block;
+    height: 8px;
+    width: 1px;
+    padding: 0px 4px;
+    margin:3px 0px 4px -8px;
+    border-radius: 1400px;
+    background-color: #3C7FF5;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+ 
+  
+
+.badge-container {
+    display: flex; 
+  
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
