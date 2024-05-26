@@ -1,0 +1,28 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  
+  .avatar img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .default-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9b9b9b;
+    border-radius: 50%;
+    color: white;
+  }
+  
+  .default-icon svg {
+    width: 10%;
+    height: 10%;
+  }
+  

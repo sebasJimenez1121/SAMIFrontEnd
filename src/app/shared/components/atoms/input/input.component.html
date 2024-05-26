@@ -1,4 +1,5 @@
 <div class="form__group field">
-    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-    <label for="name" class="form__label">Nombre</label>
-  </div>
+  <input type="input" class="form__field" placeholder="Name" name="name" id="name" required
+         (input)="onInput($event)" (focus)="onFocus()" />
+  <label for="name" class="form__label">Nombre</label>
+</div>

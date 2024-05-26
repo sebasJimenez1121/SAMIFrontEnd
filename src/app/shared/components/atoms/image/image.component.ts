@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent {
-  @Input() imageUrl: string = ''; // URL de la imagen
-  @Input() linkUrl: string = '';  // URL del enlace (opcional)
-  @Input() width: string = '100px'; // Ancho de la imagen
-  @Input() height: string = '100px'; // Altura de la imagen
-  @Input() alt: string = 'image';   // Texto alternativo de la imagen
+  @Input() imageUrl: string = ''; 
+  @Input() linkUrl: string = '';  
+  @Input() width: string = '100px'; 
+  @Input() height: string = '100px'; 
+  @Input() alt: string = 'image'; 
 }

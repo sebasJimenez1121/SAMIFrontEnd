@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+button {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+  border-radius: 10px;
+  background-size: 200% auto;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+  width: 200px;
+  transition: background-position 0.5s, background-size 0.5s;
+}
+
+button:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,12 +1,13 @@
 <div class="container-select">
     <div class="document-type">
       <label for="document-type" class="form__label">Tipo de documento:</label>
-      <select id="document-type" name="document-type" >
+      <select id="document-type" name="document-type" (change)="onDocumentTypeChange($event)">
         <option value="" >Selecciona</option>
-       <option value="" >Cedula de ciudadania</option>
-       <option value="" >Tarjeta de identidad</option>
-       <option value="" >Cedula de extranjeria</option>
-       <option value="" >Registro civil</option>
+        <option value="cc" >Cédula de ciudadanía</option>
+        <option value="ti" >Tarjeta de identidad</option>
+        <option value="ce" >Cédula de extranjería</option>
+        <option value="rc" >Registro civil</option>
       </select>
     </div>
   </div>
+  

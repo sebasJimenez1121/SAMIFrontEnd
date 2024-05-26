@@ -36,12 +36,12 @@
     outline: none; 
     border-color: #85898B; 
   }
+  
   button, select {
     border: 0; 
     -webkit-border: none; 
     -moz-border: none;
     outline: none; 
-  
     width: 100%;
   }
   
