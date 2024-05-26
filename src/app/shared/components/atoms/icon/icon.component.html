@@ -1,1 +1,5 @@
-<p>icon works!</p>
+<a [href]="linkUrl" target="_blank" rel="noopener noreferrer" *ngIf="linkUrl">
+    <img [src]="iconUrl" [alt]="alt" [ngStyle]="{'width': size, 'height': size}">
+</a>
+
+  

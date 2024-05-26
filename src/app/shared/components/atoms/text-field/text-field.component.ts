@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-text-field',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './text-field.component.css'
 })
 export class TextFieldComponent {
-
+  @Input() placeholderText: string = 'Placeholder';
+  @Input() underlineColor: string = '#007bff';
 }

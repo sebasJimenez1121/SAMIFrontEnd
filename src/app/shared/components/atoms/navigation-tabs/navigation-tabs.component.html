@@ -1,1 +1,8 @@
-<p>navigation-tabs works!</p>
+<nav class="navigation-tabs">
+    <a *ngFor="let tab of tabs" 
+       [routerLink]="tab.route" 
+       routerLinkActive="active-tab" 
+       [routerLinkActiveOptions]="{ exact: true }">
+      {{ tab.label }}
+    </a>
+</nav>

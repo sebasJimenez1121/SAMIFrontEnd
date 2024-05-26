@@ -5,16 +5,18 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-  
   ],
   imports: [
     BrowserModule,
     SharedModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

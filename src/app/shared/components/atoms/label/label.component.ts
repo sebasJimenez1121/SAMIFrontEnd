@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-label',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './label.component.css'
 })
 export class LabelComponent {
-
+  @Input() content: string = "Nombre*";
+  @Input() typeContent: string = "string"; 
 }
+

@@ -1,0 +1,27 @@
+.navigation-tabs {
+    display: flex;
+}
+  
+.navigation-tabs a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    transition: color 0.3s;
+}
+  
+.navigation-tabs a:hover,
+.navigation-tabs a.active-tab {
+    color: #007BFF; 
+}
+  
+.navigation-tabs a.active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #007BFF;
+}
+  
