@@ -28,6 +28,13 @@ import { DataDisplayBadgeComponent } from './components/atoms/data-display-badge
 import { TitleTerciarioComponent } from './components/atoms/title-terciario/title-terciario.component';
 import { TextFieldComponent } from './components/atoms/text-field/text-field.component';
 import { RouterModule } from '@angular/router';
+import { MenuComponent } from './components/molecules/menu/menu.component';
+import { ProfileButtonComponent } from './components/molecules/profile-button/profile-button.component';
+import { ImageCardComponent } from './components/molecules/image-card/image-card.component';
+import { ContentCardComponent } from './components/molecules/content-card/content-card.component';
+import { RegistrationFormComponent } from './components/molecules/registration-form/registration-form.component';
+import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
+import { AppointmentFormComponent } from './components/molecules/appointment-form/appointment-form.component';
 
 
 
@@ -60,7 +67,14 @@ import { RouterModule } from '@angular/router';
     NavigationTabsComponent,
     DataDisplayBadgeComponent,
     TitleTerciarioComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    MenuComponent,
+    ProfileButtonComponent,
+    ImageCardComponent,
+    ContentCardComponent,
+    RegistrationFormComponent,
+    LoginFormComponent,
+    AppointmentFormComponent
   ],
   imports: [
     CommonModule,
