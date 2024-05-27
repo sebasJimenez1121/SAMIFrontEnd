@@ -1,0 +1,33 @@
+.container-form {
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 5% auto;
+  }
+  
+  .data-form {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .row{
+    margin: 2% 0;
+    display: flex;
+    width: 100%;
+  }
+
+  app-input , .row div{
+    width: 25%;
+    margin-right: 10%;
+  }
+  .row div {
+    display: flex;
+    flex-flow: column;
+  }
+
+  app-button-bottomless{
+    margin-top: 2.5%;
+  }
+  
+ 

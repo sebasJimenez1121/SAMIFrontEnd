@@ -1,1 +1,4 @@
-<p>content-card-recommended-doctors works!</p>
+<div class="recommended" *ngFor="let doctor of doctors">
+    <app-label [content]="doctor.nombre"></app-label>
+    <app-text [content]="doctor.especialidad"></app-text>
+</div>

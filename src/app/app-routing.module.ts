@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { AboutComponent } from './about/about.component';
-// import { ContactComponent } from './contact/contact.component';
-import { NavigationStepperComponent } from './shared/components/atoms/navigation-stepper/navigation-stepper.component'
+import { AppointmentFormComponent } from './shared/components/molecules/appointment-form/appointment-form.component';
+import { ButtonSetLoginRegistrationComponent } from './shared/components/molecules/button-set-login-registration/button-set-login-registration.component';
+import { ContentCardComponent } from './shared/components/molecules/content-card/content-card.component';
 
 const routes: Routes = [
-    {path:'navetion', component:NavigationStepperComponent},
-  //   { path: '', component: HomeComponent, data: { breadcrumb: 'Inicio' } },
-  // { path: 'about', component: AboutComponent, data: { breadcrumb: 'Nosotros' } },
-  // { path: 'contact', component: ContactComponent, data: { breadcrumb: 'Contacto' } }
+    {path:'formulario', component: AppointmentFormComponent},
+    {path:'login', component: ButtonSetLoginRegistrationComponent},
+    {path:'calendario', component: ContentCardComponent}
 ];
 
 @NgModule({

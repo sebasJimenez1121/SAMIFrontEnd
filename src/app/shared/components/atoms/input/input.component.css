@@ -1,52 +1,43 @@
 .form__group {
   position: relative;
-  padding: 10px 0 0;
-  margin: 68px 0px 2px 81px;
-  width: 25%;
+  padding: 10px 5px;
+  width: 100%;
 }
 
 .form__field {
-  font-family: 'Poppins', sans-serif;
-  width: 70%;
+  margin: 2% 0;
+  width: 100%;
   border: 0;
   border-bottom: 1px solid #9b9b9b;
   outline: 0;
   font-size: 16px;
-  color: #9b9b9b;
-  padding: 10px 0;
+  color: grey;  /* Color del texto dentro del input */
+  padding: 5px 0;
   background: transparent;
 }
 
 .form__field::placeholder {
-  color: transparent;
-}
-
-.form__field:placeholder-shown ~ .form__label {
-  font-size: 1.3rem;
-  cursor: text;
-  top: 20px;
+  color: grey;  /* Color del placeholder */
+  padding: 2px 0;
 }
 
 .form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
+  font-weight: 500;
   font-size: 1rem;
   color: #203B8F;
+  transition: 0.2s;
 }
 
 .form__field:focus ~ .form__label {
-  top: 0;
   font-size: 1rem;
   color: #dadada;
   font-weight: 300;
 }
 
 .form__field:focus {
-  padding-bottom: 6px;
+  padding-bottom: 5px;
   font-weight: 200;
-  border-width: 3px;
+  border-width: 2px;
   border-image: linear-gradient(to right, #203B8F);
   border-image-slice: 1;
 }

@@ -35,9 +35,22 @@ import { ContentCardComponent } from './components/molecules/content-card/conten
 import { RegistrationFormComponent } from './components/molecules/registration-form/registration-form.component';
 import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
 import { AppointmentFormComponent } from './components/molecules/appointment-form/appointment-form.component';
-
-
-
+import { LateralMenuComponent } from './components/molecules/lateral-menu/lateral-menu.component';
+import { CalendarOptionsComponent } from './components/molecules/calendar-options/calendar-options.component';
+import { SetButtonsComponent } from './components/molecules/set-buttons/set-buttons.component';
+import { ButtonSetLoginRegistrationComponent } from './components/molecules/button-set-login-registration/button-set-login-registration.component';
+import { RatingSystemComponent } from './components/molecules/rating-system/rating-system.component';
+import { FilterCategoriesComponent } from './components/molecules/filter-categories/filter-categories.component';
+import { CommentsTextAreaComponent } from './components/molecules/comments-text-area/comments-text-area.component';
+import { ListFooterComponent } from './components/molecules/list-footer/list-footer.component';
+import { SetLinksLoginComponent } from './components/molecules/set-links-login/set-links-login.component';
+import { SetLinksRegisterComponent } from './components/molecules/set-links-register/set-links-register.component';
+import { ContentCardServicesComponent } from './components/molecules/content-card-services/content-card-services.component';
+import { ImageCardServicesComponent } from './components/molecules/image-card-services/image-card-services.component';
+import { ContentCardRecommendedDoctorsComponent } from './components/molecules/content-card-recommended-doctors/content-card-recommended-doctors.component';
+import { ImageCardRecommendedDoctorsComponent } from './components/molecules/image-card-recommended-doctors/image-card-recommended-doctors.component';
+import { ContentCardCommentsDoctorsComponent } from './components/molecules/content-card-comments-doctors/content-card-comments-doctors.component';
+import { ImageCardCommentsDoctorsComponent } from './components/molecules/image-card-comments-doctors/image-card-comments-doctors.component';
 
 
 @NgModule({
@@ -74,14 +87,33 @@ import { AppointmentFormComponent } from './components/molecules/appointment-for
     ContentCardComponent,
     RegistrationFormComponent,
     LoginFormComponent,
-    AppointmentFormComponent
+    AppointmentFormComponent,
+    LateralMenuComponent,
+    CalendarOptionsComponent,
+    SetButtonsComponent,
+    ButtonSetLoginRegistrationComponent,
+    RatingSystemComponent,
+    FilterCategoriesComponent,
+    CommentsTextAreaComponent,
+    ListFooterComponent,
+    SetLinksLoginComponent,
+    SetLinksRegisterComponent,
+    ContentCardServicesComponent,
+    ImageCardServicesComponent,
+    ContentCardRecommendedDoctorsComponent,
+    ImageCardRecommendedDoctorsComponent,
+    ContentCardCommentsDoctorsComponent,
+    ImageCardCommentsDoctorsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
- 
+
+  exports:[
+    SetButtonsComponent
+  ],
   
 })
 export class SharedModule { }

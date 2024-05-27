@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 button {
-  font-family: 'Poppins', sans-serif;
+  text-align: center;
   border: none;
   color: #fff;
   background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
   border-radius: 10px;
   background-size: 200% auto;
   font-size: 17px;
-  padding: 0.6em 1.5em;
-  width: 200px;
+  height: 40px;
+  width: 100%; 
   transition: background-position 0.5s, background-size 0.5s;
 }
 

@@ -1,15 +1,11 @@
 .star {
-  width: 400px;
+  width: 100%;
   position: relative;
-}
-
-.star > * {
-  float: right;
 }
 
 .star label {
   height: 20px;
-  width: 20px;
+  width: 100%;
   position: relative;
   cursor: pointer;
   padding: 0 6px;

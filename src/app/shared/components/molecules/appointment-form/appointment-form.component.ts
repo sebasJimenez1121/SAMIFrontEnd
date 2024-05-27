@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-appointment-form',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './appointment-form.component.css'
 })
 export class AppointmentFormComponent {
-
+   
 }

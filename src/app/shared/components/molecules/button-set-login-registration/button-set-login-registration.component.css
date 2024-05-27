@@ -1,0 +1,10 @@
+.buttons-login{
+    width: 30%;
+    display: flex;
+   
+}
+
+app-button-bottomless, app-button{
+    width: 46%;
+    margin: 2% auto;
+}

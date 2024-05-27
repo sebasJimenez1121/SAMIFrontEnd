@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-bottomless',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-bottomless.component.css'] 
 })
 export class ButtonBottomlessComponent {
+  @Input() value:string = "valor" 
   handleClick() {
     console.log('Button clicked!');
   }
