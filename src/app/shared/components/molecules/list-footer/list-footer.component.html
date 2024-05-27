@@ -1,1 +1,15 @@
-<p>list-footer works!</p>
+<div class="footer-list">
+<app-data-display-list></app-data-display-list>
+
+<ul class="list">
+    <li *ngFor="let item of menuItems1">
+      <a [href]="item.link">{{ item.label }}</a>
+    </li>
+  </ul>
+  
+  <ul class="list">
+    <li *ngFor="let item of menuItems2">
+      <a [href]="item.link">{{ item.label }}</a>
+    </li>
+  </ul>
+</div>

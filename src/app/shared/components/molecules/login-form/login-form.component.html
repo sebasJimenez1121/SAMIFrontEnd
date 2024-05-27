@@ -1,1 +1,34 @@
-<p>login-form works!</p>
+<div class="container">
+    <div class="form-container">
+     
+  
+      <form>
+        <div class="header">
+            <app-title-terciario for="text" titleText="Inicio Sesion"></app-title-terciario>
+            </div>
+        <div class="form-group">
+            <app-selects type="text"required placeholder=""  class="form-input"></app-selects>
+        </div>
+  
+        <div class="form-group">
+            <app-label for="text" content="Numero de Documento:"></app-label>
+            <app-input  type="text" placeholder=""  class="form-input"></app-input>
+        
+        </div>
+  
+        <div class="form-group">
+          <app-label for="password" content="Contraseña:"></app-label>
+          <app-input  type="password"  class="form-input" placeholder="••••••••" ></app-input>
+        </div>
+  
+        <div class="form-group-remember">
+         
+          <app-input name="remember" type="checkbox" class="checkbox"></app-input>
+          <app-label for="remember" content="Recordar mis datos"></app-label>
+        </div>
+  
+        
+      </form>
+    </div>
+  
+  </div>
