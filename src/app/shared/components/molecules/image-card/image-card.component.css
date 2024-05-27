@@ -1,0 +1,27 @@
+.container-img{
+    position: relative;
+    margin: 1%;
+    width: 25%;
+    background: #DBE9FE;
+    text-align: center;
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+.title {
+    width: 70%;
+    position: absolute;
+    bottom: 0;
+    left: 15%; 
+    right: 15%; 
+    color: #fff;
+    font-size: 16px;
+    background: #203B8F;
+    text-align: center;
+    padding: 8px;
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+app-image{
+    position: relative;
+}

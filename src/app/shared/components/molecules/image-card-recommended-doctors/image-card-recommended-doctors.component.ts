@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-image-card-recommended-doctors',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './image-card-recommended-doctors.component.css'
 })
 export class ImageCardRecommendedDoctorsComponent {
-
+  @Input() img:string='../../../../../assets/images/Link → doctor_1.png.png';
 }

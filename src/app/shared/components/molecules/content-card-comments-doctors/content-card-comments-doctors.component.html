@@ -1,11 +1,13 @@
 <div class="content-card">
-    <div class="title">
-        <app-label content=""></app-label>
-        <div>
-            <app-text content=""></app-text>
-            
+    <div>
+        <app-label content="{{nombre}}"></app-label>
+        <div class="title">
+            <app-text content="{{especialidad}}" class="especialidad"></app-text>
+            <app-input-rating></app-input-rating>
         </div>
-        
     </div>
-    
+    <div class="content">
+        <app-text content="{{fechaRealizador}}" class="fecha"></app-text>
+        <app-text content="{{comentario}}"></app-text>
+    </div>
 </div>
