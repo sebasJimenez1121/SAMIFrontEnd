@@ -1,1 +1,19 @@
-<p>lateral-menu works!</p>
+<div class="sidebar" [ngClass]="{'closed': isSidebarClosed}">
+    <div class="sidebar-header">
+    </div>
+    <ul class="sidebar-menu">
+      <li class="sidebar-menu-item" *ngFor="let item of menuItems" 
+          [routerLink]="[item.link]" 
+          routerLinkActive="active" 
+          (click)="selectMenuItem(item)">
+        <a class="navbar__link">
+          <div class="sidebar-menu-content">
+            <img [src]="item.icon" alt="{{ item.label }}" class="menu-icon">
+          </div>
+          <span>{{ item.label }}</span>
+          <span class="highlight-circle" *ngIf="selectedItem === item"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  

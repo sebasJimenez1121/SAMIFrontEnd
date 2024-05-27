@@ -111,9 +111,7 @@ import { ImageCardCommentsDoctorsComponent } from './components/molecules/image-
     RouterModule
   ],
 
-  exports:[
-    SetButtonsComponent
-  ],
+ 
   
 })
 export class SharedModule { }

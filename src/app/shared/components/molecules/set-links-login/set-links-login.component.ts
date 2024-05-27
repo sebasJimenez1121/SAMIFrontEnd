@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './set-links-login.component.css'
 })
 export class SetLinksLoginComponent {
-
+ 
+  forgotPasswordText: string = '¿Olvidaste tu contraseña?';
+  registerText: string = 'Registrarse';
 }

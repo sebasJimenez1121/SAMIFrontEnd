@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DataDisplayAvatarComponent  {
   @Input() imageUrl: string | null = null;
-  @Input() size: number = 50;
+  @Input() size: number = 10;
   @Input() altText: string = 'User Avatar';
 }

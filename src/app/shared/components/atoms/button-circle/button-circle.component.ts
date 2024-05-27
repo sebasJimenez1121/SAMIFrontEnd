@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-button-circle',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-circle.component.css']
 })
 export class ButtonCircleComponent {
+  @Input() value:string = "valor" 
   handleClick() {
     console.log('Button clicked!');
   }

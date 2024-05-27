@@ -1,15 +1,16 @@
 
 .list li {
-    display: flex;
-    font-family: 'Poppins', sans-serif;
-    font-size: 10px;
-    align-items: center;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  align-items: center;
+  color: rgb(255, 255, 255);
+
+}
+
+.list li img {
+  width: 30px;
+  height: 30px;
+  padding-right: 10px;
   
-  }
-  
-  .list li img {
-    width: 30px;
-    height: 30px;
-    padding-right: 10px;
-    
-  }
+}
