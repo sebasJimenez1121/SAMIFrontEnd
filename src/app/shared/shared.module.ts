@@ -51,6 +51,11 @@ import { ContentCardRecommendedDoctorsComponent } from './components/molecules/c
 import { ImageCardRecommendedDoctorsComponent } from './components/molecules/image-card-recommended-doctors/image-card-recommended-doctors.component';
 import { ContentCardCommentsDoctorsComponent } from './components/molecules/content-card-comments-doctors/content-card-comments-doctors.component';
 import { ImageCardCommentsDoctorsComponent } from './components/molecules/image-card-comments-doctors/image-card-comments-doctors.component';
+import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
+import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
+import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
+import { AppointmentSchedulingTemplateComponent } from './components/templates/appointment-scheduling-template/appointment-scheduling-template.component';
+import { ModalBookingAppointmentTemplateComponent } from './components/templates/modal-booking-appointment-template/modal-booking-appointment-template.component';
 
 
 @NgModule({
@@ -103,14 +108,21 @@ import { ImageCardCommentsDoctorsComponent } from './components/molecules/image-
     ContentCardRecommendedDoctorsComponent,
     ImageCardRecommendedDoctorsComponent,
     ContentCardCommentsDoctorsComponent,
-    ImageCardCommentsDoctorsComponent
+    ImageCardCommentsDoctorsComponent,
+    LoginTemplateComponent,
+    RegisterTemplateComponent,
+    StarterTemplateComponent,
+    AppointmentSchedulingTemplateComponent,
+    ModalBookingAppointmentTemplateComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
-
+exports:[
+  RegisterTemplateComponent
+],
  
   
 })
