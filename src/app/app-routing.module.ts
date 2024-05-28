@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './shared/components/organisms/register/register.component';
-
+import { FooterComponent } from './shared/components/organisms/footer/footer.component';
 const routes: Routes = [
-    {path:'header', component: RegisterComponent}
+    {path:'header', component: FooterComponent}
 ];
 
 @NgModule({

@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
 }
 
 .input-rating{
