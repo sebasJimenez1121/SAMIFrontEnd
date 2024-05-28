@@ -1,34 +1,7 @@
-body, html {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  padding: 36px 42px 80px 58px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 50%;
-  margin: 50px 2px 2px 2px;
-}
-
 .header {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
@@ -53,28 +26,23 @@ body, html {
   display: flex;
   flex-direction: column;
   width: 45%;
-  margin: 35px 2px 2px 2px;
+  margin: 2px 2px 2px 2px;
 }
 
-
-
-
 .form-group-remember {
+  margin-bottom: 20px;
   display: flex;
-  align-items: center;
-  margin: 20px 0;
   font-size: 12px;
 }
 
 .checkbox {
-  margin-right: 8px;
+  margin-right: 5px;
 }
 
 .form-group label {
   display: block;
   color: #1F3FAE;
   font-family: 'Poppins', sans-serif;
- 
   font-weight: 600;
   margin-bottom: 8px;
 }

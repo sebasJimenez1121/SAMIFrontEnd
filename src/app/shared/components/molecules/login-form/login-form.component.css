@@ -1,32 +1,3 @@
-body, html {
-   
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('https://img.freepik.com/free-photo/elegant-blue-smooth-wave-lines-background_1017-46762.jpg?t=st=1715553748~exp=1715557348~hmac=ea473702267f3e08a8321b4e28aeb6cb992e8bf8aa244ad30dfd492714b0d834&w=1380') no-repeat center center;
-    background-size: cover;
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    
-  }
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-  background: #ffffff;
-  padding: 61px 42px 80px 58px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 50%;
-  margin: 50px 2px 2px 2px;
-}
-
 .header {
   display: flex;
   justify-content: center;
