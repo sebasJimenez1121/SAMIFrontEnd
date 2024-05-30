@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
+  padding: 3px;
 }
 
 .header h1 {
@@ -12,14 +13,16 @@
 }
 
 .form-group {
-  margin-bottom: 20px;
+  padding: 0rem 0rem 0rem 6rem;
   
 }
 .form-group-remember{
-    margin-bottom: 20px;
+  padding: 0rem 0rem 0rem 6rem;
+  font-size: 12px;
     display: flex;
-    font-size: 12px;
+ 
 }
+
 .checkbox{
     margin: 2px 8px 2px 2px;
 }
@@ -27,18 +30,22 @@
   display: block;
   color: #1F3FAE;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
-.form-control, .form-input {
+.form-control {
   padding: 8px;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 
+.form-input{
+    padding: 8px 2px 2px 2px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
 
 
 

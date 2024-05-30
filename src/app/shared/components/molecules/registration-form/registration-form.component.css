@@ -13,7 +13,7 @@
 
 .form-columns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .form-column {
@@ -32,11 +32,17 @@
 .form-group-remember {
   margin-bottom: 20px;
   display: flex;
-  font-size: 12px;
+
 }
 
 .checkbox {
   margin-right: 5px;
+  margin: 5px 5px;
+  
+}
+.remember{
+margin: 5px 5px;
+
 }
 
 .form-group label {
@@ -45,6 +51,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   margin-bottom: 8px;
+  
 }
 
 .form-control, .form-input {
@@ -61,32 +68,7 @@
   color: transparent;
 }
 
-.form-input:placeholder-shown ~ .form__label {
-  font-size: 1.3rem;
-  cursor: text;
-  top: 20px;
-}
 
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: #203B8F;
-}
 
-.form-input:focus ~ .form__label {
-  top: 0;
-  font-size: 1rem;
-  color: #dadada;
-  font-weight: 300;
-}
 
-.form-input:focus {
-  padding-bottom: 6px;
-  font-weight: 200;
-  border-width: 3px;
-  border-image: linear-gradient(to right, #203B8F);
-  border-image-slice: 1;
-}
+

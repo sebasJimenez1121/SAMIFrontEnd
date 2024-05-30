@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-set-buttons',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './set-buttons.component.css'
 })
 export class SetButtonsComponent {
-
+ @Input() value:string = "valor" 
+  handleClick() {
+    console.log('Button clicked!');
+  }
 }

@@ -5,8 +5,9 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 import { AppRoutingModule } from './app-routing.module';
+
+
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     CommonModule,
     AppRoutingModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

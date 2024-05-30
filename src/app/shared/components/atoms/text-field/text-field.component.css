@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+  
     line-height: 1.5;
     color: #333;
     margin: 0;
@@ -18,7 +18,7 @@ body {
 
 .label-placeholder {
     color: #aaa;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .underline {

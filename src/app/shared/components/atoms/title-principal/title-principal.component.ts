@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './title-principal.component.css'
 })
 export class TitlePrincipalComponent {
-  @Input() titleText: string = 'Registro';
+  @Input() titleText: string = 'Sistema de Atencion Medica Inteligente';
 }

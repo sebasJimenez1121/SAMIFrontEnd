@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -67,6 +68,9 @@ import { MedicalInformationComponent } from './components/organisms/medical-info
 import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
 import { MedicalProfileComponent } from './components/organisms/medical-profile/medical-profile.component';
 import { AppointmentCardComponent } from './components/organisms/appointment-card/appointment-card.component';
+import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
+import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
+import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
 
 
 @NgModule({
@@ -135,15 +139,18 @@ import { AppointmentCardComponent } from './components/organisms/appointment-car
     MedicalInformationComponent,
     DoctorCommentsComponent,
     MedicalProfileComponent,
-    AppointmentCardComponent
+    AppointmentCardComponent,
+    LoginTemplateComponent,
+    RegisterTemplateComponent,
+    StarterTemplateComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
+ exports:[StarterTemplateComponent],
 
- 
   
 })
 export class SharedModule { }
