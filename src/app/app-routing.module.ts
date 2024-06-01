@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './shared/components/organisms/footer/footer.component';
+import { DataDisplayBadgeComponent } from './shared/components/atoms/data-display-badge/data-display-badge.component';
 const routes: Routes = [
-    {path:'header', component: FooterComponent}
+    {path:'nueva', component:DataDisplayBadgeComponent}
 ];
 
 @NgModule({
