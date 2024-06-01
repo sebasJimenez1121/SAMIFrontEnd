@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-link',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './link.component.css'
 })
 export class LinkComponent {
-
+  @Input() links: { url: string, label: string }[] = [];
 }

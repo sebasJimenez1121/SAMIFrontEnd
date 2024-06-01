@@ -1,5 +1,4 @@
-
-      import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-input-date',
@@ -11,26 +10,21 @@ export class InputDateComponent implements OnInit {
   months: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   monthRef: number[] = [];
   month: string;
-  monthDay: number;
   dates: number[] = [];
-  today: number;
-  selectedDateId: string = '';
-  currentMonthIndex: number;
-  now: Date;
+  selectedDate: number | null = null;
+  selectedDateString: string | null = null;
+  availableTimeSlots: string[] = [];
+  selectedTimeSlot: string | null = null;
 
   constructor() {
-    this.now = new Date();
-    this.currentMonthIndex = this.now.getMonth();
-    this.today = this.now.getDate();
-    this.month = this.months[this.currentMonthIndex];
-    this.generateMonthDays(this.now.getFullYear());
-    this.monthDay = this.monthRef[this.currentMonthIndex];
-    this.showDays(this.monthDay);
+    const now = new Date();
+    const currentMonthIndex = now.getMonth();
+    this.month = this.months[currentMonthIndex];
+    this.generateMonthDays(now.getFullYear());
+    this.showDays(this.monthRef[currentMonthIndex]);
   }
 
-  ngOnInit(): void {
-    this.highlightToday();
-  }
+  ngOnInit(): void {}
 
   generateMonthDays(year: number): void {
     for (let i = 1; i <= 12; i++) {
@@ -45,39 +39,43 @@ export class InputDateComponent implements OnInit {
     }
   }
 
-  highlightToday(): void {
-    if (this.now.getMonth() === this.currentMonthIndex) {
-      this.selectedDateId = this.generateDateId(this.today);
-    }
-  }
-
-  generateDateId(date: number): string {
-    return date.toString() + this.currentMonthIndex.toString();
-  }
-
   selectDate(date: number): void {
-    this.selectedDateId = this.generateDateId(date);
+    this.selectedDate = date;
+    const currentMonthIndex = this.months.indexOf(this.month) + 1;
+    this.selectedDateString = `${new Date().getFullYear()}-${currentMonthIndex}-${date}`;
+    this.fetchAvailableTimeSlots(this.selectedDateString);
   }
 
- 
+  fetchAvailableTimeSlots(date: string): void {
+    // Placeholder: Aquí se haría una solicitud al backend para obtener las horas disponibles
+    // Ejemplo: this.calendarService.getAvailableTimeSlots(date).subscribe(...);
+
+    // Simulación de datos
+    this.availableTimeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM'];
+  }
+
+  selectTimeSlot(timeSlot: string): void {
+    this.selectedTimeSlot = timeSlot;
+  }
+
+  
 
   next(): void {
-    if (this.currentMonthIndex < 11) {
-      this.currentMonthIndex++;
-      this.month = this.months[this.currentMonthIndex];
-      this.monthDay = this.monthRef[this.currentMonthIndex];
-      this.showDays(this.monthDay);
-      this.highlightToday();
+    const currentMonthIndex = this.months.indexOf(this.month);
+    if (currentMonthIndex < 11) {
+      this.month = this.months[currentMonthIndex + 1];
+      this.showDays(this.monthRef[currentMonthIndex + 1]);
     }
   }
 
   prev(): void {
-    if (this.currentMonthIndex > 0) {
-      this.currentMonthIndex--;
-      this.month = this.months[this.currentMonthIndex];
-      this.monthDay = this.monthRef[this.currentMonthIndex];
-      this.showDays(this.monthDay);
-      this.highlightToday();
+    const currentMonthIndex = this.months.indexOf(this.month);
+    if (currentMonthIndex > 0) {
+      this.month = this.months[currentMonthIndex - 1];
+      this.showDays(this.monthRef[currentMonthIndex - 1]);
     }
   }
 }
+
+
+

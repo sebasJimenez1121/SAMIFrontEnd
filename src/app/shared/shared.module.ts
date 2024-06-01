@@ -73,6 +73,7 @@ import { RegisterTemplateComponent } from './components/templates/register-templ
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
 
 
+
 @NgModule({
   declarations: [
     ButtonComponent,

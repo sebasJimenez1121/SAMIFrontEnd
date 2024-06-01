@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-rating',
@@ -6,33 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./input-rating.component.css']
 })
 export class InputRatingComponent {
-  currentRating: number | null = null;
-  filledStars: number = 0;
+  @Input() totalStars: number = 5; 
+  currentRating: number | null = null; 
 
-  rate(value: number) {
-    if (this.currentRating === value) {
+  
+  rate(starIndex: number) {
     
-      this.currentRating = null;
-      this.filledStars = 0;
+    if (this.currentRating === starIndex + 1) {
+      this.currentRating = null; 
     } else {
-  
-      this.currentRating = value;
-      this.fillStars(value);
+      this.currentRating = starIndex + 1; 
     }
-  
-    console.log('Rated:', this.currentRating);
   }
 
-  fillStars(value: number) {
-
-    this.filledStars = value;
-    setTimeout(() => {
-      this.filledStars = 0; 
-    }, 10000);
-  }
-
-  isStarFilled(starNumber: number): boolean {
  
-    return starNumber <= this.filledStars;
+  isStarFilled(starIndex: number): boolean {
+    return this.currentRating !== null && starIndex < this.currentRating!;
+  }
+
+  getStarArray(): number[] {
+    return Array(this.totalStars).fill(0).map((_, i) => i);
   }
 }
