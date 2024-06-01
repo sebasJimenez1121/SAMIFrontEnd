@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FlatpickrModule } from 'angularx-flatpickr';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +17,6 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     CommonModule,
     AppRoutingModule,
-    FlatpickrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
