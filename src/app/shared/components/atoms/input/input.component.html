@@ -1,13 +1,5 @@
-<div class="form__group field">
-  <label [id]="id" class="form__label">{{ label }}</label>
-  <input 
-    type="text" 
-    class="form__field" 
-    [placeholder]="placeholder"
-    [name]="name"
-    [id]="id"
-    required
-    (input)="onInput($event)" 
-    (focus)="onFocus()" 
-  />
+<div class="form__group">
+  <label for="{{id}}">{{label}}</label>
+  <input [type]="type" [required]="required" [placeholder]="placeholder" class="form__field" [ngClass]="class" id="{{id}}">
+ 
 </div>

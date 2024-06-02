@@ -1,24 +1,21 @@
 .container-select {
   position: relative;
-
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 300;
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 1rem;
   color: #203B8F;
+  transition: 0.2s;
+ 
 }
 
 .document-type {
   font-family: 'Poppins', sans-serif;
-  width: 90%; 
+  width: 70%;
   border: 0;
-  border-bottom: 1px solid #9b9b9b;
-  font-size: 16px;
+  border-bottom: 0.063rem solid #9b9b9b;
+  font-size: 0.75rem;
   color: #9b9b9b;
   background: transparent;
 }
@@ -29,24 +26,25 @@ label {
 }
 
 .document-type:hover,
-.document-type:focus { 
-  outline: none; 
-  border-color: #85898B; 
+.document-type:focus {
+  outline: none;
+  border-color: #85898B;
 }
 
 button, select {
-  border: 0; 
-  -webkit-border: none; 
+  border: 0;
+  -webkit-border: none;
   -moz-border: none;
-  outline: none; 
+  outline: none;
   width: 100%;
+  margin: 1.438rem 0 0 0;
 }
 
 option {
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  width: 100%; 
+  font-size:  0.75rem;
+  line-height: 1.5rem;
+  width: 100%;
 }
 
 option:hover {

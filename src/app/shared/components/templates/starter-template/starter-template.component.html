@@ -1,1 +1,75 @@
-<p>starter-template works!</p>
+<body>
+  <header>
+      <app-header></app-header>
+  </header>
+  <main>
+     
+    <app-slider></app-slider>
+  </main>
+  <div class="section3">
+      <div class="section-short">
+          <app-title-secundari class="title-secundari" titleText="servicios"></app-title-secundari>
+          <hr>
+      </div>
+      <div class="container-cards">
+          <app-service-card titulo="Gestion de citas" content="Programa tu cita médica podras subir examenes y otros documentos." img="../../../../../assets/images/cita.png"></app-service-card>
+          <app-service-card titulo="Registro de seguimiento" content="Monitoree el progreso de su atención médica a lo largo del tiempo." img="../../../../../assets/images/cita.png"></app-service-card>
+          <app-service-card titulo="Recordatorios de Medicación Personalizados" content="Recordatorios personalizados." img="../../../../../assets/images/alarma.png"></app-service-card>
+       
+      </div>
+  </div>
+  <section class="section--1">
+      <img class="imgdoctor" src="../../../../../assets/images/Doctor-amico 1.png" alt="Doctor Image">
+      <div class="info-doctor">
+        <app-title-secundari class="h3" titleText="Sobre nosotros"></app-title-secundari>
+          <app-text-field class="p" content="SAMI es un equipo de experimentados profesionales médicos dedicados a brindar servicios de salud de la más alta calidad."></app-text-field>
+          <app-text-field class="p" content="Creemos en un enfoque holístico de la atención sanitaria que se centra en tratar a la persona en su totalidad, no solo la enfermedad o síntomas."></app-text-field>
+      </div>
+  </section>
+  <section class="section2">
+      <div class="contenedor1">
+          <div class="subcontenedor">
+              <div class="contenedorImg">
+                  <img class="img2" src="../../../../../assets/images/Group 2.png" alt="Icon">
+              </div>
+             
+              <div class="info-cita">
+                <h3 class="color-title">¿Cómo agendar una cita en SAMI?</h3>
+                  <h5 class="subt1">Busca un medico</h5>
+                  <p>Filtrá por especialidad. Ordená por fecha o recomendaciones. Te puedes atender presencialmente</p>
+                  <h5 class="subt2">Reserva un turno</h5>
+                  <p>Elige el día y horario que más te convenga, y agenda un turno con el médico.</p>
+                  <h5 class="subt3">Paga tu cita y comenta</h5>
+                  <p>Paga tu cita virtual a través de una pasarela de pago, asiste a tu cita y comenta para que otras personas puedan elegir.</p>
+              </div>
+          </div>
+          <img class="img-cita" src="../../../../../assets/images/compu.png" alt="Computer Image">
+      </div>
+  </section>
+  <section class="section3">
+  <div class="section-short">
+    <app-title-secundari class="title-secundari" titleText="Medicos Recomendados"></app-title-secundari>
+    <hr>
+</div>
+<div class="container-cards">
+    <app-recommended-card img ='../../../../../assets/images/compu.png' nombre = 'Juan Perez'  especialidad = 'Ortodoncia'></app-recommended-card>
+    <app-recommended-card img='../../../../../assets/images/Link → doctor_6.png.png' nombre = 'sara' especialidad = 'Ortodoncia'></app-recommended-card>
+    <app-recommended-card img='../../../../../assets/images/Link → doctor_1.png.png' nombre = 'Juan Perez' especialidad = 'Ortodoncia'></app-recommended-card>
+    
+</div>
+</section>
+<section class="section4">
+    <div class="section-short">
+      <app-title-secundari class="title-secundari" titleText="Comentarios sobre nuestros medicos"></app-title-secundari>
+      <hr>
+      <app-text-field class="text-comment" content="En SAMI solo hay opiniones de pacientes reales que si han acudido a la consulta."></app-text-field>
+    
+  </div>
+  <div class="container-cards">
+    <app-doctor-comments></app-doctor-comments>
+    <app-medical-information></app-medical-information>
+  </div>
+  </section>
+  <app-footer> </app-footer>
+</body>
+

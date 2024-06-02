@@ -1,19 +1,23 @@
-
 .calendar {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     display: flex;
-    width: 50%;
+    width: 75%;
     flex-direction: row;
-    justify-content: center;
-    padding: 20px;
+    padding: 0px;
     background-color: #fff;
-    
   }
   
   .calendar_left, .calendar_right {
     width: 48%;
+    margin: 1.5rem;
   }
   
+  .calendar_right h2{
+    color: #918C8C;
+    font-size: 1rem;
+    font-weight: 400;
+   
+  }
   .header {
     display: flex;
     align-items: center;
@@ -21,16 +25,10 @@
     margin-bottom: 10px;
   }
   
-  .header i {
-    cursor: pointer;
-    font-size: 24px;
-  }
-  
   .header h1 {
     font-size: 16px;
     margin: 0;
     color: #203B8F;
-
   }
   
   .days, .dates {
@@ -42,84 +40,58 @@
   .day_item, .date_item {
     width: calc(100% / 7 - 10px);
     text-align: center;
-    padding: 10px;
-    border-radius: 150px;
-  }
-  
-  .day_item {
-    font-weight: 300;
-    color: #203B8F;
+    padding: 2px;
+    border-radius: 149px;
+    color: #61A3F9;
   }
   
   .date_item {
     cursor: pointer;
     transition: background-color 0.3s;
     color: #535353;
+    
   }
   
-  .date_item.present {
+  .date_item.selected {
     background-color: #3461D6;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .date_item:hover {
     background-color: #e0e0e0;
-  }
  
+  }
+  
   .calendar_right ul {
     list-style-type: none;
     padding: 0;
   }
   
   .calendar_right li {
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 7px
   }
   
   .calendar_right li.bounce-in {
     animation: bounce-in 0.5s ease-out;
   }
   
-  .calendar_right span.type {
-    font-weight: bold;
-  }
-  
-  .calendar_right form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .calendar_right input, .calendar_right select {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .calendar_right button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #3461D6;
-    color: #fff;
+  .clickable-icon {
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 24px;
   }
   
-  .calendar_right button:hover {
-    background-color: #3461D6;
+  .clickable-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
   }
   
-
-  @keyframes bounce-in {
-    from {
-      transform: scale(0.5);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+  .clickable-icon svg {
+    width: 100%;
+    height: 100%;
   }
   

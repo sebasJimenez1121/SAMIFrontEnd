@@ -1,4 +1,9 @@
 .container-img{
     width: 100%;
-    text-align: center;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
+

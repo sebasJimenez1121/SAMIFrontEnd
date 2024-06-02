@@ -6,6 +6,6 @@ import { Component, Input} from '@angular/core';
   styleUrl: './text-field.component.css'
 })
 export class TextFieldComponent {
-  @Input() placeholderText: string = 'Placeholder';
-  @Input() underlineColor: string = '#007bff';
+  @Input() content: string = 'text';
+ 
 }

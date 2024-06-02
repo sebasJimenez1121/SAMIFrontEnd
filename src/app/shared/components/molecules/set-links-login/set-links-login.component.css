@@ -1,6 +1,6 @@
 .link {
-    margin-top: 16px;
-    font-size: 14px;
+    margin-top: 1rem;
+    font-size: 0.75rem;
     color: #1F3FAE;
     text-decoration: none;
     transition: color 0.3s;
@@ -13,5 +13,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem 0 0 0;
   }
   
+  .button-login{
+    position: relative;
+    left: 1rem;
+   
+  }

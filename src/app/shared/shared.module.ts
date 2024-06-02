@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -51,11 +52,28 @@ import { ContentCardRecommendedDoctorsComponent } from './components/molecules/c
 import { ImageCardRecommendedDoctorsComponent } from './components/molecules/image-card-recommended-doctors/image-card-recommended-doctors.component';
 import { ContentCardCommentsDoctorsComponent } from './components/molecules/content-card-comments-doctors/content-card-comments-doctors.component';
 import { ImageCardCommentsDoctorsComponent } from './components/molecules/image-card-comments-doctors/image-card-comments-doctors.component';
+import { ServiceCardComponent } from './components/organisms/service-card/service-card.component';
+import { RecommendedCardComponent } from './components/organisms/recommended-card/recommended-card.component';
+import { LoginComponent } from './components/organisms/login/login.component';
+import { RegisterComponent } from './components/organisms/register/register.component';
+import { FooterComponent } from './components/organisms/footer/footer.component';
+import { HeaderComponent } from './components/organisms/header/header.component';
+import { CommentCardComponent } from './components/organisms/comment-card/comment-card.component';
+import { AboutUsComponent } from './components/organisms/about-us/about-us.component';
+import { VideoTutorialComponent } from './components/organisms/video-tutorial/video-tutorial.component';
+import { ScheduleAppointmentComponent } from './components/organisms/schedule-appointment/schedule-appointment.component';
+import { ReservationFormComponent } from './components/organisms/reservation-form/reservation-form.component';
+import { MedicalCardComponent } from './components/organisms/medical-card/medical-card.component';
+import { MedicalInformationComponent } from './components/organisms/medical-information/medical-information.component';
+import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
+import { MedicalProfileComponent } from './components/organisms/medical-profile/medical-profile.component';
+import { AppointmentCardComponent } from './components/organisms/appointment-card/appointment-card.component';
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
-import { AppointmentSchedulingTemplateComponent } from './components/templates/appointment-scheduling-template/appointment-scheduling-template.component';
-import { ModalBookingAppointmentTemplateComponent } from './components/templates/modal-booking-appointment-template/modal-booking-appointment-template.component';
+import { SliderComponent } from './components/organisms/slider/slider.component';
+import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
+
 
 
 @NgModule({
@@ -109,21 +127,59 @@ import { ModalBookingAppointmentTemplateComponent } from './components/templates
     ImageCardRecommendedDoctorsComponent,
     ContentCardCommentsDoctorsComponent,
     ImageCardCommentsDoctorsComponent,
+    ServiceCardComponent,
+    RecommendedCardComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent,
+    HeaderComponent,
+    CommentCardComponent,
+    AboutUsComponent,
+    VideoTutorialComponent,
+    ScheduleAppointmentComponent,
+    ReservationFormComponent,
+    MedicalCardComponent,
+    MedicalInformationComponent,
+    DoctorCommentsComponent,
+    MedicalProfileComponent,
+    AppointmentCardComponent,
     LoginTemplateComponent,
     RegisterTemplateComponent,
     StarterTemplateComponent,
-    AppointmentSchedulingTemplateComponent,
-    ModalBookingAppointmentTemplateComponent
+    SliderComponent,
+    TemplateAppointmentScheduleComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
-exports:[
-  RegisterTemplateComponent
-],
- 
+ exports:[ TemplateAppointmentScheduleComponent],
+
   
 })
 export class SharedModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

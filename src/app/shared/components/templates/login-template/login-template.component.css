@@ -1,51 +1,37 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-image: url('https://img.freepik.com/free-photo/elegant-blue-smooth-wave-lines-background_1017-46762.jpg?t=st=1715553748~exp=1715557348~hmac=ea473702267f3e08a8321b4e28aeb6cb992e8bf8aa244ad30dfd492714b0d834&w=1380');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  background-image: url('https://img.freepik.com/free-photo/elegant-blue-smooth-wave-lines-background_1017-46762.jpg?t=st=1715553748~exp=1715557348~hmac=ea473702267f3e08a8321b4e28aeb6cb992e8bf8aa244ad30dfd492714b0d834&w=1380');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
   
-  .container {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem;
-    border-radius: 10px;
-    height: 70%;
-    width: 69%;
-    justify-content: space-around;
 }
-  
-  
-  .login-form {
-    width: 400px;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.container-login{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login{
+  width: 60rem;
+}
+
+.container img {
+position: relative;
+right: 1rem;
+  height: auto;
+ 
+}
+
+
+
+
+@media (max-width: 768px) {
+  .container {
+    width: 90vw;
+    height: auto;
   }
-  
-  .login-title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1F3FAE;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #1F3FAE;
-  }
-  
+}
