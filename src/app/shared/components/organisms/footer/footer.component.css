@@ -1,0 +1,5 @@
+footer{
+    height: 350px;
+    display: flex;
+    background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
+}

@@ -1,19 +1,18 @@
 .star {
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: space-between; 
 }
 
 .star label {
   height: 20px;
-  width: 100%;
-  position: relative;
   cursor: pointer;
   padding: 0 6px;
 }
 
 .star label:after {
-  transition: all 1s ease-out;
-  position: absolute;
+  transition: all 0.3s ease;
   content: '☆';
   color: rgb(255, 221, 0);
   font-size: 25px;
@@ -23,8 +22,7 @@
   display: none;
 }
 
-.star input:checked + label:after,
-.star input:checked ~ label:after {
+.star input:checked + label:after{
   content: '★';
   color: gold;
   text-shadow: 0 0 10px gold;

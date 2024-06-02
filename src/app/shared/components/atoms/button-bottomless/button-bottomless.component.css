@@ -2,18 +2,19 @@ button {
   text-align: center;
   --color: #1F3FAE;
   display: inline-block;
-  width: 100%;
+  width: 150%;
   height: 40px;
   line-height: 2.5em;
   overflow: hidden;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 12px;
   z-index: 1;
   color: var(--color);
   border: 2px solid var(--color);
   border-radius: 10px;
   position: relative;
   transition: all 0.3s ease;
+  background-color: #fff;
 }
 
 button:hover {

@@ -1,5 +1,4 @@
-
-<button class="avatar-button" [style.width.px]="size" [style.height.px]="size">
+<button class="avatar-button" [style.width.px]="size" [style.height.px]="size" (click)="onClick()">
   <ng-container *ngIf="imageUrl; else defaultIcon">
     <img [src]="imageUrl" [alt]="altText" [style.width.px]="size" [style.height.px]="size">
   </ng-container>

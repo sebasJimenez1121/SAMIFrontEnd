@@ -1,11 +1,12 @@
 .container-img{
+    width: 99.3%;
     position: relative;
     margin: 1%;
-    width: 25%;
     background: #DBE9FE;
     text-align: center;
     border-top-left-radius: 15px; 
     border-top-right-radius: 15px; 
+   
 }
 
 .title {

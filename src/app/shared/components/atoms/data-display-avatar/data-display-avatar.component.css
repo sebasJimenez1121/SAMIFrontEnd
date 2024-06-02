@@ -9,7 +9,7 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  margin: 2px 6px ;
+  margin: 2px 6px;
 }
 
 .avatar-button img {
@@ -24,11 +24,9 @@
   background-color: #9b9b9b;
   border-radius: 50%;
   color: white;
-  
 }
 
 .default-icon svg {
   width: 40%;
   height: 40%;
- 
 }

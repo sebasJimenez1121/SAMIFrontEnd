@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'SAMI';
-  avatarUrl: string = 'https://img.freepik.com/foto-gratis/mujer-senala-al-frente-como-si-estuviera-dirigiendo-persona-que-elige-sonriendo-ampliamente-siendo-amigable-agradable-haciendo-eleccion-o-saludando-amigo-posando-sudadera-calida-acogedora-sobre-pared-gris_176420-35764.jpg';
-  altText: string = 'Profile picture of user';
-  avatarSize: number = 2;
+ 
   selectedChip: string | null = null;
   
   specialties = [
@@ -26,7 +24,24 @@ export class AppComponent {
     { label: 'Settings', link: '/settings', iconClass: 'fa fa-cog' }
    
   ];
+  
   constructor(private router: Router) {}
+
+  userImageUrl: string | ArrayBuffer | null = null;
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.userImageUrl = reader.result;
+      reader.readAsDataURL(file);
+    }
+  }
+
+  onAvatarClick(): void {
+    // Lógica para redirigir al perfil del usuario
+  }
 
   onChipClick(specialty: string, route: string) {
     this.selectedChip = specialty;
@@ -36,4 +51,5 @@ export class AppComponent {
   isSelected(specialty: string): boolean {
     return this.selectedChip === specialty;
   }
+ 
 }
