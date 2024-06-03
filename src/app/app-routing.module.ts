@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppointmentFormComponent } from './shared/components/molecules/appointment-form/appointment-form.component';
-import { ButtonSetLoginRegistrationComponent } from './shared/components/molecules/button-set-login-registration/button-set-login-registration.component';
-import { ImageCardServicesComponent } from './shared/components/molecules/image-card-services/image-card-services.component';
-
+import { FooterComponent } from './shared/components/organisms/footer/footer.component';
 const routes: Routes = [
-    {path:'formulario', component: AppointmentFormComponent},
-    {path:'login', component: ButtonSetLoginRegistrationComponent},
-    {path:'calendario', component: ImageCardServicesComponent }
+    {path:'header', component: FooterComponent}
 ];
 
 @NgModule({

@@ -1,34 +1,7 @@
-body, html {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  padding: 36px 42px 80px 58px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 50%;
-  margin: 50px 2px 2px 2px;
-}
-
 .header {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
@@ -40,7 +13,7 @@ body, html {
 
 .form-columns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .form-column {
@@ -49,34 +22,32 @@ body, html {
   width: 45%;
   margin: 2px 2px 2px 2px;
 }
-.form-column2 {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  margin: 35px 2px 2px 2px;
-}
-
-
 
 
 .form-group-remember {
+  margin-bottom: 20px;
   display: flex;
-  align-items: center;
-  margin: 20px 0;
-  font-size: 12px;
+
 }
 
 .checkbox {
-  margin-right: 8px;
+  margin-right: 5px;
+  margin: 5px 5px;
+  
+}
+  .remember{
+    margin: -3px -28px;
+  
+
 }
 
 .form-group label {
   display: block;
   color: #1F3FAE;
   font-family: 'Poppins', sans-serif;
- 
   font-weight: 600;
   margin-bottom: 8px;
+  
 }
 
 .form-control, .form-input {
@@ -93,32 +64,7 @@ body, html {
   color: transparent;
 }
 
-.form-input:placeholder-shown ~ .form__label {
-  font-size: 1.3rem;
-  cursor: text;
-  top: 20px;
-}
 
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: #203B8F;
-}
 
-.form-input:focus ~ .form__label {
-  top: 0;
-  font-size: 1rem;
-  color: #dadada;
-  font-weight: 300;
-}
 
-.form-input:focus {
-  padding-bottom: 6px;
-  font-weight: 200;
-  border-width: 3px;
-  border-image: linear-gradient(to right, #203B8F);
-  border-image-slice: 1;
-}
+

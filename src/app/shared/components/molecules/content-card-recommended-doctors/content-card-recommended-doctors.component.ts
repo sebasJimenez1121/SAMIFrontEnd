@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface Doctor {
   nombre: string;
@@ -13,8 +13,6 @@ interface Doctor {
 
 
 export class ContentCardRecommendedDoctorsComponent {
-    doctors : Doctor[] = [
-      { nombre: 'Juan Perez', especialidad: 'Ortodoncia' },
-      { nombre: 'Maria Lopez', especialidad: 'Cardiología' },
-    ];
+      @Input() nombre = 'Juan Perez';
+      @Input() especialidad = 'Ortodoncia';
 }

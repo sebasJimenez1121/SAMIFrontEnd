@@ -1,0 +1,22 @@
+.link-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .link-list li {
+    margin: 10px 0;
+  }
+  
+  .link-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    transition: color 0.3s;
+  }
+  
+  .link-list a:hover {
+    color: #0056b3;
+  }
+  

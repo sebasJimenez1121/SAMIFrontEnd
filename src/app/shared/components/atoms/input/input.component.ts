@@ -3,22 +3,13 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']  // Asegúrate de que sea styleUrls
+  styleUrls: ['./input.component.css']  
 })
 export class InputComponent {
+  @Input() type: string = 'text';
+  @Input() required: boolean = false;
   @Input() placeholder: string = '';
+  @Input() class: string = '';
   @Input() label: string = '';
   @Input() id: string = '';
-  @Input() name: string = '';
-  
-  inputValue: string = '';
-
-  onInput(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.inputValue = target.value;
-  }
-
-  onFocus(): void {
-    console.log('Input focused');
-  }
 }

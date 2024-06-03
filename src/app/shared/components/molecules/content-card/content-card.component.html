@@ -1,9 +1,9 @@
 <div class="container-content">
-    <app-label content="{{nombre}}"></app-label>
+    <app-label [content]="doctor.name"></app-label>
     <div class="input-rating">
         <app-text content="10 opiniones"></app-text>
         <app-input-rating></app-input-rating>
     </div>
-    <app-text content="{{valor}}"></app-text>
-
+    <app-text [content]="'Costo de la cita: $' + doctor.appointmentCost"></app-text> 
+    <app-button class="button-cita" value="Agendar Cita"></app-button>
 </div>
