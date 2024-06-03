@@ -1,0 +1,38 @@
+:root {
+    font-size: 1rem; 
+   
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  header img {
+    height: 3rem; 
+  }
+ 
+  .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  padding: 6rem 4rem;
+  }
+
+  
+  .section3 h2 {
+    color: #1B0491;
+    font-size: 1.875rem; 
+    text-align: center;
+  }
+  
+  .section3 hr {
+    background-color: #D9D9D9;
+    width: 85%;
+    margin: auto;
+  }
+  .section-short{
+    padding: 2rem 4rem;
+  }
+  
