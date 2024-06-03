@@ -22,12 +22,6 @@
   width: 45%;
   margin: 2px 2px 2px 2px;
 }
-.form-column2 {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  margin: 2px 2px 2px 2px;
-}
 
 .form-group-remember {
   margin-bottom: 20px;
@@ -40,9 +34,10 @@
   margin: 5px 5px;
   
 }
-.remember{
-margin: 5px 5px;
 
+  .remember{
+    margin: -3px -28px;
+  
 }
 
 .form-group label {

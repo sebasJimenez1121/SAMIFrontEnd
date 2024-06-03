@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Doctor } from '../../../../core/service/doctor.service';
 
 @Component({
   selector: 'app-medical-card',
   templateUrl: './medical-card.component.html',
-  styleUrl: './medical-card.component.css'
+  styleUrls: ['./medical-card.component.css']
 })
 export class MedicalCardComponent {
-
+  @Input() doctor!: Doctor;
 }

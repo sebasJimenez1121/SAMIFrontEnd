@@ -71,7 +71,8 @@ import { AppointmentCardComponent } from './components/organisms/appointment-car
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
-
+import { SliderComponent } from './components/organisms/slider/slider.component';
+import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
 
 
 @NgModule({
@@ -144,14 +145,39 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
     LoginTemplateComponent,
     RegisterTemplateComponent,
     StarterTemplateComponent,
+    SliderComponent,
+    TemplateAppointmentScheduleComponent,
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
- exports:[StarterTemplateComponent],
-
-  
+ exports:[ TemplateAppointmentScheduleComponent],
 })
 export class SharedModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

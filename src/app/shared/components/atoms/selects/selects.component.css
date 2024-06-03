@@ -3,10 +3,13 @@
 }
 
 label {
-  font-weight: 500;
-  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  margin-bottom: 8px;
   color: #203B8F;
-  transition: 0.2s;
 }
 
 .document-type {
@@ -14,7 +17,7 @@ label {
   width: 70%;
   border: 0;
   border-bottom: 1px solid #9b9b9b;
-  font-size: 12px;
+  font-size: 16px;
   color: #9b9b9b;
   background: transparent;
 }
@@ -36,13 +39,14 @@ button, select {
   -moz-border: none;
   outline: none;
   width: 100%;
+  margin: 1.438rem 0 0 0;
 }
 
 option {
   cursor: pointer;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 24px;
-  width: 100%;
+  width: 100%; 
 }
 
 option:hover {

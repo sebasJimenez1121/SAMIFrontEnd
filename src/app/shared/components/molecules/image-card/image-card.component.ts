@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class ImageCardComponent {
   @Input() img:string='../../../../../assets/images/Link → doctor_1.png.png';
   @Input() especialidad:string="Odontologia";
+  
 }

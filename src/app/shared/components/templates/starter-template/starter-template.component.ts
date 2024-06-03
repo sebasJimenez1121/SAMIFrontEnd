@@ -12,11 +12,7 @@ export class  StarterTemplateComponent {
     { url: 'https://www.facebook.com', label: 'Facebook' },
     { url: 'https://www.twitter.com', label: 'Twitter' }
   ];
-  listItems = [
-    { icon: "../../../../../assets/icons/stars-2.svg", text: "holaaaaaa" },
-    { icon: "../../../../../assets/icons/stars-2.svg", text: "holaaaaaa" },
   
-  ];
   myOptions = [
     { value: '1', label: 'Cédula de ciudadanía' },
     { value: '2', label: 'Tarjeta de identidad' },

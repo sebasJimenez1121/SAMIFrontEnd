@@ -1,55 +1,50 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+
+import { Component, OnInit } from '@angular/core';
+import { DoctorService, Doctor } from './core/service/doctor.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'SAMI';
- 
-  selectedChip: string | null = null;
-  
-  specialties = [
-    { name: 'otros', route: '/specialty/otros' },
-    { name: 'spicologia', route: '/specialty/spicologia' },
-    { name: 'pediatria', route: '/specialty/pediatria' },
-    { name: 'odontologia', route: '/specialty/odontologia' },
-    { name: 'dermatologia', route: '/specialty/dermatologia' }
-  ];
-  menuItems = [
-    { label: 'Home', link: '/home', iconClass: 'fa fa-home' },
-    { label: 'Messages', link: '/messages', iconClass: 'fa fa-envelope' },
-    { label: 'Settings', link: '/settings', iconClass: 'fa fa-cog' }
-   
-  ];
-  
-  constructor(private router: Router) {}
+export class AppComponent implements OnInit {
+  doctors: Doctor[] = [];
+  specialties: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
 
-  userImageUrl: string | ArrayBuffer | null = null;
+  constructor(private doctorService: DoctorService) {}
 
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.userImageUrl = reader.result;
-      reader.readAsDataURL(file);
-    }
+  ngOnInit() {
+    this.loadSpecialties();
+    this.loadDoctors();
   }
 
-  onAvatarClick(): void {
-    // Lógica para redirigir al perfil del usuario
+  loadSpecialties() {
+    this.doctorService.getSpecialties().subscribe(data => {
+      this.specialties = data;
+    });
   }
 
-  onChipClick(specialty: string, route: string) {
-    this.selectedChip = specialty;
-    this.router.navigate([route]);
+  loadDoctors() {
+    this.doctorService.getDoctors(this.currentPage).subscribe(data => {
+      this.doctors = data.doctors;
+      this.totalPages = Math.ceil(data.total / 10);
+    });
   }
 
-  isSelected(specialty: string): boolean {
-    return this.selectedChip === specialty;
+  onSpecialtyChange(event: any) {
+    const selectedSpecialtyId = parseInt(event.target.value, 10);
+    this.doctorService.getDoctors(this.currentPage, selectedSpecialtyId).subscribe(data => {
+      this.doctors = data.doctors;
+      this.totalPages = Math.ceil(data.total / 10);
+    });
+  }
+
+  onPageChange(newPage: number) {
+    this.currentPage = newPage;
+    this.loadDoctors();
   }
  
 }

@@ -11,14 +11,14 @@ body {
     background-color: #f9f9f9;
 }
 
-.label-container {
+.text-container {
     position: relative;
     display: inline-block;
 }
 
-.label-placeholder {
-    color: #aaa;
-    font-size: 12px;
+.text {
+    color: #5A5D5F;
+    font-size: 1rem;
 }
 
 .underline {

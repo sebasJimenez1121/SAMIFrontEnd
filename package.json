@@ -22,6 +22,7 @@
     "@ngneat/tailwind": "^7.0.3",
     "angularx-flatpickr": "^7.3.0",
     "flatpickr": "^4.6.13",
+    "ngx-slick-carousel": "^17.0.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.11.0",
     "tslib": "^2.3.0",
