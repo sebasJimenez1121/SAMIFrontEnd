@@ -1,0 +1,53 @@
+:root {
+    --color-primary-intense : #203b8f;
+    --color-primary-meium : #1f3fae;
+    --color-primary-base : #1e4cd7;
+    --color-secundary-intense : #2660ea;
+    --color-secundary-meium : #3c7ff5;
+    --color-secundary-base : #61a3f9;
+    --color-tertiary-intense : #94c3fc;
+    --color-tertiary-meium : #bfdafe;
+    --color-tertiary-base : #dbe9fe;
+    --color-garden : #fff;
+
+
+    --spacing-base: 0.5rem; /* 8px */
+  --spacing-small: 0.25rem; /* 4px */
+  --spacing-medium: 0.5rem; /* 8px */
+  --spacing-large: 1rem; /* 16px */
+  --spacing-xlarge: 1.5rem; /* 24px */
+  --spacing-xxlarge: 2rem; /* 32px */
+  --spacing-max: 4rem; /* 64px */
+  --spacing-max: 4.625rem; /* 72px */
+  --spacing-max: 5rem; /* 80px */
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+
+    h1 {
+        font-size: 2rem; /* 32px */
+      }
+      
+      h2 {
+        font-size: 1.75rem; /* 28px */
+      }
+      
+      h3 {
+        font-size: 1.5rem; /* 24px */
+      }
+      
+      h4 {
+        font-size: 1.25rem; /* 20px */
+      }
+      
+      p {
+        font-size: 1rem; /* 16px */
+      }
+      
+      small {
+        font-size: 0.75rem; /* 12px */
+      }
+}

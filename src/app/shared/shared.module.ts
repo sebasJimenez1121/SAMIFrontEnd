@@ -73,6 +73,7 @@ import { RegisterTemplateComponent } from './components/templates/register-templ
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
 import { SliderComponent } from './components/organisms/slider/slider.component';
 import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -147,14 +148,16 @@ import { TemplateAppointmentScheduleComponent } from './components/templates/tem
     StarterTemplateComponent,
     SliderComponent,
     TemplateAppointmentScheduleComponent,
-
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CoreModule
   ],
- exports:[ TemplateAppointmentScheduleComponent],
+ exports:[ 
+  HeaderComponent
+ ],
 })
 export class SharedModule { }
 

@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StarterTemplateComponent } from './shared/components/templates/starter-template/starter-template.component';
+import { TemplateAppointmentScheduleComponent } from './shared/components/templates/template-appointment-schedule/template-appointment-schedule.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Doctor } from '../../../../core/service/doctor.service';
+// Importa Doctor desde el archivo correcto
+import { Doctor } from '../../../../core/models/doctor.model';
+
 
 @Component({
   selector: 'app-content-card',
