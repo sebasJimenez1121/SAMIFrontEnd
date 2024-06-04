@@ -7,17 +7,17 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   menuItems = [
-    { name: 'Inicio', link: '#' },
+    { name: 'Inicio', link: '/home' },
     { 
       name: 'Servicios', 
-      link: '#', 
+      link: '', 
       subMenu: [
-        { name: 'Gestion de citas', link: '#' },
-        { name: 'registro de seguimiento', link: '#' },
-        { name: 'Recordatorios de medicacion personalizados', link: '#' }
+        { name: 'Gestión de citas', link: '/services/appointments' },
+        { name: 'Registro de seguimiento', link: '/services/tracking' },
+        { name: 'Recordatorios de medicación personalizados', link: '/services/reminders' }
       ] 
     },
-    { name: 'Medicos', link: '#' },
-    { name: 'Contacto', link: '#' }
-  ];
+    { name: 'Médicos', link: '/doctors' },
+    { name: 'Contacto', link: '/contact' }
+  ];            
 }
