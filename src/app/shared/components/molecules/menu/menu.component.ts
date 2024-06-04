@@ -7,17 +7,22 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   menuItems = [
-    { name: 'Inicio', link: '#' },
+    { name: 'Inicio', link: '/home' },
     { 
-      name: 'Servicios', 
-      link: '#', 
+      name: 'Citas', 
+      link: '/gestion-cita', 
       subMenu: [
-        { name: 'Gestion de citas', link: '#' },
-        { name: 'registro de seguimiento', link: '#' },
-        { name: 'Recordatorios de medicacion personalizados', link: '#' }
+        { name: 'Agendar Cita', link: '/agendar-cita' },
+        { name: 'Visualizar Cita', link: '/visualizar-cita' }
       ] 
     },
-    { name: 'Medicos', link: '#' },
-    { name: 'Contacto', link: '#' }
-  ];
+    { name: 'Seguimento', 
+      link: '/',
+    subMenu: [
+      { name: 'Medicamentos', link: '/agendar-cita' },
+      { name: 'Notas Doctor', link: '/visualizar-cita' }
+    ] 
+    },
+    { name: 'Médicos', link: '/doctors' },
+  ];                       
 }

@@ -6,16 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatRadioModule } from '@angular/material/radio';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-
-
-
-
+import { FeaturesModule } from './features/features.module';
 
 @NgModule({
   declarations: [
@@ -30,16 +21,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    SlickCarouselModule
- 
-  
+    FeaturesModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

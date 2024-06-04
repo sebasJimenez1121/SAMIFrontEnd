@@ -1,7 +1,7 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../core/service/doctor.service';
+import { Doctor } from '../../../../core/models/doctor.model';
+
 
 interface Specialty {
   id: number;
@@ -16,15 +16,18 @@ interface Specialty {
 export class TemplateAppointmentScheduleComponent implements OnInit {
   specialties: Specialty[] = [];
   selectedSpecialtyId: number | null = null;
+  doctors: Doctor[] = [];
+  paginatedDoctors: Doctor[] = [];
   currentPage = 1;
   totalPages = 0;
-  doctors: any[] = [ ]; 
+  itemsPerPage = 9;
 
   constructor(private doctorService: DoctorService) {}
 
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
+    console.log(this.totalPages);
   }
 
   fetchSpecialties() {
@@ -34,21 +37,41 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   fetchDoctors() {
-  
-    this.doctorService.getDoctors(this.currentPage, this.selectedSpecialtyId ?? undefined).subscribe(response => {
-      this.doctors = response.doctors;
-      this.totalPages = Math.ceil(response.total / 10);
+    this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
+      this.doctors = doctors;
+      this.applyFilters(); 
     });
+  }
+
+  applyFilters() {
+    let filteredDoctors = this.doctors;
+  
+    if (this.selectedSpecialtyId) {
+      filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
+    }
+    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
+
+    
+    this.paginateDoctors(filteredDoctors);
+  }
+  
+  
+  paginateDoctors(doctors: Doctor[]) {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = this.currentPage * this.itemsPerPage;
+    this.paginatedDoctors = doctors.slice(startIndex, endIndex);
   }
 
   onSpecialtyChange(event: any) {
     this.selectedSpecialtyId = +event.target.value;
     this.currentPage = 1;
-    this.fetchDoctors();
+    this.applyFilters();
   }
 
+  
   onPageChange(page: number) {
     this.currentPage = page;
-    this.fetchDoctors();
+    this.applyFilters();
   }
 }
+

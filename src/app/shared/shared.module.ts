@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -74,7 +73,8 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
 import { SliderComponent } from './components/organisms/slider/slider.component';
 import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
 import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
-
+import { CoreModule } from '../core/core.module';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 
 
@@ -155,11 +155,17 @@ import { AppointmentManagementTemplateComponent } from './components/templates/a
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CoreModule
   ],
- exports:[  AppointmentManagementTemplateComponent],
-
-  
+ exports:[ 
+  HeaderComponent,
+  TemplateAppointmentScheduleComponent,
+  StarterTemplateComponent,
+  LoginTemplateComponent,
+  RegisterTemplateComponent,
+  AppointmentManagementTemplateComponent
+ ],
 })
 export class SharedModule { }
 

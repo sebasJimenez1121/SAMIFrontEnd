@@ -23,7 +23,6 @@
   margin: 2px 2px 2px 2px;
 }
 
-
 .form-group-remember {
   margin-bottom: 20px;
   display: flex;
@@ -35,11 +34,10 @@
   margin: 5px 5px;
   
 }
+
   .remember{
     margin: -3px -28px;
-  
-
-}
+  }
 
 .form-group label {
   display: block;
@@ -63,8 +61,3 @@
 .form-input::placeholder {
   color: transparent;
 }
-
-
-
-
-

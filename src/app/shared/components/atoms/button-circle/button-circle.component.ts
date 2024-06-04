@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-button-circle',
@@ -6,8 +6,9 @@ import { Component, Input} from '@angular/core';
   styleUrls: ['./button-circle.component.css']
 })
 export class ButtonCircleComponent {
-  @Input() value:string = "valor" 
+  @Input() value:string = "valor";
+  @Output() buttonClick = new EventEmitter<void>();
   handleClick() {
-    console.log('Button clicked!');
+    this.buttonClick.emit();
   }
 }

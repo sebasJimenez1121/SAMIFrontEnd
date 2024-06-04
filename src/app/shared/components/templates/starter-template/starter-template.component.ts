@@ -1,27 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DoctorService} from '../../../../core/service/doctor.service';
+import { Doctor } from '../../../../core/models/doctor.model';
+
 @Component({
-  selector: ' StarterTemplateComponent',
+  selector: 'starter-template',
   templateUrl: './starter-template.component.html',
-  styleUrl: './starter-template.component.css'
+  styleUrls: ['./starter-template.component.css']
 })
-export class  StarterTemplateComponent {
+export class StarterTemplateComponent implements OnInit {
+  recommendedDoctors: Doctor[] = [];
 
-    myLinks = [
-    { url: 'https://www.google.com', label: 'Google' },
-    { url: 'https://www.facebook.com', label: 'Facebook' },
-    { url: 'https://www.twitter.com', label: 'Twitter' }
-  ];
+  constructor(private router: Router, private doctorService: DoctorService) {}
 
-  myOptions = [
-    { value: '1', label: 'Cédula de ciudadanía' },
-    { value: '2', label: 'Tarjeta de identidad' },
-    { value: '3', label: 'Cédula de extranjería' },
-    { value: '4', label: 'Registro civil' }
-  ];
+  ngOnInit(): void {
+    this.loadTopRankedDoctors();
+  }
 
-  constructor(private router: Router) {}
   onAvatarClick(): void {
     this.router.navigate(['/profile']);
+  }
+
+  loadTopRankedDoctors(): void {
+    this.doctorService.loadTopRankedDoctors().subscribe(
+      recommendedDoctors => {
+        this.recommendedDoctors = recommendedDoctors;
+      },
+      error => {
+        console.error('Error loading top ranked doctors:', error);
+      }
+    );
   }
 }

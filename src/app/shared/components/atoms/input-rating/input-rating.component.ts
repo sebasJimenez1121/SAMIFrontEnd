@@ -16,7 +16,6 @@ export class InputRatingComponent {
       this.currentRating = starIndex + 1;
     }
   }
-
   isStarFilled(starIndex: number): boolean {
     return this.currentRating !== null && starIndex < this.currentRating!;
   }

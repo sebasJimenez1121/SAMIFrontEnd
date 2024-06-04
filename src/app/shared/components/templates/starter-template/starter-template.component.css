@@ -1,45 +1,6 @@
-:root {
-  font-size: 1rem; 
- 
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-header img {
-  height: 3rem; 
-}
-
-nav {
-  margin: 1.0625rem 0.0625rem -0.3125rem 27.3125rem; 
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 1.625rem;
-  padding: 0;
-}
-
-nav li {
-  display: inline;
-  margin-right: 1.25rem; 
-}
-
-nav a {
-  text-decoration: none;
-  color: #000000;
-}
-
-
-
 main  {
   margin: 0.125rem 0.125rem 0.125rem 0.125rem;
 }
-
-
 
 .title-pricipal h1 {
   font-size: 2.875rem;
@@ -61,7 +22,6 @@ main  {
   align-items: center;
   align-content: space-around;
   justify-content: space-evenly;
-  
  }
 .section--1 {
   display: flex;
@@ -71,7 +31,6 @@ main  {
 }
 
 .section3{
-  
   padding: 5rem 4rem;
 }
 .imgdoctor {
@@ -91,7 +50,6 @@ main  {
   width: 23.25em;
   position: relative;
   bottom: 4.5rem;
-  
 }
 
 .section2 {
@@ -196,11 +154,12 @@ main  {
 .text-description{
 font-size: 1rem;
 }
+
 .container-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-padding: 6rem 4rem;
+  padding: 6rem 4rem;
 }
 .color-title{
   color: #fff;
@@ -223,8 +182,8 @@ padding: 6rem 4rem;
 .info-doctor p{
   color: #5A5D5F;
 }
+
 .text-comment{
   font-size: 1rem;
   margin: 0rem 0rem 0rem 24.313rem;
-
 }
