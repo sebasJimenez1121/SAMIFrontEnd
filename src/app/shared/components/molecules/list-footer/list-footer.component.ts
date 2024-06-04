@@ -20,9 +20,5 @@ export class ListFooterComponent {
     { label: 'Privacidad y Política', link: '#' }
   ];
 
-  listItems = [
-    { icon: "../../../../../assets/icons/stars-2.svg", text: "holaaaaaa" },
-    { icon: "../../../../../assets/icons/stars-2.svg", text: "holaaaaaa" },
-  
-  ];
+ 
 }

@@ -73,6 +73,8 @@ import { RegisterTemplateComponent } from './components/templates/register-templ
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
 import { SliderComponent } from './components/organisms/slider/slider.component';
 import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
+import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
+
 
 
 
@@ -148,13 +150,14 @@ import { TemplateAppointmentScheduleComponent } from './components/templates/tem
     StarterTemplateComponent,
     SliderComponent,
     TemplateAppointmentScheduleComponent,
+    AppointmentManagementTemplateComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
- exports:[ TemplateAppointmentScheduleComponent],
+ exports:[  AppointmentManagementTemplateComponent],
 
   
 })

@@ -13,6 +13,11 @@
     height: 3rem; 
   }
  
+  .principal-title{
+    display: flex;
+    justify-content: center;
+    margin: 10rem 0rem 0rem 0rem
+   }
   .container-cards {
     display: flex;
     flex-wrap: wrap;

@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ImageComponent {
   @Input() imageUrl: string = ''; 
-  
   @Input() linkUrl: string = '';  
   @Input() width: string = '100px'; 
   @Input() height: string = '100px'; 
