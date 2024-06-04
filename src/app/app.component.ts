@@ -51,5 +51,6 @@ export class AppComponent {
   isSelected(specialty: string): boolean {
     return this.selectedChip === specialty;
   }
+  
  
 }
