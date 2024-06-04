@@ -74,6 +74,7 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
 import { SliderComponent } from './components/organisms/slider/slider.component';
 import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
 import { CoreModule } from '../core/core.module';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 
 @NgModule({
@@ -156,7 +157,11 @@ import { CoreModule } from '../core/core.module';
     CoreModule
   ],
  exports:[ 
-  HeaderComponent
+  HeaderComponent,
+  TemplateAppointmentScheduleComponent,
+  StarterTemplateComponent,
+  LoginTemplateComponent,
+  RegisterTemplateComponent,
  ],
 })
 export class SharedModule { }

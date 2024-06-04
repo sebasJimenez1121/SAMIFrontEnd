@@ -9,15 +9,20 @@ export class MenuComponent {
   menuItems = [
     { name: 'Inicio', link: '/home' },
     { 
-      name: 'Servicios', 
-      link: '', 
+      name: 'Citas', 
+      link: '/gestion-cita', 
       subMenu: [
-        { name: 'Gestión de citas', link: '/services/appointments' },
-        { name: 'Registro de seguimiento', link: '/services/tracking' },
-        { name: 'Recordatorios de medicación personalizados', link: '/services/reminders' }
+        { name: 'Agendar Cita', link: '/agendar-cita' },
+        { name: 'Visualizar Cita', link: '/visualizar-cita' }
       ] 
     },
+    { name: 'Seguimento', 
+      link: '/',
+    subMenu: [
+      { name: 'Medicamentos', link: '/agendar-cita' },
+      { name: 'Notas Doctor', link: '/visualizar-cita' }
+    ] 
+    },
     { name: 'Médicos', link: '/doctors' },
-    { name: 'Contacto', link: '/contact' }
-  ];            
+  ];                       
 }

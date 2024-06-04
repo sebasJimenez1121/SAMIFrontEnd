@@ -1,6 +1,7 @@
 <ul>
   <li *ngFor="let item of menuItems" class="menu-item">
-    <a [routerLink]="item.link">{{ item.name }}</a>
+    <a [routerLink]="item.link" *ngIf="!item.subMenu">{{ item.name }}</a>
+    <a href="#" (click)="$event.preventDefault()" *ngIf="item.subMenu">{{ item.name }}</a>
     <ul *ngIf="item.subMenu" class="submenu">
       <li *ngFor="let subItem of item.subMenu">
         <a [routerLink]="subItem.link">{{ subItem.name }}</a>

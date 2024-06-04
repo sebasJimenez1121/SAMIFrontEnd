@@ -6,8 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StarterTemplateComponent } from './shared/components/templates/starter-template/starter-template.component';
-import { TemplateAppointmentScheduleComponent } from './shared/components/templates/template-appointment-schedule/template-appointment-schedule.component';
+import { FeaturesModule } from './features/features.module';
 
 
 @NgModule({
@@ -23,6 +22,7 @@ import { TemplateAppointmentScheduleComponent } from './shared/components/templa
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    FeaturesModule,
   ],
   providers: [
     

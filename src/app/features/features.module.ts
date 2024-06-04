@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './features/home/home.module';
 import { SharedModule } from '../shared/shared.module';
 
-import { StarterTemplateComponent } from '../shared/components/templates/starter-template/starter-template.component';
+import { GestionCitasModule } from './features/gestion-citas/gestion-citas.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, 
-    HomeModule
+    HomeModule,
+    GestionCitasModule,
+    SharedModule
   ]
 })
 export class FeaturesModule { }

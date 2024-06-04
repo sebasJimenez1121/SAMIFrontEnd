@@ -20,6 +20,11 @@ import { CoreModule } from '../../../core/core.module';
     HomeRoutingModule,
     SharedModule, 
     CoreModule
-  ]
+  ],
+  exports:[
+    HomePageComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
 })
 export class HomeModule { }
