@@ -23,7 +23,7 @@ body {
 
 .underline {
     width: 10rem;
-    height: 1px;
+    height: 0.063rem;
     background-color: #aaa;
-    margin-top: 5px;
+    margin-top: 0.313rem;
 }

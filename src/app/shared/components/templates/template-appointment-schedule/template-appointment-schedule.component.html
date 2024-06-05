@@ -5,6 +5,7 @@
   <div class="filtro">
     <app-text-field content="Elige la especialidad que deseas:"></app-text-field>
     <select (change)="onSpecialtyChange($event)">
+      <option value="0">Todos</option>
       <option *ngFor="let specialty of specialties" [value]="specialty.id">{{ specialty.name }}</option>
     </select>
   </div>

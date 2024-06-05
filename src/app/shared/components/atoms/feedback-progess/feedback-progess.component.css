@@ -4,7 +4,7 @@
     align-items: center;    
 }
 .heartbeat-1 svg {
-    height: 60px;
+    height: 3.75rem;
     fill: none;
     stroke: #203B8F;
     stroke-width: 20; 
@@ -22,12 +22,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 0.625rem 0;
 }
 .heartbeat-2 svg {
     stroke: #203B8F;
-    height: 60px;
-    stroke-width: 2px;
+    height: 3.75rem;
+    stroke-width: 0.125rem;
     fill: none;
     stroke-dasharray: 200, 300;
     stroke-dashoffset: 0;

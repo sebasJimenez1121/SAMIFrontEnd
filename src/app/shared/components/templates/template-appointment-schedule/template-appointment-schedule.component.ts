@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../core/service/doctor.service';
 import { Doctor } from '../../../../core/models/doctor.model';
 
-
 interface Specialty {
   id: number;
   name: string;
@@ -27,7 +26,6 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
-    console.log(this.totalPages);
   }
 
   fetchSpecialties() {
@@ -45,17 +43,15 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
 
   applyFilters() {
     let filteredDoctors = this.doctors;
-  
-    if (this.selectedSpecialtyId) {
+
+    if (this.selectedSpecialtyId && this.selectedSpecialtyId !== 0) {
       filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
     }
-    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-
     
+    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
     this.paginateDoctors(filteredDoctors);
   }
-  
-  
+
   paginateDoctors(doctors: Doctor[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
@@ -63,15 +59,14 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   onSpecialtyChange(event: any) {
-    this.selectedSpecialtyId = +event.target.value;
+    const selectedValue = event.target.value;
+    this.selectedSpecialtyId = selectedValue ? +selectedValue : 0; 
     this.currentPage = 1;
     this.applyFilters();
   }
 
-  
   onPageChange(page: number) {
     this.currentPage = page;
     this.applyFilters();
   }
 }
-

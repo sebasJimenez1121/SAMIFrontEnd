@@ -1,6 +1,8 @@
 .content-service{
     text-align: center;
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .content-service div{
@@ -9,5 +11,9 @@
 }
 
 .text{
-    font-size: 12px;
+    font-size: 0.75rem;
+}
+
+.button-service{
+    margin: 0rem 0rem 0rem 4rem;
 }

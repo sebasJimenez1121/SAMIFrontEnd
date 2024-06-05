@@ -1,5 +1,5 @@
 footer{
-    height: 350px;
+    height: 21.875rem;
     display: flex;
     background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
     justify-content: space-around;

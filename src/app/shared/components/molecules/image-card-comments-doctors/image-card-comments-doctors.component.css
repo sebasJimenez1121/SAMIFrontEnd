@@ -1,22 +1,22 @@
 .container {
     width: 30%;
-    padding-top: 30%; /* Mantiene la relación de aspecto cuadrada */
-    position: relative; /* Necesario para el posicionamiento del hijo absoluto */
+    padding-top: 30%; 
+    position: relative; 
     background: transparent;
 }
 
 .container-img {
-    position: absolute; /* Absoluto para ajustarse al contenedor padre */
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto; /* Centra dentro del contenedor padre */
+    margin: auto;
     width: 80%;
     height: 80%;
     background: #f4f7fc;
     text-align: center;
     border-radius: 100%;
-    overflow: hidden; /* Esconde las partes de la imagen que sobresalen del contenedor redondeado */
+    overflow: hidden; 
 }
 

@@ -3,14 +3,14 @@ button {
   border: none;
   color: #fff;
   background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-size: 200% auto;
-  font-size: 12px;
-  height: 40px;
-  width:150%; 
+  font-size: 0.75rem;
+  height: 2.5rem;
+  width:7rem; 
  position: relative;
   transition: background-position 0.5s, background-size 0.5s;
-  right: 32px;
+  right: 2rem;
 }
 
 button:hover {

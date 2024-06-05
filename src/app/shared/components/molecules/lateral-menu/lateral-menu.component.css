@@ -8,9 +8,9 @@ body {
     top: 1rem;
     left: 1rem;
     background-color: #F5F6FA;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     padding: 1rem 0;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.03);
     height: calc(100vh - 4rem);
   }
   
@@ -36,7 +36,7 @@ body {
     height: calc(1rem * 3.5);
     color: #AAB2C8;
     padding: 0 1rem;
-    margin: 26px 2px 2px 2px;
+    margin: 1.625rem 0.125rem 0.125rem 0.125rem;
     text-decoration: none;
     transition: 250ms ease all;
     position: relative;
@@ -46,7 +46,7 @@ body {
   .sidebar-menu-item.active .navbar__link {
     color: #fff;
     background-color: #1F64FF;
-    border-radius: 17.5px;
+    border-radius: 1.094rem;
   }
   
   .navbar__link span {

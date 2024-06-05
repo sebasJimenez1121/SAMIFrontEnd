@@ -2,24 +2,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 0.938rem;
+    border-bottom-right-radius: 0.938rem;
   }
   
   .input-rating {
     display: flex;
     color: #a8a8a894;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 100;
-    margin-bottom: 10px;
+    margin-bottom: 1.625rem;
+    flex-direction: column;
+    align-items: center;
   }
   
-  app-text {
-    font-size: 14px;
-    margin-bottom: 10px;
+  .costo-cita{
+    position: relative;
+    bottom: 1rem;
+  }
+  app-text .button-cita{
+    font-size: 1rem;
+    margin-top: 0.625rem;
   }
   
   .button-cita{
     position: relative;
     left: 1rem;
+    margin: 1rem 0rem 0rem 2rem;
+  }
+  .coment-rating{
+    display: flex;
+    align-items: baseline;
   }
