@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class DataDisplayListComponent {
   @Input() listItems: { icon: string, text: string }[] = [];
-  
+ 
 }

@@ -1,0 +1,8 @@
+{
+  "citas": [
+    { "medico": "Dr. Juan Hernandez", "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png", "especialidad": "Cardiologia", "paciente": "John Doe", "estado": "Active", "fechaAgendamiento": "2024-06-01", "usuarioId": "12345" },
+    { "medico": "Dr. Mariana Bedoya", "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png", "especialidad": "Neurologia", "paciente": "Jane Doe", "estado": "Inactive", "fechaAgendamiento": "2024-06-02", "usuarioId": "12345" },
+    { "medico": "Dr. Isbella Sanchez", "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png", "especialidad": "Dermatologia", "paciente": "Jane Doe", "estado": "Inactive", "fechaAgendamiento": "2024-06-08", "usuarioId": "12345" },
+    { "medico": "Dr. juana lopez", "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png", "especialidad": "Neurologia", "paciente": "Jane Doe", "estado": "Active", "fechaAgendamiento": "2024-06-09", "usuarioId": "12345" },
+    { "medico": "Dr. Isbella Sanchez p", "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png", "especialidad": "Dermatologia", "paciente": "Jane Doe", "estado": "Active", "fechaAgendamiento": "2024-06-03", "usuarioId": "12345" }  ]
+}

@@ -71,6 +71,8 @@ import { AppointmentCardComponent } from './components/organisms/appointment-car
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
+import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
+import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
 
 
 
@@ -144,13 +146,17 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
     LoginTemplateComponent,
     RegisterTemplateComponent,
     StarterTemplateComponent,
+    HistorialCitaTemplateComponent,
+    HeaderUsuarioComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
- exports:[StarterTemplateComponent],
+ exports:[HistorialCitaTemplateComponent,
+  HeaderUsuarioComponent
+ ],
 
   
 })
