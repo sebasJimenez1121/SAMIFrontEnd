@@ -1,0 +1,72 @@
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-display-appointment">
+
+    <button class="close-buttonX" (click)="closeModal()">X</button>
+    
+    <div class="title-container">
+      <app-title-principal titleText="Datos de la Cita"></app-title-principal>
+    </div>
+
+    <div class="container">
+
+      <div class="subContenedor">
+        <app-label content="Doctor:"></app-label>
+        <div class="infoDoctor">  
+          <div class="ingrese">
+            <app-label content="Nombre:"></app-label>
+            <app-input [value]="doctorName" (valueChange)="doctorName = $event"></app-input>
+          </div>
+          <div class="ingrese">
+            <app-label content="Especialidad:"></app-label>
+            <app-input [value]="doctorSpecialty" (valueChange)="doctorSpecialty = $event"></app-input>
+          </div>
+        </div>
+
+        <app-label class="paciente" content="Paciente:"></app-label>
+
+        <div class="infoPaciente">
+          <div class="ingrese">
+            <app-label content="Nombre:"></app-label>
+            <app-input [value]="patientName" (valueChange)="patientNameChange.emit($event)"></app-input>
+          </div>
+          <div class="ingrese">
+            <app-label content="Numero de documento:"></app-label>
+            <app-input [value]="patientDocument" (valueChange)="patientDocumentChange.emit($event)"></app-input>
+          </div>
+        </div>
+        <div class="infoPaciente">
+          <div class="ingrese">
+            <app-label content="Telefono:"></app-label>
+            <app-input [value]="patientPhone" (valueChange)="patientPhoneChange.emit($event)"></app-input>
+          </div>
+          <div class="ingrese">
+            <app-label content="Valor de la cita:"></app-label>
+            <app-input [value]="appointmentValue" (valueChange)="appointmentValueChange.emit($event)"></app-input>
+          </div>
+        </div>
+
+        <div class="infodatos">
+          <div class="ingreseMotivo">
+            <app-label content="Motivo:"></app-label>
+            <app-input-text-area class="textArea" [value]="appointmentReason" (valueChange)="appointmentReasonChange.emit($event)"></app-input-text-area>
+          </div>
+          <div class="ingreseDocumentos">
+            <app-label content="Documentos insertados:"></app-label>
+            <input id="fileInput" class="file-input" type="file" (change)="onFileSelected($event)" multiple>
+            <button type="button" class="custom-file-button" (click)="triggerFileInput()">Seleccionar documentos</button>
+            <span class="file-name">{{ fileName }}</span>
+          </div>
+        </div>  
+        
+      </div>
+
+      <div class="buttom-space">
+        <app-button class="cancelarCita" value="Cancelar Cita" (click)="cancelAppointment()"></app-button>
+        <app-button class="reagendarCita" value="Reagendar Cita" (click)="rescheduleAppointment()"></app-button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
