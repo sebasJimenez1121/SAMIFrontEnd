@@ -1,5 +1,6 @@
+// src/app/shared/components/templates/appointment-modal/appointment-modal.component.ts
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { DataService } from '../../../../core/service/servicioPaciente';
+import { DataService } from '../../../../core/service/data.service';
 
 @Component({
   selector: 'app-appointment-modal',
@@ -8,16 +9,11 @@ import { DataService } from '../../../../core/service/servicioPaciente';
 })
 export class AppointmentModalComponent implements OnInit {
   @Input() showModal: boolean = false;
+  @Input() cita: any;
 
-  @Output() patientNameChange = new EventEmitter<string>();
-  @Output() patientDocumentChange = new EventEmitter<string>();
-  @Output() patientPhoneChange = new EventEmitter<string>();
-  @Input() insertedDocuments: File[] = [];
-  @Output() insertedDocumentsChange = new EventEmitter<File[]>();
-  @Output() appointmentValueChange = new EventEmitter<string>();
-  @Output() appointmentReasonChange = new EventEmitter<string>();
 
-  // Datos que se cargarán desde el servicio
+  @Output() close = new EventEmitter<void>();
+
   doctorName: string = '';
   doctorSpecialty: string = '';
   patientName: string = '';
@@ -25,39 +21,71 @@ export class AppointmentModalComponent implements OnInit {
   patientPhone: string = '';
   appointmentValue: string = '';
   appointmentReason: string = '';
+  citas: any[] = [];
+  citasFiltradas: any[] = [];
+   
+ 
+  showRescheduleModal: boolean = false; // Nuevo estado para el modal de reagendar
+  selectedCita: any = null;
 
-  // Nueva propiedad fileName
   fileName: string = '';
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.loadData();
+    if (this.cita) {
+      this.loadData(this.cita);
+    }
   }
 
-  loadData(): void {
-    this.dataService.getData().subscribe(data => {
-      this.doctorName = data.doctorName;
-      this.doctorSpecialty = data.doctorSpecialty;
-      this.patientName = data.patientName;
-      this.patientDocument = data.patientDocument;
-      this.patientPhone = data.patientPhone;
-      this.appointmentValue = data.appointmentValue;
-      this.appointmentReason = data.appointmentReason;
-    });
+
+
+  ngOnChanges(): void {
+    if (this.cita) {
+      this.loadData(this.cita);
+    }
+  }
+
+  loadData(cita: any): void {
+    this.doctorName = cita.medico;
+    this.doctorSpecialty = cita.especialidad;
+    this.patientName = cita.paciente;
+    this.patientDocument = cita.documento;
+    this.patientPhone = cita.telefono;
+    this.appointmentValue = cita.valorCita;
+    this.appointmentReason = cita.motivoCita;
+  }
+  rescheduleAppointment(): void {
+    this.showModal = false;
+    this.showRescheduleModal = true; 
+  }
+  filtrarCitas(event: any): void {
+    const fecha = event.target.value;
+    this.citasFiltradas = this.citas.filter(cita => cita.fecha === fecha);
+  }
+
+
+  onReagendar(fecha: Date): void {
+    if (this.selectedCita) {
+      const citaId = this.selectedCita.id;
+      this.dataService.guardarFechaSeleccionada(fecha.toISOString(), citaId).subscribe(() => {
+        this.showRescheduleModal = false;
+        this.filtrarCitas({ target: { value: fecha.toISOString().split('T')[0] } });
+      });
+    }
   }
 
   closeModal(): void {
     this.showModal = false;
+    this.close.emit();
   }
 
   cancelAppointment(): void {
-    this.showModal = false;
+    // Lógica para cancelar la cita
+    this.closeModal();
   }
 
-  rescheduleAppointment(): void {
-    // Lógica para reagendar la cita
-  }
+ 
 
   triggerFileInput() {
     const fileInput = document.getElementById('fileInput') as HTMLElement;
@@ -71,6 +99,8 @@ export class AppointmentModalComponent implements OnInit {
     }
   }
 }
+
+
 
 
 

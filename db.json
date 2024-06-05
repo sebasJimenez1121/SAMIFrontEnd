@@ -1,8 +1,69 @@
 {
   "citas": [
-    { "medico": "Dr. Juan Hernandez", "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png", "especialidad": "Cardiologia", "paciente": "John Doe", "estado": "Active", "fechaAgendamiento": "2024-06-01", "usuarioId": "12345" },
-    { "medico": "Dr. Mariana Bedoya", "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png", "especialidad": "Neurologia", "paciente": "Jane Doe", "estado": "Inactive", "fechaAgendamiento": "2024-06-02", "usuarioId": "12345" },
-    { "medico": "Dr. Isbella Sanchez", "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png", "especialidad": "Dermatologia", "paciente": "Jane Doe", "estado": "Inactive", "fechaAgendamiento": "2024-06-08", "usuarioId": "12345" },
-    { "medico": "Dr. juana lopez", "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png", "especialidad": "Neurologia", "paciente": "Jane Doe", "estado": "Active", "fechaAgendamiento": "2024-06-09", "usuarioId": "12345" },
-    { "medico": "Dr. Isbella Sanchez p", "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png", "especialidad": "Dermatologia", "paciente": "Jane Doe", "estado": "Active", "fechaAgendamiento": "2024-06-03", "usuarioId": "12345" }  ]
+    {
+      "id": "1",
+      "medico": "Dr. Juan Hernandez",
+      "especialidad": "Cardiología",
+      "paciente": "John Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "40.000",
+      "motivoCita": "Cambios en la presion",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png",
+      "fecha": "2024-06-05T08:18:16.064Z"
+    },
+    {
+      "id": "2",
+      "medico": "Dr. Mariana Bedoya",
+      "especialidad": "Neurologia",
+      "paciente": "Jane Doe",
+      "estado": "Inactive",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Migrañas fuertes",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png",
+      "fecha": "2024-06-05T08:11:44.995Z"
+    },
+    {
+      "id": "3",
+      "medico": "Dr. Isbella Sanchez",
+      "especialidad": "Dermatologia",
+      "paciente": "Jane Doe",
+      "estado": "Inactive",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
+      "fecha": "2024-06-05T08:52:43.445Z"
+    },
+    {
+      "id": "4",
+      "medico": "Dr. juana lopez",
+      "especialidad": "Neurologia",
+      "paciente": "Jane Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "40.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png",
+      "fecha": "2024-06-08"
+    },
+    {
+      "id": "5",
+      "medico": "Dr. Isbella Sanchez",
+      "especialidad": "Dermatologia",
+      "paciente": "Jane Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
+      "fecha": "2024-06-09"
+    }
+  ]
 }

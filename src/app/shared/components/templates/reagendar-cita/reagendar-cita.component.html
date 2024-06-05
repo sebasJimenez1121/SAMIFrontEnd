@@ -1,13 +1,11 @@
-<!-- reagendar-cita.component.html -->
+<!-- src/app/shared/components/templates/reagendar-cita/reagendar-cita.component.html -->
 <div class="modal" *ngIf="showModal">
-    <div class="modal-display-appointment">
-      <button class="close-buttonX" (click)="closeModal()">X</button>
-      <div class="title-container">
-        <app-title-principal titleText="Reagendamiento Cita"></app-title-principal>
-      </div>
-      <app-input-date></app-input-date>
-      <!-- Agregamos un evento click para llamar al método onReagendar -->
-      <app-button value="Reagendar" (click)="onReagendar()"></app-button>
+  <div class="modal-display-appointment">
+    <button class="close-buttonX" (click)="closeModal()">X</button>
+    <div class="title-container">
+      <app-title-principal titleText="Reagendamiento Cita"></app-title-principal>
     </div>
+    <app-input-date></app-input-date>
+    <app-button value="Reagendar" (click)="onReagendar()"></app-button>
   </div>
-  
+</div>

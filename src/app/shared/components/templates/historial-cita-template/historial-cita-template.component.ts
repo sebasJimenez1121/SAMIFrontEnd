@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicoService } from '../../../../core/service/medico.service';
-
-interface Medico {
-  medico: string;
-  imagenMedico: string;
-  especialidad: string;
-  paciente: string;
-  estado: string;
-  fechaAgendamiento: string;
-}
+import { DataService } from '../../../../core/service/data.service';
 
 @Component({
   selector: 'app-historial-cita-template',
@@ -16,56 +7,65 @@ interface Medico {
   styleUrls: ['./historial-cita-template.component.css']
 })
 export class HistorialCitaTemplateComponent implements OnInit {
-  citas: Medico[] = [];
-  citasFiltradas: Medico[] = [];
-  usuarioId: string = '12345'; 
-  selectedFecha: string = '';
+  citas: any[] = [];
+  citasFiltradas: any[] = [];
+  showModal: boolean = false;
+  showRescheduleModal: boolean = false; // Nuevo estado para el modal de reagendar
+  selectedCita: any = null;
 
-  constructor(private medicoService: MedicoService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.medicoService.getCitasByUsuario(this.usuarioId).subscribe((data: Medico[]) => {
+    this.dataService.getCitas().subscribe(data => {
       this.citas = data;
-      this.citasFiltradas = data; 
-    }, error => {
-      console.error('Error fetching medicos', error);
+      this.citasFiltradas = data;
     });
+  }
+
+  filtrarCitas(event: any): void {
+    const fecha = event.target.value;
+    this.citasFiltradas = this.citas.filter(cita => cita.fecha === fecha);
+  }
+
+  verMas(cita: any): void {
+    this.selectedCita = cita;
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+  rescheduleAppointment(): void {
+    this.showModal = false;
+    this.showRescheduleModal = true; // Abrir modal de reagendar
+  }
+
+  onReagendar(fecha: Date): void {
+    if (this.selectedCita) {
+      const citaId = this.selectedCita.id;
+      this.dataService.guardarFechaSeleccionada(fecha.toISOString(), citaId).subscribe(() => {
+        this.showRescheduleModal = false;
+        this.filtrarCitas({ target: { value: fecha.toISOString().split('T')[0] } });
+      });
+    }
   }
 
   obtenerClaseEstado(estado: string): string {
     switch (estado) {
-      case 'Active':
-        return 'estado-activo';
-      case 'Inactive':
-        return 'estado-inactivo';
-      default:
-        return '';
+      case 'Pendiente': return 'estado-pendiente';
+      case 'Completado': return 'estado-completado';
+      case 'Cancelado': return 'estado-cancelado';
+      default: return '';
     }
   }
 
   traducirEstado(estado: string): string {
     switch (estado) {
-      case 'Active':
-        return 'Activo';
-      case 'Inactive':
-        return 'Inactivo';
-      default:
-        return estado;
+      case 'Pendiente': return 'Pendiente';
+      case 'Completado': return 'Completado';
+      case 'Cancelado': return 'Cancelado';
+      default: return estado;
     }
-  }
-
-  verMas(cita: Medico) {
-    console.log('Ver más detalles de:', cita);
-    // lógica para ver más detalles
-  }
-
-  filtrarCitas(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const fecha = input.value;
-    this.selectedFecha = fecha;
-    this.citasFiltradas = this.citas.filter(cita => {
-      const fechaFiltrada = this.selectedFecha ? cita.fechaAgendamiento === this.selectedFecha : true;
-      return fechaFiltrada;
-    });
   }
 }

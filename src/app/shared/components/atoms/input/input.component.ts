@@ -12,4 +12,8 @@ export class InputComponent {
   @Input() class: string = '';
   @Input() label: string = '';
   @Input() id: string = '';
+  @Input() value: string = '';
 }
+
+
+

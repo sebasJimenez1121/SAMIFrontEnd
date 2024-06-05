@@ -9,13 +9,15 @@ interface Medico {
   paciente: string;
   estado: string;
   fechaAgendamiento: string;
+  
+
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicoService {
-  private apiUrl = 'http://localhost:3000/citas';
+  private apiUrl = 'http://localhost:8000/citas';
 
   constructor(private http: HttpClient) { }
 

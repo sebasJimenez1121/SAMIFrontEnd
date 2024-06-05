@@ -73,7 +73,8 @@ import { RegisterTemplateComponent } from './components/templates/register-templ
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
 import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
-
+import { AppointmentModalComponent  } from './components/templates/appointment-modal/appointment-modal.component';
+import { ReagendarCitaComponent } from './components/templates/reagendar-cita/reagendar-cita.component';
 
 
 @NgModule({
@@ -148,14 +149,15 @@ import { HeaderUsuarioComponent } from './components/organisms/header-usuario/he
     StarterTemplateComponent,
     HistorialCitaTemplateComponent,
     HeaderUsuarioComponent,
+    AppointmentModalComponent ,
+    ReagendarCitaComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
- exports:[HistorialCitaTemplateComponent,
-  HeaderUsuarioComponent
+ exports:[HistorialCitaTemplateComponent
  ],
 
   

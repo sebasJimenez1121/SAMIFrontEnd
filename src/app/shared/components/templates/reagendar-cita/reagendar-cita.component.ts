@@ -1,4 +1,4 @@
-// reagendar-cita.component.ts
+// src/app/shared/components/templates/reagendar-cita/reagendar-cita.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,19 +8,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ReagendarCitaComponent {
   @Input() showModal: boolean = false;
-  @Output() reagendarCita = new EventEmitter<Date>(); // Nuevo EventEmitter para reagendar cita
+  @Output() reagendarCita = new EventEmitter<Date>(); 
 
   closeModal(): void {
     this.showModal = false;
   }
 
-  cancelAppointment(): void {
-    this.showModal = false;
-  }
-
   onReagendar(): void {
-    // Simplemente emitimos un evento con la nueva fecha y hora seleccionadas
-    this.reagendarCita.emit(new Date());
-    this.showModal = false; // Cerrar modal después de reagendar
+    // Aquí se debería recoger la fecha seleccionada del input date
+    const fechaSeleccionada = new Date(); // Aquí deberías obtener la fecha real seleccionada
+    this.reagendarCita.emit(fechaSeleccionada);
+    this.showModal = false; 
   }
 }
