@@ -1,11 +1,11 @@
-// src/app/core/models/doctor.model.ts
-
 export interface Doctor {
     id: number;
     name: string;
+    apellido: string;
     specialtyId: number;
     specialtyName: string;
     rating: number;
+    rol : string;
     img: string;
     appointmentCost: number;
   }

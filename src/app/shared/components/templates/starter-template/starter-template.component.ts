@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DoctorService} from '../../../../core/service/doctor.service';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { Doctor } from '../../../../core/models/medico.model';
 
 @Component({
   selector: 'starter-template',
