@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../../../core/service/data.service';
+import { CitaService } from '../../../../core/service/cita.service';
 
 @Component({
   selector: 'app-historial-cita-template',
@@ -13,7 +13,7 @@ export class HistorialCitaTemplateComponent implements OnInit {
   showRescheduleModal: boolean = false; 
   selectedCita: any = null;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: CitaService) {}
 
   ngOnInit(): void {
     this.dataService.getCitas().subscribe(data => {

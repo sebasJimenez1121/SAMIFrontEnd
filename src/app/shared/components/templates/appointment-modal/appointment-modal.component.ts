@@ -1,6 +1,6 @@
 // src/app/shared/components/templates/appointment-modal/appointment-modal.component.ts
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { DataService } from '../../../../core/service/data.service';
+import { CitaService } from '../../../../core/service/cita.service';
 
 @Component({
   selector: 'app-appointment-modal',
@@ -30,7 +30,7 @@ export class AppointmentModalComponent implements OnInit {
 
   fileName: string = '';
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: CitaService) {}
 
   ngOnInit(): void {
     if (this.cita) {

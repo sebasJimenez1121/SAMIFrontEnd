@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Doctor } from '../../../../core/models/medico.model';
+import { Doctor } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-content-card',
