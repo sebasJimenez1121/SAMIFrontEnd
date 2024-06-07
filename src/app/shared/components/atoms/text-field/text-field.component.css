@@ -16,8 +16,8 @@ body {
     display: inline-block;
 }
 
-.text {
-    color: #5A5D5F;
+.label-placeholder {
+    color: #aaa;
     font-size: 1rem;
 }
 

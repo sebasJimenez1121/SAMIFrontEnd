@@ -75,6 +75,10 @@ import { TemplateAppointmentScheduleComponent } from './components/templates/tem
 import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
 import { CoreModule } from '../core/core.module';
 import { TemplateBindingParseResult } from '@angular/compiler';
+import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
+import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
+import { AppointmentModalComponent  } from './components/templates/appointment-modal/appointment-modal.component';
+import { ReagendarCitaComponent } from './components/templates/reagendar-cita/reagendar-cita.component';
 
 
 
@@ -150,7 +154,11 @@ import { TemplateBindingParseResult } from '@angular/compiler';
     StarterTemplateComponent,
     SliderComponent,
     TemplateAppointmentScheduleComponent,
-    AppointmentManagementTemplateComponent
+    AppointmentManagementTemplateComponent,
+    HistorialCitaTemplateComponent,
+    HeaderUsuarioComponent,
+    AppointmentModalComponent ,
+    ReagendarCitaComponent,
   ],
   imports: [
     CommonModule,
@@ -164,8 +172,11 @@ import { TemplateBindingParseResult } from '@angular/compiler';
   StarterTemplateComponent,
   LoginTemplateComponent,
   RegisterTemplateComponent,
-  AppointmentManagementTemplateComponent
+  AppointmentManagementTemplateComponent,
+  HistorialCitaTemplateComponent
  ],
+
+
 })
 export class SharedModule { }
 

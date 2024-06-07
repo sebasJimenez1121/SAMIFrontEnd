@@ -19,8 +19,8 @@ export class MenuComponent {
     { name: 'Seguimento', 
       link: '/',
     subMenu: [
-      { name: 'Medicamentos', link: '/agendar-cita' },
-      { name: 'Notas Doctor', link: '/visualizar-cita' }
+      { name: 'Medicamentos', link: '/' },
+      { name: 'Notas Doctor', link: '/' }
     ] 
     },
     { name: 'Médicos', link: '/doctors' },

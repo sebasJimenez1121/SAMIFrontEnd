@@ -1,24 +1,221 @@
 {
-    "specialties": [
-      { "id": 1, "name": "Cardiología" },
-      { "id": 2, "name": "Neurología" },
-      { "id": 3, "name": "Dermatología" }
-    ],
-    "doctors": [
-      { "id": 1, "name": "Dr. Juan Perez", "specialtyId": 1, "specialtyName": "Cardiología", "rating": 4.5, "img": "../../../../../assets/images/Link → doctor_5.png.png", "appointmentCost": 40000 },
-      { "id": 2, "name": "Dr. Maria Gomez", "specialtyId": 2, "specialtyName": "Neurologia", "rating": 4.9, "img": "../../../../../assets/images/Link → doctor_1.png.png", "appointmentCost": 50000 },
-      { "id": 3, "name": "Dr. Carlos Rodriguez", "specialtyId": 3, "specialtyName": "Dermatologia", "rating": 4.2, "img": "../../../../../assets/images/Link → doctor_9.png.png", "appointmentCost": 70000 },
-      { "id": 4, "name": "Dr. Ana Martinez", "specialtyId": 1, "specialtyName": "Cardiología", "rating": 5.0, "img": "../../../../../assets/images/Link → doctor_3.png.png", "appointmentCost": 80000 },
-      { "id": 5, "name": "Dr. Laura Sanchez", "specialtyId": 2, "specialtyName": "Neurologia", "rating": 4.7, "img": "../../../../../assets/images/Link → doctor_4.png.png", "appointmentCost": 80000 },
-      { "id": 6, "name": "Dr. Pablo Gonzalez", "specialtyId": 3, "specialtyName": "Dermatologia", "rating": 4.6, "img": "../../../../../assets/images/Link → doctor_7.png.png", "appointmentCost": 90000 },
-      { "id": 7, "name": "Dr. Marcos Silva", "specialtyId": 2, "specialtyName": "Neurologia", "rating": 4.3, "img": "../../../../../assets/images/Link → doctor_11.png.png", "appointmentCost": 30000 },
-      { "id": 8, "name": "Dr. Sara Rojas", "specialtyId": 3, "specialtyName": "Dermatologia", "rating": 4.1, "img": "../../../../../assets/images/Link → doctor_8.png.png", "appointmentCost": 40000 },
-      { "id": 9, "name": "Dr. Pedro Fernandez", "specialtyId": 1, "specialtyName": "Cardiología", "rating": 4.0, "img": "../../../../../assets/images/Link → doctor_2.png.png", "appointmentCost": 60000 },
-      { "id": 10, "name": "Dr. Juan Perez", "specialtyId": 1, "specialtyName": "Cardiología", "rating": 4.5, "img": "../../../../../assets/images/Link → doctor_5.png.png", "appointmentCost": 40000 },
-      { "id": 11, "name": "Dr. Maria Gomez", "specialtyId": 2, "specialtyName": "Neurologia", "rating": 4.7, "img": "../../../../../assets/images/Link → doctor_1.png.png", "appointmentCost": 50000 },
-      { "id": 12, "name": "Dr. Carlos Rodriguez", "specialtyId": 3, "specialtyName": "Dermatologia", "rating": 4.2, "img": "../../../../../assets/images/Link → doctor_9.png.png", "appointmentCost": 70000 },
-      { "id": 13, "name": "Dr. Ana Martinez", "specialtyId": 1, "specialtyName": "Cardiología", "rating": 4.5, "img": "../../../../../assets/images/Link → doctor_3.png.png", "appointmentCost": 80000 },
-      { "id": 14, "name": "Dr. Laura Sanchez", "specialtyId": 2, "specialtyName": "Neurologia", "rating": 4.8, "img": "../../../../../assets/images/Link → doctor_4.png.png", "appointmentCost": 80000 },
-      { "id": 15, "name": "Dr. Pablo Gonzalez", "specialtyId": 3, "specialtyName": "Dermatologia", "rating": 4.6, "img": "../../../../../assets/images/Link → doctor_7.png.png", "appointmentCost": 90000 }
-    ]
-  }
+  "specialties": [
+    {
+      "id": "1",
+      "name": "Cardiología"
+    },
+    {
+      "id": "2",
+      "name": "Neurología"
+    },
+    {
+      "id": "3",
+      "name": "Dermatología"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "1",
+      "name": "Dr. Juan Perez",
+      "specialtyId": 1,
+      "specialtyName": "Cardiología",
+      "rating": 4.5,
+      "img": "../../../../../assets/images/Link → doctor_5.png.png",
+      "appointmentCost": 40000
+    },
+    {
+      "id": "2",
+      "name": "Dr. Maria Gomez",
+      "specialtyId": 2,
+      "specialtyName": "Neurologia",
+      "rating": 4.9,
+      "img": "../../../../../assets/images/Link → doctor_1.png.png",
+      "appointmentCost": 50000
+    },
+    {
+      "id": "3",
+      "name": "Dr. Carlos Rodriguez",
+      "specialtyId": 3,
+      "specialtyName": "Dermatologia",
+      "rating": 4.2,
+      "img": "../../../../../assets/images/Link → doctor_9.png.png",
+      "appointmentCost": 70000
+    },
+    {
+      "id": "4",
+      "name": "Dr. Ana Martinez",
+      "specialtyId": 1,
+      "specialtyName": "Cardiología",
+      "rating": 5,
+      "img": "../../../../../assets/images/Link → doctor_3.png.png",
+      "appointmentCost": 80000
+    },
+    {
+      "id": "5",
+      "name": "Dr. Laura Sanchez",
+      "specialtyId": 2,
+      "specialtyName": "Neurologia",
+      "rating": 4.7,
+      "img": "../../../../../assets/images/Link → doctor_4.png.png",
+      "appointmentCost": 80000
+    },
+    {
+      "id": "6",
+      "name": "Dr. Pablo Gonzalez",
+      "specialtyId": 3,
+      "specialtyName": "Dermatologia",
+      "rating": 4.6,
+      "img": "../../../../../assets/images/Link → doctor_7.png.png",
+      "appointmentCost": 90000
+    },
+    {
+      "id": "7",
+      "name": "Dr. Marcos Silva",
+      "specialtyId": 2,
+      "specialtyName": "Neurologia",
+      "rating": 4.3,
+      "img": "../../../../../assets/images/Link → doctor_11.png.png",
+      "appointmentCost": 30000
+    },
+    {
+      "id": "8",
+      "name": "Dr. Sara Rojas",
+      "specialtyId": 3,
+      "specialtyName": "Dermatologia",
+      "rating": 4.1,
+      "img": "../../../../../assets/images/Link → doctor_8.png.png",
+      "appointmentCost": 40000
+    },
+    {
+      "id": "9",
+      "name": "Dr. Pedro Fernandez",
+      "specialtyId": 1,
+      "specialtyName": "Cardiología",
+      "rating": 4,
+      "img": "../../../../../assets/images/Link → doctor_2.png.png",
+      "appointmentCost": 60000
+    },
+    {
+      "id": "10",
+      "name": "Dr. Juan Perez",
+      "specialtyId": 1,
+      "specialtyName": "Cardiología",
+      "rating": 4.5,
+      "img": "../../../../../assets/images/Link → doctor_5.png.png",
+      "appointmentCost": 40000
+    },
+    {
+      "id": "11",
+      "name": "Dr. Maria Gomez",
+      "specialtyId": 2,
+      "specialtyName": "Neurologia",
+      "rating": 4.7,
+      "img": "../../../../../assets/images/Link → doctor_1.png.png",
+      "appointmentCost": 50000
+    },
+    {
+      "id": "12",
+      "name": "Dr. Carlos Rodriguez",
+      "specialtyId": 3,
+      "specialtyName": "Dermatologia",
+      "rating": 4.2,
+      "img": "../../../../../assets/images/Link → doctor_9.png.png",
+      "appointmentCost": 70000
+    },
+    {
+      "id": "13",
+      "name": "Dr. Ana Martinez",
+      "specialtyId": 1,
+      "specialtyName": "Cardiología",
+      "rating": 4.5,
+      "img": "../../../../../assets/images/Link → doctor_3.png.png",
+      "appointmentCost": 80000
+    },
+    {
+      "id": "14",
+      "name": "Dr. Laura Sanchez",
+      "specialtyId": 2,
+      "specialtyName": "Neurologia",
+      "rating": 4.8,
+      "img": "../../../../../assets/images/Link → doctor_4.png.png",
+      "appointmentCost": 80000
+    },
+    {
+      "id": "15",
+      "name": "Dr. Pablo Gonzalez",
+      "specialtyId": 3,
+      "specialtyName": "Dermatologia",
+      "rating": 4.6,
+      "img": "../../../../../assets/images/Link → doctor_7.png.png",
+      "appointmentCost": 90000
+    }
+  ],
+  "citas": [
+    {
+      "id": "1",
+      "medico": "Dr. Juan Hernandez",
+      "especialidad": "Cardiología",
+      "paciente": "John Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "40.000",
+      "motivoCita": "Cambios en la presion",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png",
+      "fecha": "2024-06-05T11:45:02.726Z"
+    },
+    {
+      "id": "2",
+      "medico": "Dr. Mariana Bedoya",
+      "especialidad": "Neurologia",
+      "paciente": "Jane Doe",
+      "estado": "Inactive",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Migrañas fuertes",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png",
+      "fecha": "2024-06-05T08:11:44.995Z"
+    },
+    {
+      "id": "3",
+      "medico": "Dr. Isbella Sanchez",
+      "especialidad": "Dermatologia",
+      "paciente": "Jane Doe",
+      "estado": "Inactive",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
+      "fecha": "2024-06-05T08:52:43.445Z"
+    },
+    {
+      "id": "4",
+      "medico": "Dr. juana lopez",
+      "especialidad": "Neurologia",
+      "paciente": "Jane Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "40.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_6.png.png",
+      "fecha": "2024-06-08"
+    },
+    {
+      "id": "5",
+      "medico": "Dr. Isbella Sanchez",
+      "especialidad": "Dermatologia",
+      "paciente": "Jane Doe",
+      "estado": "Active",
+      "documento": "12345678",
+      "telefono": "987654321",
+      "valorCita": "50.000",
+      "motivoCita": "Revisión general",
+      "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
+      "fecha": "2024-06-09"
+    }
+  ]
+}
+

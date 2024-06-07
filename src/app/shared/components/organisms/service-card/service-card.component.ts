@@ -9,5 +9,5 @@ export class ServiceCardComponent {
     @Input() titulo = "";
     @Input() img= "";
     @Input() content = "";
-
+    @Input() link = "";
 }

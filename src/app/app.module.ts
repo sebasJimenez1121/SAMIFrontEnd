@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeaturesModule } from './features/features.module';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FeaturesModule } from './features/features.module';
     FeaturesModule,
   ],
   providers: [
+    HttpClientModule 
   ],
   bootstrap: [AppComponent]
 })

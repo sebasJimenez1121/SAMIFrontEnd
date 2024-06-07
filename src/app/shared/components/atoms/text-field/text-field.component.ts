@@ -6,6 +6,6 @@ import { Component, Input} from '@angular/core';
   styleUrl: './text-field.component.css'
 })
 export class TextFieldComponent {
-  @Input() content: string = 'text';
- 
+  @Input() content: string = '';
+  @Input() placeholderText: string = '';
 }

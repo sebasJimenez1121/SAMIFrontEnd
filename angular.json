@@ -94,7 +94,8 @@
             "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/app/shared/components/templates/appointment-modal"
             ],
             "styles": [
               "src/styles/styles.css"

@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class TextComponent {
   @Input() content: string = "SAMI es un equipo de experimentados profesionales médicos";
-  @Input() typeContent: string = "text"; 
+  @Input() typeContent: string = "text";
   @Input() class: string = "nueva";
 }

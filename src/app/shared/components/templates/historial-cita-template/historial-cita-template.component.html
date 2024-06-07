@@ -1,0 +1,44 @@
+<!-- src/app/shared/components/templates/historial-cita-template/historial-cita-template.component.html -->
+<div class="HistorialCita">
+  <div class="container">
+    <div>
+      <app-title-principal class="titulo" titleText="Visualización De Citas"></app-title-principal>
+    </div>
+    <div class="filtro-fecha">
+      <app-text-field placeholderText="Filtrar por fecha de agendamiento:" for="fecha"></app-text-field>
+      <input type="date" id="fecha" (change)="filtrarCitas($event)">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Médicos</th>
+          <th>Especialidad</th>
+          <th>Paciente</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citasFiltradas">
+          <td>
+            <img [src]="cita.imagenMedico" alt="{{cita.medico}}" class="imagen-medico">
+            {{cita.medico}}
+          </td>
+          <td>{{cita.especialidad}}</td>
+          <td>{{cita.paciente}}</td>
+          <td>
+            <span [ngClass]="obtenerClaseEstado(cita.estado)">{{ traducirEstado(cita.estado) }}</span>
+          </td>
+          <td>
+            <app-button value="Ver más" (click)="verMas(cita)"></app-button>
+            <app-button value="Reagendar Cita" (click)="rescheduleAppointment()"></app-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer>
+<app-appointment-modal [showModal]="showModal" [cita]="selectedCita" (close)="closeModal()"></app-appointment-modal>
+<app-reagendar-cita [showModal]="showRescheduleModal" (reagendarCita)="onReagendar($event)"></app-reagendar-cita>
