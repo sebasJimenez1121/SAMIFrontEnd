@@ -79,6 +79,8 @@ import { HistorialCitaTemplateComponent } from './components/templates/historial
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
 import { AppointmentModalComponent  } from './components/templates/appointment-modal/appointment-modal.component';
 import { ReagendarCitaComponent } from './components/templates/reagendar-cita/reagendar-cita.component';
+import { InputFileComponent } from './components/atoms/input-file/input-file.component';
+import { ModalComponent } from './components/atoms/modal/modal.component';
 
 
 
@@ -159,6 +161,8 @@ import { ReagendarCitaComponent } from './components/templates/reagendar-cita/re
     HeaderUsuarioComponent,
     AppointmentModalComponent ,
     ReagendarCitaComponent,
+    InputFileComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -166,14 +170,16 @@ import { ReagendarCitaComponent } from './components/templates/reagendar-cita/re
     RouterModule,
     CoreModule
   ],
- exports:[ 
+ exports:[
   HeaderComponent,
   TemplateAppointmentScheduleComponent,
   StarterTemplateComponent,
   LoginTemplateComponent,
   RegisterTemplateComponent,
   AppointmentManagementTemplateComponent,
-  HistorialCitaTemplateComponent
+  HistorialCitaTemplateComponent,
+  InputFileComponent,
+  ModalComponent
  ],
 
 

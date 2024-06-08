@@ -1,0 +1,28 @@
+.ingreseDocumentos{
+    display: flex;
+    flex-direction: column;
+  }
+  .file-input {
+    display: none;
+  }
+  
+  .custom-file-button {
+    display: inline-block;
+    background-color: #F0F0FF;
+    color: #5A5D5F;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 0.625rem;
+    border: 0.063rem solid #307BC4 ;
+    width: 11rem;
+    height: 2rem;
+    align-items: center;
+  }
+  
+  
+  .file-name {
+    margin-left: 0.625rem;
+    font-style: italic;
+    color: #555;
+  }
