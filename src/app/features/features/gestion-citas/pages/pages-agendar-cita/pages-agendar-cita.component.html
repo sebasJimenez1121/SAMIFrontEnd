@@ -1,1 +1,10 @@
-<app-template-appointment-schedule></app-template-appointment-schedule>
+<!-- pages-agendar-cita.component.html -->
+<app-template-appointment-schedule 
+  [specialties]="specialties"
+  [paginatedDoctors]="paginatedDoctors"
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (specialtyChange)="onSpecialtyChange($event)"
+  (pageChange)="onPageChange($event)"
+  (agendarCita)="openModal($event)">
+</app-template-appointment-schedule>

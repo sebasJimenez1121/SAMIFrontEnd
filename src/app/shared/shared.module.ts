@@ -61,7 +61,6 @@ import { CommentCardComponent } from './components/organisms/comment-card/commen
 import { AboutUsComponent } from './components/organisms/about-us/about-us.component';
 import { VideoTutorialComponent } from './components/organisms/video-tutorial/video-tutorial.component';
 import { ScheduleAppointmentComponent } from './components/organisms/schedule-appointment/schedule-appointment.component';
-import { ReservationFormComponent } from './components/organisms/reservation-form/reservation-form.component';
 import { MedicalCardComponent } from './components/organisms/medical-card/medical-card.component';
 import { MedicalInformationComponent } from './components/organisms/medical-information/medical-information.component';
 import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
@@ -81,6 +80,7 @@ import { AppointmentModalComponent  } from './components/templates/appointment-m
 import { ReagendarCitaComponent } from './components/templates/reagendar-cita/reagendar-cita.component';
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
 import { ModalComponent } from './components/atoms/modal/modal.component';
+import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
 
 
 
@@ -145,7 +145,6 @@ import { ModalComponent } from './components/atoms/modal/modal.component';
     AboutUsComponent,
     VideoTutorialComponent,
     ScheduleAppointmentComponent,
-    ReservationFormComponent,
     MedicalCardComponent,
     MedicalInformationComponent,
     DoctorCommentsComponent,
@@ -163,6 +162,7 @@ import { ModalComponent } from './components/atoms/modal/modal.component';
     ReagendarCitaComponent,
     InputFileComponent,
     ModalComponent,
+    ModalReservationFormComponent,
   ],
   imports: [
     CommonModule,
@@ -178,8 +178,7 @@ import { ModalComponent } from './components/atoms/modal/modal.component';
   RegisterTemplateComponent,
   AppointmentManagementTemplateComponent,
   HistorialCitaTemplateComponent,
-  InputFileComponent,
-  ModalComponent
+  NavigationStepperComponent
  ],
 
 

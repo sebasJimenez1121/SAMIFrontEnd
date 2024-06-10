@@ -17,17 +17,6 @@
     width: 100%;
   }
 
-  app-input , .row div{
-    width: 25%;
-    margin-right: 10%;
+  .row-input{
+    margin-right: 5rem;
   }
-  .row div {
-    display: flex;
-    flex-flow: column;
-  }
-
-  app-button-bottomless{
-    margin-top: 2.5%;
-  }
-  
- 

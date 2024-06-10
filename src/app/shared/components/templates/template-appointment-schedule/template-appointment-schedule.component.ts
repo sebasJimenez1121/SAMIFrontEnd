@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { DoctorService } from '../../../../core/service/doctor.service';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Doctor } from '../../../../core/models/doctor.model';
 
 interface Specialty {
@@ -12,61 +11,24 @@ interface Specialty {
   templateUrl: './template-appointment-schedule.component.html',
   styleUrls: ['./template-appointment-schedule.component.css']
 })
-export class TemplateAppointmentScheduleComponent implements OnInit {
-  specialties: Specialty[] = [];
-  selectedSpecialtyId: number | null = null;
-  doctors: Doctor[] = [];
-  paginatedDoctors: Doctor[] = [];
-  currentPage = 1;
-  totalPages = 0;
-  itemsPerPage = 9;
-
-  constructor(private doctorService: DoctorService) {}
-
-  ngOnInit() {
-    this.fetchSpecialties();
-    this.fetchDoctors();
-  }
-
-  fetchSpecialties() {
-    this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
-      this.specialties = specialties;
-    });
-  }
-
-  fetchDoctors() {
-    this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
-      this.doctors = doctors;
-      this.applyFilters(); 
-    });
-  }
-
-  applyFilters() {
-    let filteredDoctors = this.doctors;
-
-    if (this.selectedSpecialtyId && this.selectedSpecialtyId !== 0) {
-      filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
-    }
-    
-    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-    this.paginateDoctors(filteredDoctors);
-  }
-
-  paginateDoctors(doctors: Doctor[]) {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = this.currentPage * this.itemsPerPage;
-    this.paginatedDoctors = doctors.slice(startIndex, endIndex);
-  }
+export class TemplateAppointmentScheduleComponent {
+  @Input() specialties: Specialty[] = [];
+  @Input() paginatedDoctors: Doctor[] = [];
+  @Input() currentPage: number = 1;
+  @Input() totalPages: number = 0;
+  @Output() specialtyChange = new EventEmitter<number>();
+  @Output() pageChange = new EventEmitter<number>();
+  @Output() agendarCita = new EventEmitter<Doctor>();
 
   onSpecialtyChange(event: any) {
-    const selectedValue = event.target.value;
-    this.selectedSpecialtyId = selectedValue ? +selectedValue : 0; 
-    this.currentPage = 1;
-    this.applyFilters();
+    this.specialtyChange.emit(+event.target.value);
   }
 
   onPageChange(page: number) {
-    this.currentPage = page;
-    this.applyFilters();
+    this.pageChange.emit(page);
+  }
+
+  agendarCitaHandler(doctor: Doctor) {
+    this.agendarCita.emit(doctor);
   }
 }
