@@ -47,10 +47,7 @@ export class InputDateComponent implements OnInit {
   }
 
   fetchAvailableTimeSlots(date: string): void {
-    // Placeholder: Aquí se haría una solicitud al backend para obtener las horas disponibles
-    // Ejemplo: this.calendarService.getAvailableTimeSlots(date).subscribe(...);
-
-    // Simulación de datos
+    
     this.availableTimeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM'];
   }
 

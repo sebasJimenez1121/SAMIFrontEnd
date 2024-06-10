@@ -38,7 +38,7 @@ export class HistorialCitaTemplateComponent implements OnInit {
 
   rescheduleAppointment(): void {
     this.showModal = false;
-    this.showRescheduleModal = true; // Abrir modal de reagendar
+    this.showRescheduleModal = true; 
   }
 
   onReagendar(fecha: Date): void {

@@ -1,12 +1,11 @@
-<!-- src/app/shared/components/templates/historial-cita-template/historial-cita-template.component.html -->
+
 <div class="HistorialCita">
   <div class="container">
     <div>
       <app-title-principal class="titulo" titleText="Visualización De Citas"></app-title-principal>
     </div>
     <div class="filtro-fecha">
-      <app-text-field placeholderText="Filtrar por fecha de agendamiento:" for="fecha"></app-text-field>
-      <input type="date" id="fecha" (change)="filtrarCitas($event)">
+      <app-input-date-history  (change)="filtrarCitas($event)"></app-input-date-history>
     </div>
     <table>
       <thead>
