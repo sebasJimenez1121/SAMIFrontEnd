@@ -7,6 +7,10 @@ import { Component,Input } from '@angular/core';
 })
 export class InputFileComponent {
   fileName: string = '';
+  @Input() value: string = '';
+ 
+
+ 
   
   triggerFileInput() {
     const fileInput = document.getElementById('fileInput') as HTMLElement;
@@ -19,4 +23,9 @@ export class InputFileComponent {
       this.fileName = Array.from(input.files).map(file => file.name).join(', ');
     }
   }
+  
+  onInputChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
+}
 }

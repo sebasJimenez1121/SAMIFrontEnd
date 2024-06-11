@@ -12,14 +12,20 @@ export class CitaService {
   constructor(private http: HttpClient) {}
 
   // Obtener citas por usuario
-  getCitasByUsuario(usuarioId: string): Observable<Appointment[]> {
-    const url = `${this.apiUrl}?usuarioId=${usuarioId}`;
+  getCitasByUsuario(id: number): Observable<Appointment[]> {
+    const url = `${this.apiUrl}?id=${id}`;
     return this.http.get<Appointment[]>(url);
   }
 
   // Obtener todas las citas
   getCitas(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiUrl}`);
+  }
+
+   // Obtener detalles de la cita por ID
+   getCitaById(id: string): Observable<Appointment> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Appointment>(url);
   }
 
   // Guardar fecha seleccionada para una cita específica (reagendar cita)
@@ -30,10 +36,9 @@ export class CitaService {
 
   // Cancelar una cita
   cancelarCita(id: number): Observable<any> {
-    const update: AppointmentUpdate = { estado: 'cancelada' };
+    const update: AppointmentUpdate = { estado: 'Cancelada' }; // Cambiar 'cancelada' a 'Cancelada'
     return this.http.patch<any>(`${this.apiUrl}/${id}`, update);
   }
-
   // Crear una nueva cita
   crearCita(cita: Appointment): Observable<Appointment> {
     return this.http.post<Appointment>(this.apiUrl, cita);

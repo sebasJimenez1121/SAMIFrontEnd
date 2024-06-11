@@ -36,7 +36,7 @@
     cursor: pointer;
     border-radius: 0.25rem;
     font-size: 0.625rem;
-    border: 0.063rem solid #307BC4 ;
+    border: 0.063rem solid #D9D9D9 ;
     width: 11rem;
     height: 2rem;
     align-items: center;
@@ -49,6 +49,7 @@
     font-style: italic;
     color: #555;
     font-size: 0.60rem;
+    
   }
   .ingreseDocumentos{
     display: flex;

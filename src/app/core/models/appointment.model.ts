@@ -1,17 +1,25 @@
 export interface Appointment { 
+    id: number;
     IdMedico: string;
     IdCiente: number;
-    nameMedico: String;
-    namePaciente: String;
+    nameMedico: string;
+    namePaciente: string;
+    patientDocument:number;
+    patientPhone: number; 
+    especialidad: string;
+    imagenMedico: string;
     estado: string;
     estadoPago: string;
     valorCita: string;
     motivoCita: string;
     fechaCita: string;
+    horaCita:string;
 }
+
 
 export interface AppointmentUpdate {
     fechaCita?: string;
+    horaCita?:string;
     estado?: string;
     estadoPago?: string;
     motivoCita?: string;
