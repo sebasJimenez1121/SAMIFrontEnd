@@ -38,6 +38,5 @@ export class AppointmentFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.appointmentForm.value);
-    // Aquí puedes emitir un evento para enviar los datos al componente del stepper
   }
 }
