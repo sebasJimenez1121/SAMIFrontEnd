@@ -1,20 +1,24 @@
 <div class="container-stepper">
   <app-navigation-stepper 
     [steps]="steps" 
-    [(currentStep)]="currentStep" 
-    (stepChanged)="onStepChanged($event)" 
+    [(currentStep)]="currentStep"
     (finished)="onFinished()">
   </app-navigation-stepper>
   <div class="steppers">
 
   </div>
-  <div *ngIf="currentStep === 0">
-    <app-calendar-options [doctor]="selectedDoctor" (selectionMade)="handleSelectionMade($event)"></app-calendar-options>
-  </div>
-  <div *ngIf="currentStep === 1">
-    <app-appointment-form [appointmentData]="selectedPatient"></app-appointment-form>
-  </div>
-  
+  <ng-container *ngIf="currentStep === 0">
+    <app-calendar-options [doctor]="selectedDoctor"></app-calendar-options>
+  </ng-container>
+  <ng-container *ngIf="currentStep === 1">
+    <app-appointment-form [appointmentData]="selectedPatient" (formDataReady)="handleFormDataReady($event)"></app-appointment-form>
+  </ng-container>
+  <ng-container *ngIf="currentStep === 2">
+    <app-buttons-pago></app-buttons-pago>
+  </ng-container>
+  <ng-container *ngIf="currentStep === 3">
+    <app-visualizar-cita></app-visualizar-cita>
+  </ng-container>
 
   <div class="buttons">
     <app-button 
@@ -23,9 +27,9 @@
       [isDisabled]="currentStep === 0">
     </app-button>
     <app-button 
+      *ngIf="currentStep < steps.length - 1"
       (buttonClick)="handleNextClick()" 
-      [value]="value" 
-      [isDisabled]="!isCurrentStepValid()">
+      [value]="value">
     </app-button>
   </div>
 </div>

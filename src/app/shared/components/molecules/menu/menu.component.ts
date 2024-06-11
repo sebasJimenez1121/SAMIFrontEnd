@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -18,12 +19,21 @@ export class MenuComponent {
     },
     { 
       name: 'Seguimento', 
-      link: '/', 
+      link: '/seguimiento', 
       subMenu: [
-        { name: 'Medicamentos', link: '/medicamentos' }, // Enlace del submenú
-        { name: 'Notas Doctor', link: '/notas-doctor' } // Enlace del submenú
+        { name: 'Medicamentos', link: '/medicamentos' }, 
+        { name: 'Notas Doctor', link: '/notas-doctor' } 
       ] 
     },
     { name: 'Médicos', link: '/doctors' },
-  ];                    
+  ];    
+
+  constructor(private router: Router) {}
+
+  navigate(link: string, event: MouseEvent) {
+    if (link) {
+      event.stopPropagation();  // Prevent event propagation to parent elements
+      this.router.navigate([link]);
+    }
+  }
 }

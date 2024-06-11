@@ -82,6 +82,8 @@ import { StepperContainerComponent } from './components/molecules/stepper-contai
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
+import { ButtonsPagoComponent } from './components/molecules/buttons-pago/buttons-pago.component';
+import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
 
 
 
@@ -164,7 +166,10 @@ import { ModalRescheduleAppointmentComponent } from './components/organisms/moda
     HowToScheduleComponent,
     InputDateHistoryComponent,
     ModalDisplayDataComponent,
-    ModalRescheduleAppointmentComponent
+    ModalRescheduleAppointmentComponent,
+    StepperContainerComponent,
+    ButtonsPagoComponent,
+    VisualizarCitaComponent
   ],
   imports: [
     CommonModule,

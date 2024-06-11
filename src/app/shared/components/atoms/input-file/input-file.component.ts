@@ -7,22 +7,26 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrl: './input-file.component.css'
 })
 export class InputFileComponent {
-  @Input() multiple: boolean = false;
-  @Output() filesSelected: EventEmitter<File[]> = new EventEmitter<File[]>();
-  @Input() fileName: string = '';
+  fileName: string = '';
+  @Input() value: string = '';
+ 
 
-  onFileSelected(event: any): void {
-    if (event.target.files.length > 0) {
-      this.fileName = Array.from(event.target.files).map((file: any) => file.name).join(', ');
-      this.filesSelected.emit(event.target.files);
-    } else {
-      this.fileName = '';
-      this.filesSelected.emit([]);
-    }
-  }
-
-  triggerFileInput(): void {
+ 
+  
+  triggerFileInput() {
     const fileInput = document.getElementById('fileInput') as HTMLElement;
     fileInput.click();
   }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileName = Array.from(input.files).map(file => file.name).join(', ');
+    }
+  }
+  
+  onInputChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
+}
 }

@@ -9,7 +9,6 @@ interface Specialty {
   name: string;
 }
 
-
 @Component({
   selector: 'app-pages-agendar-cita',
   templateUrl: './pages-agendar-cita.component.html',
@@ -91,6 +90,11 @@ export class PagesAgendarCitaComponent implements OnInit {
   // Método para cerrar el modal
   closeModal(): void {
     this.showModal = false;
+  }
+
+  // Método para reiniciar el stepper cuando se cierra el modal
+  onModalClosed(): void {
+    // Reiniciar el stepper aquí
   }
 
   // Método para obtener los datos del paciente

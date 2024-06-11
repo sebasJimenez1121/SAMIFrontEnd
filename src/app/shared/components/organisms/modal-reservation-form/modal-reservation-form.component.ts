@@ -10,12 +10,15 @@ import { Patient } from '../../../../core/models/patient.model';
 export class ModalReservationFormComponent {
   @Input() isModalVisible: boolean = false;
   @Output() closeModalEvent = new EventEmitter<void>();
-  @Input() selectedPatient!: Patient
+  @Output() modalClosed = new EventEmitter<void>(); // Nuevo evento para cierre de modal
+  @Input() selectedPatient!: Patient;
   @Input() selectedDoctor!: Doctor;
+  
 
   closeModal() {
     this.isModalVisible = false;
     this.closeModalEvent.emit();
+    this.modalClosed.emit(); // Emitir evento al cerrar el modal
   }
 
   onFinished(data: any) {

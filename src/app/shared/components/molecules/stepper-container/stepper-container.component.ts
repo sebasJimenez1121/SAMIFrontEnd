@@ -8,7 +8,7 @@ import { Patient } from '../../../../core/models/patient.model';
   styleUrls: ['./stepper-container.component.css']
 })
 export class StepperContainerComponent {
-  steps: string[] = ["Fecha y hora","Datos Pesonales","Metodo De Pago", "Confirmación"];
+  steps: string[] = ["Fecha y hora", "Datos Personales", "Metodo De Pago", "Confirmación"];
   @Input() selectedDoctor!: Doctor;
   @Input() selectedPatient!: Patient;
 
@@ -16,21 +16,26 @@ export class StepperContainerComponent {
   @Output() nextClicked = new EventEmitter<void>();
   @Output() stepChanged = new EventEmitter<number>();
   @Output() finished = new EventEmitter<void>();
+  @Output() formDataReady = new EventEmitter<any>(); // Evento para capturar los datos del formulario
 
-  currentStep: number = 0;
+  @Input() currentStep: number = 0;
   value: string = 'Continuar';
 
   constructor() {}
 
-  onStepChanged(step: number) {
-    this.currentStep = step;
-    this.updateButtonValue();
-    this.stepChanged.emit(this.currentStep);
+  handlePrevClick() {
+    this.prevClicked.emit();
+    this.prevStep();
   }
 
-  onFinished() {
-    this.finished.emit();
-    this.resetStepper();
+  handleNextClick() {
+    this.nextClicked.emit();
+    this.nextOrFinish();
+  }
+
+  handleFormDataReady(formData: any) {
+    this.formDataReady.emit(formData);
+    this.nextOrFinish();
   }
 
   nextOrFinish() {
@@ -55,24 +60,9 @@ export class StepperContainerComponent {
     this.value = this.currentStep < this.steps.length - 1 ? 'Continuar' : 'Confirmar';
   }
 
-  isCurrentStepValid(): boolean {
-    // Implement your validation logic here
-    return true;
-  }
-
-  handlePrevClick() {
-    this.prevClicked.emit();
-    this.prevStep();
-  }
-
-  handleNextClick() {
-    this.nextClicked.emit();
-    this.nextOrFinish();
-  }
-
-  handleSelectionMade(selection: { date: Date, time: string }) {
-    // Implementar según sea necesario para cada componente de paso
-    this.nextOrFinish();
+  onFinished() {
+    this.finished.emit();
+    this.resetStepper();
   }
 
   resetStepper() {

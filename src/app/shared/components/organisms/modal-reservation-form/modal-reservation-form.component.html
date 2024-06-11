@@ -7,7 +7,9 @@
     <app-stepper-container 
       [selectedPatient]="selectedPatient"
       [selectedDoctor]="selectedDoctor"
-      (finished)="onFinished($event)">
+      (finished)="onFinished($event)"
+      [currentStep]="0"
+      >
     </app-stepper-container>
   </div>
 </app-modal>
