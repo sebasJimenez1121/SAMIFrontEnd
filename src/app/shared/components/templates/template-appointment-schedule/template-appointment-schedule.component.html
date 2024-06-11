@@ -10,7 +10,11 @@
     </select>
   </div>
   <div class="container-cards">
-    <app-medical-card *ngFor="let doctor of paginatedDoctors" [doctor]="doctor"></app-medical-card>
+    <app-medical-card 
+      *ngFor="let doctor of paginatedDoctors" 
+      [doctor]="doctor" 
+      (click)="openModal(doctor)">
+    </app-medical-card>
   </div>
   <app-navigation-pagination 
     [currentPage]="currentPage" 

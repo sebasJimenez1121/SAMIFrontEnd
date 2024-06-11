@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Doctor } from '../../../../core/models/doctor.model';
 
 @Component({
@@ -8,4 +8,9 @@ import { Doctor } from '../../../../core/models/doctor.model';
 })
 export class ContentCardComponent {
   @Input() doctor!: Doctor;
+  @Output() buttonClick = new EventEmitter<void>();
+
+  handleClick() {
+    this.buttonClick.emit();
+  }
 }

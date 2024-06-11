@@ -216,5 +216,31 @@
       "imagenMedico": "../../../../../assets/images/Link → doctor_4.png.png",
       "fechaCita": "2024-07-12 22:32"
     }
+  ],
+  "patients":[
+    {
+      "id": "1",
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "email": "juan@example.com",
+      "telefono": "123456789",
+      "documento": "1234567890"
+    },
+    {
+      "id": "2",
+      "nombre": "María",
+      "apellido": "Gómez",
+      "email": "maria@example.com",
+      "telefono": "987654321",
+      "documento": "0987654321"
+    },
+    {
+      "id": "3",
+      "nombre": "Pedro",
+      "apellido": "Díaz",
+      "email": "pedro@example.com",
+      "telefono": "456789123",
+      "documento": "4567890123"
+    }
   ]
 }

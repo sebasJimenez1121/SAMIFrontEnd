@@ -7,12 +7,13 @@ import { PagesAgendarCitaComponent } from './features/features/gestion-citas/pag
 import { PagesGestionCitasComponent } from './features/features/gestion-citas/pages/pages-gestion-citas/pages-gestion-citas.component';
 import { PagesVisualizarCitaComponent } from './features/features/gestion-citas/pages/pages-visualizar-cita/pages-visualizar-cita.component';
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'agendar-cita', component: PagesAgendarCitaComponent },
   { path: 'gestion-cita', component: PagesGestionCitasComponent },
   { path: 'visualizar-cita', component: PagesVisualizarCitaComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'resgister', component: RegisterComponent},
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

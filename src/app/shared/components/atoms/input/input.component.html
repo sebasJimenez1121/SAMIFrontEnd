@@ -1,1 +1,5 @@
-<input [type]="type" [disabled]="disabled" [required]="required" [placeholder]="placeholder" [value]="value" class="form__field" [ngClass]="class" id="{{id}}" (input)="onInputChange($event)">
+<div class="form__group">
+  <label for="{{id}}">{{label}}</label>
+  <input [type]="type" [required]="required" [placeholder]="placeholder" [value]="value" class="form__field" [ngClass]="class" id="{{id}}">
+
+</div>

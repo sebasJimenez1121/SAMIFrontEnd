@@ -1,0 +1,12 @@
+<div *ngIf="isVisible" class="modal-backdrop" (click)="closeModal()"></div>
+<div *ngIf="isVisible" class="modal">
+  <div class="modal-display-appointment">
+    <button class="close-buttonX" (click)="closeModal()">X</button>
+    <div class="title-container">
+      <app-title-terciario [titleText]="title"></app-title-terciario>
+    </div>
+    <div class="container">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

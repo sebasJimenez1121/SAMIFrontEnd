@@ -4,9 +4,8 @@
         <div class="coment-rating">
         <app-text content="10 opiniones"></app-text>
         <app-input-rating></app-input-rating>
-    </div>
+        </div>
         <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.appointmentCost"></app-text> 
-        <app-button class="button-cita" value="Agendar Cita"></app-button>
+        <app-button class="button-cita" value="Agendar Cita" (buttonClick)="buttonClick"></app-button>
     </div>
-   
 </div>

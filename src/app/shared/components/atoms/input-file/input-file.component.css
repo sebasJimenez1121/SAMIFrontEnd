@@ -1,4 +1,3 @@
-
 .file-input-container {
     display: flex;
     flex-direction: column;
@@ -41,13 +40,16 @@
     height: 2rem;
     align-items: center;
   }
+
   .file-input {
     display: none;
   }
+
   .file-name {
     margin-left: 0.625rem;
     font-style: italic;
     color: #555;
+
     font-size: 0.60rem;
     
   }

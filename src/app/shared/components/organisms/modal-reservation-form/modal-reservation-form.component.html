@@ -1,0 +1,15 @@
+<!-- En el componente del modal -->
+<app-modal 
+  [isVisible]="isModalVisible" 
+  (closeModalEvent)="closeModal()"
+  [title]="'Reserva tu Cita'">
+  <div class="modal-body">
+    <app-stepper-container 
+      [selectedPatient]="selectedPatient"
+      [selectedDoctor]="selectedDoctor"
+      (finished)="onFinished($event)"
+      [currentStep]="0"
+      >
+    </app-stepper-container>
+  </div>
+</app-modal>

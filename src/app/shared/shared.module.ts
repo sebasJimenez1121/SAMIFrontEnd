@@ -60,7 +60,6 @@ import { CommentCardComponent } from './components/organisms/comment-card/commen
 import { AboutUsComponent } from './components/organisms/about-us/about-us.component';
 import { VideoTutorialComponent } from './components/organisms/video-tutorial/video-tutorial.component';
 import { ScheduleAppointmentComponent } from './components/organisms/schedule-appointment/schedule-appointment.component';
-import { ReservationFormComponent } from './components/organisms/reservation-form/reservation-form.component';
 import { MedicalCardComponent } from './components/organisms/medical-card/medical-card.component';
 import { MedicalInformationComponent } from './components/organisms/medical-information/medical-information.component';
 import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
@@ -75,10 +74,17 @@ import { CoreModule } from '../core/core.module';
 import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
+import { ModalComponent } from './components/atoms/modal/modal.component';
+import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
 import { HowToScheduleComponent } from './components/organisms/how-to-schedule/how-to-schedule.component';
 import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
+import { StepperContainerComponent } from './components/molecules/stepper-container/stepper-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
+import { ButtonsPagoComponent } from './components/molecules/buttons-pago/buttons-pago.component';
+import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
+
 
 
 
@@ -142,7 +148,6 @@ import { ModalRescheduleAppointmentComponent } from './components/organisms/moda
     AboutUsComponent,
     VideoTutorialComponent,
     ScheduleAppointmentComponent,
-    ReservationFormComponent,
     MedicalCardComponent,
     MedicalInformationComponent,
     DoctorCommentsComponent,
@@ -156,25 +161,35 @@ import { ModalRescheduleAppointmentComponent } from './components/organisms/moda
     HistorialCitaTemplateComponent,
     HeaderUsuarioComponent,
     InputFileComponent,
+    ModalComponent,
+    ModalReservationFormComponent,
     HowToScheduleComponent,
     InputDateHistoryComponent,
     ModalDisplayDataComponent,
     ModalRescheduleAppointmentComponent,
+    StepperContainerComponent,
+    ButtonsPagoComponent,
+    VisualizarCitaComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
- exports:[ 
+ exports:[
   HeaderComponent,
   TemplateAppointmentScheduleComponent,
   StarterTemplateComponent,
   LoginTemplateComponent,
   RegisterTemplateComponent,
   AppointmentManagementTemplateComponent,
-  HistorialCitaTemplateComponent
+  HistorialCitaTemplateComponent,
+  ModalReservationFormComponent,
+  CalendarOptionsComponent,
+  HowToScheduleComponent,
+  AppointmentFormComponent
  ],
 
 

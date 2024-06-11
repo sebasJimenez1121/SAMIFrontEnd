@@ -1,1 +1,17 @@
-<app-template-appointment-schedule></app-template-appointment-schedule>
+<app-template-appointment-schedule 
+  #appointmentSchedule
+  [specialties]="specialties"
+  [paginatedDoctors]="paginatedDoctors"
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (specialtyChange)="onSpecialtyChange($event)"
+  (pageChange)="onPageChange($event)"
+  (agendarCita)="openModal($event)">
+</app-template-appointment-schedule>
+
+
+<app-modal-reservation-form 
+  [isModalVisible]="showModal" 
+  [selectedDoctor]="selectedDoctor"
+  (closeModalEvent)="closeModal()">
+</app-modal-reservation-form>
