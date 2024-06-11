@@ -1,11 +1,10 @@
-
 <div class="HistorialCita">
   <div class="container">
     <div>
       <app-title-principal class="titulo" titleText="Visualización De Citas"></app-title-principal>
     </div>
     <div class="filtro-fecha">
-      <app-input-date-history  (change)="filtrarCitas($event)"></app-input-date-history>
+      <app-input-date-history (change)="filtrarCitas($event)"></app-input-date-history>
     </div>
     <table>
       <thead>
@@ -20,17 +19,17 @@
       <tbody>
         <tr *ngFor="let cita of citasFiltradas">
           <td>
-            <img [src]="cita.imagenMedico" alt="{{cita.medico}}" class="imagen-medico">
-            {{cita.medico}}
+            <img [src]="cita.imagenMedico" alt="{{cita.nameMedico}}" class="imagen-medico">
+            {{cita.nameMedico}}
           </td>
           <td>{{cita.especialidad}}</td>
-          <td>{{cita.paciente}}</td>
+          <td>{{cita.namePaciente}}</td>
           <td>
-            <span [ngClass]="obtenerClaseEstado(cita.estado)">{{ traducirEstado(cita.estado) }}</span>
+            <span class="estado-circulo" [ngClass]="obtenerClaseCirculo(cita.estado)"></span>
+            <span>{{ traducirEstado(cita.estado) }}</span>
           </td>
           <td>
             <app-button value="Ver más" (click)="verMas(cita)"></app-button>
-            <app-button value="Reagendar Cita" (click)="rescheduleAppointment()"></app-button>
           </td>
         </tr>
       </tbody>
@@ -39,5 +38,6 @@
 </div>
 
 <app-footer></app-footer>
-<app-appointment-modal [showModal]="showModal" [cita]="selectedCita" (close)="closeModal()"></app-appointment-modal>
-<app-reagendar-cita [showModal]="showRescheduleModal" (reagendarCita)="onReagendar($event)"></app-reagendar-cita>
+<app-modal-display-data *ngIf="showModal" [cita]="selectedCita" (closeModalEvent)="closeModal()"></app-modal-display-data>
+
+

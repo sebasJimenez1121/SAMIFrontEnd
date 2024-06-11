@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component,Input,Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-text-area',
@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class InputTextAreaComponent{
   text: string = '';
+  @Input() value: string = '';
+ 
 
+  onInputChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
+   
+}
   constructor() { }
 }

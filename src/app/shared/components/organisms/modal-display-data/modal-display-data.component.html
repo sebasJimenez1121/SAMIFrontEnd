@@ -1,0 +1,72 @@
+<div class="modal" *ngIf="showModal">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button" (click)="closeModal()">X</button>
+      </div>
+      <div class="modal-body">
+        <app-title-terciario titleText="Datos de la Cita"></app-title-terciario>
+        <div *ngIf="cita" class="container">
+        
+          <div class="infoDoctor">
+            <app-label content="Doctor:"></app-label>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Nombre:"></app-label>
+                <app-input [disabled]="true" [value]="cita.nameMedico"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Especialidad:"></app-label>
+                <app-input [disabled]="true" [value]="cita.especialidad"></app-input>
+              </div>
+            </div>
+          </div>
+          <div class="infoPaciente">
+            <app-label content="Paciente:"></app-label>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Nombre:"></app-label>
+                <app-input [disabled]="true" [value]="cita.namePaciente"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Nu.documento:"></app-label>
+                <app-input [disabled]="true" [value]="'' + cita.patientDocument"></app-input>
+              </div>
+            </div>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Telefono:"></app-label>
+                <app-input [disabled]="true" [value]="'' + cita.patientPhone"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Valor cita:"></app-label>
+                <app-input [disabled]="true" [value]="cita.valorCita"></app-input>
+              </div>
+            </div>
+            <div class="container-doctor">
+              <div class="fieldd">
+                <app-label content="Documentos insertados:"></app-label>
+                <app-input-file [value]="insertedDocuments"></app-input-file>
+              </div>
+              <div class="field">
+                <app-label content="Motivo cita:"></app-label>
+                <app-input-text-area [value]="cita.motivoCita"></app-input-text-area>
+              </div>
+            </div>
+            <div class="button-space">
+              <app-button class="cancelarCita" (buttonClick)="cancelAppointment()" value="Cancelar Cita"></app-button>
+              <app-button class="reagendarCita" (buttonClick)="rescheduleAppointment()" value="Reagendar Cita"></app-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <app-modal-reschedule-appointment 
+    [showRescheduleModal]="showRescheduleModal"
+    [cita]="cita"
+    (closeRescheduleModalEvent)="closeRescheduleModal()">
+  </app-modal-reschedule-appointment>
+  

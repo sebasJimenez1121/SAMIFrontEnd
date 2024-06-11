@@ -1,1 +1,6 @@
-<app-historial-cita-template></app-historial-cita-template>
+<app-historial-cita-template 
+  [citas]="citas" 
+  (viewDetails)="openModal($event)">
+</app-historial-cita-template>
+
+

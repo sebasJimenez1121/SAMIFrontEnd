@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CitaService } from '../../../../core/service/cita.service';
+import { Appointment } from '../../../../core/models/appointment.model';
 
 @Component({
   selector: 'app-historial-cita-template',
@@ -7,56 +8,56 @@ import { CitaService } from '../../../../core/service/cita.service';
   styleUrls: ['./historial-cita-template.component.css']
 })
 export class HistorialCitaTemplateComponent implements OnInit {
-  citas: any[] = [];
-  citasFiltradas: any[] = [];
+  @Input() citas: Appointment[] = [];
+  @Output() dateChange: EventEmitter<string> = new EventEmitter();
+  @Output() pageChange: EventEmitter<number> = new EventEmitter();
+  @Output() viewDetails: EventEmitter<Appointment> = new EventEmitter();
+  citasFiltradas: Appointment[] = [];
+
   showModal: boolean = false;
-  showRescheduleModal: boolean = false; 
-  selectedCita: any = null;
+  selectedCita: Appointment | null = null;
 
   constructor(private dataService: CitaService) {}
 
   ngOnInit(): void {
     this.dataService.getCitas().subscribe(data => {
       this.citas = data;
-      this.citasFiltradas = data;
+      
+      this.citasFiltradas = this.citas;
     });
   }
 
-  filtrarCitas(event: any): void {
+  onDateChange(event: any): void {
     const fecha = event.target.value;
-    this.citasFiltradas = this.citas.filter(cita => cita.fecha === fecha);
+    this.dateChange.emit(fecha);
   }
 
-  verMas(cita: any): void {
+  onPageChange(page: number): void {
+    this.pageChange.emit(page);
+  }
+
+  verMas(cita: Appointment): void {
     this.selectedCita = cita;
     this.showModal = true;
   }
-
+  
   closeModal(): void {
-    this.showModal = false;
+    this.showModal = false; 
   }
-
-  rescheduleAppointment(): void {
-    this.showModal = false;
-    this.showRescheduleModal = true; 
+  
+  filtrarCitas(event: any): void {
+    const fecha = event.target.value;
+    this.citasFiltradas = this.citas.filter(cita => cita.fechaCita === fecha);
   }
-
-  onReagendar(fecha: Date): void {
-    if (this.selectedCita) {
-      const citaId = this.selectedCita.id;
-      this.dataService.guardarFechaSeleccionada(fecha.toISOString(), citaId).subscribe(() => {
-        this.showRescheduleModal = false;
-        this.filtrarCitas({ target: { value: fecha.toISOString().split('T')[0] } });
-      });
-    }
-  }
-
-  obtenerClaseEstado(estado: string): string {
+  
+  obtenerClaseCirculo(estado: string): string {
     switch (estado) {
-      case 'Pendiente': return 'estado-pendiente';
-      case 'Completado': return 'estado-completado';
-      case 'Cancelado': return 'estado-cancelado';
-      default: return '';
+      case 'Agendada':
+        return 'circulo-activo';
+      case 'Cancelada':
+        return 'circulo-inactivo';
+      default:
+        return '';
     }
   }
 
@@ -67,5 +68,14 @@ export class HistorialCitaTemplateComponent implements OnInit {
       case 'Cancelado': return 'Cancelado';
       default: return estado;
     }
+  }
+   cancelarCita(id: number): void {
+    this.dataService.cancelarCita(id).subscribe(() => {
+      const cita = this.citas.find(c => c.id === id);
+      if (cita) {
+        cita.estado = 'Cancelada';
+        this.citasFiltradas = this.citasFiltradas.map(c => c.id === id ? { ...c, estado: 'Cancelada' } : c);
+      }
+    });
   }
 }

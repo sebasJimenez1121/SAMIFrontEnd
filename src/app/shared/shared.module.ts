@@ -71,11 +71,8 @@ import { SliderComponent } from './components/organisms/slider/slider.component'
 import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
 import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
 import { CoreModule } from '../core/core.module';
-import { TemplateBindingParseResult } from '@angular/compiler';
 import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
-import { AppointmentModalComponent  } from './components/templates/appointment-modal/appointment-modal.component';
-import { ReagendarCitaComponent } from './components/templates/reagendar-cita/reagendar-cita.component';
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
 import { ModalComponent } from './components/atoms/modal/modal.component';
 import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
@@ -83,6 +80,9 @@ import { HowToScheduleComponent } from './components/organisms/how-to-schedule/h
 import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
 import { StepperContainerComponent } from './components/molecules/stepper-container/stepper-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
+import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
+
 
 
 
@@ -158,14 +158,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppointmentManagementTemplateComponent,
     HistorialCitaTemplateComponent,
     HeaderUsuarioComponent,
-    AppointmentModalComponent ,
-    ReagendarCitaComponent,
     InputFileComponent,
     ModalComponent,
     ModalReservationFormComponent,
     HowToScheduleComponent,
     InputDateHistoryComponent,
-    StepperContainerComponent,
+    ModalDisplayDataComponent,
+    ModalRescheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
