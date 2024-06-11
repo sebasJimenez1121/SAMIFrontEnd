@@ -14,15 +14,13 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // Inicializar el formulario
     this.appointmentForm = this.fb.group({
       nombre: [''],
       apellido: [''],
       documento: [''],
       email: [''],
       telefono: [''],
-      motivo: [''],
-      archivo: [null]
+      motivo: ['']
     });
   }
 
@@ -39,7 +37,8 @@ export class AppointmentFormComponent implements OnInit, OnChanges {
         apellido: data.apellido,
         documento: data.documento,
         email: data.email,
-        telefono: data.telefono
+        telefono: data.telefono,
+        motivo: data.motivo
       });
     }
   }

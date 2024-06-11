@@ -18,8 +18,8 @@
   background-color: #fff;
   padding: 2rem 4rem;
   border-radius: 0.5rem;
-  width: 80%;
-  max-width: 33.313rem;
+  width: 100%;
+  max-width: 51.313rem;
   box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease;
 }

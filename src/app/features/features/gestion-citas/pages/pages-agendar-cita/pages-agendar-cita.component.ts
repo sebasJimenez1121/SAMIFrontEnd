@@ -9,12 +9,14 @@ interface Specialty {
   name: string;
 }
 
+
 @Component({
   selector: 'app-pages-agendar-cita',
   templateUrl: './pages-agendar-cita.component.html',
   styleUrls: ['./pages-agendar-cita.component.css']
 })
 export class PagesAgendarCitaComponent implements OnInit {
+  // Variables para almacenar la información necesaria
   specialties: Specialty[] = [];
   selectedSpecialtyId: number | null = null;
   paginatedDoctors: Doctor[] = [];
@@ -22,8 +24,8 @@ export class PagesAgendarCitaComponent implements OnInit {
   totalPages = 0;
   itemsPerPage = 9;
   showModal = false;
-  selectedDoctor: Doctor | null = null; 
-  paciente: Patient | null = null; 
+  selectedDoctor!: Doctor;
+  paciente!: Patient; 
 
   constructor(
     private doctorService: DoctorService,
@@ -31,10 +33,12 @@ export class PagesAgendarCitaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Cargar las especialidades y los doctores al iniciar la página
     this.fetchSpecialties();
     this.fetchDoctors();
   }
 
+  // Métodos para obtener las especialidades y los doctores
   fetchSpecialties() {
     this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
       this.specialties = specialties;
@@ -47,6 +51,7 @@ export class PagesAgendarCitaComponent implements OnInit {
     });
   }
 
+  // Método para aplicar filtros de búsqueda
   applyFilters() {
     let filteredDoctors = this.paginatedDoctors;
 
@@ -64,6 +69,7 @@ export class PagesAgendarCitaComponent implements OnInit {
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
   }
 
+  // Métodos para cambiar la especialidad y la página
   onSpecialtyChange(event: any) {
     this.selectedSpecialtyId = +event.target.value;
     this.currentPage = 1;
@@ -75,16 +81,19 @@ export class PagesAgendarCitaComponent implements OnInit {
     this.applyFilters();
   }
 
+  // Método para abrir el modal y obtener los datos del paciente
   openModal(doctor: Doctor): void {
     this.selectedDoctor = doctor;
-    this.getPacienteData(); // Obtiene los datos del paciente
+    this.getPacienteData(); // Obtener los datos del paciente
     this.showModal = true;
   }
   
+  // Método para cerrar el modal
   closeModal(): void {
     this.showModal = false;
   }
 
+  // Método para obtener los datos del paciente
   getPacienteData(): void {
     this.patientService.getPatientById('1').subscribe((patient: Patient) => {
       this.paciente = patient;

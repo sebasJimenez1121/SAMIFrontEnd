@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter, ViewChild, TemplateRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Doctor } from '../../../../core/models/doctor.model';
-
-
+import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-stepper-container',
@@ -9,32 +8,19 @@ import { Doctor } from '../../../../core/models/doctor.model';
   styleUrls: ['./stepper-container.component.css']
 })
 export class StepperContainerComponent {
-  @Input() steps: string[] = [];
-  @Input() currentStep: number = 0;
-  @Input() selectedDoctor: Doctor | null = null;
+  steps: string[] = ["Fecha y hora","Datos Pesonales","Metodo De Pago", "Confirmación"];
+  @Input() selectedDoctor!: Doctor;
+  @Input() selectedPatient!: Patient;
 
   @Output() prevClicked = new EventEmitter<void>();
   @Output() nextClicked = new EventEmitter<void>();
   @Output() stepChanged = new EventEmitter<number>();
   @Output() finished = new EventEmitter<void>();
 
-  @ViewChild('step1') step1Template!: TemplateRef<any>;
-  @ViewChild('step2') step2Template!: TemplateRef<any>;
-  // Agrega más ViewChild para cada plantilla adicional según sea necesario
-
-  stepTemplates: TemplateRef<any>[] = [];
-  stepData: any[] = [];
-
+  currentStep: number = 0;
   value: string = 'Continuar';
 
   constructor() {}
-
-  ngOnInit() {
-    // Inicializa el arreglo de plantillas
-    this.stepTemplates.push(this.step1Template, this.step2Template);
-    // Agrega más plantillas si es necesario
-  }
-
 
   onStepChanged(step: number) {
     this.currentStep = step;
@@ -85,19 +71,12 @@ export class StepperContainerComponent {
   }
 
   handleSelectionMade(selection: { date: Date, time: string }) {
-    this.stepData[this.currentStep] = {
-      doctorId: this.selectedDoctor?.id,
-      doctorName: this.selectedDoctor?.name,
-      doctorSpecialty: this.selectedDoctor?.specialtyName,
-      selectedDate: selection.date,
-      selectedTime: selection.time
-    };
+    // Implementar según sea necesario para cada componente de paso
     this.nextOrFinish();
   }
 
   resetStepper() {
     this.currentStep = 0;
-    this.stepData = [];
     this.updateButtonValue();
     this.stepChanged.emit(this.currentStep);
   }

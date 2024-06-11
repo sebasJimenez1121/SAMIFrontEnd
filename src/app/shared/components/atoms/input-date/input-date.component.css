@@ -7,7 +7,7 @@
   background-color: #fff;
 }
 
-.calendar_left, .calendar_right {
+.calendar_left .calendar_right {
   width: 50%;
 }
 

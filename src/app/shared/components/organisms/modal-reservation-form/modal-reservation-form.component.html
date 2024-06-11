@@ -1,25 +1,13 @@
+<!-- En el componente del modal -->
 <app-modal 
   [isVisible]="isModalVisible" 
   (closeModalEvent)="closeModal()"
   [title]="'Reserva tu Cita'">
-  
   <div class="modal-body">
     <app-stepper-container 
-      [steps]="steps" 
-      [currentStep]="currentStep"
+      [selectedPatient]="selectedPatient"
       [selectedDoctor]="selectedDoctor"
-      (prevClicked)="handlePrevClick()"
-      (nextClicked)="handleNextClick()"
-      (stepChanged)="onStepChanged($event)" 
-      (finished)="onFinished()">
-      <ng-template #step1>
-        <app-calendar-options [doctor]="doctorOrDefault"></app-calendar-options>
-
-      </ng-template>
-      <ng-template #step2>
-        <!-- Contenido del segundo paso -->
-        <app-appointment-form [appointmentData]="stepData[currentStep]"></app-appointment-form>
-      </ng-template>
+      (finished)="onFinished($event)">
     </app-stepper-container>
   </div>
 </app-modal>

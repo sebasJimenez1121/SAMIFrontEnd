@@ -1,22 +1,19 @@
 .container-form {
-    width: 90%;
+    width: 100%;
     flex-wrap: wrap;
-    margin: 5% auto;
   }
   
   .data-form {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-flow: wrap;
   }
 
   .row{
-    margin: 2% 0;
+    margin: 1em 0;
     display: flex;
     width: 100%;
   }
 
-  .row-input{
-    margin-right: 5rem;
-  }
+

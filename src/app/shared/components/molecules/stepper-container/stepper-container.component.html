@@ -5,7 +5,17 @@
     (stepChanged)="onStepChanged($event)" 
     (finished)="onFinished()">
   </app-navigation-stepper>
-  <ng-container *ngTemplateOutlet="stepTemplates[currentStep]"></ng-container>
+  <div class="steppers">
+
+  </div>
+  <div *ngIf="currentStep === 0">
+    <app-calendar-options [doctor]="selectedDoctor" (selectionMade)="handleSelectionMade($event)"></app-calendar-options>
+  </div>
+  <div *ngIf="currentStep === 1">
+    <app-appointment-form [appointmentData]="selectedPatient"></app-appointment-form>
+  </div>
+  
+
   <div class="buttons">
     <app-button 
       (buttonClick)="handlePrevClick()" 

@@ -184,7 +184,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   HistorialCitaTemplateComponent,
   ModalReservationFormComponent,
   CalendarOptionsComponent,
-  HowToScheduleComponent
+  HowToScheduleComponent,
+  AppointmentFormComponent
  ],
 
 
