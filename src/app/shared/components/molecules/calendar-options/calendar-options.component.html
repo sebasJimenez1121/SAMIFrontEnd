@@ -1,1 +1,17 @@
-<app-input-date></app-input-date>
+<div class="container-cita">
+    <div class="container-doctor">
+        <app-image-card-recommended-doctors [img]="doctor.img"></app-image-card-recommended-doctors>
+        <div class="container-content">
+            <app-label [content]="doctor.name"></app-label>
+            <app-text [content]="doctor.specialtyName"></app-text>
+            <div class="coment-rating">
+                <div class="rating">
+                    <app-input-rating></app-input-rating>
+                </div>
+                <app-text [content]="'10 Opiniones'"></app-text>
+            </div>
+            <app-text class="costo-cita" [content]="'Valor cita:'+ ' $' + doctor.appointmentCost + '  COP'"></app-text>
+        </div>
+    </div>
+     <app-input-date></app-input-date>
+</div>

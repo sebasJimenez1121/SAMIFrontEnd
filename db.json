@@ -162,7 +162,8 @@
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png",
-      "fecha": "2024-06-05T11:45:02.726Z"
+      "fecha": "2024-06-05T11:45:02.726Z",
+      "fechaCita": "2024-06-08T01:41:26.588Z"
     },
     {
       "id": "2",
@@ -218,4 +219,3 @@
     }
   ]
 }
-

@@ -1,4 +1,3 @@
-<!-- pages-agendar-cita.component.html -->
 <app-template-appointment-schedule 
   [specialties]="specialties"
   [paginatedDoctors]="paginatedDoctors"
@@ -8,3 +7,11 @@
   (pageChange)="onPageChange($event)"
   (agendarCita)="openModal($event)">
 </app-template-appointment-schedule>
+
+
+<app-modal-reservation-form 
+  [isModalVisible]="showModal" 
+  [selectedDoctor]="selectedDoctor"
+  
+  (closeModalEvent)="closeModal()">
+</app-modal-reservation-form>

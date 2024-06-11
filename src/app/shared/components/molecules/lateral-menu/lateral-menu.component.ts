@@ -1,25 +1,48 @@
-
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lateral-menu',
   templateUrl: './lateral-menu.component.html',
-  styleUrl: './lateral-menu.component.css'
+  styleUrls: ['./lateral-menu.component.css']
 })
 export class LateralMenuComponent {
   @Input() menuItems = [
-    { link: '/home', label: 'Inicio', icon: 'assets/icons/home.svg' },
-    { link: '/agenda', label: 'Agenda de Citas', icon: 'assets/icons/agenda.svg' },
-    { link: '/historia', label: 'Historia Clínica', icon: 'assets/icons/historia.svg' },
-    { link: '/pacientes', label: 'Agenda de Pacientes', icon: 'assets/icons/pacientes.svg' },
-    { link: '/recetas', label: 'Crear Receta', icon: 'assets/icons/receta.svg' },
- 
+    { RouterLink: '/home', label: 'Inicio', icon: 'assets/icons/home.svg' },
+    { RouterLink: '/agenda', label: 'Agenda de Citas', icon: '../../../../../assets/icons/agendar-cita.svg' },
+    { RouterLink: '/pacientes', label: 'Agenda de Pacientes', icon: '../../../../../assets/icons/pacientes.svg' },
+    { RouterLink: '/historia', label: 'Historia Clínica', icon: '../../../../../assets/icons/historia-clinica.svg' },
+    { RouterLink: '/recetas', label: 'Crear Receta', icon: '../../../../../assets/icons/crear-receta.svg' }
   ];
 
   isSidebarClosed = false;
   selectedItem: any = null;
+  hoveredItem: any = null;
+
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
+  }
 
   selectMenuItem(item: any) {
     this.selectedItem = item;
+  }
+
+  iconClick(event: Event) {
+    event.stopPropagation();
+    this.toggleSidebar();
+  }
+
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
+
+  showTooltip(item: any) {
+    if (this.isSidebarClosed) {
+      this.hoveredItem = item;
+    }
+  }
+
+  hideTooltip() {
+    this.hoveredItem = null;
   }
 }

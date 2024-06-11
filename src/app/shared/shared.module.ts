@@ -40,7 +40,6 @@ import { CalendarOptionsComponent } from './components/molecules/calendar-option
 import { SetButtonsComponent } from './components/molecules/set-buttons/set-buttons.component';
 import { ButtonSetLoginRegistrationComponent } from './components/molecules/button-set-login-registration/button-set-login-registration.component';
 import { RatingSystemComponent } from './components/molecules/rating-system/rating-system.component';
-import { FilterCategoriesComponent } from './components/molecules/filter-categories/filter-categories.component';
 import { CommentsTextAreaComponent } from './components/molecules/comments-text-area/comments-text-area.component';
 import { ListFooterComponent } from './components/molecules/list-footer/list-footer.component';
 import { SetLinksLoginComponent } from './components/molecules/set-links-login/set-links-login.component';
@@ -65,7 +64,6 @@ import { MedicalCardComponent } from './components/organisms/medical-card/medica
 import { MedicalInformationComponent } from './components/organisms/medical-information/medical-information.component';
 import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
 import { MedicalProfileComponent } from './components/organisms/medical-profile/medical-profile.component';
-import { AppointmentCardComponent } from './components/organisms/appointment-card/appointment-card.component';
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
@@ -81,6 +79,10 @@ import { ReagendarCitaComponent } from './components/templates/reagendar-cita/re
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
 import { ModalComponent } from './components/atoms/modal/modal.component';
 import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
+import { HowToScheduleComponent } from './components/organisms/how-to-schedule/how-to-schedule.component';
+import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
+import { StepperContainerComponent } from './components/molecules/stepper-container/stepper-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -124,7 +126,6 @@ import { ModalReservationFormComponent } from './components/organisms/modal-rese
     SetButtonsComponent,
     ButtonSetLoginRegistrationComponent,
     RatingSystemComponent,
-    FilterCategoriesComponent,
     CommentsTextAreaComponent,
     ListFooterComponent,
     SetLinksLoginComponent,
@@ -149,7 +150,6 @@ import { ModalReservationFormComponent } from './components/organisms/modal-rese
     MedicalInformationComponent,
     DoctorCommentsComponent,
     MedicalProfileComponent,
-    AppointmentCardComponent,
     LoginTemplateComponent,
     RegisterTemplateComponent,
     StarterTemplateComponent,
@@ -163,12 +163,16 @@ import { ModalReservationFormComponent } from './components/organisms/modal-rese
     InputFileComponent,
     ModalComponent,
     ModalReservationFormComponent,
+    HowToScheduleComponent,
+    InputDateHistoryComponent,
+    StepperContainerComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
  exports:[
   HeaderComponent,
@@ -178,7 +182,9 @@ import { ModalReservationFormComponent } from './components/organisms/modal-rese
   RegisterTemplateComponent,
   AppointmentManagementTemplateComponent,
   HistorialCitaTemplateComponent,
-  NavigationStepperComponent
+  ModalReservationFormComponent,
+  CalendarOptionsComponent,
+  HowToScheduleComponent
  ],
 
 

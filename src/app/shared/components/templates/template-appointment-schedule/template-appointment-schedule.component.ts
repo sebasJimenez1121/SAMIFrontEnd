@@ -28,7 +28,7 @@ export class TemplateAppointmentScheduleComponent {
     this.pageChange.emit(page);
   }
 
-  agendarCitaHandler(doctor: Doctor) {
+  openModal(doctor: Doctor) {
     this.agendarCita.emit(doctor);
   }
 }

@@ -1,0 +1,21 @@
+<div class="container-stepper">
+  <app-navigation-stepper 
+    [steps]="steps" 
+    [(currentStep)]="currentStep" 
+    (stepChanged)="onStepChanged($event)" 
+    (finished)="onFinished()">
+  </app-navigation-stepper>
+  <ng-container *ngTemplateOutlet="stepTemplates[currentStep]"></ng-container>
+  <div class="buttons">
+    <app-button 
+      (buttonClick)="handlePrevClick()" 
+      [value]="'Atrás'" 
+      [isDisabled]="currentStep === 0">
+    </app-button>
+    <app-button 
+      (buttonClick)="handleNextClick()" 
+      [value]="value" 
+      [isDisabled]="!isCurrentStepValid()">
+    </app-button>
+  </div>
+</div>

@@ -1,50 +1,54 @@
+/* Contenedor del modal */
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+/* Estilo del contenido del modal */
+.modal-display-appointment {
+  position: relative;
+  background-color: #fff;
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  width: 80%;
+  max-width: 33.313rem;
+  box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animación para el fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .modal-display-appointment {
-    position: relative;
-    background-color: #fff;
-    padding: 2rem 4rem;
-    border-radius: 0.5rem;
-    width: 80%;
-    max-width: 31.313rem;
-    box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.3s ease;
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .close-buttonX {
-    position: absolute;
-    top: 0.625rem;
-    right: 0.625rem;
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    cursor: pointer;
-    margin: 0rem 1rem 0rem 0rem;
-  }
-  
-  .title-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-  }
-  
+}
+
+/* Estilo del botón de cierre */
+.close-buttonX {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin: 0; /* Ajuste del margen a cero */
+}
+
+/* Contenedor del título */
+.title-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}

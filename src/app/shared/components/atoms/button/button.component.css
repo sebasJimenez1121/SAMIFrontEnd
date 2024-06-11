@@ -7,14 +7,22 @@ button {
   background-size: 200% auto;
   font-size: 0.75rem;
   height: 2.5rem;
-  width:7rem; 
- position: relative;
+  width: 7rem; 
+  position: relative;
   transition: background-position 0.5s, background-size 0.5s;
   right: 2rem;
+  cursor: pointer;
 }
 
 button:hover {
   background-position: right center;
   background-size: 200% auto;
   animation: pulse 1.5s infinite;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #5A5D5F;
+  cursor: not-allowed;
+  background-image: none; /* Eliminar el degradado cuando está deshabilitado */
 }

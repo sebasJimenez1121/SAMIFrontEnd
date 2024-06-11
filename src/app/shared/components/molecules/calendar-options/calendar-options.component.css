@@ -1,0 +1,33 @@
+.container-cita {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-doctor {
+    display: flex;
+    width: 65%;
+}
+
+
+.container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%; 
+    max-height: 4rem;
+    margin: 2em 2em;
+}
+
+.rating {
+    width: auto;
+}
+
+.coment-rating {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start;
+}
+

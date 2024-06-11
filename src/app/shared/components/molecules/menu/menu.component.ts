@@ -12,17 +12,18 @@ export class MenuComponent {
       name: 'Citas', 
       link: '/gestion-cita', 
       subMenu: [
-        { name: 'Agendar Cita', link: '/agendar-cita' },
-        { name: 'Visualizar Cita', link: '/visualizar-cita' }
+        { name: 'Agendar Cita', link: '/agendar-cita' }, 
+        { name: 'Visualizar Cita', link: '/visualizar-cita' } 
+      ]
+    },
+    { 
+      name: 'Seguimento', 
+      link: '/', 
+      subMenu: [
+        { name: 'Medicamentos', link: '/medicamentos' }, // Enlace del submenú
+        { name: 'Notas Doctor', link: '/notas-doctor' } // Enlace del submenú
       ] 
     },
-    { name: 'Seguimento', 
-      link: '/',
-    subMenu: [
-      { name: 'Medicamentos', link: '/' },
-      { name: 'Notas Doctor', link: '/' }
-    ] 
-    },
     { name: 'Médicos', link: '/doctors' },
-  ];                       
+  ];                    
 }

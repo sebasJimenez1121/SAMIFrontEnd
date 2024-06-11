@@ -1,30 +1,36 @@
 <div class="container-form">
-    <app-title-terciario titleText="Reserva tu cita"></app-title-terciario>
-    <div class="data-form" >
-        <div class="row">
-            <div class="row-input">
-                <app-label [content]="'Nombre:'"></app-label>
-                <app-input placeholder="Nombre" id="nombre" name="nombre"></app-input>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+        <div class="data-form">
+            <div class="row">
+                <div class="row-input">
+                    <app-label [content]="'Nombre:'"></app-label>
+                    <input formControlName="nombre" placeholder="Nombre" id="nombre" name="nombre">
+                </div>
+                <div class="row-input">
+                    <app-label [content]="'Apellido:'"></app-label>
+                    <input formControlName="apellido" placeholder="Apellido" id="apellido" name="apellido">
+                </div>
+                <div class="row-input">
+                    <app-label [content]="'Documento:'"></app-label>
+                    <input formControlName="documento" placeholder="Documento" id="documento" name="documento">
+                </div>
             </div>
-            <div class="row-input">
-                <app-label [content]="'Apellido:'"></app-label>
-                <app-input placeholder="Apellido" id="apellido" name="apellido"></app-input>
+            <div class="row">
+                <div class="row-input">
+                    <app-label [content]="'Correo Electronico:'"></app-label>
+                    <input formControlName="email" placeholder="Correo Electronico" id="email" name="email">
+                </div>
+                <div class="row-input">
+                    <app-label [content]="'Telefono:'"></app-label>
+                    <input formControlName="telefono" placeholder="Telefono" id="telefono" name="telefono">
+                </div>
+                <app-input-file></app-input-file>
             </div>
-            <div class="row-input">
-                <app-label [content]="'Correo Electronico:'"></app-label>
-                <app-input placeholder="Documento" id="documento" name="documento"></app-input>
+            <div>
+                <app-label content="Motivo:"></app-label>
+                <textarea formControlName="motivo"></textarea>
             </div>
+            <button type="submit">Enviar</button>
         </div>
-        <div class="row">
-            <div class="row-input">
-                <app-label [content]="'Correo Electronico:'"></app-label>
-                <app-input placeholder="Correo Electronico" id="email" name="email"></app-input>
-            </div>
-            <div class="row-input">
-                <app-label [content]="'telefono:'"></app-label>
-                <app-input placeholder="Telefono" id="telefono" name="telefono"></app-input>
-            </div>
-            <app-input-file></app-input-file>
-        </div>
-    </div>
+    </form>
 </div>

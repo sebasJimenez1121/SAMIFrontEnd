@@ -1,19 +1,31 @@
 <div class="sidebar" [ngClass]="{'closed': isSidebarClosed}">
-    <div class="sidebar-header">
-    </div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item" *ngFor="let item of menuItems" 
-          [routerLink]="[item.link]" 
-          routerLinkActive="active" 
-          (click)="selectMenuItem(item)">
-        <a class="navbar__link">
-          <div class="sidebar-menu-content">
-            <img [src]="item.icon" alt="{{ item.label }}" class="menu-icon">
-          </div>
-          <span>{{ item.label }}</span>
-          <span class="highlight-circle" *ngIf="selectedItem === item"></span>
-        </a>
-      </li>
-    </ul>
+  <div class="sidebar-header">
+    <app-image
+      alt="Toggle Sidebar"
+      class="menu-toggle"
+      (click)="toggleSidebar()"
+      [imageUrl]="isSidebarClosed ? '../../../../../assets/images/logo-favicon.png' : '../../../../../assets/images/logo-comprimido.png'">
+    </app-image>
   </div>
-  
+  <ul class="sidebar-menu">
+    <li class="sidebar-menu-item" *ngFor="let item of menuItems"
+        [routerLink]="[item.RouterLink]"
+        routerLinkActive="active"
+        (click)="selectMenuItem(item)">
+      <a class="navbar__link" (mouseenter)="showTooltip(item)" (mouseleave)="hideTooltip()">
+        <div class="sidebar-menu-content" (click)="iconClick($event)">
+          <img [src]="item.icon" alt="{{ item.label }}" class="menu-icon">
+        </div>
+        <span (click)="stopPropagation($event)">{{ item.label }}</span>
+        <span class="highlight-circle" *ngIf="selectedItem === item"></span>
+      </a>
+      <div class="tooltip" *ngIf="isSidebarClosed && hoveredItem === item">
+        {{ item.label }}
+      </div>
+    </li>
+  </ul>
+  <div class="extra-content" *ngIf="!isSidebarClosed">
+    <app-image class="large-image" imageUrl="../../../../../assets/images/espacio-cita.png"></app-image>
+    <app-button class="register-button" value="Próximas citas"></app-button>
+  </div>
+</div>
