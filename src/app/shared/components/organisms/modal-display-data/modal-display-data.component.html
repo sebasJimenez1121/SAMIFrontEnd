@@ -6,6 +6,7 @@
       </div>
       <div class="modal-body">
         <app-title-terciario titleText="Datos de la Cita"></app-title-terciario>
+        <hr>
         <div *ngIf="cita" class="container">
         
           <div class="infoDoctor">
@@ -55,6 +56,7 @@
             </div>
             <div class="button-space">
               <app-button class="cancelarCita" (buttonClick)="cancelAppointment()" value="Cancelar Cita"></app-button>
+             
               <app-button class="reagendarCita" (buttonClick)="rescheduleAppointment()" value="Reagendar Cita"></app-button>
             </div>
           </div>

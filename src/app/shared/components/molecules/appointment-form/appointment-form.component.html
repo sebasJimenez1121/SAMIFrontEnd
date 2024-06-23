@@ -28,9 +28,12 @@
                     <app-input [placeholder]="'Telefono'" [id]="'telefono'"
                         name="telefono" ></app-input>
                 </div>
-                <app-input-file></app-input-file>
+                <div class="row-input">
+                    <app-label [content]="'inserte Un Documento'"></app-label>
+                    <app-input-file></app-input-file>
+                </div>
             </div>
-            <div>
+            <div class="row-input">
                 <app-label content="Motivo:"></app-label>
                 <app-input-text-area [value]="'inserte'"></app-input-text-area>
             </div>

@@ -1,6 +1,8 @@
 .container-form {
     width: 100%;
+    display: flex;
     flex-wrap: wrap;
+    margin-left: 3.2em;
   }
   
   .data-form {
@@ -13,6 +15,17 @@
   .row{
     margin: 1em 0;
     display: flex;
+    width: 100%;
+  }
+
+  .row-input{
+    width: 18em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row-input app-input{
     width: 100%;
   }
 

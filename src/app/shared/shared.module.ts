@@ -84,6 +84,9 @@ import { ModalDisplayDataComponent } from './components/organisms/modal-display-
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
 import { ButtonsPagoComponent } from './components/molecules/buttons-pago/buttons-pago.component';
 import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
+import { ButtonPriceComponent } from './components/molecules/button-price/button-price.component';
+import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
+import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
 
 
 
@@ -169,7 +172,10 @@ import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/
     ModalRescheduleAppointmentComponent,
     StepperContainerComponent,
     ButtonsPagoComponent,
-    VisualizarCitaComponent
+    VisualizarCitaComponent,
+    ButtonPriceComponent,
+    EmptyStateComponent,
+    HomeAdminTemplateComponent
   ],
   imports: [
     CommonModule,
@@ -190,6 +196,7 @@ import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/
   CalendarOptionsComponent,
   HowToScheduleComponent,
   AppointmentFormComponent
+  
  ],
 
 

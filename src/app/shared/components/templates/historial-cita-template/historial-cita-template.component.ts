@@ -20,36 +20,35 @@ export class HistorialCitaTemplateComponent implements OnInit {
   constructor(private dataService: CitaService) {}
 
   ngOnInit(): void {
-    this.dataService.getCitas().subscribe(data => {
-      this.citas = data;
-      
-      this.citasFiltradas = this.citas;
-    });
+    this.loadCitas();
   }
 
-  onDateChange(event: any): void {
+  loadCitas(): void {
+    this.dataService.getCitas().subscribe(
+      (data: Appointment[]) => {
+        this.citas = data;
+        this.citasFiltradas = this.citas; // Aseguramos que las citas filtradas también se inicialicen correctamente
+      },
+      (error: any) => {
+        console.error('Error loading citas:', error);
+      }
+    );
+  }
+
+  filtrarCitas(event: any): void {
     const fecha = event.target.value;
-    this.dateChange.emit(fecha);
-  }
-
-  onPageChange(page: number): void {
-    this.pageChange.emit(page);
+    this.citasFiltradas = this.citas.filter(cita => cita.fechaCita.startsWith(fecha)); // Filtrar por fecha (ej. 2024-06-04)
   }
 
   verMas(cita: Appointment): void {
     this.selectedCita = cita;
     this.showModal = true;
   }
-  
+
   closeModal(): void {
-    this.showModal = false; 
+    this.showModal = false;
   }
-  
-  filtrarCitas(event: any): void {
-    const fecha = event.target.value;
-    this.citasFiltradas = this.citas.filter(cita => cita.fechaCita === fecha);
-  }
-  
+
   obtenerClaseCirculo(estado: string): string {
     switch (estado) {
       case 'Agendada':
@@ -69,7 +68,8 @@ export class HistorialCitaTemplateComponent implements OnInit {
       default: return estado;
     }
   }
-   cancelarCita(id: number): void {
+
+  cancelarCita(id: number): void {
     this.dataService.cancelarCita(id).subscribe(() => {
       const cita = this.citas.find(c => c.id === id);
       if (cita) {

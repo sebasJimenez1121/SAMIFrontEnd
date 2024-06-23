@@ -14,7 +14,7 @@
     <app-appointment-form [appointmentData]="selectedPatient" (formDataReady)="handleFormDataReady($event)"></app-appointment-form>
   </ng-container>
   <ng-container *ngIf="currentStep === 2">
-    <app-buttons-pago></app-buttons-pago>
+    <app-button-price></app-button-price>
   </ng-container>
   <ng-container *ngIf="currentStep === 3">
     <app-visualizar-cita></app-visualizar-cita>
@@ -27,7 +27,6 @@
       [isDisabled]="currentStep === 0">
     </app-button>
     <app-button 
-      *ngIf="currentStep < steps.length - 1"
       (buttonClick)="handleNextClick()" 
       [value]="value">
     </app-button>

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-date-history',
@@ -7,6 +7,7 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class InputDateHistoryComponent {
   @ViewChild('dateInput') dateInput: any;
+  @Output() change: EventEmitter<any> = new EventEmitter();
 
   selectedDate: string;
 
@@ -24,5 +25,9 @@ export class InputDateHistoryComponent {
 
   openCalendar(): void {
     this.dateInput.open(); 
+  }
+
+  onDateChange(event: any): void {
+    this.change.emit(event.target.value);
   }
 }

@@ -9,4 +9,8 @@ export interface Doctor {
     img: string;
     appointmentCost: number;
   }
-  
+  export interface Specialty {
+    id: number;
+    name: string;
+   
+  }

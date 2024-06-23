@@ -1,2 +1,2 @@
-<input type="date" id="fecha" [(ngModel)]="selectedDate" class="styled-date-input" #dateInput="ngModel">
+<input type="date" #dateInput (change)="onDateChange($event)"class="styled-date-input"  [value]="selectedDate" >
 <span class="arrow-icon" (click)="openCalendar()"></span>

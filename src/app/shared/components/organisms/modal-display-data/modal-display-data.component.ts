@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CitaService } from '../../../../core/service/cita.service';
 import { Appointment } from '../../../../core/models/appointment.model';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-modal-display-data',
   templateUrl: './modal-display-data.component.html',
@@ -34,9 +34,19 @@ export class ModalDisplayDataComponent implements OnInit {
     if (this.cita) {
       this.dataService.cancelarCita(this.cita.id).subscribe(() => {
         this.closeModal();
+        Swal.fire({
+          imageUrl: "../../../../../assets/images/Exito.png",
+          imageWidth: 250,
+          imageHeight: 250,
+          imageAlt: "Custom image",
+          title: "Cita cancelada",
+          text: "La cita ha sido cancelada exitosamente.",
+          
+        });
       });
     }
   }
+  
 
   closeModal(): void {
     this.showModal = false;
@@ -44,12 +54,13 @@ export class ModalDisplayDataComponent implements OnInit {
   }
 
   rescheduleAppointment(): void {
-    // Almacenar los valores de nuevaFecha y nuevaHora antes de abrir el modal de reagendar cita
+   
     this.nuevaFechaTemporal = this.nuevaFecha;
     this.nuevaHoraTemporal = this.nuevaHora;
   
-    this.showModal = false; // Cerrar el modal principal
-    this.showRescheduleModal = true; // Abrir el modal de reagendar cita
+    this.showModal = false; 
+    this.showRescheduleModal = true; 
+    
   }
   
   closeRescheduleModal(): void {
