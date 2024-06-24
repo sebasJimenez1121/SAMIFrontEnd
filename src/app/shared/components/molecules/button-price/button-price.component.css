@@ -1,3 +1,19 @@
+.container{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container img {
+    width: 45%;
+}
+
+.price{
+    width: 30%;
+}
+
 .buttons-login{
     width: 100%;
     display: flex;

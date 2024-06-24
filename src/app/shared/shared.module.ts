@@ -72,7 +72,6 @@ import { TemplateAppointmentScheduleComponent } from './components/templates/tem
 import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
 import { CoreModule } from '../core/core.module';
 import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
-import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
 import { ModalComponent } from './components/atoms/modal/modal.component';
 import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
@@ -162,7 +161,6 @@ import { HomeAdminTemplateComponent } from './components/templates/home-admin-te
     TemplateAppointmentScheduleComponent,
     AppointmentManagementTemplateComponent,
     HistorialCitaTemplateComponent,
-    HeaderUsuarioComponent,
     InputFileComponent,
     ModalComponent,
     ModalReservationFormComponent,
@@ -195,8 +193,9 @@ import { HomeAdminTemplateComponent } from './components/templates/home-admin-te
   ModalReservationFormComponent,
   CalendarOptionsComponent,
   HowToScheduleComponent,
-  AppointmentFormComponent
-  
+  AppointmentFormComponent,
+  LateralMenuComponent,
+  FooterComponent
  ],
 
 

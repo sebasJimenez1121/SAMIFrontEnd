@@ -242,5 +242,9 @@
       "telefono": "456789123",
       "documento": "4567890123"
     }
+  ],
+  "users": [
+    { "id": 1, "role": "admin" },
+    { "id": 2, "role": "paciente" }
   ]
 }
