@@ -86,6 +86,7 @@ import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/
 import { ButtonPriceComponent } from './components/molecules/button-price/button-price.component';
 import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
 import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
+import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
 
 
 
@@ -173,7 +174,8 @@ import { HomeAdminTemplateComponent } from './components/templates/home-admin-te
     VisualizarCitaComponent,
     ButtonPriceComponent,
     EmptyStateComponent,
-    HomeAdminTemplateComponent
+    HomeAdminTemplateComponent,
+    CustomAlertComponent
   ],
   imports: [
     CommonModule,

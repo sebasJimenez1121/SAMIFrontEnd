@@ -162,7 +162,7 @@
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-06-04 08:47"
+      "fechaCita": "2024-06-02 10:48"
     },
     {
       "id": "2",
@@ -182,7 +182,7 @@
       "nameMedico": "Dr. Isabella Sanchez",
       "especialidad": "Dermatologia",
       "namePaciente": "Jane Doe",
-      "estado": "Agendada",
+      "estado": "Cancelada",
       "patientDocument": "12345678",
       "patientPhone": "321564895",
       "valorCita": "90.000",
@@ -214,7 +214,7 @@
       "valorCita": "50.000",
       "motivoCita": "Revisión general",
       "imagenMedico": "../../../../../assets/images/Link → doctor_4.png.png",
-      "fechaCita": "2024-06-06 16:46"
+      "fechaCita": "2024-06-02 00:12"
     }
   ],
   "patients": [
@@ -244,7 +244,13 @@
     }
   ],
   "users": [
-    { "id": 1, "role": "admin" },
-    { "id": 2, "role": "paciente" }
+    {
+      "id": "1",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "role": "paciente"
+    }
   ]
 }

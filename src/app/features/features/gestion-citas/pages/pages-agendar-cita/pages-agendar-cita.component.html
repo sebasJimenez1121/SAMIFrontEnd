@@ -6,7 +6,8 @@
   [totalPages]="totalPages"
   (specialtyChange)="onSpecialtyChange($event)"
   (pageChange)="onPageChange($event)"
-  (agendarCita)="openModal($event)">
+  (agendarCita)="openModal($event)"
+  [userRole]="rol">
 </app-template-appointment-schedule>
 
 <app-modal-reservation-form 

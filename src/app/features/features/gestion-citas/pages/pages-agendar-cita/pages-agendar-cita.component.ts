@@ -3,6 +3,7 @@ import { DoctorService } from '../../../../../core/service/doctor.service';
 import { PatientService } from '../../../../../core/service/paciente.service';
 import { Doctor } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
+import { AuthService } from '../../../../../core/service/auth-service.service';
 
 interface Specialty {
   id: number;
@@ -25,15 +26,20 @@ export class PagesAgendarCitaComponent implements OnInit {
   showModal = false;
   selectedDoctor!: Doctor;
   paciente!: Patient;
+  rol : any = "";
 
   constructor(
     private doctorService: DoctorService,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private  authService:AuthService
   ) {}
 
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
+    this.authService.fetchUserRole(1).subscribe(role => {
+      this.rol = this.authService.setUserRole(role);
+    });
   }
 
   fetchSpecialties() {

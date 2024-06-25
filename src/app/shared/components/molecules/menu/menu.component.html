@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of menuItems" class="menu-item" (click)="navigate(item.link, $event)">
-    <a>{{ item.name }}</a>
+    <a class="menu">{{ item.name }}</a>
     <ul *ngIf="item.subMenu" class="submenu">
       <li *ngFor="let subItem of item.subMenu" (click)="navigate(subItem.link, $event)">
         <a>{{ subItem.name }}</a>

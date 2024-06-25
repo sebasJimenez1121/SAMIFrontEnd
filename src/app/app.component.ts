@@ -1,4 +1,3 @@
-// app.component.ts
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../app/core/service/auth-service.service'
 
@@ -8,12 +7,19 @@ import { AuthService } from '../app/core/service/auth-service.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'SAMI'
+  title = 'SAMI';
+  isSidebarClosed = false;
+  useRole : any = "";
+
   constructor(public authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.fetchUserRole(2).subscribe(role => {
+    this.authService.fetchUserRole(1).subscribe(role => {
       this.authService.setUserRole(role);
     });
+  }
+
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
   }
 }
