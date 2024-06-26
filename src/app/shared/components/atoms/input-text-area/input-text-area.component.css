@@ -6,15 +6,15 @@ textarea {
   border-bottom: 2px solid #D1D1D1; /* Solo el borde inferior */
   border-radius: 0; /* Quita el borde redondeado */
   box-shadow: none; /* Quita la sombra */
-  font-size: 16px; /* Tamaño de la fuente */
+  font-size: 12px; /* Tamaño de la fuente */
   font-family: Arial, sans-serif; /* Familia de la fuente */
   resize: none; /* Deshabilita el redimensionamiento */
-  background-color: #F8F8F8; /* Color de fondo */
+  color: grey;
   outline: none; /* Quita el borde azul al hacer click */
 }
 
   .custom-textarea:focus {
     outline: none; 
-    border-color: #007bff; 
+    border-color: #203B8F; 
   }
   

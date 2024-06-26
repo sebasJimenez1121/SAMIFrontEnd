@@ -14,8 +14,16 @@ export class ModalRescheduleAppointmentComponent {
   @Output() closeRescheduleModalEvent: EventEmitter<void> = new EventEmitter<void>();
   nuevaFecha: string = '';
   nuevaHora: string = '';
+  swalAlert: any = null;
+  minDate: Date;
+  maxDate: Date;
+  showDateErrorMessage: boolean = false;
 
-  constructor(private dataService: CitaService) {}
+  constructor(private dataService: CitaService) {
+    const today = new Date();
+    this.minDate = new Date(today.getFullYear(), today.getMonth(), 1); // Primer día del mes actual
+    this.maxDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Último día del mes actual
+  }
 
   closeRescheduleModal(): void {
     this.closeRescheduleModalEvent.emit();
@@ -24,44 +32,124 @@ export class ModalRescheduleAppointmentComponent {
 
   guardarNuevaFecha(): void {
     if (this.cita && this.nuevaFecha && this.nuevaHora) {
-      const nuevaFechaHora = `${this.nuevaFecha} ${this.nuevaHora}`;
+      const fechaSeleccionada = new Date(this.nuevaFecha);
 
+      // Validar que la fecha no sea sábado ni domingo
+      if (fechaSeleccionada.getDay() === 0 || fechaSeleccionada.getDay() === 6) {
+        this.showWeekendWarningAlert();
+        return;
+      }
+
+      // Validar que la fecha esté dentro del rango del mes actual
+      if (fechaSeleccionada < this.minDate || fechaSeleccionada > this.maxDate) {
+        this.showDateErrorMessage = true;
+        return;
+      }
+
+      const nuevaFechaHora = `${this.nuevaFecha} ${this.nuevaHora}`;
       this.dataService.verificarDisponibilidad(nuevaFechaHora).subscribe(disponible => {
         if (disponible) {
-          Swal.fire({
-            title: '¿Estás seguro?',
-            text: '¿Quieres reagendar esta cita?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Sí, reagendar',
-            cancelButtonText: 'Cancelar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              const citaId = this.cita?.id; 
-              if (citaId) {
-                this.dataService.guardarFechaSeleccionada(nuevaFechaHora, citaId).subscribe(() => {
-                  this.dataService.enviarNotificaciones(citaId).subscribe(() => {
-                    Swal.fire('Cita Reagendada', 'La cita se ha reagendado exitosamente.', 'success');
-                    this.closeRescheduleModal();
-                  }, error => {
-                    Swal.fire('Error', 'Hubo un problema al enviar las notificaciones.', 'error');
-                    console.error('Error al enviar notificaciones:', error);
-                  });
-                }, error => {
-                  Swal.fire('Error', 'Hubo un problema al reagendar la cita. Por favor, inténtalo de nuevo.', 'error');
-                  console.error('Error al guardar nueva fecha:', error);
-                });
-              } else {
-                console.error('El ID de la cita es null o indefinido.');
-              }
-            }
-          });
+          this.showConfirmAlert();
         } else {
-          Swal.fire('Horario No Disponible', 'El horario seleccionado no está disponible. Por favor, elige otro horario.', 'warning');
+          this.showWarningAlert();
         }
+      }, error => {
+        console.error('Error al verificar disponibilidad:', error);
+        // Manejo de errores en la suscripción
       });
     } else {
       console.error('La cita, nuevaFecha o nuevaHora es null o indefinida.');
+    }
+  }
+
+  showConfirmAlert(): void {
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: '¿Quieres reagendar esta cita?',
+      showCancelButton: true,
+      confirmButtonColor: '#1F3FAE',
+      cancelButtonColor: '#A32020',
+      confirmButtonText: 'Sí, reagendar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.handleAlertButtonClick(1);
+      }
+    });
+  }
+
+  showWeekendWarningAlert(): void {
+    Swal.fire({
+      title: 'Día No Disponible',
+      text: 'No se puede agendar citas los sábados ni domingos. Por favor, elige otro día.',
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      toast: true,
+      position: 'top',
+      background: '#F5C0B8',
+      iconColor: '#D02B20'
+    });
+  }
+
+  showWarningAlert(): void {
+    Swal.fire({
+      title: 'Horario No Disponible',
+      text: 'El horario seleccionado no está disponible. Por favor, elige otro horario.',
+      icon: 'warning',
+      showConfirmButton: false,
+      showCancelButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      toast: true,
+      position: 'top',
+      background: '#F5C0B8',
+      iconColor: '#D02B20'
+    });
+  }
+
+  handleAlertButtonClick(id: number | null): void {
+    if (id === 1) {
+      const citaId = this.cita?.id;
+      if (citaId) {
+        const nuevaFechaHora = `${this.nuevaFecha} ${this.nuevaHora}`;
+        this.dataService.guardarFechaSeleccionada(nuevaFechaHora, citaId).subscribe(() => {
+          this.dataService.enviarNotificaciones(citaId).subscribe(() => {
+            this.showSuccessAlert();
+            this.closeRescheduleModal();
+          }, error => {
+            console.error('Error al enviar notificaciones:', error);
+          });
+        }, error => {
+          console.error('Error al guardar nueva fecha:', error);
+        });
+      } else {
+        console.error('El ID de la cita es null o indefinido.');
+      }
+    }
+  }
+
+  showSuccessAlert(): void {
+    this.swalAlert = Swal.fire({
+      title: 'Cita Reagendada',
+      text: 'La cita se ha reagendado exitosamente.',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      toast: true,
+      position: 'top',
+      background: '#C6F0C2',
+      iconColor: '#1C5314'
+    });
+  }
+
+  // Método para cerrar la alerta de SweetAlert2
+  closeSwalAlert(): void {
+    if (this.swalAlert) {
+      Swal.close();
+      this.swalAlert = null;
     }
   }
 }

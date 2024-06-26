@@ -1,10 +1,11 @@
 <div *ngIf="authService.isPatient()">
     <app-header></app-header>
-</div>
-<div *ngIf="authService.isAdmin()">
+  </div>
+  <div *ngIf="authService.isAdmin()">
     <app-lateral-menu></app-lateral-menu>
-</div>
-
-
-<router-outlet></router-outlet>
-
+  </div>
+  
+  <router-outlet></router-outlet>
+  
+ 
+  

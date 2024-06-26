@@ -1,4 +1,19 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface Cita {
+  id: string;
+  nameMedico: string;
+  especialidad: string;
+  namePaciente: string;
+  estado: string;
+  patientDocument: string;
+  patientPhone: string;
+  valorCita: string;
+  motivoCita: string;
+  imagenMedico: string;
+  fechaCita: string;
+}
 
 @Component({
   selector: 'app-input-date',
@@ -6,72 +21,96 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./input-date.component.css'],
 })
 export class InputDateComponent implements OnInit {
-  daysOfWeek: string[] = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-  months: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-  currentYear: number = 0;
-  currentMonthIndex: number = 0;
-  monthDays: (number | null)[] = [];
+  currentDate: Date = new Date();
+  citas: Cita[] = [];
   selectedDate: Date | null = null;
-  availableTimeSlots: string[] = [];
-  selectedTimeSlot: string | null = null;
-  @Output() dateSelected = new EventEmitter<Date>();
-  @Output() timeSlotSelected = new EventEmitter<string>();
+  hours: number | null = null;
+  minutes: number | null = null;
+  period: 'AM' | 'PM' = 'AM';
 
-  @Input() doctor: any;
-
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    const now = new Date();
-    this.currentYear = now.getFullYear();
-    this.currentMonthIndex = now.getMonth();
-    this.generateCalendarDays();
+    this.getCitasFromApi();
   }
 
-  generateCalendarDays(): void {
-    const firstDayOfMonth = new Date(this.currentYear, this.currentMonthIndex, 1).getDay();
-    const daysInMonth = new Date(this.currentYear, this.currentMonthIndex + 1, 0).getDate();
-
-    // Ajustamos el primer día de la semana para que Lunes sea el primer día (en lugar de Domingo)
-    const adjustedFirstDayOfMonth = (firstDayOfMonth + 6) % 7;
-
-    // Crear un array de tamaño `adjustedFirstDayOfMonth` con `null` y concatenar los días del mes
-    this.monthDays = [...Array(adjustedFirstDayOfMonth).fill(null), ...Array(daysInMonth).fill(0).map((_, i) => i + 1)];
+  getCitasFromApi(): void {
+    this.http.get<{ citas: Cita[] }>('http://localhost:8000/citas')  // Reemplaza con la URL de tu API
+      .subscribe(data => {
+        this.citas = data.citas;
+        console.log(this.citas);
+      });
   }
 
-  selectDate(day: number | null): void {
-    if (day !== null) {
-      this.selectedDate = new Date(this.currentYear, this.currentMonthIndex, day);
-      this.dateSelected.emit(this.selectedDate);
-      this.fetchAvailableTimeSlots(this.selectedDate);
+  changeMonth(monthChange: number): void {
+    const newDate = new Date(this.currentDate);
+    newDate.setMonth(newDate.getMonth() + monthChange);
+    this.currentDate = newDate;
+  }
+
+  getWeeksInMonth(): Date[][] {
+    const weeks: Date[][] = [];
+    let currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Empieza desde el domingo anterior o actual
+    while (currentDate.getMonth() !== this.currentDate.getMonth() + 1 || currentDate.getDay() !== 0) {
+      const week: Date[] = [];
+      for (let i = 0; i < 7; i++) {
+        week.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+      weeks.push(week);
     }
+    return weeks;
   }
 
-  selectTimeSlot(timeSlot: string): void {
-    this.selectedTimeSlot = timeSlot;
-    this.timeSlotSelected.emit(this.selectedTimeSlot);
+  isToday(date: Date): boolean {
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
   }
 
-
-  fetchAvailableTimeSlots(date: Date): void {
-    // Aquí deberías hacer una solicitud al backend para obtener las horas disponibles
-    // Ejemplo: this.calendarService.getAvailableTimeSlots(date).subscribe(...);
-
-    // Simulación de datos
-    this.availableTimeSlots = ['3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM'];
+  hasCita(date: Date): boolean {
+    return this.citas.some(cita => new Date(cita.fechaCita).toDateString() === date.toDateString());
   }
 
-  changeMonth(offset: number): void {
-    this.currentMonthIndex += offset;
+  selectDate(date: Date): void {
+    this.selectedDate = date;
+  }
 
-    if (this.currentMonthIndex < 0) {
-      this.currentMonthIndex = 11;
-      this.currentYear -= 1;
-    } else if (this.currentMonthIndex > 11) {
-      this.currentMonthIndex = 0;
-      this.currentYear += 1;
+  selectPeriod(period: 'AM' | 'PM'): void {
+    this.period = period;
+  }
+
+  saveCita(): void {
+    if (this.selectedDate && this.hours !== null && this.minutes !== null) {
+      let adjustedHours = this.hours;
+      if (this.period === 'PM' && this.hours < 12) {
+        adjustedHours += 12;
+      }
+      if (this.period === 'AM' && this.hours === 12) {
+        adjustedHours = 0;
+      }
+      this.selectedDate.setHours(adjustedHours, this.minutes);
+
+      const newCita: Cita = {
+        id: (this.citas.length + 1).toString(),
+        nameMedico: 'Dr. Example',
+        especialidad: 'General',
+        namePaciente: 'Example Patient',
+        estado: 'Agendada',
+        patientDocument: '00000000',
+        patientPhone: '0000000000',
+        valorCita: '50.000',
+        motivoCita: 'Consulta',
+        imagenMedico: 'path_to_image',
+        fechaCita: this.selectedDate.toISOString(),
+      };
+
+      this.citas.push(newCita);
+      console.log('Cita guardada:', newCita);
+    } else {
+      alert('Por favor selecciona una fecha y una hora.');
     }
-
-    this.generateCalendarDays();
   }
 }

@@ -1,5 +1,19 @@
-import { Component, Input } from '@angular/core';
-import Swal from 'sweetalert2';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+interface AlertConfig {
+  id: number;
+  alertTitle: string;
+  alertText: string;
+  alertType: 'info' | 'success' | 'warning' | 'error' | 'question';
+  showConfirmButton: boolean;
+  showCancelButton: boolean;
+  confirmButtonText: string;
+  cancelButtonText: string;
+  background?: string;
+  iconColor?: string;
+  iconHtml?: string;
+  containerClass?: string;
+}
 
 @Component({
   selector: 'app-custom-alert',
@@ -7,23 +21,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./custom-alert.component.css']
 })
 export class CustomAlertComponent {
+  @Input() alertConfig: AlertConfig | null = null;
+  @Output() buttonClick: EventEmitter<number | null> = new EventEmitter<number | null>();
 
-  @Input() alertType: 'info' | 'success' | 'warning' | 'error' = 'info';
-  @Input() title: string = 'Alert title';
-  @Input() text: string = 'Alert description';
-  @Input() showConfirmButton: boolean = true;
-  @Input() showCancelButton: boolean = false;
-  @Input() confirmButtonText: string = 'OK';
-  @Input() cancelButtonText: string = 'Cancel';
-
-  showAlert() {
-    Swal.fire({
-      title: this.title,
-      text: this.text,
-      icon: this.alertType,
-      showCancelButton: this.showCancelButton,
-      confirmButtonText: this.confirmButtonText,
-      cancelButtonText: this.cancelButtonText,
-    });
+  handleButtonClick(id: number | null): void {
+    this.buttonClick.emit(id);
   }
+
+
+  
 }

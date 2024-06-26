@@ -22,14 +22,14 @@
   
   .modal-content {
     background-color: white;
-    padding: 1.25rem; 
-    border-radius: 0.5rem; 
+    padding: 1.25rem;
+    border-radius: 0.5rem;
     position: relative;
     z-index: 1001;
-    max-width: 31.25rem;
+    max-width: 23.25rem;
     width: 100%;
   }
-  
+ 
   .modal-header {
     display: flex;
     justify-content: flex-end;
@@ -59,25 +59,36 @@
   }
   
   .field {
-    margin: 0.625rem 0.9375rem 0.625rem 1.25rem;
+    margin: 0.625rem 0.9375rem 1.625rem 1.25rem;
     display: flex;
     align-items: center;
+    flex-direction: column;
   }
   
   .button-space {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   
   app-title-terciario {
     position: relative;
-    left: 10rem; 
+    left: 6rem; 
   }
   
   app-button {
     position: relative;
     top: 1rem;
     left: 2rem; 
+  }
+  hr{
+    width: 19rem;
+    position: relative;
+    left: 1rem;
+    border: 0;
+    border-bottom: 0.063rem solid #aab2c869;
+    margin: 1rem 1rem 0.5rem 1rem ;
+  
   }
 
 
@@ -127,6 +138,17 @@
     background: url('../../../../../assets/icons/flecha-hacia-abajo-para-navegar\ 1.svg') no-repeat center;
     background-size: contain;
 }
+.input-hora::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0.625rem;
+  transform: translateY(-50%);
+  width: 0.70rem;
+  height:1rem;
+  background: url('../../../../../assets/icons/flecha-hacia-abajo-para-navegar\ 1.svg') no-repeat center;
+  background-size: contain;
+}
 
 .input-fecha::-webkit-inner-spin-button,
 .input-fecha::-webkit-clear-button {
@@ -175,7 +197,7 @@
 .input-hora::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 50%;
-    left: 0.04rem;
+    left: 0.010rem;
     transform: translateY(-50%);
     width: 2rem;
     height: 2rem;
@@ -216,4 +238,20 @@
 
 .input-fecha:-moz-placeholder {
     color: #999;
+}
+
+
+
+.error-message {
+
+    color: red;
+    font-size: 12px;
+    margin-top: 5px; 
+  }
+  
+
+
+
+.btn-secondary {
+margin: 1rem 1rem 1rem 1rem;
 }

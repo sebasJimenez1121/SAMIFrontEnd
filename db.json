@@ -156,13 +156,13 @@
       "nameMedico": "Dr. Juan Hernandez",
       "especialidad": "Cardiología",
       "namePaciente": "Jane Doe",
-      "estado": "Cancelada",
+      "estado": "Agendada",
       "patientDocument": "12345678",
       "patientPhone": "987654321",
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-06-02 10:48"
+      "fechaCita": "2024-06-05 01:08"
     },
     {
       "id": "2",
@@ -175,7 +175,7 @@
       "valorCita": "20.000",
       "motivoCita": "Migrañas fuertes",
       "imagenMedico": "../../../../../assets/images/Link → doctor_8.png.png",
-      "fechaCita": "2024-06-04 11:52"
+      "fechaCita": "2024-06-04 20:17"
     },
     {
       "id": "3",
@@ -188,7 +188,7 @@
       "valorCita": "90.000",
       "motivoCita": "Revisión general",
       "imagenMedico": "../../../../../assets/images/Link → doctor_3.png.png",
-      "fechaCita": "2024-06-04 13:19"
+      "fechaCita": "2024-06-13 15:15"
     },
     {
       "id": "4",
@@ -201,20 +201,20 @@
       "valorCita": "40.000",
       "motivoCita": "Revisión general",
       "imagenMedico": "../../../../../assets/images/Link → doctor_1.png.png",
-      "fechaCita": "2024-06-05 09:18"
+      "fechaCita": "2024-06-14 13:16"
     },
     {
       "id": "5",
       "nameMedico": "Dr. Laura Sanchez",
       "especialidad": "Dermatologia",
       "namePaciente": "Jane Doe",
-      "estado": "Cancelada",
+      "estado": "Agendada",
       "patientDocument": "12345678",
       "patientPhone": "321564895",
       "valorCita": "50.000",
       "motivoCita": "Revisión general",
       "imagenMedico": "../../../../../assets/images/Link → doctor_4.png.png",
-      "fechaCita": "2024-06-02 00:12"
+      "fechaCita": "2024-06-02 23:33"
     }
   ],
   "patients": [

@@ -22,7 +22,7 @@
   box-shadow: 0 0.125rem 0.313rem rgba(0, 0, 0, 0.2);
   z-index: 1001; 
   width: 43%; 
-  max-height: 85%; 
+  max-height: 88%; 
 
 }
 
@@ -36,9 +36,23 @@
   margin: 0rem 4rem 1rem 1rem;
   
 }
+.disabled {
+  opacity: 0.5; /* Reduce la opacidad para mostrar el botón en gris */
+  cursor: not-allowed; /* Cambia el cursor a 'not-allowed' */
+}
 
 hr{
-  width: 1rem;
+  width: 37rem;
+  position: relative;
+  left: 1rem;
+  border: 0;
+  border-bottom: 0.063rem solid #aab2c869;
+  margin: 1rem 1rem 0.5rem 1rem ;
+
+}
+.title-info{
+  position: relative;
+  left: 1rem;
 }
 
 .close-button {

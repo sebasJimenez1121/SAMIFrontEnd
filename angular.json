@@ -37,6 +37,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles/styles.css"
             ],
             "scripts": []
@@ -98,6 +99,7 @@
               "src/app/shared/components/templates/appointment-modal"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles/styles.css"
             ],
             "scripts": []

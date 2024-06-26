@@ -12,7 +12,7 @@ export class ModalDisplayDataComponent implements OnInit {
   @Input() showModal: boolean = true;
   @Input() citaId: string | null = null;
   @Output() closeModalEvent: EventEmitter<void> = new EventEmitter<void>();
-  @Input() cita: Appointment | null = null; 
+  @Input() cita: Appointment | null = null;
 
   insertedDocuments = '';
   showRescheduleModal: boolean = false;
@@ -20,6 +20,7 @@ export class ModalDisplayDataComponent implements OnInit {
   nuevaHoraTemporal: string = '';
   nuevaFecha: string = '';
   nuevaHora: string = '';
+  citaCancelada: boolean = false; // Nueva propiedad para rastrear el estado de la cita cancelada
 
   constructor(private dataService: CitaService) {}
 
@@ -36,47 +37,65 @@ export class ModalDisplayDataComponent implements OnInit {
       Swal.fire({
         title: '¿Está seguro?',
         text: '¿Está seguro de que desea cancelar esta cita?',
-        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#1F3FAE',
+        cancelButtonColor: '#A32020',
         confirmButtonText: 'Sí, cancelar cita',
         cancelButtonText: 'No, mantener cita'
       }).then((result) => {
         if (result.isConfirmed) {
-          const citaId = this.cita!.id; 
+          const citaId = this.cita!.id;
           this.dataService.cancelarCita(citaId).subscribe(
             () => {
+              this.citaCancelada = true; // Actualizar estado de cita cancelada
               this.closeModal();
-              Swal.fire({
-                imageUrl: `<img src="../../../../../assets/images/Exito.png>`,
-                imageWidth: 250,
-                imageHeight: 250,
-                imageAlt: "Custom image",
-                title: "Cita cancelada",
-                text: "La cita ha sido cancelada exitosamente."
-              });
+              this.showAlert('successCancel');
             },
             error => {
-              if (error.status === 404) {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Error',
-                  text: 'La cita no pudo ser encontrada. Por favor, verifique la información.'
-                });
-              } else {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Error',
-                  text: 'No se pudo cancelar la cita. Por favor, inténtelo nuevamente más tarde.'
-                });
-              }
+              this.showAlert('errorCancel');
             }
           );
         }
       });
-    } 
-    
+    }
+  }
+
+  showAlert(type: 'successCancel' | 'errorCancel'): void {
+    let alertConfig: any = {};
+
+    switch (type) {
+      case 'successCancel':
+        alertConfig = {
+          title: 'Cancelacion Exitosa',
+          text: 'La cita ha sido cancelada exitosamente.',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar: true,
+          toast: true,
+          position: 'top', 
+          background:"#C6F0C2",
+          iconColor:"#1C5314",
+          
+        };
+        break;
+      case 'errorCancel':
+        alertConfig = {
+          title: 'Error al cancelar cita',
+          text: 'No se pudo cancelar la cita. Por favor, inténtelo nuevamente más tarde.',
+          icon: 'error',
+          showConfirmButton: true,
+          confirmButtonText: 'OK',
+          customClass: 'swal2-error',
+          background:"#FCECEA",
+          iconColor:"#A32020",
+        };
+        break;
+      default:
+        break;
+    }
+
+    Swal.fire(alertConfig);
   }
 
   closeModal(): void {
