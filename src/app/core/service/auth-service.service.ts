@@ -1,63 +1,78 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private userRole: string = '';
-  private tokenKey: string = 'authToken';
+  public userRole: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadUserRoleFromToken();
+  }
 
-  setUserRole(role: string): void {
+  setUserRole(role: string) {
     this.userRole = role;
   }
 
   getUserRole(): string {
-    return this.userRole;
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken: any = jwt_decode.jwtDecode(token);
+        return decodedToken.role;
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return '';
+      }
+    }
+    return '';
   }
 
   isLoggedIn(): boolean {
-    return this.userRole !== '';
+    return !!localStorage.getItem('token');
   }
 
   isAdmin(): boolean {
-    return this.userRole === 'admin';
+    return this.getUserRole() === 'admin';
   }
 
   isPatient(): boolean {
-    return this.userRole === 'paciente';
+    return this.getUserRole() === 'patient';
   }
 
-  fetchUserRole(userId: number): Observable<string> {
+  fetchToken(userId: number): Observable<string> {
+
     return this.http.get<any>(`http://localhost:8000/users/${userId}`).pipe(
-      map(user => {
-        this.setUserRole(user.role);
-        return user.role;
+      map(user => user.token),
+      tap(token => {
+        localStorage.setItem('token', token);
+        this.setUserRoleFromToken(token); // Establecer rol de usuario desde el token después de obtenerlo
       })
     );
   }
 
-  login(credentials: { username: string; password: string }): Observable<any> {
-    return this.http.post<any>('http://localhost:8000/login', credentials).pipe(
-      map(response => {
-        if (response.token) {
-          localStorage.setItem(this.tokenKey, response.token);
-        }
-        return response;
-      })
-    );
+  private setUserRoleFromToken(token: string) {
+    const decodedToken: any = jwt_decode.jwtDecode(token);
+    this.setUserRole(decodedToken.role); 
   }
 
-  logout(): void {
-    localStorage.removeItem(this.tokenKey);
+  private loadUserRoleFromToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.setUserRoleFromToken(token); 
+    }
+  }
+
+  clearToken() {
+    localStorage.removeItem('token');
     this.userRole = '';
   }
 
-  getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+  logout() {
+    this.clearToken(); // Limpiar token y rol de usuario al cerrar sesión
   }
 }

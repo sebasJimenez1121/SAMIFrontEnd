@@ -4,9 +4,10 @@
   margin: 8rem 0rem 0rem 0rem;
 }
 
-.container-Admin{
-  width: 60%;
-  margin-right: 15.625rem;
+.admin  {
+  width: 90%;
+  position: relative;
+  margin: 10em;
 }
 
 .principal-title {
@@ -30,7 +31,7 @@
 
 .card-cita {
   margin: 4rem 4.938rem 0rem 3.313rem;
-}
+} 
 
 .pagination-navigation {
   margin: 8rem 1rem 0 0;
@@ -47,6 +48,7 @@ select {
   color: #9b9b9b;
   background: transparent;
 }
+
 
 /* Media Queries */
 @media (max-width: 480px) {

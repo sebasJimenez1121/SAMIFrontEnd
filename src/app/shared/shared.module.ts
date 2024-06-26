@@ -87,6 +87,7 @@ import { ButtonPriceComponent } from './components/molecules/button-price/button
 import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
 import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
+import { RoleStyleDirective } from './directives/role-style.directive';
 
 
 
@@ -175,7 +176,8 @@ import { CustomAlertComponent } from './components/organisms/custom-alert/custom
     ButtonPriceComponent,
     EmptyStateComponent,
     HomeAdminTemplateComponent,
-    CustomAlertComponent
+    CustomAlertComponent,
+    RoleStyleDirective
   ],
   imports: [
     CommonModule,
@@ -196,8 +198,7 @@ import { CustomAlertComponent } from './components/organisms/custom-alert/custom
   CalendarOptionsComponent,
   HowToScheduleComponent,
   AppointmentFormComponent,
-  LateralMenuComponent,
-  FooterComponent
+  LateralMenuComponent
  ],
 
 

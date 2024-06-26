@@ -245,12 +245,14 @@
   ],
   "users": [
     {
-      "id": "1",
-      "role": "admin"
+      "id": 1,
+      "name": "Admin User",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTYyMzkwMjJ9.DpTAc2W-pC8JwxrF9z_oNvg7XYFgsvTD_R3MQJk_Jzk"
     },
     {
-      "id": "2",
-      "role": "paciente"
+      "id": 2,
+      "name": "Patient User",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicGF0aWVudCIsImlhdCI6MTUxNjIzOTAyMn0.DVUIFE5Ih-Q4n4axXOSZh4GAad0SKCeuWBo06syYcH0"
     }
   ]
 }

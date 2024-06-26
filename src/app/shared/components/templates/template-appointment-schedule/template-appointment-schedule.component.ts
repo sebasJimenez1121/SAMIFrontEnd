@@ -16,10 +16,12 @@ export class TemplateAppointmentScheduleComponent {
   @Input() paginatedDoctors: Doctor[] = [];
   @Input() currentPage: number = 1;
   @Input() totalPages: number = 0;
+  @Input() userRole : string = "";
+
   @Output() specialtyChange = new EventEmitter<number>();
   @Output() pageChange = new EventEmitter<number>();
   @Output() agendarCita = new EventEmitter<Doctor>();
-  @Input() userRole : any = "";
+ 
 
   onSpecialtyChange(event: any) {
     this.specialtyChange.emit(+event.target.value);

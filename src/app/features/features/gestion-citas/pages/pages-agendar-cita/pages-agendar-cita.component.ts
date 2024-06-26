@@ -26,7 +26,7 @@ export class PagesAgendarCitaComponent implements OnInit {
   showModal = false;
   selectedDoctor!: Doctor;
   paciente!: Patient;
-  rol : any = "";
+  userRole: string = '';
 
   constructor(
     private doctorService: DoctorService,
@@ -37,9 +37,7 @@ export class PagesAgendarCitaComponent implements OnInit {
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
-    this.authService.fetchUserRole(1).subscribe(role => {
-      this.rol = this.authService.setUserRole(role);
-    });
+    this.fetchUserRole();
   }
 
   fetchSpecialties() {
@@ -105,5 +103,10 @@ export class PagesAgendarCitaComponent implements OnInit {
     this.patientService.getPatientById('1').subscribe((patient: Patient) => {
       this.paciente = patient;
     });
+  }
+
+  fetchUserRole() {
+    this.userRole = this.authService.getUserRole();
+    console.log("User Role fetched:", this.userRole);
   }
 }
