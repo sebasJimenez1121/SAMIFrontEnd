@@ -7,12 +7,19 @@
 .admin  {
   width: 90%;
   position: relative;
-  margin: 10em;
+  margin-left: 8em;
 }
+
+.admin .container-cards{
+  width: 80%;
+  margin: 0 auto;
+}
+
 
 .principal-title {
   display: flex;
   justify-content: center;
+  padding-top: 2em;
 }
 
 .filtro {

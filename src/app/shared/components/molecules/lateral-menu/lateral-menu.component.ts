@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
 export class LateralMenuComponent {
   @Input() menuItems = [
     { RouterLink: '/home', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
-    { RouterLink: '/agenda', label: 'Agenda de Citas', icon: 'assets/icons/agendar-cita.svg' },
-    { RouterLink: '/pacientes', label: 'Agenda de Pacientes', icon: 'assets/icons/pacientes.svg' },
+    { RouterLink: '/agendar-cita', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
+    { RouterLink: '/visualizar-cita', label: 'Agenda de Pacientes', icon: 'assets/icons/pacientes.svg' },
     { RouterLink: '/historia', label: 'Historia Clínica', icon: 'assets/icons/historia-clinica.svg' },
     { RouterLink: '/recetas', label: 'Crear Receta', icon: 'assets/icons/crear-receta.svg' }
   ];
