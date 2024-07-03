@@ -162,7 +162,7 @@
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-06-05 01:08"
+      "fechaCita": "2024-06-11 10:34"
     },
     {
       "id": "2",
@@ -175,7 +175,7 @@
       "valorCita": "20.000",
       "motivoCita": "Migrañas fuertes",
       "imagenMedico": "../../../../../assets/images/Link → doctor_8.png.png",
-      "fechaCita": "2024-06-04 20:17"
+      "fechaCita": "2024-06-19 08:54"
     },
     {
       "id": "3",
@@ -246,11 +246,14 @@
   "users": [
     {
       "id": "1",
-      "role": "admin"
+      "name": "Admin User",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTYyMzkwMjJ9.DpTAc2W-pC8JwxrF9z_oNvg7XYFgsvTD_R3MQJk_Jzk"
     },
     {
       "id": "2",
-      "role": "paciente"
+      "name": "Patient User",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicGF0aWVudCIsImlhdCI6MTUxNjIzOTAyMn0.DVUIFE5Ih-Q4n4axXOSZh4GAad0SKCeuWBo06syYcH0"
+
     }
   ]
 }

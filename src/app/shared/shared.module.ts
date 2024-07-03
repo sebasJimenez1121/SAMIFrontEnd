@@ -87,6 +87,9 @@ import { ButtonPriceComponent } from './components/molecules/button-price/button
 import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
 import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
+import { RoleStyleDirective } from './directives/role-style.directive';
+import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
+
 
 
 
@@ -175,7 +178,10 @@ import { CustomAlertComponent } from './components/organisms/custom-alert/custom
     ButtonPriceComponent,
     EmptyStateComponent,
     HomeAdminTemplateComponent,
-    CustomAlertComponent
+    CustomAlertComponent,
+    CustomAlertComponent,
+    RoleStyleDirective,
+    HeaderUsuarioComponent
   ],
   imports: [
     CommonModule,

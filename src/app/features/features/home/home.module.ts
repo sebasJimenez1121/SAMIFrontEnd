@@ -7,6 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { CoreModule } from '../../../core/core.module';
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { CoreModule } from '../../../core/core.module';
     HomePageComponent,
     RegisterComponent,
     LoginComponent,
+    HomeAdminComponent,
   ],
   imports: [
     CommonModule,
