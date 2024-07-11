@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../../core/service/doctor.service';
-import { PatientService } from '../../../../../core/service/paciente.service';
+import { PacienteService } from '../../../../../core/service/paciente.service';
 import { Doctor } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
@@ -30,15 +30,16 @@ export class PagesAgendarCitaComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorService,
-    private patientService: PatientService,
-    private  authService:AuthService
+    private patientService: PacienteService,
+    private  AuthService :AuthService
   ) {}
 
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
-    this.authService.fetchUserRole(1).subscribe(role => {
-      this.rol = this.authService.setUserRole(role);
+    const userId = 2;
+    this.AuthService .fetchToken(userId, 'patient').subscribe(role => {
+      this.rol = this. AuthService.setUserRole(role);
     });
   }
 

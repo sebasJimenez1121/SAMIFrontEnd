@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class LabelComponent {
   @Input() content: string = '';
+  @Input() for: string = '';
   @Input() typeContent: string = 'string';
 }

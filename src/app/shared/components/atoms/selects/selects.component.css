@@ -9,15 +9,22 @@ label {
   transition: 0.2s;
  
 }
+.form-group label {
+  display: block;
+  color: #1F3FAE;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+  
+}
 
 .document-type {
   font-family: 'Poppins', sans-serif;
   width: 70%;
   border: 0;
-  border-bottom: 0.063rem solid #9b9b9b;
   font-size: 0.75rem;
   color: #9b9b9b;
-  background: transparent;
+ 
 }
 
 .document-type::placeholder {
@@ -37,7 +44,14 @@ button, select {
   -moz-border: none;
   outline: none;
   width: 100%;
-  margin: 1.438rem 0 0 0;
+  margin: 11px 0px 33px 0;
+  border: 0;
+  border-bottom: 0.063rem solid #9b9b9b;
+  outline: 0;
+  font-size: 0.75rem;
+  color: grey;
+  padding: 0.125rem 0;
+  background: transparent;
 }
 
 option {

@@ -89,6 +89,8 @@ import { HomeAdminTemplateComponent } from './components/templates/home-admin-te
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
 import { RoleStyleDirective } from './directives/role-style.directive';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
+import { DoctorRegisterComponent } from './components/molecules/doctor-register/doctor-register.component';
+import { DoctorRegisterTemplateComponent } from './components/templates/doctor-register-template/doctor-register-template.component';
 
 
 
@@ -181,7 +183,9 @@ import { HeaderUsuarioComponent } from './components/organisms/header-usuario/he
     CustomAlertComponent,
     CustomAlertComponent,
     RoleStyleDirective,
-    HeaderUsuarioComponent
+    HeaderUsuarioComponent,
+    DoctorRegisterComponent,
+    DoctorRegisterTemplateComponent
   ],
   imports: [
     CommonModule,
@@ -203,7 +207,8 @@ import { HeaderUsuarioComponent } from './components/organisms/header-usuario/he
   HowToScheduleComponent,
   AppointmentFormComponent,
   LateralMenuComponent,
-  FooterComponent
+  FooterComponent,
+  DoctorRegisterTemplateComponent
  ],
 
 

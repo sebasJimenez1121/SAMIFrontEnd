@@ -13,8 +13,13 @@
 }
 
 .form-group {
-  padding: 0rem 0rem 0rem 6rem;
+  padding-left: 6rem; 
   
+}
+* small {
+  font-size: 0.75rem;
+  position: relative;
+  left: 2rem;
 }
 .form-group-remember{
   padding: 0rem 0rem 0rem 6rem;
@@ -26,7 +31,7 @@
  
 }
 .title-record{
-  margin: 0rem 0rem 0rem -2.188rem;
+  margin: 0.6rem 0rem 1rem 0rem;
 }
 
 .checkbox{
@@ -53,8 +58,44 @@
   font-size: 0.75rem;
 }
 
+.error-bubble {
+  position: absolute; 
+  color: rgb(210, 43, 43);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12¿px;
+  z-index: 1;
+  margin: -32px 0px -1px -56px;
+}
+.error-bubble1 {
+  position: absolute;
+  color: rgb(210, 43, 43);
+  padding: 11px -3px;
+  border-radius: 5px;
+  font-size: 11px;
+  z-index: 1;
+  margin: -31px 92px -1px -56px;
+}
+.error-bubblee {
+  position: relative; 
+  top: 3rem;
+  color: rgb(210, 43, 43);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+  z-index: 1;
+  margin: -28px 1px 1px 1px;
+}
+.button-login{
+  position: relative;
+  left: 2rem;
+ 
+}
 
-
-
+app-button {
+  position: relative;
+  left: 13rem;
+ top: 1rem;
+}
 
 

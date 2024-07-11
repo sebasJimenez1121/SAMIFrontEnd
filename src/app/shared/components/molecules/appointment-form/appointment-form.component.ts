@@ -27,11 +27,14 @@ export class AppointmentFormComponent implements OnInit {
     // Si hay datos de paciente, actualizar el formulario
     if (this.appointmentData) {
       this.appointmentForm.patchValue({
-        nombre: this.appointmentData.nombre,
-        apellido: this.appointmentData.apellido,
-        documento: this.appointmentData.documento,
-        email: this.appointmentData.email,
-        telefono: this.appointmentData.telefono
+        firstName: this.appointmentData.firstName,
+        lastName: this.appointmentData.lastName,
+        email:this.appointmentData.email,
+        documentNumber: this.appointmentData.documentNumber,
+        documentType: this.appointmentData.documentType,
+        phone: this.appointmentData.phone,
+        password: this.appointmentData.password,
+        acceptTerms: this.appointmentData.acceptTerms
       });
     }
   }

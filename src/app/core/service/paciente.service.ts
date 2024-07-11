@@ -6,7 +6,7 @@ import { Patient } from '../models/patient.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PatientService {
+export class PacienteService {
   private apiUrl = 'http://localhost:8000/patients'; // Cambia la URL según tu configuración real del backend
 
   constructor(private http: HttpClient) {}

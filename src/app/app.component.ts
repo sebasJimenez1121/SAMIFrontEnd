@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.fetchUserRole(1).subscribe(role => {
+    this.authService.fetchToken(2, 'patient').subscribe(role => {
       this.authService.setUserRole(role);
       this.userRole = role;
     });
