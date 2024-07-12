@@ -1,192 +1,155 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { tap, switchMap, catchError, map } from 'rxjs/operators';
-import * as jwt_decode from 'jwt-decode'; // Importación correcta
-import { Patient } from '../models/patient.model';
-import { Doctor } from '../models/doctor.model';
-import { Admin } from '../models/admin.model';
+import { tap, catchError } from 'rxjs/operators';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public userRole: string = '';
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://localhost:10101';
 
   constructor(private http: HttpClient) {
     this.loadUserRoleFromToken();
   }
 
-  setUserRole(role: string) {
-    this.userRole = role;
+  setUserRole(rol: string) {
+    this.userRole = rol;
+    localStorage.setItem('userRole', rol);
   }
 
-  registerUser(userType: string, userData: any): Observable<any> {
-    let registerData = {};
+  getUserRole(): Observable<string> {
+    return new Observable<string>(observer => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const role = this.getUserRoleFromToken(token);
+        observer.next(role);
+        observer.complete();
+      } else {
+        observer.error('No token found');
+      }
+    });
+  }
 
-    switch (userType) {
-      case 'patient':
-        registerData = {
-          firstName: userData.firstName,
-          lastName: userData.lastName,
-          email: userData.email,
-          documentNumber: userData.documentNumber,
-          documentType: userData.documentType,
-          phone: userData.phone,
-          password: userData.password,
-          acceptTerms: userData.acceptTerms
-        };
-        break;
 
-      case 'doctor':
-        registerData = {
-          name: userData.name,
-          apellido: userData.apellido,
-          email: userData.email,
-          documentNumber: userData.documentNumber,
-          specialtyId: userData.specialtyId,
-          appointmentCost: userData.appointmentCost,
-          password: userData.password,
-          acceptTerms: userData.acceptTerms,
-          img: userData.imgFile
-        };
-        break;
-
-      default:
-        throw new Error('Tipo de usuario no válido.');
-    }
-
-    return this.http.post<any>(`${this.apiUrl}/${userType}s`, registerData).pipe(
+  login(credentials: { document: string, email: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/auth`, credentials).pipe(
       tap(response => {
-        console.log(`Registro exitoso. ID del ${userType}:`, response.id);
-      })
-    );
-  }
-
-  verifyUserExistence(userType: string, credentials: { documentNumber: string }): Observable<boolean> {
-    return this.http.get<any>(`${this.apiUrl}/${userType}s/${credentials.documentNumber}`).pipe(
-      tap(user => {
-        if (user) {
-          console.log(`Usuario ${userType} encontrado:`, user);
+        if (response && response.token) {
+          const token = response.token;
+          localStorage.setItem('token', token);
+          const rol = this.getUserRoleFromToken(token);
+          this.setUserRole(rol);
+          console.log('Login exitoso. Token:', token);
         } else {
-          console.log(`Usuario ${userType} no encontrado`);
-        }
-      }),
-      switchMap(user => user ? [true] : [false])
-    );
-  }
-
-  login(credentials: { documentNumber: string, password: string }, userType: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${userType}s`).pipe(
-      tap(users => console.log(`${userType}s from API:`, users)),
-      switchMap((users: any[]) => {  // Especificar el tipo de 'users' como un array de cualquier tipo
-        const user = users.find(u => u.documentNumber === credentials.documentNumber && u.password === credentials.password);
-  
-        if (user) {
-          const token = this.generateToken(user, userType);
-          const role = userType;
-  
-          const response = { token, role };
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('role', response.role);
-  
-          return this.http.put<any>(`${this.apiUrl}/${userType}s/${user.id}`, { isLoggedIn: true }).pipe(
-            map(() => response)
-          );
-        } else {
-          console.log(`Usuario ${userType} no encontrado o datos incorrectos`);
-          return throwError(`Los datos no coinciden o el usuario ${userType} no existe.`);
+          console.error('Respuesta de login inválida:', response);
+          throwError('Respuesta de login inválida');
         }
       }),
       catchError(error => {
-        console.error(`Error al intentar iniciar sesión como ${userType}:`, error);
-        return throwError(`Error al intentar iniciar sesión como ${userType}, por favor intenta nuevamente.`);
+        console.error('Error en el login:', error);
+        return throwError('Error en el login, por favor intenta nuevamente.');
       })
     );
   }
 
-  fetchToken(userId: number, userType: string): Observable<string> {
-    return this.http.get<any>(`${this.apiUrl}/${userType}s/${userId}`).pipe(
-      map(user => user.token),
-      tap(token => {
-        localStorage.setItem('token', token);
-        this.setUserRole(this.getUserRole()); // Establecer rol de usuario desde el token después de obtenerlo
-      })
-    );
+  getUserRoleFromToken(token: string): string {
+    try {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.data.rol;
+    } catch (error) {
+      console.error("Error decodificando el token:", error);
+      return '';
+    }
   }
 
-  registerDoctor(doctorData: any, imgFile: File): Observable<any> {
-    // Crea un FormData para enviar los datos del formulario y la imagen
-    const formData = new FormData();
-    formData.append('name', doctorData.name);
-    formData.append('apellido', doctorData.apellido);
-    formData.append('email', doctorData.email);
-    formData.append('documentNumber', doctorData.documentNumber);
-    formData.append('specialtyId', doctorData.specialtyId);
-    formData.append('appointmentCost', doctorData.appointmentCost);
-    formData.append('password', doctorData.password);
-    formData.append('acceptTerms', doctorData.acceptTerms);
-    formData.append('img', imgFile);
-
-    return this.http.post<any>(`${this.apiUrl}/doctors`, formData);
-  }
-
-  getUserRole(): string {
+  validateToken(): boolean {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const parts = token.split('.');
-        if (parts.length !== 3) {
-          console.error('Error: Token inválido especificado. Faltan partes.');
-          return '';
+        const decodedToken: any = jwtDecode(token);
+        const currentTime = Math.floor(Date.now() / 1000);
+        if (decodedToken.exp && decodedToken.exp < currentTime) {
+          console.warn('Token ha expirado');
+          this.clearToken();
+          alert('Tu sesión ha expirado. Por favor, inicia sesión nuevamente.');
+          return false;
         }
-
-         const decodedToken: any = jwt_decode.jwtDecode(token); 
-        return decodedToken.role;
+        return true;
       } catch (error) {
         console.error("Error decodificando el token:", error);
-        return '';
+        this.clearToken();
+        alert('Error con tu sesión. Por favor, inicia sesión nuevamente.');
+        return false;
       }
     }
-    return '';
+    return false;
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    return this.getUserRole() && !!localStorage.getItem('token');
   }
 
   isAdmin(): boolean {
-    return this.getUserRole() === 'admin';
+    let isAdmin = false;
+    this.getUserRole().pipe(
+      tap(role => {
+        isAdmin = role === 'admin';
+      })
+    ).subscribe({
+      error: error => {
+        console.error('Error obteniendo el rol:', error);
+      }
+    });
+    return isAdmin;
   }
-
+  
   isPatient(): boolean {
-    return this.getUserRole() === 'patient';
+    let isPatient = false;
+    this.getUserRole().pipe(
+      tap(role => {
+        isPatient = role === 'paciente';
+      })
+    ).subscribe({
+      error: error => {
+        console.error('Error obteniendo el rol:', error);
+      }
+    });
+    return isPatient;
   }
-
+  
   isDoctor(): boolean {
-    return this.getUserRole() === 'doctor';
+    let isDoctor = false;
+    this.getUserRole().pipe(
+      tap(role => {
+        isDoctor = role === 'doctor';
+      })
+    ).subscribe({
+      error: error => {
+        console.error('Error obteniendo el rol:', error);
+      }
+    });
+    return isDoctor;
   }
 
-  private loadUserRoleFromToken() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.setUserRole(this.getUserRole());
+  loadUserRoleFromToken() {
+    if (this.validateToken()) {
+      const token = localStorage.getItem('token');
+      if (token) {
+        this.setUserRole(this.getUserRoleFromToken(token));
+      }
     }
   }
 
   clearToken() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userRole');
     this.userRole = '';
   }
 
   logout() {
     this.clearToken();
-  }
-
-  private generateToken(user: any, userType: string): string {
-    const payload = { role: userType, userId: user.id };
-    console.log('Token payload:', payload); // Verifica el contenido del token
-    return 'fake-jwt-token'; // Reemplaza esto con la lógica de generación real de tokens
   }
 }

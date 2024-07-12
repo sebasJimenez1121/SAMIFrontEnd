@@ -20,16 +20,16 @@ export class RoleStyleDirective implements OnChanges {
   private updateStyle(role: string) {
     // Limpiamos todas las clases existentes
     this.removeClass('admin');
-    this.removeClass('patient');
-    this.removeClass('doctor');
+    this.removeClass('paciente');
+    this.removeClass('medico');
 
     // Agregamos la clase correspondiente al rol actual
     if (role === 'admin') {
       this.addClass('admin');
-    } else if (role === 'patient') {
-      this.addClass('patient');
-    } else if (role === 'doctor') {
-      this.addClass('doctor');
+    } else if (role === 'paciente') {
+      this.addClass('pacientet');
+    } else if (role === 'medico') {
+      this.addClass('medico');
     }
   }
 

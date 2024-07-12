@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/service/auth-service.service';
 import Swal from 'sweetalert2';
@@ -22,16 +22,35 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      documento: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      documento: ['', [Validators.required, this.documentOrEmailValidator()]],
       password: ['', [Validators.required, this.strongPasswordValidator()]],
       remember: [false]
     });
   }
 
+  documentOrEmailValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value) {
+        return null;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const numericPattern = /^[0-9]*$/;
+
+      if (emailPattern.test(value)) {
+        return null;  // Es un correo válido
+      } else if (numericPattern.test(value)) {
+        return null;  // Es un número válido
+      } else {
+        return { invalidDocumento: true };  // No es ni un correo ni un número válido
+      }
+    };
+  }
+
   strongPasswordValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
-
       if (!value) {
         return null;
       }
@@ -41,7 +60,6 @@ export class LoginFormComponent implements OnInit {
       const hasMinLength = value.length >= 8;
 
       const passwordValid = hasUpperCase && hasSpecialCharacter && hasMinLength;
-
       return !passwordValid ? { strongPassword: true } : null;
     };
   }
@@ -51,11 +69,12 @@ export class LoginFormComponent implements OnInit {
       this.isSubmitting = true;
 
       const credentials = {
-        documentNumber: this.loginForm.value.documento,
+        document: this.loginForm.value.documento && !this.loginForm.value.documento.includes('@') ? this.loginForm.value.documento : '',
+        email: this.loginForm.value.documento.includes('@') ? this.loginForm.value.documento : '',
         password: this.loginForm.value.password
       };
 
-      this.authService.login(credentials, 'patient').subscribe({
+      this.authService.login(credentials).subscribe({
         next: () => {
           Swal.fire({
             title: 'Inicio de sesión exitoso',
@@ -89,20 +108,26 @@ export class LoginFormComponent implements OnInit {
   }
 
   private redirectBasedOnRole() {
-    const userRole = this.authService.getUserRole();
-    switch (userRole) {
-      case 'admin':
-        this.router.navigate(['/admin-dashboard']);
-        break;
-      case 'doctor':
-        this.router.navigate(['/doctor-dashboard']);
-        break;
-      case 'patient':
-        this.router.navigate(['/patient-dashboard']);
-        break;
-      default:
-        console.error('Rol de usuario no reconocido:', userRole);
-        break;
-    }
+    this.authService.getUserRole().subscribe({
+      next: (userRole) => {
+        switch (userRole) {
+          case 'admin':
+            this.router.navigate(['/admin-dashboard']);
+            break;
+          case 'doctor':
+            this.router.navigate(['/doctor-dashboard']);
+            break;
+          case 'patient':
+            this.router.navigate(['/patient-dashboard']);
+            break;
+          default:
+            console.error('Rol de usuario no reconocido:', userRole);
+            break;
+        }
+      },
+      error: (err) => {
+        console.error('Error obteniendo el rol:', err);
+      }
+    });
   }
 }

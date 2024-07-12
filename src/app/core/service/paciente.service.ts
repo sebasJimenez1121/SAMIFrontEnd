@@ -21,9 +21,9 @@ export class PacienteService {
     return this.http.get<Patient>(`${this.apiUrl}/${patientId}`);
   }
 
-  // Crear un nuevo paciente
-  crearPatient(patient: Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.apiUrl, patient);
+  // Registrar un nuevo paciente
+  registrarPatient(patientData: any): Observable<any> {
+    return this.http.post<any>('http://localhost:10101/patient', patientData);
   }
 
   // Actualizar un paciente existente

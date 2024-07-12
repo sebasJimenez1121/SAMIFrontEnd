@@ -104,21 +104,14 @@
         </div>
         
         <div class="form-group">
-          <app-label for="phone" content="Teléfono:"></app-label>
-          <app-input 
-            type="tel" 
-            id="phone" 
-            class="form-input" 
-            name="phone" 
-            formControlName="phone" 
-            placeholder="Teléfono">
-          </app-input>
-          <div *ngIf="registrationForm.get('phone')?.invalid && (registrationForm.get('phone')?.dirty || registrationForm.get('phone')?.touched)"
+          <app-label for="birthDate" content="Fecha de Nacimiento:"></app-label>
+          <app-input-date-history formControlName="birthDate"></app-input-date-history>
+          <div *ngIf="registrationForm.get('birthDate')?.invalid && (registrationForm.get('birthDate')?.dirty || registrationForm.get('birthDate')?.touched)"
                class="error-bubble">
-            <small class="error" *ngIf="registrationForm.get('phone')?.errors?.['required']">El teléfono es obligatorio.</small>
-            <small class="error" *ngIf="registrationForm.get('phone')?.errors?.['pattern']">El teléfono solo puede contener números.</small>
+            <small class="error">La fecha de nacimiento es obligatoria.</small>
           </div>
         </div>
+
         <div class="form-group">
           <app-label for="confirmPassword" content="Confirmar Contraseña:"></app-label>
           <app-input 
@@ -150,6 +143,6 @@
         <small class="error">Debes aceptar los términos y condiciones.</small>
       </div>
     </div>
-   <app-button [isDisabled]="registrationForm.invalid || isSubmitting" value="Registrarse"></app-button>
+    <app-button [isDisabled]="registrationForm.invalid || isSubmitting" value="Registrarse"></app-button>
   </form>
 </div>

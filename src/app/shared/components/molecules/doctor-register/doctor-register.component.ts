@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
   templateUrl: './doctor-register.component.html',
   styleUrls: ['./doctor-register.component.css']
 })
-export class DoctorRegisterComponent implements OnInit {
-  registrationForm: FormGroup;
+export class DoctorRegisterComponent /* implements OnInit */ {
+  /* registrationForm: FormGroup;
   isSubmitting: boolean = false;
   imgFile: File | null = null;
 
@@ -90,5 +90,5 @@ export class DoctorRegisterComponent implements OnInit {
     const password = control.get('password')?.value;
     const confirmPassword = control.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
-  };
+  }; */
 }

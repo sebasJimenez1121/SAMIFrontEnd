@@ -1,6 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { AuthService } from '../../../../core/service/auth-service.service';
+import { PacienteService } from '../../../../core/service/paciente.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,15 +11,16 @@ import Swal from 'sweetalert2';
 export class RegistrationFormComponent implements OnInit {
   @Input() id: string = '';
   registrationForm!: FormGroup;
+ 
   documentTypeOptions = [
-    { value: 'cc', label: 'Cédula de ciudadanía' },
-    { value: 'ti', label: 'Tarjeta de identidad' },
-    { value: 'ce', label: 'Cédula de extranjería' },
-    { value: 'rc', label: 'Registro civil' }
+    { value: 'Cedula de ciudadania', label: 'Cédula de ciudadanía' },
+    { value: 'Tarjeta de identidad', label: 'Tarjeta de identidad' },
+    { value: 'Cedula de extranjeria', label: 'Cédula de extranjería' },
+    { value: 'Registro civil', label: 'Registro civil' }
   ];
   isSubmitting = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private pacienteService: PacienteService) { }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -28,7 +29,7 @@ export class RegistrationFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       documentNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       documentType: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      birthDate: ['', Validators.required],
       password: ['', [
         Validators.required,
         Validators.minLength(8),
@@ -49,18 +50,27 @@ export class RegistrationFormComponent implements OnInit {
     }
     return null;
   }
+
   submitRegistrationForm() {
     if (this.registrationForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;
-  
-      const userType = 'patient'; // O 'doctor' o 'admin', según corresponda
-      const userData = this.registrationForm.value;
-  
-      this.authService.registerUser(userType, userData).subscribe({
+
+      const userData = {
+        documentoPac: this.registrationForm.value.documentNumber,
+        tipoDoc: this.registrationForm.value.documentType,
+        nombre: this.registrationForm.value.firstName,
+        apellido: this.registrationForm.value.lastName,
+        email: this.registrationForm.value.email,
+        password: this.registrationForm.value.password,
+        fechaNac: this.registrationForm.value.birthDate,
+        rol: 'paciente'
+      };
+
+      this.pacienteService.registrarPatient(userData).subscribe({
         next: (response) => {
           Swal.fire({
             title: 'Registro Exitoso',
-            text: `¡Te has registrado exitosamente como ${userType}!`,
+            text: `¡Te has registrado exitosamente!`,
             icon: 'success',
             showConfirmButton: false,
             timer: 2000,
@@ -84,4 +94,5 @@ export class RegistrationFormComponent implements OnInit {
         }
       });
     }
-  }}
+  }
+}

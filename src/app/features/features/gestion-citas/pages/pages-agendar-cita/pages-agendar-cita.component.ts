@@ -31,15 +31,20 @@ export class PagesAgendarCitaComponent implements OnInit {
   constructor(
     private doctorService: DoctorService,
     private patientService: PacienteService,
-    private  AuthService :AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
     this.fetchSpecialties();
     this.fetchDoctors();
-    const userId = 2;
-    this.AuthService .fetchToken(userId, 'patient').subscribe(role => {
-      this.rol = this. AuthService.setUserRole(role);
+    this.authService.getUserRole().subscribe({
+      next: (role) => {
+        console.log(role)
+        this.rol = role;
+      },
+      error: (err) => {
+        console.error('Error obteniendo el rol:', err);
+      }
     });
   }
 
