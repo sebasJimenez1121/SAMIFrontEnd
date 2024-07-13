@@ -14,7 +14,13 @@
   align-items: center;
   top: 5rem;
 }
-
+a{
+  display: flex;
+  align-items: center;
+  margin: 0rem 0rem 34rem 8rem;
+  position: relative;
+  bottom: 3rem;
+}
 .login{
   width: 56rem;
   height: 40rem;

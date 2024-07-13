@@ -9,6 +9,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { CoreModule } from '../../../core/core.module';
 import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
+import { HomeDoctorDashboardComponent } from './pages/home-doctor-dashboard/home-doctor-dashboard.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register
     LoginComponent,
     HomeAdminComponent,
     DoctorRegisterComponent,
+    HomeDoctorDashboardComponent,
   ],
   imports: [
     CommonModule,

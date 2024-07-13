@@ -39,11 +39,11 @@ export class LoginFormComponent implements OnInit {
       const numericPattern = /^[0-9]*$/;
 
       if (emailPattern.test(value)) {
-        return null;  // Es un correo válido
+        return null;  
       } else if (numericPattern.test(value)) {
-        return null;  // Es un número válido
+        return null;  
       } else {
-        return { invalidDocumento: true };  // No es ni un correo ni un número válido
+        return { invalidDocumento: true };  
       }
     };
   }
@@ -76,19 +76,27 @@ export class LoginFormComponent implements OnInit {
 
       this.authService.login(credentials).subscribe({
         next: () => {
-          Swal.fire({
-            title: 'Inicio de sesión exitoso',
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            toast: true,
-            position: 'top',
-            background: "#C6F0C2",
-            iconColor: "#1C5314",
+          this.authService.getUserRole().subscribe({
+            next: (userRole) => {
+              Swal.fire({
+                title: 'Inicio de sesión exitoso',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'top',
+                background: "#C6F0C2",
+                iconColor: "#1C5314",
+              });
+              this.redirectBasedOnRole(userRole);
+              this.isSubmitting = false;
+            },
+            error: (err) => {
+              console.error('Error obteniendo el rol:', err);
+              this.isSubmitting = false;
+            }
           });
-          this.redirectBasedOnRole();
-          this.isSubmitting = false;
         },
         error: (err: any) => {
           console.error('Error al iniciar sesión:', err);
@@ -107,27 +115,20 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  private redirectBasedOnRole() {
-    this.authService.getUserRole().subscribe({
-      next: (userRole) => {
-        switch (userRole) {
-          case 'admin':
-            this.router.navigate(['/admin-dashboard']);
-            break;
-          case 'doctor':
-            this.router.navigate(['/doctor-dashboard']);
-            break;
-          case 'patient':
-            this.router.navigate(['/patient-dashboard']);
-            break;
-          default:
-            console.error('Rol de usuario no reconocido:', userRole);
-            break;
-        }
-      },
-      error: (err) => {
-        console.error('Error obteniendo el rol:', err);
-      }
-    });
+  private redirectBasedOnRole(userRole: string) {
+    switch (userRole) {
+      case 'admin':
+        this.router.navigate(['/home-admin']);
+        break;
+      case 'medico':
+        this.router.navigate(['/doctor-dashboard']);
+        break;
+      case 'paciente':
+        this.router.navigate(['/patient-dashboard']);
+        break;
+      default:
+        console.error('Rol de usuario no reconocido:', userRole);
+        break;
+    }
   }
 }

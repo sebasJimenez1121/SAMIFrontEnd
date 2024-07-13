@@ -91,6 +91,7 @@ import { RoleStyleDirective } from './directives/role-style.directive';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
 import { DoctorRegisterComponent } from './components/molecules/doctor-register/doctor-register.component';
 import { DoctorRegisterTemplateComponent } from './components/templates/doctor-register-template/doctor-register-template.component';
+import { TemplateDoctorDashboardComponent } from './components/templates/template-doctor-dashboard/template-doctor-dashboard.component';
 
 
 
@@ -185,7 +186,8 @@ import { DoctorRegisterTemplateComponent } from './components/templates/doctor-r
     RoleStyleDirective,
     HeaderUsuarioComponent,
     DoctorRegisterComponent,
-    DoctorRegisterTemplateComponent
+    DoctorRegisterTemplateComponent,
+    TemplateDoctorDashboardComponent
   ],
   imports: [
     CommonModule,
@@ -208,7 +210,9 @@ import { DoctorRegisterTemplateComponent } from './components/templates/doctor-r
   AppointmentFormComponent,
   LateralMenuComponent,
   FooterComponent,
-  DoctorRegisterTemplateComponent
+  DoctorRegisterTemplateComponent,
+  HomeAdminTemplateComponent,
+  TemplateDoctorDashboardComponent
  ],
 
 

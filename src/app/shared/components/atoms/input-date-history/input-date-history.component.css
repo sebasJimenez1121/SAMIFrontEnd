@@ -7,7 +7,7 @@
     margin: 1% 0;
     width: 11rem; 
     border: 0;
-    border-bottom: 0.063rem solid #aab2c869;
+    border-bottom: 0.063rem solid #9b9b9b;
     font-size: 0.75rem;
     color: grey;
     background: transparent;
@@ -33,17 +33,7 @@
     cursor: pointer;
 }
 
-.styled-date-input::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0.625rem;
-    transform: translateY(-50%);
-    width: 0.70rem;
-    height:1rem;
-    background: url('../../../../../assets/icons/flecha-hacia-abajo-para-navegar\ 1.svg') no-repeat center;
-    background-size: contain;
-}
+
 
 .styled-date-input::-webkit-inner-spin-button,
 .styled-date-input::-webkit-clear-button {

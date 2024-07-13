@@ -1,12 +1,11 @@
 export interface Patient {
     id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    rol:string;
-    documentNumber: string;
-    documentType: string;
-    phone: string;
-    password: string;
-    acceptTerms: boolean;
+    documentoPac: string;
+    tipoDoc: string;
+    nombre: string;
+    apellido: string;
+    email:string;
+    password:string;
+    fechaNac:string;
+    rol: string;
 }

@@ -7,6 +7,8 @@ import { PagesAgendarCitaComponent } from './features/features/gestion-citas/pag
 import { PagesGestionCitasComponent } from './features/features/gestion-citas/pages/pages-gestion-citas/pages-gestion-citas.component';
 import { PagesVisualizarCitaComponent } from './features/features/gestion-citas/pages/pages-visualizar-cita/pages-visualizar-cita.component';
 import{DoctorRegisterComponent}from './features/features/home/pages/doctor-register/doctor-register.component';
+import {HomeAdminComponent} from './features/features/home/pages/home-admin/home-admin.component';
+import {HomeDoctorDashboardComponent } from './features/features/home/pages/home-doctor-dashboard/home-doctor-dashboard.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'register-doctor', component: DoctorRegisterComponent},
+  { path: 'home-admin', component: HomeAdminComponent},
+  { path: 'home-Doctor', component: HomeDoctorDashboardComponent}
 ];
 
 @NgModule({

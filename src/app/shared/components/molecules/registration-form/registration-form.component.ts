@@ -13,8 +13,8 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm!: FormGroup;
  
   documentTypeOptions = [
-    { value: 'Cedula de ciudadania', label: 'Cédula de ciudadanía' },
-    { value: 'Tarjeta de identidad', label: 'Tarjeta de identidad' },
+    { value: 'Cedula Cidadania', label: 'Cedula Cidadania' },
+    { value: 'Tarjeta identidad', label: 'Tarjeta identidad' },
     { value: 'Cedula de extranjeria', label: 'Cédula de extranjería' },
     { value: 'Registro civil', label: 'Registro civil' }
   ];
@@ -65,9 +65,10 @@ export class RegistrationFormComponent implements OnInit {
         fechaNac: this.registrationForm.value.birthDate,
         rol: 'paciente'
       };
-
+      console.log('Datos a enviar:', userData);
       this.pacienteService.registrarPatient(userData).subscribe({
         next: (response) => {
+         
           Swal.fire({
             title: 'Registro Exitoso',
             text: `¡Te has registrado exitosamente!`,

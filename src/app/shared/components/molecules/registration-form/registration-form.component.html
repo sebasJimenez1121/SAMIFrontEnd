@@ -105,7 +105,12 @@
         
         <div class="form-group">
           <app-label for="birthDate" content="Fecha de Nacimiento:"></app-label>
-          <app-input-date-history formControlName="birthDate"></app-input-date-history>
+          <app-input-date-history 
+            id="birthDate" 
+            name="birthDate" 
+            formControlName="birthDate" 
+            placeholder="Seleccione una fecha">
+          </app-input-date-history>
           <div *ngIf="registrationForm.get('birthDate')?.invalid && (registrationForm.get('birthDate')?.dirty || registrationForm.get('birthDate')?.touched)"
                class="error-bubble">
             <small class="error">La fecha de nacimiento es obligatoria.</small>
