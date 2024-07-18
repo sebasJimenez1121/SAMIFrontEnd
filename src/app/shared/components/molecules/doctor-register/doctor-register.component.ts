@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { AuthService } from '../../../../core/service/auth-service.service';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { DoctorService } from '../../../../core/service/doctor.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,86 +8,90 @@ import Swal from 'sweetalert2';
   templateUrl: './doctor-register.component.html',
   styleUrls: ['./doctor-register.component.css']
 })
-export class DoctorRegisterComponent /* implements OnInit */ {
-  /* registrationForm: FormGroup;
-  isSubmitting: boolean = false;
-  imgFile: File | null = null;
+export class DoctorRegisterComponent implements OnInit {
+  registrationForm!: FormGroup;
+  specialties: any[] = []; // Assuming you have a way to fetch and populate this array
+  isSubmitting = false;
+  selectedFile: File | undefined; // Assuming you handle file upload separately if needed
 
-  specialtyOptions = [
-    { value: '1', label: 'Cardiología' },
-    { value: '2', label: 'Dermatología' },
-    { value: '3', label: 'Pediatría' },
-  ];
+  constructor(private fb: FormBuilder, private doctorService: DoctorService) { }
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  ngOnInit(): void {
     this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
+      tarjetaProf: ['', Validators.required],
+      documento: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      nombre: ['', Validators.required],
       apellido: ['', Validators.required],
+      rol: ['doctor'],
       email: ['', [Validators.required, Validators.email]],
-      documentNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      specialtyId: ['', Validators.required],
-      img: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*[!@#$&*]).*$')]],
-      confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue],
-    }, {
-      validators: this.passwordMatchValidator
+      foto: [''], // You can handle file upload separately if needed
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).*$/)
+      ]],
+      codigoEspc: ['', Validators.required] // Assuming this is a string for specialty code
     });
   }
 
-  ngOnInit(): void {}
+  submitRegistrationForm() {
+    if (this.registrationForm.valid && !this.isSubmitting) {
+      this.isSubmitting = true;
 
-  onSubmit() {
-    if (this.registrationForm.invalid) {
-      return;
+      const userData = {
+        tarjetaProf: this.registrationForm.value.tarjetaProf,
+        documento: this.registrationForm.value.documento,
+        nombre: this.registrationForm.value.nombre,
+        apellido: this.registrationForm.value.apellido,
+        rol: 'doctor', // Ensure 'doctor' is sent correctly here
+        email: this.registrationForm.value.email,
+        foto: this.selectedFile,
+        password: this.registrationForm.value.password,
+        codigoEspc: this.registrationForm.value.codigoEspc
+      };
+
+      console.log('Datos a enviar:', userData);
+
+      this.doctorService.crearDoctor(userData).subscribe({
+        next: (response) => {
+          Swal.fire({
+            title: 'Registro Exitoso',
+            text: `¡Doctor registrado exitosamente!`,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top',
+            background: "#C6F0C2",
+            iconColor: "#1C5314",
+          });
+          this.isSubmitting = false;
+        },
+        error: (err: any) => {
+          console.error('Error al registrar doctor:', err);
+          Swal.fire({
+            title: 'Error al registrar',
+            text: 'No se pudo registrar al doctor. Por favor, inténtelo nuevamente más tarde.',
+            icon: 'error',
+            showConfirmButton: true
+          });
+          this.isSubmitting = false;
+        }
+      });
+    } else {
+      this.markFormGroupTouched(this.registrationForm);
     }
-    this.isSubmitting = true;
-    const formData = this.registrationForm.value;
-    delete formData.confirmPassword;
+  }
 
-    this.authService.registerDoctor(formData, this.imgFile!).subscribe({
-      next: (response) => {
-        this.isSubmitting = false;
-        Swal.fire('Registro Exitoso', 'El doctor ha sido registrado correctamente.', 'success');
-        this.router.navigate(['/login']);
-      },
-      error: (error) => {
-        this.isSubmitting = false;
-        Swal.fire('Error', 'Ha ocurrido un error al registrar el doctor.', 'error');
+  markFormGroupTouched(formGroup: FormGroup): void {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      } else {
+        control?.markAsTouched();
       }
     });
   }
-
-  onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.imgFile = input.files[0];
-    }
-  }
-
-  viewImage() {
-    if (this.imgFile) {
-      const reader = new FileReader();
-      reader.readAsDataURL(this.imgFile);
-      reader.onload = () => {
-        Swal.fire({
-          imageUrl: reader.result as string,
-          imageAlt: 'Imagen del doctor',
-          showCloseButton: true,
-          showCancelButton: false,
-          showConfirmButton: false,
-        });
-      };
-    }
-  }
-
-  passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const password = control.get('password')?.value;
-    const confirmPassword = control.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
-  }; */
 }

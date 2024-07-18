@@ -1,0 +1,66 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <div class="perfilAdmi">
+        <section></section>
+        <app-image imageUrl=""></app-image>
+        <div class="conjunto">
+            <app-title-principal class="tituPerfil" titleText="Mi Perfil"></app-title-principal>
+            <div class="usuario">
+                <app-title-secundari titleText="Camilo Suares"></app-title-secundari>
+                <app-text content="Administrador"></app-text>
+            </div>
+        </div>
+        
+        <app-title-terciario class="titu" titleText="Información Personal"></app-title-terciario>
+        <div class="contDatos">
+            <div class="datos">
+                <app-label content="Correo Electronico:"></app-label>
+                <app-input type=""></app-input>
+            </div>
+            <div class="datos">
+                <app-label content="Nombre:"></app-label>
+                <app-input type=""></app-input>
+            </div>
+        </div>
+        
+        <div class="contDatos">
+            <div class="datos">
+                <app-label content="Telefono:"></app-label>
+                <app-input type=""></app-input>
+            </div>
+            <div class="datos">
+                <app-label content="Apellido:"></app-label>
+                <app-input type=""></app-input>
+            </div>
+        </div>
+        
+        <div class="contDatos">
+            <div class="datosTipo">
+                <app-label content="Tipo de Documento:"></app-label>
+                <app-input type=""></app-input>
+            </div>
+            <div class="datosNum">
+                <app-label content="Numeero de Documento:"></app-label>
+                <app-input type="text"></app-input>
+            </div>
+        </div>
+        
+        <app-title-terciario titleText="Cambiar Contraseña"></app-title-terciario>
+        
+        <div class="contDatos">
+            <div class="datosCambi">
+                <app-label content="Cambiar Contraseña:"></app-label>
+                <app-input type="password"></app-input>
+            </div>
+            <div class="datosConfi">
+                <app-label content="Confirmar Contraseña:"></app-label>
+                <app-input type="password"></app-input>
+            </div>
+        </div>
+        <div class="botones">
+            <app-button value="Editar"></app-button>
+            <app-button value="Guardar"></app-button>
+        </div>
+    </div>
+</div>

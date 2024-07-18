@@ -1,176 +1,209 @@
 <!-- <div class="container-form-register">
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    
+    <div class="header">
+      <app-title-terciario for="text" [titleText]="'Registro Médico'"></app-title-terciario>
+    </div>
+
+    
+    <div class="form-columns">
+      <div class="form-column">
       
-      <div class="header">
-        <app-title-terciario for="text" [titleText]="'Registro Médico'"></app-title-terciario>
-      </div>
-  
-      
-      <div class="form-columns">
-        <div class="form-column">
+        <div class="form-group">
+          <app-label for="name" content="Nombres:"></app-label>
+          <app-input 
+            type="text" 
+            id="name" 
+            class="form-input" 
+            name="name" 
+            formControlName="nombre" 
+            placeholder="Nombre">
+          </app-input>
+          <div *ngIf="registrationForm.get('nombre')?.invalid && (registrationForm.get('nombre')?.dirty || registrationForm.get('nombre')?.touched)"
+               class="error-bubble">
+            <small class="error">El nombre es obligatorio.</small>
+          </div>
+        </div>
         
-          <div class="form-group">
-            <app-label for="name" content="Nombres:"></app-label>
-            <app-input 
-              type="text" 
-              id="name" 
-              class="form-input" 
-              name="name" 
-              formControlName="name" 
-              placeholder="Nombre">
-            </app-input>
-            <div *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)"
-                 class="error-bubble">
-              <small class="error">El nombre es obligatorio.</small>
-            </div>
+        
+        <div class="form-group">
+          <app-label for="apellido" content="Apellidos:"></app-label>
+          <app-input 
+            type="text" 
+            id="apellido" 
+            class="form-input" 
+            name="apellido" 
+            formControlName="apellido" 
+            placeholder="Apellido">
+          </app-input>
+          <div *ngIf="registrationForm.get('apellido')?.invalid && (registrationForm.get('apellido')?.dirty || registrationForm.get('apellido')?.touched)"
+               class="error-bubble">
+            <small class="error">El apellido es obligatorio.</small>
           </div>
-          
-         
-          <div class="form-group">
-            <app-label for="apellido" content="Apellidos:"></app-label>
-            <app-input 
-              type="text" 
-              id="apellido" 
-              class="form-input" 
-              name="apellido" 
-              formControlName="apellido" 
-              placeholder="Apellido">
-            </app-input>
-            <div *ngIf="registrationForm.get('apellido')?.invalid && (registrationForm.get('apellido')?.dirty || registrationForm.get('apellido')?.touched)"
-                 class="error-bubble">
-              <small class="error">El apellido es obligatorio.</small>
-            </div>
+        </div>
+        
+
+        <div class="form-group">
+          <app-label for="email" content="Email:"></app-label>
+          <app-input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            formControlName="email" 
+            placeholder="Correo electrónico">
+          </app-input>
+          <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)"
+               class="error-bubble">
+            <small class="error" *ngIf="registrationForm.get('email')?.errors?.['required']">El correo electrónico es obligatorio.</small>
+            <small class="error" *ngIf="registrationForm.get('email')?.errors?.['email']">
+              El correo electrónico debe ser válido.
+            </small>
           </div>
-          
+        </div>
+        
+
+        <div class="form-group">
+          <app-label for="password" content="Crear Contraseña:"></app-label>
+          <app-input 
+            type="password" 
+            id="password" 
+            class="form-input" 
+            name="password" 
+            formControlName="password" 
+            placeholder="••••••••">
+          </app-input>
+          <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)"
+               class="error-bubble">
+            <small class="error" *ngIf="registrationForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+            <small class="error" *ngIf="registrationForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</small>
+            <small class="error" *ngIf="registrationForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos una letra mayúscula y un carácter especial.</small>
+          </div>
+        </div>
+        
+      
+        <div class="form-group">
+          <app-label for="documentNumber" content="Número de Documento:"></app-label>
+          <app-input 
+            type="text" 
+            id="documentNumber" 
+            class="form-input" 
+            name="documentNumber" 
+            formControlName="documento" 
+            placeholder="Número de documento">
+          </app-input>
+          <div *ngIf="registrationForm.get('documento')?.invalid && (registrationForm.get('documento')?.dirty || registrationForm.get('documento')?.touched)"
+               class="error-bubble">
+            <small class="error" *ngIf="registrationForm.get('documento')?.errors?.['required']">El número de documento es obligatorio.</small>
+            <small class="error" *ngIf="registrationForm.get('documento')?.errors?.['pattern']">El número de documento solo puede contener números.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <app-label for="tarjetaProf" content="Tarjeta Profesional:"></app-label>
+          <app-input 
+            type="text" 
+            id="tarjetaProf" 
+            class="form-input" 
+            name="tarjetaProf" 
+            formControlName="tarjetaProf" 
+            placeholder="Número de tarjeta profesional">
+          </app-input>
+          <div *ngIf="registrationForm.get('tarjetaProf')?.invalid && (registrationForm.get('tarjetaProf')?.dirty || registrationForm.get('tarjetaProf')?.touched)"
+               class="error-bubble">
+            <small class="error">La tarjeta profesional es obligatoria.</small>
+          </div>
+        </div>
+        
+      </div>
+      <div class="form-column">
      
-          <div class="form-group">
-            <app-label for="email" content="Email:"></app-label>
-            <app-input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form-input" 
-              formControlName="email" 
-              placeholder="Correo electrónico">
-            </app-input>
-            <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)"
-                 class="error-bubble">
-              <small class="error" *ngIf="registrationForm.get('email')?.errors?.['required']">El correo electrónico es obligatorio.</small>
-              <small class="error" *ngIf="registrationForm.get('email')?.errors?.['email']">
-                El correo electrónico debe contener "&#64;".
-              </small>
-            </div>
+        <div class="form-group">
+          <app-label for="specialtyId" content="Especialidad:"></app-label>
+          <app-selects 
+            id="specialtyId" 
+            name="specialtyId" 
+            class="form-input" 
+            formControlName="specialtyId" 
+            [options]="specialtyOptions">
+          </app-selects>
+          <div *ngIf="registrationForm.get('specialtyId')?.invalid && (registrationForm.get('specialtyId')?.dirty || registrationForm.get('specialtyId')?.touched)"
+               class="error-bubble">
+            <small class="error">La especialidad es obligatoria.</small>
           </div>
-          
-          
-          <div class="form-group">
-            <app-label for="password" content="Crear Contraseña:"></app-label>
-            <app-input 
-              type="password" 
-              id="password" 
-              class="form-input" 
-              name="password" 
-              formControlName="password" 
-              placeholder="••••••••">
-            </app-input>
-            <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)"
-                 class="error-bubble">
-              <small class="error" *ngIf="registrationForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
-              <small class="error" *ngIf="registrationForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</small>
-              <small class="error" *ngIf="registrationForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos una letra mayúscula y un carácter especial.</small>
-            </div>
-          </div>
-          
+        </div>
         
-          <div class="form-group">
-            <app-label for="documentNumber" content="Número de Documento:"></app-label>
-            <app-input 
-              type="text" 
-              id="documentNumber" 
-              class="form-input" 
-              name="documentNumber" 
-              formControlName="documentNumber" 
-              placeholder="Número de documento">
-            </app-input>
-            <div *ngIf="registrationForm.get('documentNumber')?.invalid && (registrationForm.get('documentNumber')?.dirty || registrationForm.get('documentNumber')?.touched)"
-                 class="error-bubble">
-              <small class="error" *ngIf="registrationForm.get('documentNumber')?.errors?.['required']">El número de documento es obligatorio.</small>
-              <small class="error" *ngIf="registrationForm.get('documentNumber')?.errors?.['pattern']">El número de documento solo puede contener números.</small>
-            </div>
+      
+        <div class="form-group">
+          <app-label for="codigoEspc" content="Código de Especialidad:"></app-label>
+          <app-input 
+            type="text" 
+            id="codigoEspc" 
+            class="form-input" 
+            name="codigoEspc" 
+            formControlName="codigoEspc" 
+            placeholder="Código de especialidad">
+          </app-input>
+          <div *ngIf="registrationForm.get('codigoEspc')?.invalid && (registrationForm.get('codigoEspc')?.dirty || registrationForm.get('codigoEspc')?.touched)"
+               class="error-bubble">
+            <small class="error">El código de especialidad es obligatorio y debe ser una cadena de caracteres.</small>
           </div>
         </div>
-        <div class="form-column">
+        
        
-          <div class="form-group">
-            <app-label for="specialtyId" content="Especialidad:"></app-label>
-            <app-selects 
-              id="specialtyId" 
-              name="specialtyId" 
-              class="form-input" 
-              formControlName="specialtyId" 
-              [options]="specialtyOptions">
-            </app-selects>
-            <div *ngIf="registrationForm.get('specialtyId')?.invalid && (registrationForm.get('specialtyId')?.dirty || registrationForm.get('specialtyId')?.touched)"
-                 class="error-bubble">
-              <small class="error">La especialidad es obligatoria.</small>
-            </div>
+        <div class="form-group">
+          <app-label for="confirmPassword" content="Confirmar Contraseña:"></app-label>
+          <app-input 
+            type="password" 
+            id="confirmPassword" 
+            class="form-input" 
+            name="confirmPassword" 
+            formControlName="confirmPassword" 
+            placeholder="••••••••">
+          </app-input>
+          <div *ngIf="registrationForm.errors?.['mismatch'] && (registrationForm.get('confirmPassword')?.dirty || registrationForm.get('confirmPassword')?.touched)"
+               class="error-bubble">
+            <small class="error">Las contraseñas no coinciden.</small>
           </div>
-          
+        </div>
+        
+
+        <div class="form-group">
+          <app-label for="img" content="Imagen:"></app-label>
+          <app-input-file 
+            type="file" 
+            id="img" 
+            class="form-input" 
+            name="img" 
+            formControlName="img" 
+            placeholder="URL de la imagen"
+            (change)="onFileChange($event)">
+          </app-input-file>
+          <div *ngIf="registrationForm.get('img')?.invalid && (registrationForm.get('img')?.dirty || registrationForm.get('img')?.touched)"
+               class="error-bubble">
+            <small class="error">La URL de la imagen es obligatoria.</small>
+          </div>
+          <button type="button" class="btn btn-view-image" (click)="viewImage()" *ngIf="imgFile">Ver Imagen</button>
+        </div>
+        
        
-          <div class="form-group">
-            <app-label for="confirmPassword" content="Confirmar Contraseña:"></app-label>
-            <app-input 
-              type="password" 
-              id="confirmPassword" 
-              class="form-input" 
-              name="confirmPassword" 
-              formControlName="confirmPassword" 
-              placeholder="••••••••">
-            </app-input>
-            <div *ngIf="registrationForm.errors?.['mismatch'] && (registrationForm.get('confirmPassword')?.dirty || registrationForm.get('confirmPassword')?.touched)"
-                 class="error-bubble">
-              <small class="error">Las contraseñas no coinciden.</small>
-            </div>
-          </div>
-          
- 
-          <div class="form-group">
-            <app-label for="img" content="Imagen:"></app-label>
-            <app-input-file 
-              type="file" 
-              id="img" 
-              class="form-input" 
-              name="img" 
-              formControlName="img" 
-              placeholder="URL de la imagen"
-              (change)="onFileChange($event)">
-            </app-input-file>
-            <div *ngIf="registrationForm.get('img')?.invalid && (registrationForm.get('img')?.dirty || registrationForm.get('img')?.touched)"
-                 class="error-bubble">
-              <small class="error">La URL de la imagen es obligatoria.</small>
-            </div>
-            <button type="button" class="btn btn-view-image" (click)="viewImage()" *ngIf="imgFile">Ver Imagen</button>
-          </div>
-          
-         
-          <div class="form-group">
-            <label>
-              <input 
-                type="checkbox" 
-                formControlName="acceptTerms">
-              Acepto los términos y condiciones.
-            </label>
-            <div *ngIf="registrationForm.get('acceptTerms')?.invalid && (registrationForm.get('acceptTerms')?.dirty || registrationForm.get('acceptTerms')?.touched)"
-                 class="error-bubble">
-              <small class="error">Debes aceptar los términos y condiciones.</small>
-            </div>
+        <div class="form-group">
+          <label>
+            <input 
+              type="checkbox" 
+              formControlName="acceptTerms">
+            Acepto los términos y condiciones.
+          </label>
+          <div *ngIf="registrationForm.get('acceptTerms')?.invalid && (registrationForm.get('acceptTerms')?.dirty || registrationForm.get('acceptTerms')?.touched)"
+               class="error-bubble">
+            <small class="error">Debes aceptar los términos y condiciones.</small>
           </div>
         </div>
       </div>
-  
-      <div class="form-group">
-        <app-button [isDisabled]="registrationForm.invalid || isSubmitting" value="Registrarse"></app-button>
-      </div>
-    </form>
-  </div>
-   -->
+    </div>
+
+    <div class="form-group">
+      <app-button [isDisabled]="registrationForm.invalid || isSubmitting || !imgFile" value="Registrarse"></app-button>
+    </div>
+  </form>
+</div> -->

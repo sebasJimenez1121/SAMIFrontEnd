@@ -1,18 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-admin',
   templateUrl: './home-admin.component.html',
-  styleUrls: ['./home-admin.component.css']
+  styleUrl: './home-admin.component.css'
 })
-export class HomeAdminComponent implements OnInit {
-
-  someCondition = false;
-
-  constructor() {}
-
-  ngOnInit(): void {
-    // Inicialización del componente
-  }
+export class HomeAdminComponent {
 
 }

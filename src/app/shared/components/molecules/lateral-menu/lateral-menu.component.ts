@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-lateral-menu',
@@ -7,13 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class LateralMenuComponent {
   @Input() menuItems = [
-
     { RouterLink: '/home-admin', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
     { RouterLink: '/agendar-cita', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
     { RouterLink: '/visualizar-cita', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
-    { RouterLink: '/crear-especialidad', label: 'Crear especialidad', icon: 'assets/icons/historia-clinica.svg' },
-    { RouterLink: '/recetas', label: 'Crear Receta', icon: 'assets/icons/crear-receta.svg' }
+    { RouterLink: '/crear medicos', label: 'Crear medicos', icon: 'assets/icons/crear-receta.svg' }
   ];
+
+  @Output() actionTriggered: EventEmitter<string> = new EventEmitter();
 
   isSidebarClosed = false;
   selectedItem: any = null;
@@ -25,6 +25,9 @@ export class LateralMenuComponent {
 
   selectMenuItem(item: any) {
     this.selectedItem = item;
+    if (item.action) {
+      this.actionTriggered.emit(item.action);
+    }
   }
 
   iconClick(event: Event) {

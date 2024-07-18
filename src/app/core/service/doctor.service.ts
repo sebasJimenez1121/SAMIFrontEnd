@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Doctor } from '../models/doctor.model';
+import { Specialty } from '../models/doctor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class DoctorService {
     return this.http.get<any>(`${this.apiUrl}/specialties`);
   }
 
+ 
   // Obtener todos los doctores
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`);
@@ -28,14 +30,11 @@ export class DoctorService {
   }
 
   // Crear un nuevo doctor
-  crearDoctor(doctor: Doctor): Observable<Doctor> {
-    return this.http.post<Doctor>(`${this.apiUrl}/doctors`, doctor);
+  crearDoctor( doctorData: any): Observable<Doctor> {
+    return this.http.post<Doctor>(`http://localhost:10101/doctor/register`, doctorData);
   }
-
-  // Actualizar un doctor existente
-  actualizarDoctor(doctorId: number, doctor: Doctor): Observable<Doctor> {
-    return this.http.put<Doctor>(`${this.apiUrl}/doctors/${doctorId}`, doctor);
-  }
+ 
+ 
 
   // Eliminar un doctor existente
   eliminarDoctor(doctorId: number): Observable<any> {
@@ -49,4 +48,35 @@ export class DoctorService {
       map(sortedDoctors => sortedDoctors.slice(0, 3))
     );
   }
+
+
+  getDoctorByEmail(token: string): Observable<Doctor> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Doctor>(`${this.apiUrl}/profile`, { headers });
+  }
+
+  updateDoctor(token: string, doctor: Doctor): Observable<Doctor> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put<Doctor>(`${this.apiUrl}/profile`, doctor, { headers });
+  }
+
+  updateProfilePicture(token: string, formData: FormData): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}/profile/picture`, formData, { headers });
+  }
+
+  disableAccount(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}/profile/disable`, {}, { headers });
+  }
+
+  changePassword(token: string, passwords: { oldPassword: string, newPassword: string }): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}/profile/change-password`, passwords, { headers });
+  }
+
+  recoverPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/recover-password`, { email });
+  }
 }
+

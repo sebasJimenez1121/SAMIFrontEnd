@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./text.component.css'] 
 })
 export class TextComponent {
-  @Input() content: string = "SAMI es un equipo de experimentados profesionales médicos";
   @Input() typeContent: string = "text";
   @Input() class: string = "nueva";
+  @Input() content: string = '';
 }

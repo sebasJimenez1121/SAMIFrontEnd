@@ -1,0 +1,23 @@
+<div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div class="form-column">
+      <app-title-terciario titleText="Agregar Especialidad"></app-title-terciario>
+      <form (ngSubmit)="onSubmit()">
+        <div class="container-form">
+        <app-label for="codigoEspc" content="Código:"></app-label>
+        <app-input type="number" id="codigoEspc" [(ngModel)]="specialty.codigoEspc" name="codigoEspc" [required]=true></app-input>
+        
+        <app-label for="nombre" content="Nombre:"></app-label>
+        <app-input type="text" id="nombre" [(ngModel)]="specialty.nombre" name="nombre" [required]=true></app-input>
+        
+        <app-label for="descripcion" content="Descripción:"></app-label>
+        <app-input type="text" id="descripcion" [(ngModel)]="specialty.descripcion" name="descripcion"  [required]=true></app-input>
+      </div>
+        <app-button type="submit" value="Guardar"></app-button>
+      </form>
+    </div>
+    </div>
+  </div>
+  
+  

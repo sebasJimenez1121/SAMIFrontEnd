@@ -1,0 +1,117 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: #d9d9d924;
+    border-radius: 1.4rem;
+    width: 70rem;
+    height: 4rem;
+    margin: 3rem 0rem 0rem 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+app-title-terciario{
+  display: flex;
+  justify-content: center;
+}
+app-button {
+  position: relative;
+  left: 20rem;
+  top: 5rem;
+}
+app-image{
+    width: 30vw;
+}
+ 
+.section2{
+    margin: 1rem;
+}
+.section1{
+    background-color: #d9d9d924;
+    border-radius: 1.4rem;
+    width: 70rem;
+    height: 15rem;
+    margin: 5rem 0rem 0rem 15rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+  
+  table {
+    width: 67%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 1.25rem 0;
+    font-size: 1rem;
+    text-align: left;
+    padding: auto;
+    margin: 1rem 0rem 0rem 18rem;
+  }
+  
+  th {
+    background-color: #DBE9FE;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid #ddd;
+    color: #203B8F;
+  }
+  hr{
+    width: 70rem;
+    margin: 4rem 0rem 2rem 15rem;
+  }
+  
+  td {
+    padding: 0.90rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
+  }
+  
+  .imagen-medico {
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    vertical-align: middle;
+  }
+  
+  
+  
+  
+  #fecha {
+    margin: 0 0 1.25rem 0.625rem;
+  }
+  
+  .titulo {
+    margin: 2.5rem 20rem 1.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circulo-activo {
+    background-color: rgb(107, 210, 107);
+    display: inline-block;
+    width: 0.625rem; 
+    height: 0.625rem;
+    border-radius: 50%;
+    margin-right: 0.313rem;
+    vertical-align: middle;
+  }
+  
+  .circulo-inactivo {
+    background-color: rgb(217, 59, 59);
+    display: inline-block;
+    width: 0.625rem; 
+    height: 0.625rem;
+    border-radius: 50%;
+    margin-right: 0.313rem;
+    vertical-align: middle;
+  }
+  .container{
+    display: flex;
+    margin: 4rem 0rem 0rem 10rem;
+   
+  }

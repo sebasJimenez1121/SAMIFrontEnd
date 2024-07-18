@@ -1,5 +1,25 @@
 <main>
-    <nav>
-        <app-title-secundari titleText="Panel Administrador"></app-title-secundari>
-    </nav>
+  <nav>
+    <app-title-terciario titleText="Panel Administrador"></app-title-terciario>
+    <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+  </nav>
+  <div>
+    <section class="section1">
+      <app-title-principal titleText="Bienvenido Admin"></app-title-principal>
+      <app-image src="../../../../../assets/images/Doctors-pana 1.png"></app-image>
+    </section>
+
+    <section class="section2">
+      <hr>
+      <app-title-terciario class="title" titleText="Especialidades"></app-title-terciario>
+      <app-button (click)="openAddSpecialtyModal()" value="Crear especialidad"></app-button>
+      <app-add-specialty (specialtyAdded)="addSpecialty($event)"></app-add-specialty>
+      <div class="container" *ngIf="specialties.length > 0">
+        <div class="container-card" *ngFor="let specialty of specialties">
+          <app-card-especialidad [Specialty]="specialty"></app-card-especialidad>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-modal-perfil-admin *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-admin>
 </main>

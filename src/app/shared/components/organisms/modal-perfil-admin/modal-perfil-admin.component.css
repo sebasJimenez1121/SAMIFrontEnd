@@ -1,0 +1,82 @@
+section{
+    background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
+    height: 8rem;
+}
+.conjunto{
+    display: flex;
+}
+.tituPerfil{
+    margin: 0 0 0 24rem;
+}
+.titu{
+    margin: 1rem 0 1rem 13rem;
+}
+.usuario{
+    margin: 0 0rem 0 14rem;
+}
+.rol{
+ margin: 0 0 0 3rem;
+}
+.input{
+    width: 12rem;
+}
+app-title-secundari{
+    margin: 0 0rem 0 0;
+    width: 11rem;
+}
+.contDatos{
+    display: flex;
+    justify-content: space-evenly;
+}
+.datosTipo{
+    margin: 0 0 0 0.8rem;
+}
+.datosNum{
+    margin: 0 0 0 0rem;
+}
+.datosCambi{
+    margin: 0 0 0 0rem;
+}
+.datosConfi{
+    margin: 0 0 0 0rem;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem 0 0rem 0;
+
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    position: fixed;
+    top: 50%;
+    border-radius:1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    width: 60%;
+    max-width: 1000px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }

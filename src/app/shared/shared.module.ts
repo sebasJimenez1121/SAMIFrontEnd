@@ -89,9 +89,14 @@ import { HomeAdminTemplateComponent } from './components/templates/home-admin-te
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
 import { RoleStyleDirective } from './directives/role-style.directive';
 import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
-import { DoctorRegisterComponent } from './components/molecules/doctor-register/doctor-register.component';
 import { DoctorRegisterTemplateComponent } from './components/templates/doctor-register-template/doctor-register-template.component';
 import { TemplateDoctorDashboardComponent } from './components/templates/template-doctor-dashboard/template-doctor-dashboard.component';
+import { ContentCardEspecialidadComponent } from './components/molecules/content-card-especialidad/content-card-especialidad.component';
+import { CardEspecialidadComponent } from './components/organisms/card-especialidad/card-especialidad.component';
+import { DoctorRegisterComponent} from './components/molecules/doctor-register/doctor-register.component';
+import { AddSpecialtyComponent } from './components/organisms/add-specialty/add-specialty.component';
+import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-admin/modal-perfil-admin.component';
+import { ModalPerfilPacienteComponent } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
 
 
 
@@ -185,9 +190,14 @@ import { TemplateDoctorDashboardComponent } from './components/templates/templat
     CustomAlertComponent,
     RoleStyleDirective,
     HeaderUsuarioComponent,
-    DoctorRegisterComponent,
     DoctorRegisterTemplateComponent,
-    TemplateDoctorDashboardComponent
+    TemplateDoctorDashboardComponent,
+    ContentCardEspecialidadComponent,
+    CardEspecialidadComponent,
+    DoctorRegisterComponent,
+    AddSpecialtyComponent,
+    ModalPerfilAdminComponent
+   
   ],
   imports: [
     CommonModule,
