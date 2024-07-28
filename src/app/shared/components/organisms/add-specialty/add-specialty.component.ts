@@ -8,7 +8,7 @@ import { SpecialtyService } from '../../../../core/service/Specialty.service';
   styleUrls: ['./add-specialty.component.css']
 })
 export class AddSpecialtyComponent {
-  specialty: Specialty = { codigoEspc: 0, nombre: '', descripcion: '' };
+  specialty: Specialty = { Codigo_Espc: '', Nombre: '', Descripcion: '' };
   @Output() specialtyAdded: EventEmitter<Specialty> = new EventEmitter();
   showModal: boolean = false;
 
@@ -23,11 +23,11 @@ export class AddSpecialtyComponent {
   }
 
   onSubmit(): void {
-    if (this.specialty.nombre && this.specialty.descripcion) {
+    if (this.specialty.Nombre && this.specialty.Descripcion) {
       this.specialtyService.addSpecialty(this.specialty).subscribe(
         (newSpecialty) => {
           this.specialtyAdded.emit(newSpecialty);
-          this.specialty = { codigoEspc: 0, nombre: '', descripcion: '' }; // Reset form
+          this.specialty = {  Codigo_Espc: '', Nombre: '', Descripcion: '' }; // Reset form
           this.closeModal();
         },
         (error) => {

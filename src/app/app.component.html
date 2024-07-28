@@ -1,14 +1,26 @@
 <div *ngIf="!isLoginPage">
   <div *ngIf="authService.isLoggedIn(); else notLoggedIn">
-    <div *ngIf="authService.isPatient()">
+    <div *ngIf="isPatient">
       <app-header></app-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer *ngIf="isHomePage"></app-footer>
     </div>
     <div *ngIf="authService.isDoctor() || authService.isAdmin()">
       <app-lateral-menu></app-lateral-menu>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </div>
   </div>
   <ng-template #notLoggedIn>
     <app-header></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   </ng-template>
 </div>
-<router-outlet></router-outlet>
+<div *ngIf="isLoginPage">
+  <router-outlet></router-outlet>
+</div>

@@ -2,7 +2,11 @@
     <div class="modal-overlay" (click)="closeModal()"></div>
     <div class="modal-content">
       <div class="modal-header">
-        <button class="close-button" (click)="closeModal()">X</button>
+        <button class="close-button" (click)="closeModal()">
+          <span class="X"></span>
+          <span class="Y"></span>
+          <div class="close">Close</div>
+      </button>
       </div>
       <div class="modal-body">
         <app-title-terciario titleText="Datos de la Cita"></app-title-terciario>

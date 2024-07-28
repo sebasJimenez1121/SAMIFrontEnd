@@ -12,20 +12,20 @@ export class AppComponent implements OnInit {
   title = 'SAMI';
   isSidebarClosed = false;
   isLoginPage = false;
+  isHomePage = false;
+  isPatient = false;
 
   constructor(public authService: AuthService, private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isLoginPage = event.url === '/login';
-        
+        this.isHomePage = event.url === '/home'; 
+        this.isPatient = this.authService.isPatient();
       }
     });
   }
-  
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;

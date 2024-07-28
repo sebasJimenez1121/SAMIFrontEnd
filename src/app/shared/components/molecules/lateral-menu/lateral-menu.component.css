@@ -11,6 +11,15 @@ body {
   margin-left: 15.625rem; 
 }
 
+.color-session{
+  color: #203B8F;
+}
+.content-session{
+  display: flex;
+  align-items: center;
+  margin: 2rem 2rem 0rem 0rem;
+  cursor: pointer;
+}
 .container-cards {
   display: flex;
   flex-wrap: wrap;

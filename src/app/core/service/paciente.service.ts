@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Patient } from '../models/patient.model';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,9 @@ export class PacienteService {
   }
   getPatientByEmail(token: string): Observable<Patient> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<Patient>(`${this.apiUrl}/profile`, { headers });
+    return this.http.get< {patient : Patient}>(`${this.apiUrl}/profile`, { headers }).pipe(
+      map(response => response.patient)
+    );
   }
 
   // Obtener un paciente por su ID
@@ -32,7 +34,7 @@ export class PacienteService {
 
   // Actualizar un paciente existente
   actualizarPatient(patientId: string, patient: Patient): Observable<Patient> {
-    return this.http.put<Patient>(`${this.apiUrl}/patient${patientId}`, patient);
+    return this.http.put<Patient>(`http://localhost:10101/patient`, patient);
   }
 
   // Eliminar un paciente existente

@@ -20,6 +20,9 @@ export class TemplateAppointmentScheduleComponent {
   @Output() pageChange = new EventEmitter<number>();
   @Output() agendarCita = new EventEmitter<Doctor>();
   @Input() userRole : any = "";
+  @Input() titleText: string = 'Agendamiento de Citas';
+  @Input() titleClass: string = 'custom-title';
+
 
   onSpecialtyChange(event: any) {
     this.specialtyChange.emit(+event.target.value);

@@ -11,13 +11,13 @@ import { SpecialtyService } from '../../../../core/service/Specialty.service';
   styleUrls: ['./home-admin-template.component.css']
 })
 export class HomeAdminTemplateComponent implements OnInit {
-  @Input() citas: Appointment[] = [];
-  citasFiltradas: Appointment[] = [];
+  titleClass: string = 'white-title';
+  titleText: string = 'Bienvenido Admin';
   specialties: Specialty[] = [];
   @ViewChild(AddSpecialtyComponent) addSpecialtyModal!: AddSpecialtyComponent;
 
   constructor(private dataService: CitaService, private specialtyService: SpecialtyService) {}
-  imageUrl: string | null = 'path/to/admin-image.jpg'; // Define the image URL
+  imageUrl: string | null = '';
   isProfileModalOpen = false;
 
   openProfileModal() {
@@ -28,21 +28,8 @@ export class HomeAdminTemplateComponent implements OnInit {
     this.isProfileModalOpen = false;
   }
   ngOnInit(): void {
-    //this.loadCitas();
     this.loadSpecialties();
-  }
-
-  // loadCitas(): void {
-  //   this.dataService.getCitas().subscribe(
-  //     (data: Appointment[]) => {
-  //       this.citas = data;
-  //       this.citasFiltradas = this.citas;
-  //     },
-  //     (error: any) => {
-  //       console.error('Error loading citas:', error);
-  //     }
-  //   );
-  // }
+  }  
 
   loadSpecialties(): void {
     this.specialtyService.getSpecialties().subscribe(
@@ -56,30 +43,15 @@ export class HomeAdminTemplateComponent implements OnInit {
       }
     );
   }
-  obtenerClaseCirculo(estado: string): string {
-    switch (estado) {
-      case 'Agendada':
-        return 'circulo-activo';
-      case 'Cancelada':
-        return 'circulo-inactivo';
-      default:
-        return '';
-    }
-  }
 
-  traducirEstado(estado: string): string {
-    switch (estado) {
-      case 'Pendiente': return 'Pendiente';
-      case 'Completado': return 'Completado';
-      case 'Cancelado': return 'Cancelado';
-      default: return estado;
-    }
-  }
   openAddSpecialtyModal(): void {
     this.addSpecialtyModal.openModal();
   }
 
   addSpecialty(newSpecialty: Specialty): void {
-    this.specialties.push(newSpecialty);
+    this.specialtyService.addSpecialty(newSpecialty).subscribe((specialty: Specialty) => {
+      this.specialties.push(specialty); 
+    });
+    this.loadSpecialties();
   }
 }

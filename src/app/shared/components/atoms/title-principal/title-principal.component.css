@@ -1,6 +1,15 @@
-.title-uno {
+
+  
+  .white-title{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+  }
+  
+  .custom-title {
     font-size: 2rem;
     color: #203B8F;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-}
+  } 

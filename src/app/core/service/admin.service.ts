@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Admin } from '../models/admin.model';
 
 
@@ -19,18 +19,25 @@ export class AdminService {
 
   getAdminByEmail(token: string): Observable<Admin> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<Admin>(`${this.apiUrl}/profile`, { headers });
+    return this.http.get< {admin : Admin}>(`${this.apiUrl}/admin/profile`, { headers }).pipe(
+      map(response => response.admin)
+    );
+      
   }
 
-  updateAdmin(token: string, admin: Admin): Observable<Admin> {
+  updateAdminProfile(token: string, admin: Admin): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put<Admin>(`${this.apiUrl}/profile`, admin, { headers });
+    const updateDTO = {
+      TokenEmail: token,
+      documento: admin.Documento,
+      nombre: admin.Nombre,
+      apellido: admin.Apellido,
+      email: admin.Email
+    };
+    return this.http.put(`${this.apiUrl}/admin/updateProfile`, updateDTO, { headers });
   }
 
-  updateProfilePicture(token: string, formData: FormData): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put(`${this.apiUrl}/profile/picture`, formData, { headers });
-  }
+ 
 
   disableAccount(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

@@ -13,6 +13,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputComponent implements ControlValueAccessor {
   @Input() type: string = 'text';
+  @Input() width: string = '';
   @Input() required: boolean = false;
   @Input() placeholder: string = '';
   @Input() class: string = '';

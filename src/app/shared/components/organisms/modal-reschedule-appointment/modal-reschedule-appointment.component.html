@@ -2,7 +2,11 @@
   <div class="modal-overlay" (click)="closeRescheduleModal()"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <button class="close-button" (click)="closeRescheduleModal()">X</button>
+      <button class="close-button" (click)="closeRescheduleModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
     </div>
     <div class="modal-body">
       <app-title-terciario titleText="Reagendar Cita"></app-title-terciario>

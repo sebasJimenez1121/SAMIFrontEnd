@@ -1,79 +1,72 @@
 
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { ProfileService } from '../services/profile.service'; // Importa tu servicio de perfil aquí
+import { Component, Output, EventEmitter } from '@angular/core';
+import { PacienteService } from '../../../../core/service/paciente.service';
+import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-modal-perfil-paciente',
   templateUrl: './modal-perfil-paciente.component.html',
-  styleUrl: './modal-perfil-paciente.component.css'
+  styleUrls: ['./modal-perfil-paciente.component.css']
 })
-export class ModalPerfilPacienteComponent  {
-  // profileForm: FormGroup;
-  // isEditing: boolean = false;
-  // profileData: any; // Aquí guardarás los datos del perfil obtenidos del servidor
+export class ModalPerfilPacienteComponent  { 
+  @Output() close = new EventEmitter<void>();
 
-  // constructor(private fb: FormBuilder, private profileService: ProfileService) {}
+  PacienteProfile: Patient = {
+   id: 0,
+    documentoPac: '',
+    tipoDoc:'',
+    nombre: '',
+    apellido: '',
+    email:'',
+    password:'',
+    fechaNac:'',
+    rol:'',
+  };
+  
+  isEditing: boolean = false;
+  confirmPassword: string = '';
 
-  // ngOnInit(): void {
-  //   this.loadProfileData(); // Carga los datos del perfil al inicializar el componente
+  constructor(private pacienteService: PacienteService) {}
 
-  //   this.profileForm = this.fb.group({
-  //     email: [{ value: '', disabled: true }],
-  //     nombre: ['', Validators.required],
-  //     apellido: ['', Validators.required],
-  //     tipoDocumento: ['', Validators.required],
-  //     numeroDocumento: ['', Validators.required],
-  //     telefono: ['', Validators.required],
-  //     nuevaContrasena: ['', Validators.required],
-  //     confirmarContrasena: ['', Validators.required]
-  //   });
-  // }
+  closeModal() {
+    this.close.emit();
+  }
 
-  // loadProfileData() {
-  //   // Llama al servicio para obtener los datos del perfil del paciente
-  //   this.profileService.getPatientProfile().subscribe(
-  //     (data) => {
-  //       this.profileData = data; // Guarda los datos del perfil
-  //       this.profileForm.patchValue({
-  //         email: this.profileData.email,
-  //         nombre: this.profileData.firstName,
-  //         apellido: this.profileData.lastName,
-  //         tipoDocumento: this.profileData.documentType,
-  //         numeroDocumento: this.profileData.documentNumber,
-  //         telefono: this.profileData.phone
-  //       });
-  //     },
-  //     (error) => {
-  //       console.error('Error al cargar datos del perfil:', error);
-  //     }
-  //   );
-  // }
+  ngOnInit(): void {
+    this.loadProfilePaciente();
+  }
 
-  // enableEditing() {
-  //   this.isEditing = true;
-  //   this.profileForm.enable();
-  // }
+  loadProfilePaciente() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.pacienteService.getPatientByEmail(token).subscribe((response: Patient) => {
+        this.PacienteProfile = response;
+        console.log(this.PacienteProfile);
+      }, error => {
+        console.error('Error al cargar el perfil del paciente', error);
+      });
+    }
+  }
 
-  // saveChanges() {
-  //   if (this.profileForm.valid) {
-  //     // Actualiza los datos del perfil en el servidor
-  //     this.profileService.updatePatientProfile(this.profileForm.value).subscribe(
-  //       (response) => {
-  //         console.log('Datos actualizados correctamente:', response);
-  //         this.isEditing = false; // Deshabilita la edición después de guardar
-  //         this.profileForm.disable(); // Deshabilita el formulario después de guardar
-  //         // Puedes mostrar un mensaje de éxito o realizar alguna otra acción necesaria
-  //       },
-  //       (error) => {
-  //         console.error('Error al guardar cambios:', error);
-  //         // Maneja el error de acuerdo a tus requerimientos
-  //       }
-  //     );
-  //   }
-  // }
+  enableEditing() {
+    this.isEditing = true;
+  }
 
-  // changePassword() {
-  //   // Implementa la lógica para cambiar la contraseña si es necesario
-  // }
+  saveProfile() {
+    if (this.PacienteProfile.password !== this.confirmPassword) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.pacienteService.actualizarPatient(token, this.PacienteProfile).subscribe(response => {
+        this.isEditing = false;
+        alert("Perfil actualizado con éxito");
+      }, error => {
+        console.error('Error actualizando el perfil', error);
+      });
+    }
+  }
 }
+

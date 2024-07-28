@@ -1,10 +1,11 @@
 export interface Admin {
-    id: number;
-    firstName: string;
-    lastName: string;
-    rol:string;
-    email: string;
-    password: string;
-    foto:string;
-    acceptTerms: boolean;
-  }
+  id?: number;
+  Nombre?: string;
+  Apellido?: string;
+  Documento?: string;
+  Rol?: string;
+  Email?: string;
+  Password?: string;
+  Foto_Url?: string;
+  acceptTerms?: boolean;
+}

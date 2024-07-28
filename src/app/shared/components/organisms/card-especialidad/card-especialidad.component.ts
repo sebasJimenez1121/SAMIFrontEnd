@@ -7,5 +7,5 @@ import { Specialty } from '../../../../core/models/doctor.model';
   styleUrls: ['./card-especialidad.component.css']
 })
 export class CardEspecialidadComponent {
-  @Input() Specialty!: Specialty;
+
 }

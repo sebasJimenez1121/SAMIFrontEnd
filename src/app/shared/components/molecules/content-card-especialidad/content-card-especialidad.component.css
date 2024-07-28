@@ -1,0 +1,13 @@
+.container-card{
+    background-color: #fff;
+    border: 1px solid #203B8F;
+    border-radius: 1rem;
+    width: 11rem;
+    height: 11rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+.container{
+    margin: 4rem 0rem 0rem 13rem;
+    width: 2rem;
+}

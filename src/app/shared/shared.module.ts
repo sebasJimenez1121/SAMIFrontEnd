@@ -96,8 +96,8 @@ import { CardEspecialidadComponent } from './components/organisms/card-especiali
 import { DoctorRegisterComponent} from './components/molecules/doctor-register/doctor-register.component';
 import { AddSpecialtyComponent } from './components/organisms/add-specialty/add-specialty.component';
 import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-admin/modal-perfil-admin.component';
-import { ModalPerfilPacienteComponent } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
-
+import { ModalPerfilPacienteComponent   } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
+import { HomePacienteTemplateComponent } from './components/templates/home-paciente-template/home-paciente-template.component';
 
 
 
@@ -196,7 +196,9 @@ import { ModalPerfilPacienteComponent } from './components/organisms/modal-perfi
     CardEspecialidadComponent,
     DoctorRegisterComponent,
     AddSpecialtyComponent,
-    ModalPerfilAdminComponent
+    ModalPerfilAdminComponent,
+    HomePacienteTemplateComponent,
+    ModalPerfilPacienteComponent
    
   ],
   imports: [
@@ -222,7 +224,8 @@ import { ModalPerfilPacienteComponent } from './components/organisms/modal-perfi
   FooterComponent,
   DoctorRegisterTemplateComponent,
   HomeAdminTemplateComponent,
-  TemplateDoctorDashboardComponent
+  TemplateDoctorDashboardComponent,
+  HomePacienteTemplateComponent
  ],
 
 

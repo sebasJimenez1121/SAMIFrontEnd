@@ -29,6 +29,15 @@
     <div class="extra-content" *ngIf="!isSidebarClosed">
       <app-image class="large-image" imageUrl="../../../../../assets/images/espacio-cita.png"></app-image>
       <app-button class="register-button" value="Próximas citas"></app-button>
+      <div (click)="logout()">
+        <a class="content-session">
+          <div class="sidebar-menu-content">
+            <img src="../../../../../assets/icons/exit-svgrepo-com.svg" alt="Cerrar Sesión" class="menu-icon">
+          </div>
+          <span class="color-session">Cerrar Sesión</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
+<app-feedback-progess *ngIf="showProgress"></app-feedback-progess>

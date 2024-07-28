@@ -21,8 +21,8 @@ export class ModalRescheduleAppointmentComponent {
 
   constructor(private dataService: CitaService) {
     const today = new Date();
-    this.minDate = new Date(today.getFullYear(), today.getMonth(), 1); // Primer día del mes actual
-    this.maxDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Último día del mes actual
+    this.minDate = new Date(today.getFullYear(), today.getMonth(), 1); 
+    this.maxDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
   }
 
   closeRescheduleModal(): void {
@@ -34,13 +34,12 @@ export class ModalRescheduleAppointmentComponent {
     if (this.cita && this.nuevaFecha && this.nuevaHora) {
       const fechaSeleccionada = new Date(this.nuevaFecha);
 
-      // Validar que la fecha no sea sábado ni domingo
       if (fechaSeleccionada.getDay() === 0 || fechaSeleccionada.getDay() === 6) {
         this.showWeekendWarningAlert();
         return;
       }
 
-      // Validar que la fecha esté dentro del rango del mes actual
+    
       if (fechaSeleccionada < this.minDate || fechaSeleccionada > this.maxDate) {
         this.showDateErrorMessage = true;
         return;
@@ -55,7 +54,7 @@ export class ModalRescheduleAppointmentComponent {
         }
       }, error => {
         console.error('Error al verificar disponibilidad:', error);
-        // Manejo de errores en la suscripción
+    
       });
     } else {
       console.error('La cita, nuevaFecha o nuevaHora es null o indefinida.');

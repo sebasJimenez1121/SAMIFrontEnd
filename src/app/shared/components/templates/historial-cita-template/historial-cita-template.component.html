@@ -1,7 +1,7 @@
 <div class="HistorialCita">
   <div class="container">
     <div>
-      <app-title-principal class="titulo" titleText="Visualización De Citas"></app-title-principal>
+      <app-title-principal class="titulo"  [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
     </div>
     <div class="filtro-fecha">
       <app-input-date-history (change)="filtrarCitas($event)"></app-input-date-history>

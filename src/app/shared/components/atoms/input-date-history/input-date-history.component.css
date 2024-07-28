@@ -25,8 +25,8 @@
     top: 50%;
     left: 0.04rem;
     transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     background: url('../../../../../assets/images/Vector.png') no-repeat center;
     background-size: 1rem 1rem;
     color: transparent; 
@@ -34,24 +34,3 @@
 }
 
 
-
-.styled-date-input::-webkit-inner-spin-button,
-.styled-date-input::-webkit-clear-button {
-    display: none;
-}
-
-.styled-date-input::-webkit-input-placeholder {
-    color: #999;
-}
-
-.styled-date-input::-moz-placeholder {
-    color: #999;
-}
-
-.styled-date-input:-ms-input-placeholder {
-    color: #999;
-}
-
-.styled-date-input:-moz-placeholder {
-    color: #999;
-}

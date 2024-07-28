@@ -6,18 +6,19 @@ export interface Doctor {
     apellido:string;
     rol: string;
     email:string;
-    foto:string;
+    img:string;
     password: string;
     codigoEspc:string;
     specialtyId: number;
-    appointmentCost: number
+    appointmentCost: number;
     specialtyName: string;
     rating: number;
   }
 
-  export interface Specialty {
-    //id: number;
-    codigoEspc:number;
-    nombre : string;
-    descripcion:string;
-  }
+ export interface Specialty {
+  Codigo_Espc: string;
+  Nombre: string;
+  Descripcion: string;
+}
+
+

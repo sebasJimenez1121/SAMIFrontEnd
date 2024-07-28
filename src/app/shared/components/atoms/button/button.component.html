@@ -1,2 +1,5 @@
 
-<button [disabled]="isDisabled" (click)="handleClick()">{{ value }}</button>
+<button [disabled]="isDisabled" [style.width]="width" (click)="handleClick()">{{ value }} 
+    <ng-content></ng-content>
+</button>
+

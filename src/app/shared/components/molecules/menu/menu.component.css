@@ -28,6 +28,7 @@ a {
   padding: 0.7rem 1.25rem;
   font-family: 'Poppins', sans-serif;
   color: #5A5D5F;
+  cursor: pointer;
   text-decoration: none;
   transition: color 0.5s, background-color 0.5s;
 }

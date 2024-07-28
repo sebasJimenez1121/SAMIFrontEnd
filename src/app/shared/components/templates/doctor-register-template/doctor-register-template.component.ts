@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './doctor-register-template.component.css'
 })
 export class DoctorRegisterTemplateComponent {
+  imageUrl: string | null = '';
+  isProfileModalOpen = false;
 
+  openProfileModal() {
+    this.isProfileModalOpen = true;
+  }
 }

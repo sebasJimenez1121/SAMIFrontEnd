@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-appointment-management-template',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './appointment-management-template.component.css'
 })
 export class AppointmentManagementTemplateComponent {
-
+  @Input() titleText: string = 'Gestion de Citas';
+  @Input() titleClass: string = 'custom-title';
 }

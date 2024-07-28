@@ -114,7 +114,6 @@ export class LoginFormComponent implements OnInit {
       control.markAsTouched();
     });
   }
-
   private redirectBasedOnRole(userRole: string) {
     switch (userRole) {
       case 'admin':
@@ -124,11 +123,12 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/doctor-dashboard']);
         break;
       case 'paciente':
-        this.router.navigate(['/patient-dashboard']);
+        this.router.navigate(['/home']);
         break;
       default:
         console.error('Rol de usuario no reconocido:', userRole);
         break;
     }
   }
+  
 }

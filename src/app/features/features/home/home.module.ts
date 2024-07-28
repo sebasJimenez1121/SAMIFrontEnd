@@ -10,6 +10,7 @@ import { CoreModule } from '../../../core/core.module';
 import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
 import { HomeDoctorDashboardComponent } from './pages/home-doctor-dashboard/home-doctor-dashboard.component';
+import { HomePacienteComponent } from './pages/home-paciente/home-paciente.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HomeDoctorDashboardComponent } from './pages/home-doctor-dashboard/home
     HomeAdminComponent,
     DoctorRegisterComponent,
     HomeDoctorDashboardComponent,
+    HomePacienteComponent,
   ],
   imports: [
     CommonModule,

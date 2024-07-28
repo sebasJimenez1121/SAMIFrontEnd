@@ -1,66 +1,61 @@
 <div class="modal-overlay" (click)="closeModal()"></div>
 <div class="modal-content">
-    <span class="close-button" (click)="closeModal()">&times;</span>
-    <div class="perfilAdmi">
-        <section></section>
-        <app-image imageUrl=""></app-image>
-        <div class="conjunto">
-            <app-title-principal class="tituPerfil" titleText="Mi Perfil"></app-title-principal>
-            <div class="usuario">
-                <app-title-secundari titleText="Camilo Suares"></app-title-secundari>
-                <app-text content="Administrador"></app-text>
-            </div>
-        </div>
-        
-        <app-title-terciario class="titu" titleText="Información Personal"></app-title-terciario>
-        <div class="contDatos">
-            <div class="datos">
-                <app-label content="Correo Electronico:"></app-label>
-                <app-input type=""></app-input>
-            </div>
-            <div class="datos">
-                <app-label content="Nombre:"></app-label>
-                <app-input type=""></app-input>
-            </div>
-        </div>
-        
-        <div class="contDatos">
-            <div class="datos">
-                <app-label content="Telefono:"></app-label>
-                <app-input type=""></app-input>
-            </div>
-            <div class="datos">
-                <app-label content="Apellido:"></app-label>
-                <app-input type=""></app-input>
-            </div>
-        </div>
-        
-        <div class="contDatos">
-            <div class="datosTipo">
-                <app-label content="Tipo de Documento:"></app-label>
-                <app-input type=""></app-input>
-            </div>
-            <div class="datosNum">
-                <app-label content="Numeero de Documento:"></app-label>
-                <app-input type="text"></app-input>
-            </div>
-        </div>
-        
-        <app-title-terciario titleText="Cambiar Contraseña"></app-title-terciario>
-        
-        <div class="contDatos">
-            <div class="datosCambi">
-                <app-label content="Cambiar Contraseña:"></app-label>
-                <app-input type="password"></app-input>
-            </div>
-            <div class="datosConfi">
-                <app-label content="Confirmar Contraseña:"></app-label>
-                <app-input type="password"></app-input>
-            </div>
-        </div>
-        <div class="botones">
-            <app-button value="Editar"></app-button>
-            <app-button value="Guardar"></app-button>
-        </div>
+  <div class="perfilAdmi">
+    <section>
+      <button class="close-button" (click)="closeModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+    </section>
+
+    <div class="conjunto">
+      <app-image imageUrl="../../../../assets/images/perfil.png"></app-image>
+      <div class="usuario">
+        <app-title-secundari titleText="{{adminProfile.Nombre}} {{adminProfile.Apellido}}"></app-title-secundari>
+        <app-text-field content="Mi perfil"></app-text-field>
+      </div>
     </div>
+    <div class="container_text">
+      <app-label class="title2" content="Informacion Personal"></app-label>
+      <div class="contDatos">
+        <div class="datos">
+          <app-label content="Nombre:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="adminProfile.Nombre" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Apellido:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="adminProfile.Apellido" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Correo Electronico:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="adminProfile.Email" [disabled]="!isEditing"></app-input>
+        </div>
+      </div>
+
+      <div class="contDatosD">
+        <div class="datosNum">
+          <app-label content="Numero de Documento:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="adminProfile.Documento" [disabled]="!isEditing"></app-input>
+        </div>
+      </div>
+
+      <app-label class="title2" content="Cambiar Contraseña"></app-label>
+
+      <div class="contDatosM">
+        <div class="datosCambi">
+          <app-label content="Contraseña:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="adminProfile.Password" [disabled]="!isEditing" type="password"></app-input>
+        </div>
+        <div class="datosConfii">
+          <app-label content="Confirmar Contraseña:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="confirmPassword" [disabled]="!isEditing" type="password"></app-input>
+        </div>
+      </div>
+      <div class="botones">
+        <app-button value="Editar" (click)="enableEditing()"></app-button>
+        <app-button value="Guardar" (click)="saveProfile()"></app-button>
+      </div>
+    </div>
+  </div>
 </div>

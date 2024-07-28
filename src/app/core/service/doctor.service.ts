@@ -31,7 +31,10 @@ export class DoctorService {
 
   // Crear un nuevo doctor
   crearDoctor( doctorData: any): Observable<Doctor> {
-    return this.http.post<Doctor>(`http://localhost:10101/doctor/register`, doctorData);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.post<Doctor>(`http://localhost:10101/doctor/register`, doctorData, {headers});
   }
  
  

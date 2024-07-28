@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { DoctorService } from '../../../../core/service/doctor.service';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,88 +10,116 @@ import Swal from 'sweetalert2';
   styleUrls: ['./doctor-register.component.css']
 })
 export class DoctorRegisterComponent implements OnInit {
-  registrationForm!: FormGroup;
-  specialties: any[] = []; // Assuming you have a way to fetch and populate this array
-  isSubmitting = false;
-  selectedFile: File | undefined; // Assuming you handle file upload separately if needed
 
-  constructor(private fb: FormBuilder, private doctorService: DoctorService) { }
+  registrationForm: FormGroup;
+  isSubmitting: boolean = false;
+  imgFile: File | null = null;
 
-  ngOnInit(): void {
-    this.registrationForm = this.fb.group({
-      tarjetaProf: ['', Validators.required],
-      documento: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+  documentTypeOptions = [
+    { value: 'Odontologia', label: 'Odontologia' },
+    { value: 'Dermatologia', label: 'Dermatologia' },
+    { value: 'Oftalmologia', label: 'Oftalmologia' },
+  ];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private doctorService: DoctorService,
+    private router: Router
+  ) {
+    this.registrationForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      rol: ['doctor'],
       email: ['', [Validators.required, Validators.email]],
-      foto: [''], // You can handle file upload separately if needed
       password: ['', [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).*$/)
+        Validators.pattern('^(?=.*[A-Z])(?=.*[!@#$&*]).*$')
       ]],
-      codigoEspc: ['', Validators.required] // Assuming this is a string for specialty code
-    });
+      confirmPassword: ['', Validators.required],
+      documento: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      tarjetaProf: ['', Validators.required],
+      specialtyId: ['', Validators.required],
+      codigoEspc: ['', Validators.required],
+      img: ['', Validators.required],
+      acceptTerms: [false, Validators.requiredTrue]
+    }, { validators: this.passwordsMatchValidator });
   }
 
-  submitRegistrationForm() {
-    if (this.registrationForm.valid && !this.isSubmitting) {
-      this.isSubmitting = true;
+  ngOnInit(): void { }
 
-      const userData = {
-        tarjetaProf: this.registrationForm.value.tarjetaProf,
-        documento: this.registrationForm.value.documento,
-        nombre: this.registrationForm.value.nombre,
-        apellido: this.registrationForm.value.apellido,
-        rol: 'doctor', // Ensure 'doctor' is sent correctly here
-        email: this.registrationForm.value.email,
-        foto: this.selectedFile,
-        password: this.registrationForm.value.password,
-        codigoEspc: this.registrationForm.value.codigoEspc
-      };
+  passwordsMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+    if (password && confirmPassword && password.value !== confirmPassword.value) {
+      return { 'mismatch': true };
+    }
+    return null;
+  }
 
-      console.log('Datos a enviar:', userData);
-
-      this.doctorService.crearDoctor(userData).subscribe({
-        next: (response) => {
-          Swal.fire({
-            title: 'Registro Exitoso',
-            text: `¡Doctor registrado exitosamente!`,
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            toast: true,
-            position: 'top',
-            background: "#C6F0C2",
-            iconColor: "#1C5314",
-          });
-          this.isSubmitting = false;
-        },
-        error: (err: any) => {
-          console.error('Error al registrar doctor:', err);
-          Swal.fire({
-            title: 'Error al registrar',
-            text: 'No se pudo registrar al doctor. Por favor, inténtelo nuevamente más tarde.',
-            icon: 'error',
-            showConfirmButton: true
-          });
-          this.isSubmitting = false;
-        }
-      });
-    } else {
-      this.markFormGroupTouched(this.registrationForm);
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.imgFile = file;
+      this.registrationForm.patchValue({ img: file.name });
     }
   }
 
-  markFormGroupTouched(formGroup: FormGroup): void {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      if (control instanceof FormGroup) {
-        this.markFormGroupTouched(control);
-      } else {
-        control?.markAsTouched();
+  viewImage(): void {
+    if (this.imgFile) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        Swal.fire({
+          title: 'Imagen de perfil',
+          imageUrl: e.target.result,
+          imageAlt: 'Imagen de perfil'
+        });
+      };
+      reader.readAsDataURL(this.imgFile);
+    }
+  }
+
+  onSubmit(): void {
+    if (this.registrationForm.invalid) {
+      return;
+    }
+
+    this.isSubmitting = true;
+
+    const credentials = {
+      tarjetaProf: this.registrationForm.get('tarjetaProf')?.value,
+      documento: this.registrationForm.get('documento')?.value,
+      nombre: this.registrationForm.get('nombre')?.value,
+      apellido: this.registrationForm.get('apellido')?.value,
+      rol: 'medico',
+      email: this.registrationForm.get('email')?.value,
+      foto: this.imgFile ? this.imgFile.name : '',
+      password: this.registrationForm.get('password')?.value,
+      valorCita: 50000,
+      codigoEspc: this.registrationForm.get('codigoEspc')?.value
+    };
+
+    this.doctorService.crearDoctor(credentials).subscribe({
+      next: response => {
+        this.isSubmitting = false;
+        Swal.fire({
+          title: 'Registro exitoso',
+          text: 'El doctor ha sido registrado exitosamente',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          toast: true,
+          position: 'top',
+          background: "#C6F0C2",
+          iconColor: "#1C5314",
+        }).then(() => {
+          this.router.navigate(['/home']);
+        });
+      },
+      error: error => {
+        this.isSubmitting = false;
+        Swal.fire('Error', 'Ocurrió un error durante el registro', 'error');
+        console.error('Error during registration', error);
       }
     });
   }

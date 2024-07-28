@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class AuthService {
   public userRole: string = '';
   private apiUrl = 'http://localhost:10101';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.loadUserRoleFromToken();
   }
 
@@ -33,8 +34,7 @@ export class AuthService {
     });
   }
 
-
-  login(credentials: { document: string, email: string, password: string }): Observable<any> {
+  login(credentials: { document: string; email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, credentials).pipe(
       tap(response => {
         if (response && response.token) {
@@ -91,49 +91,20 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.getUserRole() && !!localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    return !!token && this.validateToken();
   }
 
   isAdmin(): boolean {
-    let isAdmin = false;
-    this.getUserRole().pipe(
-      tap(role => {
-        isAdmin = role === 'admin';
-      })
-    ).subscribe({
-      error: error => {
-        console.error('Error obteniendo el rol:', error);
-      }
-    });
-    return isAdmin;
+    return this.userRole === 'admin';
   }
   
   isPatient(): boolean {
-    let isPatient = false;
-    this.getUserRole().pipe(
-      tap(role => {
-        isPatient = role === 'paciente';
-      })
-    ).subscribe({
-      error: error => {
-        console.error('Error obteniendo el rol:', error);
-      }
-    });
-    return isPatient;
+    return this.userRole === 'paciente';
   }
   
   isDoctor(): boolean {
-    let isDoctor = false;
-    this.getUserRole().pipe(
-      tap(role => {
-        isDoctor = role === 'doctor';
-      })
-    ).subscribe({
-      error: error => {
-        console.error('Error obteniendo el rol:', error);
-      }
-    });
-    return isDoctor;
+    return this.userRole === 'doctor';
   }
 
   loadUserRoleFromToken() {
@@ -151,7 +122,12 @@ export class AuthService {
     this.userRole = '';
   }
 
-  logout() {
-    this.clearToken();
+  logout(): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.clearToken();
+        resolve();
+      }, 4000); // Simulación de espera de 4 segundos
+    });
   }
 }

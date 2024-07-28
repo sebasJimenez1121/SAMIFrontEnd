@@ -1,5 +1,5 @@
 <div class="principal-title">
-            <app-title-principal titleText="Gestion de Citas"></app-title-principal>
+            <app-title-principal  [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
           </div>
 <div class="container-cards">
         <app-service-card titulo="Agendar Cita" content="Programa tu cita médica podras subir examenes y otros documentos." img="../../../../../assets/images/cita.png" [link]="'/agendar-cita'"></app-service-card>

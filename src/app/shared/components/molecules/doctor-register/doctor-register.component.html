@@ -1,4 +1,4 @@
-<!-- <div class="container-form-register">
+<div class="container-form-register">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     
     <div class="header">
@@ -125,7 +125,7 @@
             name="specialtyId" 
             class="form-input" 
             formControlName="specialtyId" 
-            [options]="specialtyOptions">
+            [options]="documentTypeOptions">
           </app-selects>
           <div *ngIf="registrationForm.get('specialtyId')?.invalid && (registrationForm.get('specialtyId')?.dirty || registrationForm.get('specialtyId')?.touched)"
                class="error-bubble">
@@ -206,4 +206,4 @@
       <app-button [isDisabled]="registrationForm.invalid || isSubmitting || !imgFile" value="Registrarse"></app-button>
     </div>
   </form>
-</div> -->
+</div> 

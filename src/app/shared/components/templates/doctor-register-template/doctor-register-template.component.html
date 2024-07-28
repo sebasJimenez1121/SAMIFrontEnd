@@ -1,4 +1,8 @@
 <div class="body">
+    <nav>
+        <app-title-terciario titleText="Panel Administrador"></app-title-terciario>
+        <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+      </nav>
     <div class="container">
         <app-doctor-register></app-doctor-register>
         <app-set-links-register></app-set-links-register>
