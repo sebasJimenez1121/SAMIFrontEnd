@@ -120,7 +120,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/home-admin']);
         break;
       case 'medico':
-        this.router.navigate(['/doctor-dashboard']);
+        this.router.navigate(['/home-doctor']);
         break;
       case 'paciente':
         this.router.navigate(['/home']);

@@ -11,6 +11,7 @@ import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
 import { HomeDoctorDashboardComponent } from './pages/home-doctor-dashboard/home-doctor-dashboard.component';
 import { HomePacienteComponent } from './pages/home-paciente/home-paciente.component';
+import { DoctorsProfilesComponent } from './pages/doctors-profiles/doctors-profiles.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HomePacienteComponent } from './pages/home-paciente/home-paciente.compo
     DoctorRegisterComponent,
     HomeDoctorDashboardComponent,
     HomePacienteComponent,
+    DoctorsProfilesComponent,
   ],
   imports: [
     CommonModule,

@@ -14,4 +14,6 @@ export class DataDisplayAvatarComponent {
   onClick(): void {
     this.avatarClick.emit();
   }
+
+  
 }

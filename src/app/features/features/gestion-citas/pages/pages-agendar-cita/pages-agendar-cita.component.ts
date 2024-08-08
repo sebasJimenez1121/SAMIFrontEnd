@@ -6,8 +6,9 @@ import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
 
 interface Specialty {
-  id: number;
-  name: string;
+  Codigo_Espc: string;
+  Nombre: string;
+  Descripcion: string;
 }
 
 @Component({
@@ -16,7 +17,7 @@ interface Specialty {
   styleUrls: ['./pages-agendar-cita.component.css']
 })
 export class PagesAgendarCitaComponent implements OnInit {
-  specialties: Specialty[] = [];
+   specialties: Specialty[] = [];
   selectedSpecialtyId: number | null = null;
   allDoctors: Doctor[] = [];
   paginatedDoctors: Doctor[] = [];
@@ -26,7 +27,7 @@ export class PagesAgendarCitaComponent implements OnInit {
   showModal = false;
   selectedDoctor!: Doctor;
   paciente!: Patient;
-  rol : any = "";
+  rol: string = "";
 
   constructor(
     private doctorService: DoctorService,
@@ -39,7 +40,7 @@ export class PagesAgendarCitaComponent implements OnInit {
     this.fetchDoctors();
     this.authService.getUserRole().subscribe({
       next: (role) => {
-        console.log(role)
+        console.log(role);
         this.rol = role;
       },
       error: (err) => {
@@ -51,15 +52,15 @@ export class PagesAgendarCitaComponent implements OnInit {
   fetchSpecialties() {
     this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
       this.specialties = specialties;
-      console.log('Specialties:', this.specialties); // Verifica en la consola si specialties se está cargando correctamente
+      console.log('Specialties:', this.specialties);
     });
   }
 
   fetchDoctors() {
     this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
       this.allDoctors = doctors;
-      this.applyFilters();  // Aplica filtros iniciales
-      console.log('All doctors:', this.allDoctors); // Verifica en la consola si allDoctors se está cargando correctamente
+      this.applyFilters();
+      console.log('All doctors:', this.allDoctors);
     });
   }
 
@@ -72,14 +73,14 @@ export class PagesAgendarCitaComponent implements OnInit {
 
     this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
     this.paginateDoctors(filteredDoctors);
-    console.log('Filtered doctors:', filteredDoctors); // Verifica en la consola si filteredDoctors está siendo filtrado correctamente
+    console.log('Filtered doctors:', filteredDoctors);
   }
 
   paginateDoctors(doctors: Doctor[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
-    console.log('Paginated doctors:', this.paginatedDoctors); // Verifica en la consola si paginatedDoctors se está paginando correctamente
+    console.log('Paginated doctors:', this.paginatedDoctors);
   }
 
   onSpecialtyChange(specialtyId: number) {
@@ -101,10 +102,6 @@ export class PagesAgendarCitaComponent implements OnInit {
 
   closeModal(): void {
     this.showModal = false;
-  }
-
-  onModalClosed(): void {
-    // Aquí puedes reiniciar el estado necesario al cerrar el modal
   }
 
   getPacienteData(): void {

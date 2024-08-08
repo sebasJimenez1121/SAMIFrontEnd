@@ -98,6 +98,12 @@ import { AddSpecialtyComponent } from './components/organisms/add-specialty/add-
 import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-admin/modal-perfil-admin.component';
 import { ModalPerfilPacienteComponent   } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
 import { HomePacienteTemplateComponent } from './components/templates/home-paciente-template/home-paciente-template.component';
+import { ChatbotComponent } from './components/organisms/chatbot/chatbot.component';
+import { TemplateAppoinmentScheduleAdminComponent } from './components/templates/template-appoinment-schedule-admin/template-appoinment-schedule-admin.component';
+import { DoctorsProfilesTemplateComponent } from './components/templates/doctors-profiles-template/doctors-profiles-template.component';
+import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
+import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
+import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
 
 
 
@@ -198,7 +204,13 @@ import { HomePacienteTemplateComponent } from './components/templates/home-pacie
     AddSpecialtyComponent,
     ModalPerfilAdminComponent,
     HomePacienteTemplateComponent,
-    ModalPerfilPacienteComponent
+    ModalPerfilPacienteComponent,
+    ChatbotComponent,
+    TemplateAppoinmentScheduleAdminComponent,
+    DoctorsProfilesTemplateComponent,
+    MedicalCardPerfilComponent,
+    ContentCardPerfilDoctorComponent,
+    ModalPerfilDoctorComponent
    
   ],
   imports: [
@@ -225,7 +237,13 @@ import { HomePacienteTemplateComponent } from './components/templates/home-pacie
   DoctorRegisterTemplateComponent,
   HomeAdminTemplateComponent,
   TemplateDoctorDashboardComponent,
-  HomePacienteTemplateComponent
+  HomePacienteTemplateComponent,
+  ChatbotComponent,
+  TemplateAppoinmentScheduleAdminComponent,
+  DoctorsProfilesTemplateComponent, 
+  MedicalCardPerfilComponent,
+  ContentCardPerfilDoctorComponent,
+  ModalPerfilDoctorComponent
  ],
 
 

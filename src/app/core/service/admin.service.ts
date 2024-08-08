@@ -22,7 +22,7 @@ export class AdminService {
     return this.http.get< {admin : Admin}>(`${this.apiUrl}/admin/profile`, { headers }).pipe(
       map(response => response.admin)
     );
-      
+  
   }
 
   updateAdminProfile(token: string, admin: Admin): Observable<any> {
@@ -32,7 +32,8 @@ export class AdminService {
       documento: admin.Documento,
       nombre: admin.Nombre,
       apellido: admin.Apellido,
-      email: admin.Email
+      email: admin.Email,
+      Foto_Url: admin.Foto_Url 
     };
     return this.http.put(`${this.apiUrl}/admin/updateProfile`, updateDTO, { headers });
   }

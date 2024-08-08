@@ -6,13 +6,15 @@ import { PagesGestionCitasComponent } from './pages/pages-gestion-citas/pages-ge
 import { PagesAgendarCitaComponent } from './pages/pages-agendar-cita/pages-agendar-cita.component';
 import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/pages-visualizar-cita.component';
 import { SharedModule } from '../../../shared/shared.module';
+import { AgendarCitaAdminComponent } from './pages/agendar-cita-admin/agendar-cita-admin.component';
 
 
 @NgModule({
   declarations: [
     PagesGestionCitasComponent,
     PagesAgendarCitaComponent,
-    PagesVisualizarCitaComponent
+    PagesVisualizarCitaComponent,
+    AgendarCitaAdminComponent
   ],
   imports: [
     CommonModule,

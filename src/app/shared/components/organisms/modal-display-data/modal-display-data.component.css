@@ -37,8 +37,8 @@
   
 }
 .disabled {
-  opacity: 0.5; /* Reduce la opacidad para mostrar el botón en gris */
-  cursor: not-allowed; /* Cambia el cursor a 'not-allowed' */
+  opacity: 0.5;
+  cursor: not-allowed; 
 }
 
 hr{

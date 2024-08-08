@@ -1,0 +1,19 @@
+.container-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 0.938rem;
+    box-shadow: 0 0.125rem 0.313rem rgba(0, 0, 0, 0.1);
+    margin: 0.938rem;
+    padding: 0.938rem;
+    background-color: #fff;
+  }
+  
+  .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.625rem;
+  }
+  
