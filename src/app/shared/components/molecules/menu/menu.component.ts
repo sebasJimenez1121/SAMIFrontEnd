@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,17 +8,32 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   menuItems = [
-    { name: 'Inicio', link: '#' },
+    { name: 'Inicio', link: '/home' },
     { 
-      name: 'Servicios', 
-      link: '#', 
+      name: 'Citas', 
+      link: '/gestion-cita', 
       subMenu: [
-        { name: 'Gestion de citas', link: '#' },
-        { name: 'registro de seguimiento', link: '#' },
-        { name: 'Recordatorios de medicacion personalizados', link: '#' }
+        { name: 'Agendar Cita', link: '/agendar-cita' }, 
+        { name: 'Visualizar Cita', link: '/visualizar-cita' } 
+      ]
+    },
+    { 
+      name: 'Seguimento', 
+      link: '/seguimiento', 
+      subMenu: [
+        { name: 'Medicamentos', link: '/medicamentos' }, 
+        { name: 'Notas Doctor', link: '/notas-doctor' } 
       ] 
     },
-    { name: 'Medicos', link: '#' },
-    { name: 'Contacto', link: '#' }
-  ];
+    { name: 'Médicos', link: '/doctors-profiles' },
+  ];    
+
+  constructor(private router: Router) {}
+
+  navigate(link: string, event: MouseEvent) {
+    event.stopPropagation();
+    if (link) {
+      this.router.navigate([link]);
+    }
+  }
 }

@@ -1,0 +1,37 @@
+<main>
+  <nav>
+    <app-title-terciario titleText="Panel Administrador"></app-title-terciario>
+    <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+  </nav>
+  <div>
+    <section class="section1">
+      <div class="text-container">
+        <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+        <p>Te damos la bienvenida,aqui podras encontrar diferentes apartados para administrar mejor tu sistema</p>
+      </div>
+      <div class="image-container">
+        <app-image class="image-background" src="../../../../../assets/images/Group.png"></app-image>
+        <app-image class="image-foreground" src="../../../../../assets/images/Doctors-pana 1.png"></app-image>
+      </div>
+    </section>
+    <section class="section2">
+      <app-title-terciario class="title" titleText="Especialidades"></app-title-terciario>
+      <hr>
+      <app-button width="10rem" (click)="openAddSpecialtyModal()" value="Crear especialidad">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+          <path d="M8 1a1 1 0 0 1 1 1v6h6a1 1 0 0 1 0 2H9v6a1 1 0 0 1-2 0V10H1a1 1 0 0 1 0-2h6V2a1 1 0 0 1 1-1z"/>
+        </svg>
+      </app-button>
+      <app-add-specialty (specialtyAdded)="addSpecialty($event)"></app-add-specialty>
+      <div class="container" *ngIf="specialties.length > 0">
+        <div class="container-card" *ngFor="let specialty of specialties">
+          <app-content-card-especialidad [Specialty]="specialty"></app-content-card-especialidad>
+        </div>
+      </div>
+      <div *ngIf="specialties.length === 0">
+        <app-empty-state imageSrc="../../../../../assets/images/No se encontraron resultados.png" message=" No hay especialidades disponibles." ></app-empty-state>
+      </div>
+    </section>
+  </div>
+  <app-modal-perfil-admin *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-admin>
+</main>

@@ -1,5 +1,16 @@
 <div class="form__group">
-  <label for="{{id}}">{{label}}</label>
-  <input [type]="type" [required]="required" [placeholder]="placeholder" class="form__field" [ngClass]="class" id="{{id}}">
- 
-</div>
+    <label for="{{ id }}">{{ label }}</label>
+    <input 
+      [type]="type" 
+      [disabled]="disabled" 
+      [required]="required" 
+      [ngStyle]="{'width': width}"
+      [placeholder]="placeholder" 
+      [(ngModel)]="value" 
+      class="form__field" 
+      [ngClass]="class" 
+      id="{{ id }}" 
+      (input)="onInputChange($event)"
+      (change)="onInputChange($event)">
+  </div>
+  

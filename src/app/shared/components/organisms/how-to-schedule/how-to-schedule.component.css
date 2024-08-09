@@ -1,0 +1,49 @@
+app-image {
+  width: 33.25rem;
+  height: 18rem;
+  position: relative;
+  top: 5rem;
+  left: 0rem;
+  }
+
+  app-title-secundari{
+    color: #fff;
+    background-color: #fff;
+  }
+  
+ 
+  app-text-field{
+    color: #fff;
+  }
+  .section2{
+    background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    color: white;
+    padding: 5rem 2rem;
+    width: 90rem;
+  }
+  .section2  app-text-field{
+    font-size: 1.5625rem;
+    margin: 0.9375rem -0.625rem 0.125rem 0.125rem;
+  }
+
+  .contenedor1 {
+    display: flex;
+    align-items: center;
+    padding: 7rem;
+  }
+  .subcontenedor {
+    display: flex;
+  }
+  
+.subt1,
+.subt2,
+.subt3 {
+  margin: 3.1rem 0 0;
+  font-size: 1rem;
+}
+.img-cita {
+  width: 32rem;
+  height: 18rem;
+  margin-left: 8.25rem;
+}
+

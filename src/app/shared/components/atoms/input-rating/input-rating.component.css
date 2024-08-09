@@ -1,29 +1,28 @@
 .star {
-  width: 100%;
-  position: relative;
+  width: 80%;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .star label {
-  height: 20px;
+  height: 1.25rem;
   cursor: pointer;
-  padding: 0 6px;
+  padding: 0 0.125rem;
 }
 
 .star label:after {
   transition: all 0.3s ease;
   content: '☆';
   color: rgb(255, 221, 0);
-  font-size: 25px;
+  font-size: 1.563rem;
 }
 
 .star input {
   display: none;
 }
 
-.star input:checked + label:after{
+.star input:checked + label:after {
   content: '★';
   color: gold;
-  text-shadow: 0 0 10px gold;
+  text-shadow: 0 0 0.625rem gold;
 }

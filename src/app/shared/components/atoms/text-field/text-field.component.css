@@ -1,7 +1,7 @@
 body {
   
     line-height: 1.5;
-    color: #333;
+    color: #5A5D5F;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,19 +11,19 @@ body {
     background-color: #f9f9f9;
 }
 
-.label-container {
+.text-container {
     position: relative;
     display: inline-block;
 }
 
 .label-placeholder {
     color: #aaa;
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 .underline {
     width: 10rem;
-    height: 1px;
+    height: 0.063rem;
     background-color: #aaa;
-    margin-top: 5px;
+    margin-top: 0.313rem;
 }

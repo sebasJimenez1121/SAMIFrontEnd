@@ -1,2 +1,1 @@
-<img *ngIf="!linkUrl" [src]="imageUrl" [alt]="alt">
-  
+<img [src]="src || imageUrl" [alt]="alt" [style.width]="width" [style.height]="height">

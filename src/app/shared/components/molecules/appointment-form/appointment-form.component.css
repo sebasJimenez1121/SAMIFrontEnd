@@ -1,33 +1,32 @@
 .container-form {
-    width: 90%;
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
-    margin: 5% auto;
+    margin-left: 3.2em;
   }
   
   .data-form {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-flow: wrap;
   }
 
   .row{
-    margin: 2% 0;
+    margin: 1em 0;
     display: flex;
     width: 100%;
   }
 
-  app-input , .row div{
-    width: 25%;
-    margin-right: 10%;
-  }
-  .row div {
+  .row-input{
+    width: 18em;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  app-button-bottomless{
-    margin-top: 2.5%;
+  .row-input app-input{
+    width: 100%;
   }
-  
- 
+
+

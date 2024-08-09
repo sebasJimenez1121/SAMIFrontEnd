@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
-
-const valorCita = 45000
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Doctor } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',
-  styleUrl: './content-card.component.css'
+  styleUrls: ['./content-card.component.css']
 })
 export class ContentCardComponent {
-    nombre :string = "Don jesus";
-    valor : string = `el valor de cita: $${valorCita}`
+  @Input() doctor!: Doctor;
+  @Output() buttonClick = new EventEmitter<void>();
+
+  handleClick() {
+    this.buttonClick.emit();
+  }
 }

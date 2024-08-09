@@ -1,0 +1,132 @@
+
+
+.section1 {
+    background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    border-radius: 1rem 1rem 0rem 0rem;
+    
+    right: 1.3rem;
+    bottom: 4rem;
+    width: 43.6rem;
+    height: 19rem;
+    /* margin: 9rem 0rem 0rem 5rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    color: white;
+  }
+    .text-container {
+      flex: 1;
+      margin: 0rem 4rem 1rem 5rem;
+    }
+  
+    .image-background {
+        position: absolute;
+        top: 0rem;
+        left: 6rem;
+        width: 43.6vw;
+        z-index: 1;
+        opacity: 0.5;
+    }
+    .image-foreground {
+      position: relative;
+      width: 35.6rem;
+      top: 0.5rem;
+     
+    }
+    .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  .modal-content {
+    position: fixed;
+    top: 45%;
+    border-radius:1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    width: 60%;
+    max-width: 43rem;
+    max-height: 42rem;
+  }
+  
+  app-input {
+    width: 20rem;
+  }
+  
+  .close-button {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    border: none;
+    left: 41rem;
+    top: 0rem;
+    background: rgba(180, 83, 107, 0.11);
+    border-radius: 20px;
+    transition: background 0.5s;
+    z-index: 1001;
+  }
+  
+
+  
+.X {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1.5px;
+    background-color: rgb(255, 255, 255);
+    transform: translateX(-50%) rotate(45deg);
+  }
+  
+  .Y {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1.5px;
+    background-color: #fff;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  
+.close {
+    position: absolute;
+    display: flex;
+    padding: 0.8rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    top: -70%;
+    left: 50%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 12px;
+    background-color:  rgba(54, 53, 53, 0.367);
+    color: rgb(187, 229, 236);
+    border: none;
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  .close-button:hover {
+    background-color: rgba(184, 191, 255, 0.447);
+  }
+  
+  .close-button:active {
+    background-color: rgb(130, 0, 0);
+  }
+  
+
+  

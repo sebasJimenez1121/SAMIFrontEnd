@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +40,6 @@ import { CalendarOptionsComponent } from './components/molecules/calendar-option
 import { SetButtonsComponent } from './components/molecules/set-buttons/set-buttons.component';
 import { ButtonSetLoginRegistrationComponent } from './components/molecules/button-set-login-registration/button-set-login-registration.component';
 import { RatingSystemComponent } from './components/molecules/rating-system/rating-system.component';
-import { FilterCategoriesComponent } from './components/molecules/filter-categories/filter-categories.component';
 import { CommentsTextAreaComponent } from './components/molecules/comments-text-area/comments-text-area.component';
 import { ListFooterComponent } from './components/molecules/list-footer/list-footer.component';
 import { SetLinksLoginComponent } from './components/molecules/set-links-login/set-links-login.component';
@@ -62,15 +60,51 @@ import { CommentCardComponent } from './components/organisms/comment-card/commen
 import { AboutUsComponent } from './components/organisms/about-us/about-us.component';
 import { VideoTutorialComponent } from './components/organisms/video-tutorial/video-tutorial.component';
 import { ScheduleAppointmentComponent } from './components/organisms/schedule-appointment/schedule-appointment.component';
-import { ReservationFormComponent } from './components/organisms/reservation-form/reservation-form.component';
 import { MedicalCardComponent } from './components/organisms/medical-card/medical-card.component';
 import { MedicalInformationComponent } from './components/organisms/medical-information/medical-information.component';
 import { DoctorCommentsComponent } from './components/organisms/doctor-comments/doctor-comments.component';
 import { MedicalProfileComponent } from './components/organisms/medical-profile/medical-profile.component';
-import { AppointmentCardComponent } from './components/organisms/appointment-card/appointment-card.component';
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { RegisterTemplateComponent } from './components/templates/register-template/register-template.component';
 import { StarterTemplateComponent } from './components/templates/starter-template/starter-template.component';
+import { SliderComponent } from './components/organisms/slider/slider.component';
+import { TemplateAppointmentScheduleComponent } from './components/templates/template-appointment-schedule/template-appointment-schedule.component';
+import { AppointmentManagementTemplateComponent } from './components/templates/appointment-management-template/appointment-management-template.component';
+import { CoreModule } from '../core/core.module';
+import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
+import { InputFileComponent } from './components/atoms/input-file/input-file.component';
+import { ModalComponent } from './components/atoms/modal/modal.component';
+import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
+import { HowToScheduleComponent } from './components/organisms/how-to-schedule/how-to-schedule.component';
+import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
+import { StepperContainerComponent } from './components/molecules/stepper-container/stepper-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
+import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
+import { ButtonsPagoComponent } from './components/molecules/buttons-pago/buttons-pago.component';
+import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
+import { ButtonPriceComponent } from './components/molecules/button-price/button-price.component';
+import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
+import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
+import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
+import { RoleStyleDirective } from './directives/role-style.directive';
+import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
+import { DoctorRegisterTemplateComponent } from './components/templates/doctor-register-template/doctor-register-template.component';
+import { TemplateDoctorDashboardComponent } from './components/templates/template-doctor-dashboard/template-doctor-dashboard.component';
+import { ContentCardEspecialidadComponent } from './components/molecules/content-card-especialidad/content-card-especialidad.component';
+import { CardEspecialidadComponent } from './components/organisms/card-especialidad/card-especialidad.component';
+import { DoctorRegisterComponent} from './components/molecules/doctor-register/doctor-register.component';
+import { AddSpecialtyComponent } from './components/organisms/add-specialty/add-specialty.component';
+import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-admin/modal-perfil-admin.component';
+import { ModalPerfilPacienteComponent   } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
+import { HomePacienteTemplateComponent } from './components/templates/home-paciente-template/home-paciente-template.component';
+import { ChatbotComponent } from './components/organisms/chatbot/chatbot.component';
+import { TemplateAppoinmentScheduleAdminComponent } from './components/templates/template-appoinment-schedule-admin/template-appoinment-schedule-admin.component';
+import { DoctorsProfilesTemplateComponent } from './components/templates/doctors-profiles-template/doctors-profiles-template.component';
+import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
+import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
+import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
+
 
 
 
@@ -114,7 +148,6 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
     SetButtonsComponent,
     ButtonSetLoginRegistrationComponent,
     RatingSystemComponent,
-    FilterCategoriesComponent,
     CommentsTextAreaComponent,
     ListFooterComponent,
     SetLinksLoginComponent,
@@ -135,23 +168,108 @@ import { StarterTemplateComponent } from './components/templates/starter-templat
     AboutUsComponent,
     VideoTutorialComponent,
     ScheduleAppointmentComponent,
-    ReservationFormComponent,
     MedicalCardComponent,
     MedicalInformationComponent,
     DoctorCommentsComponent,
     MedicalProfileComponent,
-    AppointmentCardComponent,
     LoginTemplateComponent,
     RegisterTemplateComponent,
     StarterTemplateComponent,
+    SliderComponent,
+    TemplateAppointmentScheduleComponent,
+    AppointmentManagementTemplateComponent,
+    HistorialCitaTemplateComponent,
+    InputFileComponent,
+    ModalComponent,
+    ModalReservationFormComponent,
+    HowToScheduleComponent,
+    InputDateHistoryComponent,
+    ModalDisplayDataComponent,
+    ModalRescheduleAppointmentComponent,
+    StepperContainerComponent,
+    ButtonsPagoComponent,
+    VisualizarCitaComponent,
+    ButtonPriceComponent,
+    EmptyStateComponent,
+    HomeAdminTemplateComponent,
+    CustomAlertComponent,
+    CustomAlertComponent,
+    RoleStyleDirective,
+    HeaderUsuarioComponent,
+    DoctorRegisterTemplateComponent,
+    TemplateDoctorDashboardComponent,
+    ContentCardEspecialidadComponent,
+    CardEspecialidadComponent,
+    DoctorRegisterComponent,
+    AddSpecialtyComponent,
+    ModalPerfilAdminComponent,
+    HomePacienteTemplateComponent,
+    ModalPerfilPacienteComponent,
+    ChatbotComponent,
+    TemplateAppoinmentScheduleAdminComponent,
+    DoctorsProfilesTemplateComponent,
+    MedicalCardPerfilComponent,
+    ContentCardPerfilDoctorComponent,
+    ModalPerfilDoctorComponent
+   
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CoreModule,
+    ReactiveFormsModule
   ],
- exports:[StarterTemplateComponent],
+ exports:[
+  HeaderComponent,
+  TemplateAppointmentScheduleComponent,
+  StarterTemplateComponent,
+  LoginTemplateComponent,
+  RegisterTemplateComponent,
+  AppointmentManagementTemplateComponent,
+  HistorialCitaTemplateComponent,
+  ModalReservationFormComponent,
+  CalendarOptionsComponent,
+  HowToScheduleComponent,
+  AppointmentFormComponent,
+  LateralMenuComponent,
+  FooterComponent,
+  DoctorRegisterTemplateComponent,
+  HomeAdminTemplateComponent,
+  TemplateDoctorDashboardComponent,
+  HomePacienteTemplateComponent,
+  ChatbotComponent,
+  TemplateAppoinmentScheduleAdminComponent,
+  DoctorsProfilesTemplateComponent, 
+  MedicalCardPerfilComponent,
+  ContentCardPerfilDoctorComponent,
+  ModalPerfilDoctorComponent
+ ],
 
-  
+
 })
 export class SharedModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

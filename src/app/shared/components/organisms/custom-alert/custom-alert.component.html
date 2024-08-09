@@ -1,0 +1,11 @@
+<div *ngIf="alertConfig" class="alert-container" [ngClass]="alertConfig.containerClass">
+    <h2>{{ alertConfig.alertTitle }}</h2>
+    <p>{{ alertConfig.alertText }}</p>
+    <button *ngIf="alertConfig.showConfirmButton" (click)="handleButtonClick(alertConfig.id)">
+      {{ alertConfig.confirmButtonText }}
+    </button>
+    <button *ngIf="alertConfig.showCancelButton" (click)="handleButtonClick(null)">
+      {{ alertConfig.cancelButtonText }}
+    </button>
+  </div>
+  

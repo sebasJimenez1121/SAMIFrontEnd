@@ -1,6 +1,4 @@
 <div class="actions">
-    <app-button value="Registrarse"></app-button>
-    <a href="#" class="link">{{ forgotPasswordText }}</a>
-    <a href="#" class="link">{{ registerText }}</a>
-  </div>
-  
+  <a href="#" class="link">{{ forgotPasswordText }}</a>
+  <a href="#" class="link" (click)="redirectToLoginPage()">{{ registerText }}</a>
+</div>

@@ -1,6 +1,6 @@
 .form__group {
   position: relative;
-  padding: 5px 5px;
+  padding: 0.313rem 0.313rem;
   width: 100%;
 }
 
@@ -8,41 +8,41 @@
   margin: 1% 0;
   width: 70%;
   border: 0;
-  border-bottom: 1px solid #9b9b9b;
+  border-bottom: 0.063rem solid #9b9b9b;
   outline: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: grey;  
-  padding:2px 0;
+  padding:0.125rem 0;
   background: transparent;
 }
 
 .form__field::placeholder {
   color: grey; 
-  padding: 1px 0;
+  padding: 0.063rem 0;
 }
 
 .form__label {
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #203B8F;
   transition: 0.2s;
 }
 
 .form_field:focus ~ .form_label {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #dadada;
   font-weight: 300;
 }
 
 .form__field:focus {
-  padding-bottom: 5px;
+  padding-bottom: 0.313rem;
   font-weight: 200;
-  border-width: 2px;
+  border-width: 0.125rem;
   border-image: linear-gradient(to right, #203B8F);
   border-image-slice: 1;
 }
 
 label{
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #203B8F;
 }

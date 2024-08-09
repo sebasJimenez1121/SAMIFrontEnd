@@ -1,6 +1,6 @@
 <div class="star">
-  <ng-container *ngFor="let star of getStarArray(); let index = index">
-    <input type="radio" [id]="'r' + index" [checked]="isStarFilled(index)">
-    <label [for]="'r' + index" (click)="rate(index)"></label>
+  <ng-container *ngFor="let star of getStarArray(); let i = index">
+    <input type="radio" id="star{{i}}" name="rating" [value]="i + 1" (change)="rate(i)" [checked]="isStarFilled(i)">
+    <label for="star{{i}}"></label>
   </ng-container>
 </div>

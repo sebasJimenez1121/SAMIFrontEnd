@@ -1,55 +1,44 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from './core/service/auth-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SAMI';
- 
-  selectedChip: string | null = null;
-  
-  specialties = [
-    { name: 'otros', route: '/specialty/otros' },
-    { name: 'spicologia', route: '/specialty/spicologia' },
-    { name: 'pediatria', route: '/specialty/pediatria' },
-    { name: 'odontologia', route: '/specialty/odontologia' },
-    { name: 'dermatologia', route: '/specialty/dermatologia' }
-  ];
-  menuItems = [
-    { label: 'Home', link: '/home', iconClass: 'fa fa-home' },
-    { label: 'Messages', link: '/messages', iconClass: 'fa fa-envelope' },
-    { label: 'Settings', link: '/settings', iconClass: 'fa fa-cog' }
-   
-  ];
-  
-  constructor(private router: Router) {}
+  isSidebarClosed = false;
+  isLoginPage = false;
+  isHomePage = false;
+  isPatient = false;
 
-  userImageUrl: string | ArrayBuffer | null = null;
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.userImageUrl = reader.result;
-      reader.readAsDataURL(file);
-    }
+  constructor(public authService: AuthService, private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isLoginPage = event.url === '/login';
+        this.isHomePage = event.url === '/home'; 
+        this.isPatient = this.authService.isPatient();
+      }
+    });
   }
 
-  onAvatarClick(): void {
-    // Lógica para redirigir al perfil del usuario
+  ngOnInit(): void {}
+
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
   }
 
-  onChipClick(specialty: string, route: string) {
-    this.selectedChip = specialty;
-    this.router.navigate([route]);
+  showAlert(button: any) {
+    Swal.fire({
+      title: button.alertTitle,
+      text: button.alertText,
+      icon: button.alertType,
+      showCancelButton: button.showCancelButton,
+      confirmButtonText: button.confirmButtonText,
+      cancelButtonText: button.cancelButtonText,
+    });
   }
-
-  isSelected(specialty: string): boolean {
-    return this.selectedChip === specialty;
-  }
- 
 }

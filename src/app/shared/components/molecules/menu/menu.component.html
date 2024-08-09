@@ -1,10 +1,10 @@
 <ul>
-    <li *ngFor="let item of menuItems" class="menu-item">
-      <a [href]="item.link">{{ item.name }}</a>
-      <ul *ngIf="item.subMenu" class="submenu">
-        <li *ngFor="let subItem of item.subMenu">
-          <a [href]="subItem.link">{{ subItem.name }}</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <li *ngFor="let item of menuItems" class="menu-item">
+    <a class="menu" (click)="navigate(item.link, $event)">{{ item.name }}</a>
+    <ul *ngIf="item.subMenu" class="submenu">
+      <li *ngFor="let subItem of item.subMenu">
+        <a (click)="navigate(subItem.link, $event)">{{ subItem.name }}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

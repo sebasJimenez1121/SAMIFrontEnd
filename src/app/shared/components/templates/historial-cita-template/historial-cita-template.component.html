@@ -1,0 +1,44 @@
+<div class="HistorialCita">
+  <div class="container">
+    <div>
+      <app-title-principal class="titulo"  [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+    </div>
+    <div class="filtro-fecha">
+      <app-input-date-history (change)="filtrarCitas($event)"></app-input-date-history>
+    </div>
+    
+    
+    <app-empty-state imageSrc="../../../../../assets/images/No se encontraron resultados.png" message="No se encontraron resultados" *ngIf="citasFiltradas.length === 0"></app-empty-state>
+    
+    <table *ngIf="citasFiltradas.length > 0">
+      <thead>
+        <tr>
+          <th>Médicos</th>
+          <th>Especialidad</th>
+          <th>Paciente</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let cita of citasFiltradas">
+          <td>
+            <img [src]="cita.imagenMedico" alt="{{cita.nameMedico}}" class="imagen-medico">
+            {{cita.nameMedico}}
+          </td>
+          <td>{{cita.especialidad}}</td>
+          <td>{{cita.namePaciente}}</td>
+          <td>
+            <span class="estado-circulo" [ngClass]="obtenerClaseCirculo(cita.estado)"></span>
+            <span>{{ traducirEstado(cita.estado) }}</span>
+          </td>
+          <td>
+            <app-button value="Ver más" (click)="verMas(cita)"></app-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-modal-display-data *ngIf="showModal" [cita]="selectedCita" (closeModalEvent)="closeModal()"></app-modal-display-data>

@@ -1,0 +1,9 @@
+<div class="infodatos">
+  <div class="ingreseDocumentos">
+    <input id="fileInput" class="file-input" type="file" (change)="onFileSelected($event)" multiple hidden>
+    <button type="button" class="custom-file-button" (click)="triggerFileInput()">Seleccionar documentos</button>
+    <span class="file-name">{{ fileName }}</span>
+  </div>
+</div>
+
+

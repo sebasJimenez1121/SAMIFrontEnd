@@ -1,13 +1,13 @@
 .container-img{
-    width: 99.3%;
+    width: 100.3%;
     position: relative;
-    margin: 1%;
+    margin: 0%;
     background: #DBE9FE;
     text-align: center;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
-   
+    border-top-left-radius: 0.938rem;
+    border-top-right-radius: 0.938rem;
 }
+
 
 .title {
     width: 70%;
@@ -16,12 +16,12 @@
     left: 15%; 
     right: 15%; 
     color: #fff;
-    font-size: 16px;
+    font-size: 1rem;
     background: #203B8F;
     text-align: center;
-    padding: 8px;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
+    padding: 0.5rem;
+    border-top-left-radius: 0.938rem; 
+    border-top-right-radius: 0.938rem; 
 }
 app-image{
     position: relative;

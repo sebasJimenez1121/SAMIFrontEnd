@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 80%;
   }
   
   .form-container {
@@ -10,10 +10,13 @@
     flex-direction: column;
     background: #ffffff;
     padding: 2% 5%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    height: 10%;
-    margin: 2% 5%;
+    width: 54%;
+    height: 76vh;
+    margin: 1% 0% 0 0;
+    position: relative;
+    left: 10rem;
+    top: 6.9rem;
   }
   

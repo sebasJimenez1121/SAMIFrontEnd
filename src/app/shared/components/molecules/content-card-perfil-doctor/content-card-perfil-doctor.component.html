@@ -1,0 +1,16 @@
+<div class="container-content">
+  <app-label 
+    [content]="doctor.nombre"
+    for="doctor-name" 
+    typeContent="bold">
+  </app-label>
+  <div class="input-rating">
+    <div class="coment-rating">
+      <app-text content="10 opiniones"></app-text>
+      <app-input-rating></app-input-rating>
+    </div>
+    <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.appointmentCost"></app-text> 
+    <app-button class="button-cita" value="ver mas" (buttonClick)="handleClick()"></app-button>
+  </div>
+  <app-modal-perfil-doctor *ngIf="showModal" [doctor]="doctor" (closeModal)="handleClick()"></app-modal-perfil-doctor>
+</div>

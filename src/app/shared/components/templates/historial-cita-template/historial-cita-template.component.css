@@ -1,0 +1,74 @@
+.HistorialCita {
+  padding: 6.8125rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  margin: 0.5625rem 11rem;
+  width: 81%;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+  margin: 1.25rem 0;
+  font-size:  1rem;
+  text-align: left;
+  padding: auto;
+ 
+}
+
+th {
+  background-color: #DBE9FE;
+  padding: 0.625rem;
+  border-bottom: 0.0625rem solid #ddd;
+  color: #203B8F;
+}
+
+td {
+  padding: 0.90rem;
+  border-bottom: 0.0625rem solid #DBE9FE;
+  color: rgb(116, 116, 116);
+}
+
+.imagen-medico {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+  vertical-align: middle;
+}
+
+
+
+
+#fecha {
+  margin: 0 0 1.25rem 0.625rem;
+}
+
+.titulo {
+  margin: 2.5rem 20rem 1.5625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circulo-activo {
+  background-color: rgb(107, 210, 107);
+  display: inline-block;
+  width: 0.625rem; 
+  height: 0.625rem;
+  border-radius: 50%;
+  margin-right: 0.313rem;
+  vertical-align: middle;
+}
+
+.circulo-inactivo {
+  background-color: rgb(217, 59, 59);
+  display: inline-block;
+  width: 0.625rem; 
+  height: 0.625rem;
+  border-radius: 50%;
+  margin-right: 0.313rem;
+  vertical-align: middle;
+}

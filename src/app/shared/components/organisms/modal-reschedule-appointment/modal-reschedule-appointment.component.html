@@ -1,0 +1,32 @@
+<div class="modal" *ngIf="showRescheduleModal">
+  <div class="modal-overlay" (click)="closeRescheduleModal()"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close-button" (click)="closeRescheduleModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-title-terciario titleText="Reagendar Cita"></app-title-terciario>
+      <hr>
+      <div class="container">
+        <div class="field">
+          <app-label class="label-string" content="Nueva Fecha:"></app-label>
+          <input class="input-fecha" type="date" [(ngModel)]="nuevaFecha">
+          <div *ngIf="showDateErrorMessage" class="error-message">Selecciona una fecha válida dentro del mes actual.</div>
+        </div>
+        <div class="field">
+          <app-label class="label-string" content="Nueva Hora:"></app-label>
+          <input class="input-hora" type="time" [(ngModel)]="nuevaHora">
+        </div>
+        <div class="button-space">
+          <app-button (buttonClick)="guardarNuevaFecha()" value="Guardar"></app-button>
+          <app-button-bottomless class="btn btn-secondary" (click)="closeRescheduleModal()" value="Cancelar"></app-button-bottomless>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

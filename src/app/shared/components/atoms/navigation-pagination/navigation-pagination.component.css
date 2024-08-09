@@ -1,66 +1,60 @@
 :host {
-    --primary: #3461D6;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .page {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-   
-  }
-  
-  .page__btn {
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .page__numbers {
-    display: flex;
-    align-items: center;
-    margin-right: 40px;
-    cursor: pointer;
-    background-color: #ffffff;
-    width: 35px;
-    height: 35px;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #dddce049;
-    
-  }
- 
-  .page__numbers:hover {
-    border: 1px solid rgb(36, 44, 157);
-  }
-  
-  
-  
-  .page__numbers.active {
-    color: #48397d;
-    display: flex;
-    display: flex;
-    align-items: center;
-  }
-  .page__dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    margin-right:40px; 
-    cursor: default; 
-    color: var(--primary); 
-    border-radius: 10px;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #dddce049;
-  }
-  
+  --primary: #3461D6;
+}
 
-  .page__dots:hover {
-    text-decoration: underline; 
-  }
-  
-  
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 6rem;
+}
+
+.page {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.page__btn {
+  margin-right: 0.625rem;
+  cursor: pointer;
+}
+
+.page__numbers {
+  display: flex;
+  align-items: center;
+  margin-right: 2.5rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  width: 2.188rem;
+  height: 2.188rem;
+  justify-content: center;
+  border-radius: 0.625rem;
+  box-shadow: 0.375rem 0.375rem 0.75rem #c5c5c5, -6px -6px 12px #dddce049;
+}
+
+.page__numbers:hover {
+  border: 0.063rem solid rgb(36, 44, 157);
+}
+
+.page__numbers.active {
+  color: #48397d;
+  display: flex;
+  align-items: center;
+}
+
+.page__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.188rem;
+  height:2.188rem;
+  margin-right: 2.5rem;
+  cursor: default;
+  color: var(--primary);
+  border-radius: 0.625rem;
+  box-shadow: 0.375rem 0.375rem 0.75rem #c5c5c5, -6px -6px 12px #dddce049;
+}
+
+.page__dots:hover {
+  text-decoration: underline;
+}

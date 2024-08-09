@@ -1,97 +1,137 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
 .calendar {
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    width: 75%;
-    flex-direction: row;
-    padding: 0px;
-    background-color: #fff;
-  }
-  
-  .calendar_left, .calendar_right {
-    width: 48%;
-    margin: 1.5rem;
-  }
-  
-  .calendar_right h2{
-    color: #918C8C;
-    font-size: 1rem;
-    font-weight: 400;
-   
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .header h1 {
-    font-size: 16px;
-    margin: 0;
-    color: #203B8F;
-  }
-  
-  .days, .dates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .day_item, .date_item {
-    width: calc(100% / 7 - 10px);
-    text-align: center;
-    padding: 2px;
-    border-radius: 149px;
-    color: #61A3F9;
-  }
-  
-  .date_item {
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: #535353;
-    
-  }
-  
-  .date_item.selected {
-    background-color: #3461D6;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .date_item:hover {
-    background-color: #e0e0e0;
- 
-  }
-  
-  .calendar_right ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .calendar_right li {
-    padding: 7px
-  }
-  
-  .calendar_right li.bounce-in {
-    animation: bounce-in 0.5s ease-out;
-  }
-  
-  .clickable-icon {
-    cursor: pointer;
-    font-size: 24px;
-  }
-  
-  .clickable-icon {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-  
-  .clickable-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 8px; /* Reducir el padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 500px; /* Ajustar el tamaño máximo del calendario */
+  position: relative;
+  right: 3rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 14px; /* Reducir el tamaño de la fuente */
+  cursor: pointer;
+}
+
+.calendar-header .month-year {
+  font-size: 14px; /* Reducir el tamaño de la fuente */
+  font-weight: bold;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px; /* Reducir el espacio entre celdas */
+  width: 100%;
+}
+
+.calendar-grid div {
+  text-align: center;
+  padding: 3px; /* Reducir el relleno */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-grid .day-header {
+  font-weight: bold;
+  color: #555;
+  font-size: 12px; /* Reducir el tamaño de la fuente */
+}
+
+.calendar-grid .day {
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 12px; /* Reducir el tamaño de la fuente */
+}
+
+.calendar-grid .day:hover {
+  background-color: #ddd;
+}
+
+.calendar-grid .selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.calendar-grid .today {
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.time-selector {
+  margin-top: 5px; /* Reducir el margen superior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-selector input[type="text"] {
+  width: 30px; /* Reducir el ancho del input */
+  padding: 3px;
+  margin-right: 3px; /* Reducir el margen derecho */
+  text-align: center;
+}
+
+.time-selector button {
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 3px 5px; /* Reducir el padding */
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 3px; /* Reducir el margen derecho */
+}
+
+.time-selector button.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.time-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px; /* Reducir el espacio entre elementos */
+  margin-top: 5px; /* Reducir el margen superior */
+}
+
+.time-input input {
+  width: 30px; /* Reducir el ancho del input */
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px; /* Reducir el padding */
+}
+
+.time-period button {
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 3px 5px; /* Reducir el padding */
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 3px; /* Reducir el margen */
+}
+
+.time-period button.selected {
+  background-color: #007bff;
+  color: white;
+}

@@ -1,7 +1,34 @@
-<header class="header">
+<header class="header" *ngIf="!authService.isPatient(); else patientHeader">
     <img src="../../../../../assets/images/logo.png">
-    <app-menu></app-menu>
+    <app-menu class="menu"></app-menu>
     <div class="button">
         <app-set-buttons></app-set-buttons>
     </div>
 </header>
+
+<ng-template #patientHeader>
+    <header class="header">
+        <img src="../../../../../assets/images/logo.png">
+        <app-menu class="menu"></app-menu>
+        <div class="content-set">
+        <div class="button">
+            <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+            
+        </div>
+        <div class="extra-content" *ngIf="!isSidebarClosed">
+            <div (click)="logout()">
+                <a class="content-session">
+                  <div class="sidebar-menu-content">
+                    <app-icon iconUrl="../../../../../assets/icons/exit-svgrepo-com.svg" alt="Cerrar Sesión" class="menu-img"></app-icon>
+                  </div>
+                  <span class="color-session">Cerrar Sesión</span>
+                </a>
+              </div>
+            </div>
+        </div>
+        
+    </header>
+</ng-template>
+
+<app-modal-perfil-paciente *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-paciente>
+<app-feedback-progess *ngIf="showProgress"></app-feedback-progess>
