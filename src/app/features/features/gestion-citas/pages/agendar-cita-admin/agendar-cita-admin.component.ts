@@ -2,9 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../../core/service/doctor.service';
 import { PacienteService } from '../../../../../core/service/paciente.service';
-import { Doctor } from '../../../../../core/models/doctor.model';
+import { Doctor, DoctorPublic } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
+import { SpecialtyService } from '../../../../../core/service/Specialty.service';
 
 interface Specialty {
   Codigo_Espc: string;
@@ -19,14 +20,14 @@ interface Specialty {
 })
 export class AgendarCitaAdminComponent  implements OnInit {
 
-  selectedSpecialtyId: number | null = null;
-  allDoctors: Doctor[] = [];
-  paginatedDoctors: Doctor[] = [];
+  codigoEspc: string | null = null;
+  allDoctors: DoctorPublic[] = [];
+  paginatedDoctors: DoctorPublic[] = [];
   currentPage = 1;
   totalPages = 0;
   itemsPerPage = 9;
   showModal = false;
-  selectedDoctor!: Doctor;
+  selectedDoctor!: DoctorPublic;
   paciente!: Patient;
   rol : any = "";
   specialties: Specialty[] = [];
@@ -35,7 +36,8 @@ export class AgendarCitaAdminComponent  implements OnInit {
   constructor(
     private doctorService: DoctorService,
     private patientService: PacienteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private specialtyService: SpecialtyService 
   ) {}
 
   ngOnInit() {
@@ -53,41 +55,45 @@ export class AgendarCitaAdminComponent  implements OnInit {
   }
 
   fetchSpecialties() {
-    this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
+    this.specialtyService.getSpecialties().subscribe((specialties: Specialty[]) => {
       this.specialties = specialties;
       console.log('Specialties:', this.specialties); // Verifica en la consola si specialties se está cargando correctamente
     });
   }
 
   fetchDoctors() {
-    this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
-      this.allDoctors = doctors;
+    this.doctorService.getDoctors().subscribe((doctors: any) => {
+      console.log('Raw response from getDoctors:', doctors); // Verifica el formato de los datos recibidos
+      
+      if (Array.isArray(doctors)) {
+        this.allDoctors = doctors;
+      } else if (doctors && Array.isArray(doctors.doctors)) {
+        this.allDoctors = doctors.doctors;
+      } else {
+        console.error('Unexpected data format for doctors:', doctors);
+      }
       this.applyFilters();  // Aplica filtros iniciales
-      console.log('All doctors:', this.allDoctors); // Verifica en la consola si allDoctors se está cargando correctamente
     });
   }
-
+  
   applyFilters() {
     let filteredDoctors = this.allDoctors;
-
-    if (this.selectedSpecialtyId !== null && this.selectedSpecialtyId !== 0) {
-      filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
+  
+    if (this.codigoEspc !== null && this.codigoEspc !== "") {
+      filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc === this.codigoEspc);
     }
-
     this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-    this.paginateDoctors(filteredDoctors);
-    console.log('Filtered doctors:', filteredDoctors); // Verifica en la consola si filteredDoctors está siendo filtrado correctamente
+    this.paginateDoctors(filteredDoctors); 
   }
 
-  paginateDoctors(doctors: Doctor[]) {
+  paginateDoctors(doctors: DoctorPublic[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
-    console.log('Paginated doctors:', this.paginatedDoctors); // Verifica en la consola si paginatedDoctors se está paginando correctamente
   }
 
-  onSpecialtyChange(specialtyId: number) {
-    this.selectedSpecialtyId = specialtyId;
+  onSpecialtyChange(codigoEspc: string) {
+    this.codigoEspc = codigoEspc;
     this.currentPage = 1;
     this.applyFilters();
   }
@@ -97,7 +103,7 @@ export class AgendarCitaAdminComponent  implements OnInit {
     this.applyFilters();
   }
 
-  openModal(doctor: Doctor): void {
+  openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
     this.getPacienteData();
     this.showModal = true;

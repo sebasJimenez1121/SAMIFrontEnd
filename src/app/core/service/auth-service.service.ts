@@ -104,7 +104,7 @@ export class AuthService {
   }
   
   isDoctor(): boolean {
-    return this.userRole === 'doctor';
+    return this.userRole === 'medico';
   }
 
   loadUserRoleFromToken() {
@@ -127,7 +127,7 @@ export class AuthService {
       setTimeout(() => {
         this.clearToken();
         resolve();
-      }, 4000); // Simulación de espera de 4 segundos
+      }); 
     });
   }
 }

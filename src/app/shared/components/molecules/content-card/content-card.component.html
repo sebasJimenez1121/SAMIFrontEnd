@@ -6,10 +6,9 @@
   </app-label>
       <div class="input-rating">
           <div class="coment-rating">
-          <app-text content="10 opiniones"></app-text>
-          <app-input-rating></app-input-rating>
+          <app-text [content]="'Tarjeta Profesional ' + doctor.tarjetaProf"></app-text>
           </div>
-          <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.appointmentCost"></app-text> 
+          <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.valorCita"></app-text> 
           <app-button class="button-cita" value="Agendar Cita" (buttonClick)="buttonClick"></app-button>
       </div>
   </div>

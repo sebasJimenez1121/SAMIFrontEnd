@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-calendar-options',
@@ -7,7 +7,7 @@ import { Doctor } from '../../../../core/models/doctor.model';
   styleUrls: ['./calendar-options.component.css']
 })
 export class CalendarOptionsComponent {
-  @Input() doctor!: Doctor;
+  @Input() doctor!: DoctorPublic;
   @Output() selectionMade = new EventEmitter<{ date: Date, time: string }>();
 
   selectedDate: Date | null = null;

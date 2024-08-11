@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
@@ -12,7 +12,7 @@ export class ModalReservationFormComponent {
   @Output() closeModalEvent = new EventEmitter<void>();
   @Output() modalClosed = new EventEmitter<void>(); 
   @Input() selectedPatient!: Patient;
-  @Input() selectedDoctor!: Doctor;
+  @Input() selectedDoctor!: DoctorPublic;
   
 
   closeModal() {

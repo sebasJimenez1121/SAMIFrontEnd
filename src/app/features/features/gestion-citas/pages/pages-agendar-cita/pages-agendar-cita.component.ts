@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../../core/service/doctor.service';
 import { PacienteService } from '../../../../../core/service/paciente.service';
-import { Doctor } from '../../../../../core/models/doctor.model';
+import { Doctor, DoctorPublic } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
+import { SpecialtyService } from '../../../../../core/service/Specialty.service';
+
+
 
 interface Specialty {
   Codigo_Espc: string;
@@ -18,21 +21,22 @@ interface Specialty {
 })
 export class PagesAgendarCitaComponent implements OnInit {
    specialties: Specialty[] = [];
-  selectedSpecialtyId: number | null = null;
-  allDoctors: Doctor[] = [];
-  paginatedDoctors: Doctor[] = [];
+  codigoEspc: string | null = null;
+  allDoctors: DoctorPublic[] = [];
+  paginatedDoctors: DoctorPublic[] = [];
   currentPage = 1;
   totalPages = 0;
   itemsPerPage = 9;
   showModal = false;
-  selectedDoctor!: Doctor;
+  selectedDoctor!: DoctorPublic;
   paciente!: Patient;
   rol: string = "";
 
   constructor(
     private doctorService: DoctorService,
     private patientService: PacienteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private specialtyService: SpecialtyService 
   ) {}
 
   ngOnInit() {
@@ -50,41 +54,43 @@ export class PagesAgendarCitaComponent implements OnInit {
   }
 
   fetchSpecialties() {
-    this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
+    this.specialtyService.getSpecialties().subscribe((specialties: Specialty[]) => {
       this.specialties = specialties;
-      console.log('Specialties:', this.specialties);
     });
   }
 
   fetchDoctors() {
-    this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
+  this.doctorService.getDoctors().subscribe((doctors: any) => { 
+    if (Array.isArray(doctors)) {
       this.allDoctors = doctors;
-      this.applyFilters();
-      console.log('All doctors:', this.allDoctors);
-    });
-  }
+    } else if (doctors && Array.isArray(doctors.doctors)) {
+      this.allDoctors = doctors.doctors;
+    } 
+    this.applyFilters();  
+  });
+}
 
-  applyFilters() {
-    let filteredDoctors = this.allDoctors;
+applyFilters() {
+  let filteredDoctors = this.allDoctors;
 
-    if (this.selectedSpecialtyId !== null && this.selectedSpecialtyId !== 0) {
-      filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
-    }
+  if (this.codigoEspc && this.codigoEspc.trim() !== "0") {
+    filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc === this.codigoEspc);
+  } 
+  this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
+  this.paginateDoctors(filteredDoctors);
+  console.log('Doctores filtrados:', filteredDoctors);
+}
 
-    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-    this.paginateDoctors(filteredDoctors);
-    console.log('Filtered doctors:', filteredDoctors);
-  }
 
-  paginateDoctors(doctors: Doctor[]) {
+  paginateDoctors(doctors: DoctorPublic[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
     console.log('Paginated doctors:', this.paginatedDoctors);
   }
 
-  onSpecialtyChange(specialtyId: number) {
-    this.selectedSpecialtyId = specialtyId;
+  onSpecialtyChange(codigoEspc: string) {
+    this.codigoEspc = codigoEspc;
     this.currentPage = 1;
     this.applyFilters();
   }
@@ -94,7 +100,7 @@ export class PagesAgendarCitaComponent implements OnInit {
     this.applyFilters();
   }
 
-  openModal(doctor: Doctor): void {
+  openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
     this.getPacienteData();
     this.showModal = true;

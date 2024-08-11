@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { Doctor, DoctorPublic } from '../../../../core/models/doctor.model';
 import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
@@ -9,7 +9,7 @@ import { Patient } from '../../../../core/models/patient.model';
 })
 export class StepperContainerComponent {
   steps: string[] = ["Fecha y hora", "Datos Personales", "Metodo De Pago", "Confirmación"];
-  @Input() selectedDoctor!: Doctor;
+  @Input() selectedDoctor!: DoctorPublic;
   @Input() selectedPatient!: Patient;
 
   @Output() prevClicked = new EventEmitter<void>();

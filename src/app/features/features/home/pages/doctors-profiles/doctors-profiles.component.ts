@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DoctorService } from '../../../../../core/service/doctor.service';
 import { PacienteService } from '../../../../../core/service/paciente.service';
-import { Doctor } from '../../../../../core/models/doctor.model';
+import { Doctor, DoctorPublic } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
+import { SpecialtyService } from '../../../../../core/service/Specialty.service';
 
 interface Specialty {
   Codigo_Espc: string;
@@ -17,25 +18,26 @@ interface Specialty {
   styleUrls: ['./doctors-profiles.component.css']
 })
 export class DoctorsProfilesComponent implements OnInit {
-  selectedSpecialtyId: number | null = null;
-  allDoctors: Doctor[] = [];
+  codigoEspc: string | null = null;
+  allDoctors: DoctorPublic[] = [];
   itemsPerPage = 9;
   showModal = false;
-  selectedDoctor!: Doctor;
+  selectedDoctor!: DoctorPublic;
   paciente!: Patient;
   @Input() rol: string = "";
-  @Input() paginatedDoctors: Doctor[] = [];
+  @Input() paginatedDoctors: DoctorPublic[] = [];
   @Input() currentPage = 1;
   @Input() totalPages = 0;
   @Input() specialties: Specialty[] = [];
-  @Output() specialtyChange = new EventEmitter<number>();
+  @Output() specialtyChange = new EventEmitter<string>();
   @Output() pageChange = new EventEmitter<number>();
-  @Output() agendarCita = new EventEmitter<Doctor>();
+  @Output() agendarCita = new EventEmitter<DoctorPublic>();
 
   constructor(
     private doctorService: DoctorService,
     private patientService: PacienteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private specialtyService: SpecialtyService 
   ) {}
 
   ngOnInit() {
@@ -53,14 +55,14 @@ export class DoctorsProfilesComponent implements OnInit {
   }
 
   fetchSpecialties() {
-    this.doctorService.getSpecialties().subscribe((specialties: Specialty[]) => {
+    this.specialtyService.getSpecialties().subscribe((specialties: Specialty[]) => {
       this.specialties = specialties;
       console.log('Especialidades:', this.specialties);
     });
   }
 
   fetchDoctors() {
-    this.doctorService.getDoctors().subscribe((doctors: Doctor[]) => {
+    this.doctorService.getDoctors().subscribe((doctors: DoctorPublic[]) => {
       this.allDoctors = doctors;
       this.applyFilters();
       console.log('Todos los doctores:', this.allDoctors);
@@ -70,8 +72,8 @@ export class DoctorsProfilesComponent implements OnInit {
   applyFilters() {
     let filteredDoctors = this.allDoctors;
 
-    if (this.selectedSpecialtyId !== null && this.selectedSpecialtyId !== 0) {
-      filteredDoctors = filteredDoctors.filter(doctor => doctor.specialtyId === this.selectedSpecialtyId);
+    if (this.codigoEspc !== null && this.codigoEspc !== "") {
+      filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc=== this.codigoEspc);
     }
 
     this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
@@ -79,18 +81,18 @@ export class DoctorsProfilesComponent implements OnInit {
     console.log('Doctores filtrados:', filteredDoctors);
   }
 
-  paginateDoctors(doctors: Doctor[]) {
+  paginateDoctors(doctors: DoctorPublic[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
     console.log('Doctores paginados:', this.paginatedDoctors);
   }
 
-  onSpecialtyChange(specialtyId: number) {
-    this.selectedSpecialtyId = specialtyId;
+  onSpecialtyChange(codigoEspc: string) {
+    this.codigoEspc = codigoEspc;
     this.currentPage = 1;
     this.applyFilters();
-    this.specialtyChange.emit(specialtyId);
+    this.specialtyChange.emit(codigoEspc);
   }
 
   onPageChange(page: number) {
@@ -99,7 +101,7 @@ export class DoctorsProfilesComponent implements OnInit {
     this.pageChange.emit(page);
   }
 
-  openModal(doctor: Doctor): void {
+  openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
     this.getPacienteData();
     this.showModal = true;

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { DoctorService } from '../../../../core/service/doctor.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { SpecialtyService } from '../../../../core/service/Specialty.service';
+import { Specialty } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-doctor-register',
@@ -14,17 +16,13 @@ export class DoctorRegisterComponent implements OnInit {
   registrationForm: FormGroup;
   isSubmitting: boolean = false;
   imgFile: File | null = null;
-
-  documentTypeOptions = [
-    { value: 'Odontologia', label: 'Odontologia' },
-    { value: 'Dermatologia', label: 'Dermatologia' },
-    { value: 'Oftalmologia', label: 'Oftalmologia' },
-  ];
+  specialties: Array<{ value: string, label: string }> = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private doctorService: DoctorService,
-    private router: Router
+    private router: Router,
+    private specialtyService: SpecialtyService // Inyección del SpecialtyService
   ) {
     this.registrationForm = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -39,13 +37,15 @@ export class DoctorRegisterComponent implements OnInit {
       documento: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       tarjetaProf: ['', Validators.required],
       specialtyId: ['', Validators.required],
-      codigoEspc: ['', Validators.required],
+      valorCita: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], 
       img: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue]
     }, { validators: this.passwordsMatchValidator });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.loadSpecialties(); // Cargar las especialidades al iniciar
+  }
 
   passwordsMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const password = control.get('password');
@@ -82,23 +82,27 @@ export class DoctorRegisterComponent implements OnInit {
     if (this.registrationForm.invalid) {
       return;
     }
-
+  
     this.isSubmitting = true;
-
-    const credentials = {
-      tarjetaProf: this.registrationForm.get('tarjetaProf')?.value,
-      documento: this.registrationForm.get('documento')?.value,
-      nombre: this.registrationForm.get('nombre')?.value,
-      apellido: this.registrationForm.get('apellido')?.value,
-      rol: 'medico',
-      email: this.registrationForm.get('email')?.value,
-      foto: this.imgFile ? this.imgFile.name : '',
-      password: this.registrationForm.get('password')?.value,
-      valorCita: 50000,
-      codigoEspc: this.registrationForm.get('codigoEspc')?.value
-    };
-
-    this.doctorService.crearDoctor(credentials).subscribe({
+  
+    // Crear un objeto FormData
+    const formData = new FormData();
+    formData.append('tarjetaProf', this.registrationForm.get('tarjetaProf')?.value);
+    formData.append('documento', this.registrationForm.get('documento')?.value);
+    formData.append('nombre', this.registrationForm.get('nombre')?.value);
+    formData.append('apellido', this.registrationForm.get('apellido')?.value);
+    formData.append('rol', 'medico');
+    formData.append('email', this.registrationForm.get('email')?.value);
+    formData.append('password', this.registrationForm.get('password')?.value);
+    formData.append('valorCita', this.registrationForm.get('valorCita')?.value);
+    formData.append('codigoEspc', this.registrationForm.get('specialtyId')?.value);
+  
+    // Adjuntar el archivo de imagen al FormData
+    if (this.imgFile) {
+      formData.append('fotoUrl', this.imgFile);
+    }
+  
+    this.doctorService.crearDoctor(formData).subscribe({
       next: response => {
         this.isSubmitting = false;
         Swal.fire({
@@ -122,5 +126,19 @@ export class DoctorRegisterComponent implements OnInit {
         console.error('Error during registration', error);
       }
     });
+  }
+
+  loadSpecialties(): void {
+    this.specialtyService.getSpecialties().subscribe(
+      (specialties: Specialty[]) => {
+        this.specialties = specialties.map(specialty => ({
+          value: specialty.Codigo_Espc,
+          label: specialty.Nombre
+        }));
+      },
+      (error) => {
+        console.error('Error al cargar especialidades', error);
+      }
+    );
   }
 }
