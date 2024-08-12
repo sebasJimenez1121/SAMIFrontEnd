@@ -21,10 +21,7 @@ export class SpecialtyService {
   }
 
   addSpecialty(specialty: Specialty): Observable<Specialty> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.post<Specialty>(`${this.apiUrl}/specialty/create`, specialty, {headers});
+    return this.http.post<Specialty>(`${this.apiUrl}/specialty/create`, specialty);
   }
 }
 

@@ -1,11 +1,15 @@
 export interface Patient {
-    id: number;
-    documentoPac: string;
-    tipoDoc: string;
-    nombre: string;
-    apellido: string;
-    email:string;
-    password:string;
-    fechaNac:string;
-    rol: string;
+    Id: string;
+    Documento: string;
+    Tipo_Doc: string;
+    Nombre: string;
+    Apellido: string;
+    Email:string;
+    Telefono: string;
+    Password:string;
+    Direccion: string;
+    Fecha_Nac: Date;
+    Foto_Url: string;
+    Rol: string;
+    Fecha_Reg: Date;
 }

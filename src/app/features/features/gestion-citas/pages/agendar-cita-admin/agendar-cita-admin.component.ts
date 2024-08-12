@@ -105,7 +105,6 @@ export class AgendarCitaAdminComponent  implements OnInit {
 
   openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
-    this.getPacienteData();
     this.showModal = true;
   }
 
@@ -117,9 +116,4 @@ export class AgendarCitaAdminComponent  implements OnInit {
     // Aquí puedes reiniciar el estado necesario al cerrar el modal
   }
 
-  getPacienteData(): void {
-    this.patientService.getPatientById('1').subscribe((patient: Patient) => {
-      this.paciente = patient;
-    });
-  }
 }

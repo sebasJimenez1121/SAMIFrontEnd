@@ -62,30 +62,35 @@ export class DoctorsProfilesComponent implements OnInit {
   }
 
   fetchDoctors() {
-    this.doctorService.getDoctors().subscribe((doctors: DoctorPublic[]) => {
-      this.allDoctors = doctors;
-      this.applyFilters();
-      console.log('Todos los doctores:', this.allDoctors);
+    this.doctorService.getDoctors().subscribe((doctors: any) => { 
+      if (Array.isArray(doctors)) {
+        this.allDoctors = doctors;
+      } else if (doctors && Array.isArray(doctors.doctors)) {
+        this.allDoctors = doctors.doctors;
+      } 
+      this.applyFilters();  
     });
   }
+  
 
-  applyFilters() {
-    let filteredDoctors = this.allDoctors;
+ 
+applyFilters() {
+  let filteredDoctors = this.allDoctors;
 
-    if (this.codigoEspc !== null && this.codigoEspc !== "") {
-      filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc=== this.codigoEspc);
-    }
+  if (this.codigoEspc && this.codigoEspc.trim() !== "0") {
+    filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc === this.codigoEspc);
+  } 
+  this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
+  this.paginateDoctors(filteredDoctors);
+  console.log('Doctores filtrados:', filteredDoctors);
+}
 
-    this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-    this.paginateDoctors(filteredDoctors);
-    console.log('Doctores filtrados:', filteredDoctors);
-  }
 
   paginateDoctors(doctors: DoctorPublic[]) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedDoctors = doctors.slice(startIndex, endIndex);
-    console.log('Doctores paginados:', this.paginatedDoctors);
+    console.log('Paginated doctors:', this.paginatedDoctors);
   }
 
   onSpecialtyChange(codigoEspc: string) {
@@ -103,7 +108,6 @@ export class DoctorsProfilesComponent implements OnInit {
 
   openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
-    this.getPacienteData();
     this.showModal = true;
     this.agendarCita.emit(doctor);
   }
@@ -112,9 +116,4 @@ export class DoctorsProfilesComponent implements OnInit {
     this.showModal = false;
   }
 
-  getPacienteData(): void {
-    this.patientService.getPatientById('1').subscribe((patient: Patient) => {
-      this.paciente = patient;
-    });
-  }
 }

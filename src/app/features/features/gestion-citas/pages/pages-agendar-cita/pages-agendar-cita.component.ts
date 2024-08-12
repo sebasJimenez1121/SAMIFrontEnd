@@ -34,7 +34,6 @@ export class PagesAgendarCitaComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorService,
-    private patientService: PacienteService,
     private authService: AuthService,
     private specialtyService: SpecialtyService 
   ) {}
@@ -102,7 +101,6 @@ applyFilters() {
 
   openModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
-    this.getPacienteData();
     this.showModal = true;
   }
 
@@ -110,9 +108,4 @@ applyFilters() {
     this.showModal = false;
   }
 
-  getPacienteData(): void {
-    this.patientService.getPatientById('1').subscribe((patient: Patient) => {
-      this.paciente = patient;
-    });
-  }
 }

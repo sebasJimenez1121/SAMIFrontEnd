@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, interval, of } from 'rxjs'; 
 import { switchMap, startWith } from 'rxjs/operators';
-import { Appointment, AppointmentUpdate } from '../models/appointment.model';
+import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -59,11 +59,11 @@ export class CitaService {
   }
 
   // Crear una nueva cita
-  crearCita(cita: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(this.apiUrl, cita).pipe(
-      catchError(this.handleError<Appointment>('crearCita'))
+  crearCita(cita: AppointmentCreate): Observable<AppointmentCreate> {
+    return this.http.post<AppointmentCreate>(`${this.apiUrl}/appointment/create`, cita).pipe(
+      catchError(this.handleError<AppointmentCreate>('crearCita'))
     );
-  }
+}
 
   // Verificar disponibilidad
   verificarDisponibilidad(fechaHora: string): Observable<boolean> {

@@ -8,22 +8,16 @@ import { DoctorPublic } from '../../../../core/models/doctor.model';
 })
 export class CalendarOptionsComponent {
   @Input() doctor!: DoctorPublic;
-  @Output() selectionMade = new EventEmitter<{ date: Date, time: string }>();
+  @Output() dateAndTimeSelected = new EventEmitter<{ date: string, time: string }>();
 
-  selectedDate: Date | null = null;
-  selectedTimeSlot: string | null = null;
+  selectedDate!: string;
+  selectedTime!: string;
 
-  onDateSelected(date: Date) {
-    this.selectedDate = date;
-  }
-
-  onTimeSlotSelected(timeSlot: string) {
-    this.selectedTimeSlot = timeSlot;
-  }
-
-  confirmSelection() {
-    if (this.selectedDate && this.selectedTimeSlot) {
-      this.selectionMade.emit({ date: this.selectedDate, time: this.selectedTimeSlot });
-    }
+  // Este método se llamaría cuando el usuario seleccione la fecha y la hora
+  onDateAndTimeSelected() {
+    this.dateAndTimeSelected.emit({
+      date: this.selectedDate,
+      time: this.selectedTime
+    });
   }
 }
