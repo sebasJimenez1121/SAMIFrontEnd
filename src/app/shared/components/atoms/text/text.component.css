@@ -4,3 +4,25 @@
     font-size: 0.75rem;
 }
 
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    .text {
+    font-size: 0.65rem;
+    }
+  }
+  
+  
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+   
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+  
+  }
+  
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+  
+ 
+  }

@@ -2,3 +2,26 @@
     font-size:1rem;
     color: #203B8F;
 }
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    .label{
+    font-size: 0.65rem;
+    }
+  }
+  
+  
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .label{
+        font-size: 0.90rem;
+        }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+  
+  }
+  
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+  
+ 
+  }

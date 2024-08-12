@@ -86,8 +86,8 @@
     background: transparent;
   }
   
-  /* Media Queries */
-  @media (max-width: 480px) {
+  
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
     .container-cards {
       padding: 2rem 1rem;
     }
@@ -103,6 +103,31 @@
       width: 100%;
       margin: 1rem 0;
     }
+    
+.section1 {
+  width: 20rem;
+  height: 22rem;
+  margin: 9rem 0rem 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .text-container {
+    margin: 0rem 0rem 0rem 1rem;
+  }
+  .image-container {
+    position: relative; 
+    display: flex;
+    align-items: center;
+  }
+ 
+  .image-foreground {
+    width: 21.6rem;
+    top: 1rem;
+  }
+  p{
+    font-size: 0.65rem;
+  }
   }
   
   @media (min-width: 481px) and (max-width: 768px) {
@@ -121,6 +146,33 @@
       width: 75%;
       margin: 1rem 0;
     }
+    .section1 {
+      width: 28rem;
+      height: 22rem;
+      margin: 9rem 0rem 0rem 0rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+      .text-container {
+        margin: 0rem 0rem 0rem 2rem;
+        padding: 1rem;
+      }
+      .image-container {
+        width: 21rem;
+        position: relative; 
+        display: flex;
+        align-items: center;
+      }
+     
+      .image-foreground {
+        width: 26.6rem;
+        left: 0rem;
+        top: 1rem;
+      }
+      p{
+        font-size: 0.65rem;
+      }
   }
   
   @media (min-width: 769px) and (max-width: 920px) {
@@ -139,6 +191,33 @@
       width: 60%;
       margin: 1.2rem 0;
     }
+    .section1 {
+      width: 46rem;
+      height: 22rem;
+      margin: 9rem 0rem 0rem 0rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+      .text-container {
+        margin: 0rem 0rem 0rem 2rem;
+        padding: 1rem;
+      }
+      .image-container {
+        width: 27rem;
+        position: relative; 
+        display: flex;
+        align-items: center;
+      }
+     
+      .image-foreground {
+        width: 26.6rem;
+        left: 0rem;
+        top: 1rem;
+      }
+      p{
+        font-size: 1rem;
+      }
   }
   
   @media (min-width: 921px) and (max-width: 1279px) {
@@ -157,6 +236,33 @@
       width: 55%;
       margin: 1.3rem 0;
     }
+    .section1 {
+      width: 55.2rem;
+      height: 22rem;
+      margin: 9rem 0rem 0rem 0rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+      .text-container {
+        margin: 0rem 0rem 0rem 2rem;
+        padding: 1rem;
+      }
+      .image-container {
+        width: 27rem;
+        position: relative; 
+        display: flex;
+        align-items: center;
+      }
+     
+      .image-foreground {
+        width: 26.6rem;
+        left: 0rem;
+        top: 1rem;
+      }
+      p{
+        font-size: 1rem;
+      }
   }
   
   @media (min-width: 1280px) {

@@ -57,8 +57,8 @@ select {
 }
 
 
-/* Media Queries */
-@media (max-width: 480px) {
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
   .container-cards {
     padding: 2rem 1rem;
   }
