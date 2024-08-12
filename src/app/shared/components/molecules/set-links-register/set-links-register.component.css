@@ -19,3 +19,38 @@
     right: 1rem;
   }
   
+
+  
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+    .link {
+      font-size: 0.55rem;
+    }
+ 
+    .actions {
+      top: 1rem;
+      right: 0rem;
+    }
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .actions {
+      right: 0rem;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    .actions {
+      right: 0rem;
+    }
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+    .actions {
+      right: 0rem;
+    }
+  }
+  
+  @media only screen and (min-width: 1280px) {
+  
+  }
+  

@@ -20,3 +20,79 @@
     top: 6.9rem;
   }
   
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+    
+    }
+    
+    .form-container {
+      padding: 2% 0%;
+      width: 120%;
+      height: 111vh;
+      left: 1rem;
+      top: 5.9rem;
+    }
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+    
+    }
+    
+    .form-container {
+      padding: 2% 0%;
+      width: 120%;
+      height: 81vh;
+      left: 1rem;
+      top: 5.9rem;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 81%;
+    
+    }
+    
+    .form-container {
+      padding: 2% 0%;
+      width: 120%;
+      height: 70vh;
+      left: 5rem;
+      top: 8rem;
+    }
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+    
+    }
+    
+    .form-container {
+      padding: 2% 0%;
+      width: 106%;
+      height: 53vh;
+      left: 10rem;
+      top: 11rem;
+    }
+  }
+  
+  @media only screen and (min-width: 1280px) {
+  
+  }
+  

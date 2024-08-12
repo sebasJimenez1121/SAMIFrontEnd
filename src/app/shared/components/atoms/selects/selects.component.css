@@ -64,3 +64,40 @@ option {
 option:hover {
   background-color: #f0f0f0;
 }
+
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .document-type {
+    font-size: 0.65rem;
+  }
+  button, select {
+    font-size: 0.65rem;
+  }
+  option {
+    font-size:  0.65rem;
+  }
+  
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  button, select {
+  margin: 31px 0px 22px 0
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+  button, select {
+    margin: 7px 0px 29px 0;
+    }
+}
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+  button, select {
+    margin: 7px 0px 29px 0;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+}

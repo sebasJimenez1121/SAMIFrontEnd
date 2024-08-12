@@ -36,9 +36,68 @@ right: 1rem;
 
 
 
-@media (max-width: 768px) {
-  .container {
-    width: 90vw;
-    height: auto;
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .logo {
+    position: relative;
+    right: 47rem;
+    bottom: 20.8rem;
+    width: 4rem;
+    content: url('../../../../../assets/images/favicon.png'); 
   }
+  app-link {
+    display: none;
+  }
+
+  .logout-icon {
+    position: fixed;
+    left: 11rem;
+    top: 2rem;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .logo{
+    position: relative;
+    right: 44rem;
+    bottom: 19rem;
+    width: 7rem;
+    content: url('../../../../../assets/images/favicon.png'); 
+  }
+  .logout-icon{
+    position: fixed;
+    left: 17rem;
+    bottom: 10rem;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+  .logo{
+    position: relative;
+    right: 38rem;
+    bottom: 18rem;
+    width: 12rem;
+  }
+  .logout-icon{
+    position: fixed;
+    left: 33rem;
+    bottom: 17rem;
+  }
+}
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+  .logo{
+    position: relative;
+    right: 37rem;
+    bottom: 13rem;
+  }
+  .logout-icon{
+    position: fixed;
+    left: 41rem;
+    bottom: 38rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+
 }

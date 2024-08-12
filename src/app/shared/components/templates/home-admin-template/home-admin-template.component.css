@@ -143,5 +143,165 @@ app-image{
   .container{
     display: flex;
     margin: 4rem 0rem 0rem 10rem;
+  }
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+  nav{
+    background-color: #d9d9d924;
+    border-radius: 1.4rem;
+    width: 20rem;
+    height: 4rem;
+    margin: 3rem 0rem 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 2.5rem;
+  }
+
+
+  app-button {
+  
+    left: 2rem;
+    top: 3rem;
+  }
+  app-image{
+      width: 31vw;
+      position: relative;
+      bottom: 0.5rem;
+  }
    
+
+  .section1 {
+        width: 24rem;
+        height: 31rem;
+        margin: 4rem 0rem 0rem 0rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+  }
+ 
+  .image-container {
+    position: relative; 
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-background {
+    position: absolute;
+    top:0rem;
+    left: 2rem;
+    width: 38vw;
+    z-index: 1;
+    opacity: 0.5;
+  }
+  
+  .image-foreground {
+    position: relative;
+    width: 27rem;
+    top: 1.5rem;
+  }
+  
+    hr{
+      width: 25rem;
+      margin: 2rem 0rem 0rem 0rem;
+    }
+  
+    app-button{
+      margin: 1rem 1rem 1rem 1rem;
+    }
+    
+   
+    .container{
+      display: flex;
+      margin: 4rem 0rem 0rem 0rem;
+      flex-direction: column;
+      position: relative;
+      right: 7rem;
+    }
+  }
+  
+  
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    nav{
+      background-color: #d9d9d924;
+      border-radius: 1.4rem;
+      width: 22rem;
+      height: 4rem;
+      margin: 3rem 0rem 0rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 2.5rem;
+    }
+  
+  
+    app-button {
+    
+      left: 2rem;
+      top: 3rem;
+    }
+    app-image{
+        width: 31vw;
+        position: relative;
+        bottom: 0.5rem;
+    }
+     
+  
+    .section1 {
+          width: 27rem;
+          height: 31rem;
+          margin: 4rem 0rem 0rem 0rem;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+    }
+   
+    .image-container {
+      position: relative; 
+      display: flex;
+      align-items: center;
+    }
+    
+    .image-background {
+      position: absolute;
+      top:0rem;
+      left: 2rem;
+      width: 38vw;
+      z-index: 1;
+      opacity: 0.5;
+    }
+    
+    .image-foreground {
+      position: relative;
+      width: 27rem;
+      top: 1.5rem;
+    }
+    
+      hr{
+        width: 25rem;
+        margin: 2rem 0rem 0rem 0rem;
+      }
+    
+      app-button{
+        margin: 1rem 1rem 1rem 1rem;
+      }
+      
+     
+      .container{
+        display: flex;
+        margin: 4rem 0rem 0rem 0rem;
+        flex-direction: column;
+        position: relative;
+        right: 7rem;
+      }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    
+  }
+  
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+  
+  
   }

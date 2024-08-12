@@ -28,5 +28,31 @@ button:disabled {
   background-color: #ccc;
   color: #5A5D5F;
   cursor: not-allowed;
-  background-image: none; /* Eliminar el degradado cuando está deshabilitado */
+  background-image: none; 
+}
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  button{
+  font-size: 0.65rem;
+  height: 1.5rem;
+  width: 7rem; 
+ 
+  }
+  button:disabled {
+  position: absolute;}
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+
+
 }

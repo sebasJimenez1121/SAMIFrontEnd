@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   showProgress: boolean = false;
   isSidebarClosed = false;
   hoveredItem: any = null;
-
+  isMenuOpen = false;
   constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -22,7 +22,9 @@ export class HeaderComponent implements OnInit {
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
   }
-
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+}
   showTooltip(item: any) {
     if (this.isSidebarClosed) {
       this.hoveredItem = item;

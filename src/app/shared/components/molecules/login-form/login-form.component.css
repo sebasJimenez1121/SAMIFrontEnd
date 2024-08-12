@@ -102,3 +102,36 @@ app-button {
 }
 
 
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+ 
+  .form-group {
+    padding-left: 3rem; 
+    
+  }
+  .form-group-remember{
+    padding: 0rem 0rem 0rem 3rem;
+    
+  }
+  
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  app-button {
+    position: relative;
+    left: 11rem;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+ 
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+
+ 
+}

@@ -1,43 +1,147 @@
 :root {
-    font-size: 1rem; 
-   
-  }
-  
-  body {
+    font-size: 1rem;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-  }
-  
-  header img {
-    height: 3rem; 
-  }
- 
-  .principal-title{
+}
+
+header img {
+    height: 3rem;
+}
+
+.principal-title {
     display: flex;
     justify-content: center;
-    margin: 10rem 0rem 0rem 0rem
-   }
-  .container-cards {
+    margin: 10rem 0rem 0rem 0rem;
+}
+
+.container-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-  padding: 6rem 4rem;
-  }
+    padding: 6rem 4rem;
+}
 
-  
-  .section3 h2 {
+.section3 h2 {
     color: #1B0491;
-    font-size: 1.875rem; 
+    font-size: 1.875rem;
     text-align: center;
-  }
-  
-  .section3 hr {
+}
+
+.section3 hr {
     background-color: #D9D9D9;
     width: 85%;
     margin: auto;
-  }
-  .section-short{
+}
+
+.section-short {
     padding: 2rem 4rem;
+}
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    .principal-title {
+        margin: 5rem 0rem 1rem 0rem;
+    }
+
+    .container-cards {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0rem;
+    }
+
+    .container-cards app-service-card, 
+    .container-cards app-image {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .container-cards app-image {
+        display: none; 
+    }
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .principal-title {
+        margin: 8rem 0rem 2rem 0rem;
+    }
+
+    .container-cards {
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+    }
+
+    .container-cards app-service-card, 
+    .container-cards app-image {
+        width: 80%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* 769-920px: Laptops, tablets más grandes */
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+    .principal-title {
+        margin: 9rem 0rem 3rem 0rem;
+    }
+
+    .container-cards {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 5rem 3rem;
+    }
+
+    .container-cards app-service-card, 
+    .container-cards app-image {
+        width: 45%;
+        margin-bottom: 2rem;
+    }
+    .container-cards app-image {
+      display: none; 
   }
-  
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+    .principal-title {
+        margin: 10rem 0rem 4rem 0rem;
+    }
+
+    .container-cards {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 6rem 4rem;
+    }
+
+    .container-cards app-service-card, 
+    .container-cards app-image {
+        width: 40%;
+        margin-bottom: 2rem;
+    }
+    .container-cards app-image {
+      display: none; 
+  }
+}
+
+
+@media only screen and (min-width: 1280px) {
+    .principal-title {
+        margin: 10rem 0rem 4rem 0rem;
+    }
+
+    .container-cards {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 6rem 4rem;
+    }
+
+    .container-cards app-service-card, 
+    .container-cards app-image {
+        width: 30%;
+        margin-bottom: 2rem;
+    }
+}

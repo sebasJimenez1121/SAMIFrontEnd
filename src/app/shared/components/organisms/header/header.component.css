@@ -60,3 +60,88 @@
     margin: 0rem 7rem;
 }
 
+/* Estilos del botón de menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 2rem;
+  height: 0.25rem;
+  background: #203B8F;
+  margin: 0.25rem 0;
+  transition: background 0.3s;
+}
+
+/* Estilos del contenedor del menú desplegable */
+.menu-container {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Ajusta según el tamaño del encabezado */
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.menu-container.show {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 480px) {
+  .menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+}
+
+/* Estilos para pantallas medianas */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .menu {
+      /* Ajusta según sea necesario */
+  }
+
+  .menu-toggle {
+      display: none;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media only screen and (min-width: 769px) {
+  .menu-container {
+      display: none;
+  }
+
+  .menu-toggle {
+      display: none;
+  }
+}

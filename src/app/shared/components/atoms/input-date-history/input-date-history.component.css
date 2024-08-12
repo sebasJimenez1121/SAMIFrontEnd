@@ -34,3 +34,73 @@
 }
 
 
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    .styled-date-input {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 0rem 2rem 0rem;
+        width: 6.2rem;
+        font-size: 0.6rem;
+    }
+    
+    .styled-date-input:focus {
+        outline: none;
+        box-shadow: none; 
+    }
+    
+    .styled-date-input::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .styled-date-input {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 0rem 1rem 0rem;
+        width: 8.2rem;
+        font-size: 0.75rem;
+    }
+    
+    .styled-date-input:focus {
+        outline: none;
+        box-shadow: none; 
+    }
+    
+    .styled-date-input::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    .styled-date-input {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 0rem 1rem 0rem;
+        width: 8.2rem;
+        font-size: 0.75rem;
+    }
+    
+    .styled-date-input:focus {
+        outline: none;
+        box-shadow: none; 
+    }
+    
+   
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+    .styled-date-input {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 1rem 0rem 1rem 0rem;
+        width: 8.2rem;
+        font-size: 0.75rem;
+    }
+    
+    .styled-date-input:focus {
+        outline: none;
+        box-shadow: none; 
+    }
+  }
+  
+  @media only screen and (min-width: 1280px) {
+  
+  }
+  
