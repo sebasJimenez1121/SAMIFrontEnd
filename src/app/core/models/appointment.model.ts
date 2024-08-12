@@ -26,11 +26,8 @@ export interface AppointmentUpdate {
 }
 
 export interface AppointmentCreate {
-    id?: number;
-    idMedico: number;
-    idCliente: number;
-    metodoPago: string;
-    idPago: number;
-    fechaHora: string; // Formato: YYYY-MM-DD HH:mm:ss
-    motivo: string;
-  }
+    horaCita: string;
+    fechaCita: string;
+    fKIdDoct: string;
+    fKIdPac: string;
+}

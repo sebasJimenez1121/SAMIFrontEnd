@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Patient } from '../../../../core/models/patient.model';
+import { CitaService } from './../../../../core/service/cita.service';
 
 @Component({
   selector: 'app-stepper-container',
@@ -8,20 +9,24 @@ import { Patient } from '../../../../core/models/patient.model';
   styleUrls: ['./stepper-container.component.css']
 })
 export class StepperContainerComponent {
-  steps: string[] = ["Fecha y hora", "Datos Personales", "Metodo De Pago", "Confirmación"];
-  @Input() selectedDoctor!: Doctor;
+  steps: string[] = ["Fecha y hora", "Datos Personales", "Método De Pago", "Confirmación"];
+  
+  @Input() selectedDoctor!: DoctorPublic;
   @Input() selectedPatient!: Patient;
+  @Input() currentStep: number = 0;
 
   @Output() prevClicked = new EventEmitter<void>();
   @Output() nextClicked = new EventEmitter<void>();
   @Output() stepChanged = new EventEmitter<number>();
   @Output() finished = new EventEmitter<void>();
-  @Output() formDataReady = new EventEmitter<any>(); // Evento para capturar los datos del formulario
+  @Output() formDataReady = new EventEmitter<any>();
 
-  @Input() currentStep: number = 0;
   value: string = 'Continuar';
 
-  constructor() {}
+  selectedDate!: string;
+  selectedTime!: string;
+
+  constructor(private citaService: CitaService) {}
 
   handlePrevClick() {
     this.prevClicked.emit();
@@ -35,6 +40,12 @@ export class StepperContainerComponent {
 
   handleFormDataReady(formData: any) {
     this.formDataReady.emit(formData);
+    this.nextOrFinish();
+  }
+
+  handleDateAndTimeSelected(event: { date: string, time: string }) {
+    this.selectedDate = event.date;
+    this.selectedTime = event.time;
     this.nextOrFinish();
   }
 
@@ -69,5 +80,24 @@ export class StepperContainerComponent {
     this.currentStep = 0;
     this.updateButtonValue();
     this.stepChanged.emit(this.currentStep);
+  }
+
+  handleConfirmAppointment() {
+    const appointmentData = {
+      horaCita: this.selectedTime,
+      fechaCita: this.selectedDate,
+      fKIdDoct: this.selectedDoctor.Id,
+      fKIdPac: this.selectedPatient.Id,
+    };
+
+    this.citaService.crearCita(appointmentData).subscribe(
+      response => {
+        console.log('Cita confirmada:', response);
+        this.onFinished(); // Resetear el stepper después de confirmar
+      },
+      error => {
+        console.error('Error al confirmar la cita:', error);
+      }
+    );
   }
 }

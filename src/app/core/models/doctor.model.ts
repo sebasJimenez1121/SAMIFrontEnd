@@ -15,6 +15,19 @@ export interface Doctor {
     rating: number;
   }
 
+  
+  export interface DoctorPublic {
+    Id: string;
+    tarjetaProf: string;
+    nombre: string;
+    estado: string;
+    apellido:string;
+    imgUrl:string;
+    codigoEspc:string;
+    valorCita: number;
+    especialidad: string;
+  }
+
  export interface Specialty {
   Codigo_Espc: string;
   Nombre: string;

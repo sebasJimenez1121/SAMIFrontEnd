@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-content-card',
@@ -7,7 +7,7 @@ import { Doctor } from '../../../../core/models/doctor.model';
   styleUrls: ['./content-card.component.css']
 })
 export class ContentCardComponent {
-  @Input() doctor!: Doctor;
+  @Input() doctor!: DoctorPublic;
   @Output() buttonClick = new EventEmitter<void>();
 
   handleClick() {

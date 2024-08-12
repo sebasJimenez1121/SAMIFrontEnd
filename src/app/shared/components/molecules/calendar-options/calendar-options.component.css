@@ -11,18 +11,22 @@
     width: 28em;
 }
 
+.img{
+    width: 100%;
+}
 
 .container-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 60%; 
-    max-height: 4rem;
-    margin: 2em 2em;
+    justify-content: start;
+    align-items: start;
+    width: 40%; 
+    max-height: 2rem;
+    margin: 1em 1em;
 }
 
 .calendario{
-    width: 25em;
+    width: 29em;
 }
 
 .rating {

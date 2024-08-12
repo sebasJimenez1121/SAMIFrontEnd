@@ -35,8 +35,7 @@ export class HomeAdminTemplateComponent implements OnInit {
     this.specialtyService.getSpecialties().subscribe(
       (specialties) => {
         this.specialties = specialties;        
-        console.log(this.specialties);
-        
+        console.log(this.specialties); 
       },
       (error) => {
         console.error('Error fetching specialties:', error);

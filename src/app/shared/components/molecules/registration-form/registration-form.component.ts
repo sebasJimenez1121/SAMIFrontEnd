@@ -13,7 +13,7 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm!: FormGroup;
  
   documentTypeOptions = [
-    { value: 'Cedula Cidadania', label: 'Cedula Cidadania' },
+    { value: 'Cedula Ciudadania', label: 'Cedula Cidadania' },
     { value: 'Tarjeta identidad', label: 'Tarjeta identidad' },
     { value: 'Cedula de extranjeria', label: 'Cédula de extranjería' },
     { value: 'Registro civil', label: 'Registro civil' }

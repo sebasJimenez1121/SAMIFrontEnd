@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
 
@@ -9,17 +9,17 @@ import { SpecialtyService } from '../../../../core/service/Specialty.service';
   styleUrls: ['./template-appointment-schedule.component.css']
 })
 export class TemplateAppointmentScheduleComponent implements OnInit {
-  @Input() paginatedDoctors: Doctor[] = [];
+  @Input() paginatedDoctors: DoctorPublic[] = [];
   @Input() currentPage: number = 1;
   @Input() totalPages: number = 0;
-  @Output() specialtyChange = new EventEmitter<number>();
+  @Output() specialtyChange = new EventEmitter<string>();
   @Output() pageChange = new EventEmitter<number>();
-  @Output() agendarCita = new EventEmitter<Doctor>();
+  @Output() agendarCita = new EventEmitter<DoctorPublic>();
   @Input() userRole: any = "";
   @Input() titleText: string = 'Agendamiento de Citas';
   @Input() titleClass: string = 'custom-title';
   
-  @Input() specialties: Specialty[] = []; // Asegúrate de que esta propiedad está definida correctamente
+  @Input() specialties: Specialty[] = [];
 
   constructor(private specialtyService: SpecialtyService) {}
 
@@ -39,14 +39,14 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   onSpecialtyChange(event: any) {
-    this.specialtyChange.emit(+event.target.value);
+    this.specialtyChange.emit(event.target.value);
   }
 
   onPageChange(page: number) {
     this.pageChange.emit(page);
   }
 
-  openModal(doctor: Doctor) {
+  openModal(doctor: DoctorPublic) {
     this.agendarCita.emit(doctor);
   }
 }

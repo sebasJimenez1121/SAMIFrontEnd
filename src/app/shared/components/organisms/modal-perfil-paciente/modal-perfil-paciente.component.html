@@ -12,7 +12,7 @@
     <div class="conjunto">
       <app-image imageUrl="../../../../assets/images/perfil.png"></app-image>
       <div class="usuario">
-        <app-title-secundari titleText="{{PacienteProfile.nombre}} {{PacienteProfile.apellido}}"></app-title-secundari>
+        <app-title-secundari titleText="{{PacienteProfile.Nombre}} {{PacienteProfile.Apellido}}"></app-title-secundari>
         <app-text-field content="Mi perfil"></app-text-field>
       </div>
     </div>
@@ -21,22 +21,22 @@
       <div class="contDatos">
         <div class="datos">
           <app-label content="Nombre:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.nombre" [disabled]="!isEditing"></app-input>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Nombre" [disabled]="!isEditing"></app-input>
         </div>
         <div class="datos">
           <app-label content="Apellido:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.apellido" [disabled]="!isEditing"></app-input>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Apellido" [disabled]="!isEditing"></app-input>
         </div>
         <div class="datos">
           <app-label content="Correo Electronico:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.email" [disabled]="!isEditing"></app-input>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Email" [disabled]="!isEditing"></app-input>
         </div>
       </div>
 
       <div class="contDatosD">
         <div class="datosNum">
           <app-label content="Numero de Documento:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.documentoPac" [disabled]="!isEditing"></app-input>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Documento" [disabled]="!isEditing"></app-input>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
       <div class="contDatosM">
         <div class="datosCambi">
           <app-label content="Contraseña:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.password" [disabled]="!isEditing" type="password"></app-input>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Password" [disabled]="!isEditing" type="password"></app-input>
         </div>
         <div class="datosConfii">
           <app-label content="Confirmar Contraseña:"></app-label>

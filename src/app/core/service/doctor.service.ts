@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Doctor } from '../models/doctor.model';
-import { Specialty } from '../models/doctor.model';
+import { Doctor, DoctorPublic } from '../models/doctor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +11,9 @@ export class DoctorService {
   private apiUrl = 'http://localhost:8000'; 
 
   constructor(private http: HttpClient) {}
-
-  // Obtener todas las especialidades
-  getSpecialties(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/specialties`);
-  }
-
- 
   // Obtener todos los doctores
-  getDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`);
+  getDoctors(): Observable<DoctorPublic[]> {
+    return this.http.get<DoctorPublic[]>(`http://localhost:10101/doctor/catalog`);
   }
 
   // Obtener un doctor por su ID
@@ -30,11 +22,11 @@ export class DoctorService {
   }
 
   // Crear un nuevo doctor
-  crearDoctor( doctorData: any): Observable<Doctor> {
+  crearDoctor( formData: FormData): Observable<Doctor> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
-    return this.http.post<Doctor>(`http://localhost:10101/doctor/register`, doctorData, {headers});
+    return this.http.post<Doctor>(`http://localhost:10101/doctor/register`, formData, {headers});
   }
  
  

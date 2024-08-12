@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-modal-perfil-doctor',
@@ -7,7 +7,7 @@ import { Doctor } from '../../../../core/models/doctor.model';
   styleUrls: ['./modal-perfil-doctor.component.css']
 })
 export class ModalPerfilDoctorComponent {
-  @Input() doctor!: Doctor;
+  @Input() doctor!: DoctorPublic;
   @Output() closeModal = new EventEmitter<void>();
 
   handleClose() {

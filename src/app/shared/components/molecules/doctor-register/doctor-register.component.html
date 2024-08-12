@@ -118,14 +118,15 @@
       </div>
       <div class="form-column">
      
+        
         <div class="form-group">
           <app-label for="specialtyId" content="Especialidad:"></app-label>
-          <app-selects 
-            id="specialtyId" 
-            name="specialtyId" 
-            class="form-input" 
-            formControlName="specialtyId" 
-            [options]="documentTypeOptions">
+          <app-selects
+            id="specialtyId"
+            name="specialtyId"
+            class="form-input"
+            [options]="specialties"
+            formControlName="specialtyId">
           </app-selects>
           <div *ngIf="registrationForm.get('specialtyId')?.invalid && (registrationForm.get('specialtyId')?.dirty || registrationForm.get('specialtyId')?.touched)"
                class="error-bubble">
@@ -133,20 +134,21 @@
           </div>
         </div>
         
-      
+        
         <div class="form-group">
-          <app-label for="codigoEspc" content="Código de Especialidad:"></app-label>
-          <app-input 
-            type="text" 
-            id="codigoEspc" 
-            class="form-input" 
-            name="codigoEspc" 
-            formControlName="codigoEspc" 
-            placeholder="Código de especialidad">
+          <app-label for="valorCita" content="Valor de la Cita:"></app-label>
+          <app-input
+            type="number"
+            id="valorCita"
+            class="form-input"
+            name="valorCita"
+            formControlName="valorCita"
+            placeholder="Valor de la cita">
           </app-input>
-          <div *ngIf="registrationForm.get('codigoEspc')?.invalid && (registrationForm.get('codigoEspc')?.dirty || registrationForm.get('codigoEspc')?.touched)"
+          <div *ngIf="registrationForm.get('valorCita')?.invalid && (registrationForm.get('valorCita')?.dirty || registrationForm.get('valorCita')?.touched)"
                class="error-bubble">
-            <small class="error">El código de especialidad es obligatorio y debe ser una cadena de caracteres.</small>
+            <small class="error" *ngIf="registrationForm.get('valorCita')?.errors?.['required']">El valor de la cita es obligatorio.</small>
+            <small class="error" *ngIf="registrationForm.get('valorCita')?.errors?.['pattern']">El valor de la cita debe ser un número válido.</small>
           </div>
         </div>
         

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from './core/service/auth-service.service';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-root',
@@ -31,14 +33,7 @@ export class AppComponent implements OnInit {
     this.isSidebarClosed = !this.isSidebarClosed;
   }
 
-  showAlert(button: any) {
-    Swal.fire({
-      title: button.alertTitle,
-      text: button.alertText,
-      icon: button.alertType,
-      showCancelButton: button.showCancelButton,
-      confirmButtonText: button.confirmButtonText,
-      cancelButtonText: button.cancelButtonText,
-    });
+  logout() {
+    this.authService.logout();
   }
 }

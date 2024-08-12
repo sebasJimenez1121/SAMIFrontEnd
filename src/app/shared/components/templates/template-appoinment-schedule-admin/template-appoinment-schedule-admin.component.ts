@@ -1,7 +1,7 @@
 
 
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { Doctor, DoctorPublic } from '../../../../core/models/doctor.model';
 import { Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
 
@@ -11,12 +11,12 @@ import { SpecialtyService } from '../../../../core/service/Specialty.service';
   styleUrl: './template-appoinment-schedule-admin.component.css'
 })
 export class TemplateAppoinmentScheduleAdminComponent  implements OnInit {
-  @Input() paginatedDoctors: Doctor[] = [];
+  @Input() paginatedDoctors: DoctorPublic[] = [];
   @Input() currentPage: number = 1;
   @Input() totalPages: number = 0;
-  @Output() specialtyChange = new EventEmitter<number>();
+  @Output() specialtyChange = new EventEmitter<string>();
   @Output() pageChange = new EventEmitter<number>();
-  @Output() agendarCita = new EventEmitter<Doctor>();
+  @Output() agendarCita = new EventEmitter<DoctorPublic>();
   @Input() userRole: any = "";
   @Input() titleText: string = 'Agendamiento de Citas';
   @Input() titleClass: string = 'custom-title';
@@ -42,7 +42,7 @@ export class TemplateAppoinmentScheduleAdminComponent  implements OnInit {
   }
 
   onSpecialtyChange(event: any) {
-    this.specialtyChange.emit(+event.target.value);
+    this.specialtyChange.emit(event.target.value);
   }
 
   onPageChange(page: number) {
@@ -55,7 +55,7 @@ export class TemplateAppoinmentScheduleAdminComponent  implements OnInit {
   }
  
 
-  openModal(doctor: Doctor) {
+  openModal(doctor: DoctorPublic) {
     this.agendarCita.emit(doctor);
   }
 }

@@ -281,6 +281,7 @@
       "name": "Doctor User",
       "role": "doctor",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZG9jdG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.-zpMZ2TwokvWX3gKXn9v0zFOMF2zUnWJhC6cH2l89y0"
+
     }
   ],
   "login": []

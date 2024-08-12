@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, interval, of } from 'rxjs'; 
 import { switchMap, startWith } from 'rxjs/operators';
-import { Appointment, AppointmentUpdate } from '../models/appointment.model';
+import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,13 @@ export class CitaService {
         startWith(0), // Empezar inmediatamente al suscribirse
         switchMap(() => this.http.get<Appointment[]>(this.apiUrl))
       );
+  }
+  // Obtener horas ocupadas para una cita específica por día
+  getHorasOcupadas(fecha: string): Observable<number[]> {
+    const url = `http://localhost:10102/citas/hour?fecha=${fecha}`;
+    return this.http.get<number[]>(url).pipe(
+      catchError(this.handleError<number[]>('getHorasOcupadas', []))
+    );
   }
 
   // Obtener detalles de la cita por ID
@@ -52,11 +59,11 @@ export class CitaService {
   }
 
   // Crear una nueva cita
-  crearCita(cita: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(this.apiUrl, cita).pipe(
-      catchError(this.handleError<Appointment>('crearCita'))
+  crearCita(cita: AppointmentCreate): Observable<AppointmentCreate> {
+    return this.http.post<AppointmentCreate>(`${this.apiUrl}/appointment/create`, cita).pipe(
+      catchError(this.handleError<AppointmentCreate>('crearCita'))
     );
-  }
+}
 
   // Verificar disponibilidad
   verificarDisponibilidad(fechaHora: string): Observable<boolean> {

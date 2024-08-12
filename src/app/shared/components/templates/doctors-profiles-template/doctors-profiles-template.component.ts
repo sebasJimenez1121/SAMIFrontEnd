@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
 @Component({
@@ -11,10 +11,10 @@ export class DoctorsProfilesTemplateComponent   implements OnInit {
  
   @Input() titleText: string = 'Te presentamos a nuestros expertos';
   @Input() titleClass: string = 'white-title';
-  @Input() paginatedDoctors: Doctor[] = [];
+  @Input() paginatedDoctors: DoctorPublic[] = [];
   @Input() currentPage: number = 1;
   @Input() totalPages: number = 0;
-  @Output() specialtyChange = new EventEmitter<number>();
+  @Output() specialtyChange = new EventEmitter<string>();
   @Output() pageChange = new EventEmitter<number>();
   @Input() userRole: any = "";
   
@@ -41,7 +41,7 @@ export class DoctorsProfilesTemplateComponent   implements OnInit {
   }
 
   onSpecialtyChange(event: any) {
-    this.specialtyChange.emit(+event.target.value);
+    this.specialtyChange.emit(event.target.value);
   }
 
   onPageChange(page: number) {
