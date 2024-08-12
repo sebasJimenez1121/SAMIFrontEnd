@@ -1,38 +1,55 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from '../models/patient.model';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PatientService {
-  private apiUrl = 'http://localhost:8000/patients'; // Cambia la URL según tu configuración real del backend
+export class PacienteService {
+  private apiUrl = 'http://localhost:10101'; // Cambia la URL según tu configuración real del backend
 
   constructor(private http: HttpClient) {}
 
   // Obtener todos los pacientes
   getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.apiUrl);
+    return this.http.get<Patient[]>(`${this.apiUrl}/patient/patients`);
   }
 
-  // Obtener un paciente por su ID
-  getPatientById(patientId: string): Observable<Patient> {
-    return this.http.get<Patient>(`${this.apiUrl}/${patientId}`);
+  // Registrar un nuevo paciente
+  registrarPatient(patientData: any): Observable<Patient> {
+    return this.http.post<Patient>(`http://localhost:10101/patient/register`, patientData);
   }
 
-  // Crear un nuevo paciente
-  crearPatient(patient: Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.apiUrl, patient);
+  getPatientById(): Observable<{ patient: Patient }> {
+    return this.http.get<{patient: Patient}>(`${this.apiUrl}/patient/profile`);
   }
 
-  // Actualizar un paciente existente
-  actualizarPatient(patientId: string, patient: Patient): Observable<Patient> {
-    return this.http.put<Patient>(`${this.apiUrl}/${patientId}`, patient);
+  // Actualizar el perfil del paciente
+  actualizarPatient(patient: Patient): Observable<Patient> {
+    return this.http.put<Patient>(`${this.apiUrl}/patient/updateProfile`, patient);
   }
 
-  // Eliminar un paciente existente
-  eliminarPatient(patientId: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${patientId}`);
+  updateProfilePicture(formData: FormData): Observable<any> {
+    return this.http.put(`${this.apiUrl}/profile/picture`, formData);
+  }
+  
+  disableAccount(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}/profile/disable`, {}, { headers });
+  }
+
+  changePassword(token: string, passwords: { oldPassword: string, newPassword: string }): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`${this.apiUrl}/profile/change-password`, passwords, { headers });
+  }
+  
+  recoverPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/recover-password`, { email });
   }
 }
+
+
+
+
+

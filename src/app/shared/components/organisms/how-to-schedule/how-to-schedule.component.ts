@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './how-to-schedule.component.css'
 })
 export class HowToScheduleComponent {
-
+  titleClass: string = 'white-title';
+  titleText: string = '¿Cómo agendar una cita en SAMI?';
+  
 }

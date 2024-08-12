@@ -4,20 +4,36 @@
     [(currentStep)]="currentStep"
     (finished)="onFinished()">
   </app-navigation-stepper>
-  <div class="steppers">
-
-  </div>
+  
+  <div class="steppers"></div>
+  
   <ng-container *ngIf="currentStep === 0">
-    <app-calendar-options [doctor]="selectedDoctor"></app-calendar-options>
+    <app-calendar-options 
+      [doctor]="selectedDoctor"
+      (dateAndTimeSelected)="handleDateAndTimeSelected($event)">
+    </app-calendar-options>
   </ng-container>
+  
   <ng-container *ngIf="currentStep === 1">
-    <app-appointment-form [appointmentData]="selectedPatient" (formDataReady)="handleFormDataReady($event)"></app-appointment-form>
+    <app-appointment-form 
+      [appointmentData]="selectedPatient" 
+      (formDataReady)="handleFormDataReady($event)">
+    </app-appointment-form>
   </ng-container>
+  
   <ng-container *ngIf="currentStep === 2">
-    <app-button-price></app-button-price>
+    <app-button-price [valorCita]="selectedDoctor.valorCita">
+    </app-button-price>
   </ng-container>
+  
   <ng-container *ngIf="currentStep === 3">
-    <app-visualizar-cita></app-visualizar-cita>
+    <app-visualizar-cita 
+      [doctor]="selectedDoctor"
+      [patient]="selectedPatient"
+      [date]="selectedDate"
+      [time]="selectedTime"
+      (confirmAppointment)="handleConfirmAppointment()">
+    </app-visualizar-cita>
   </ng-container>
 
   <div class="buttons">

@@ -1,0 +1,35 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://img.freepik.com/free-photo/elegant-blue-smooth-wave-lines-background_1017-46762.jpg?t=st=1715553748~exp=1715557348~hmac=ea473702267f3e08a8321b4e28aeb6cb992e8bf8aa244ad30dfd492714b0d834&w=1380');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+   
+  }
+  nav{
+    background-color: #d9d9d924;
+    border-radius: 1.4rem;
+    width: 65rem;
+    height: 4rem;
+    margin: 3rem 0rem 0rem 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 2.5rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 2% 5%;
+    border-radius: 0.625rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 54%;
+    height: 92vh;
+    margin: 1% 0% 0 0;
+    position: relative;
+    left: 21rem;
+    top: 3.9rem;
+  }

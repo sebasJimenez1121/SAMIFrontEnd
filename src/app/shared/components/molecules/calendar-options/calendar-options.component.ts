@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-calendar-options',
@@ -7,23 +7,17 @@ import { Doctor } from '../../../../core/models/doctor.model';
   styleUrls: ['./calendar-options.component.css']
 })
 export class CalendarOptionsComponent {
-  @Input() doctor!: Doctor;
-  @Output() selectionMade = new EventEmitter<{ date: Date, time: string }>();
+  @Input() doctor!: DoctorPublic;
+  @Output() dateAndTimeSelected = new EventEmitter<{ date: string, time: string }>();
 
-  selectedDate: Date | null = null;
-  selectedTimeSlot: string | null = null;
+  selectedDate!: string;
+  selectedTime!: string;
 
-  onDateSelected(date: Date) {
-    this.selectedDate = date;
-  }
-
-  onTimeSlotSelected(timeSlot: string) {
-    this.selectedTimeSlot = timeSlot;
-  }
-
-  confirmSelection() {
-    if (this.selectedDate && this.selectedTimeSlot) {
-      this.selectionMade.emit({ date: this.selectedDate, time: this.selectedTimeSlot });
-    }
+  // Este método se llamaría cuando el usuario seleccione la fecha y la hora
+  onDateAndTimeSelected() {
+    this.dateAndTimeSelected.emit({
+      date: this.selectedDate,
+      time: this.selectedTime
+    });
   }
 }

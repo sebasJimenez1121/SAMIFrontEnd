@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
+import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-visualizar-cita',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './visualizar-cita.component.css'
 })
 export class VisualizarCitaComponent {
+  @Input() doctor!: DoctorPublic;
+  @Input() patient!: Patient;
+  @Input() date!: string;
+  @Input() time!: string;
 
+  @Output() confirmAppointment = new EventEmitter<void>();
+
+  onConfirm() {
+    this.confirmAppointment.emit();
+  }
 }

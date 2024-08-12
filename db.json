@@ -162,7 +162,7 @@
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-06-05 01:08"
+      "fechaCita": "2024-07-30 02:59"
     },
     {
       "id": "2",
@@ -175,7 +175,7 @@
       "valorCita": "20.000",
       "motivoCita": "Migrañas fuertes",
       "imagenMedico": "../../../../../assets/images/Link → doctor_8.png.png",
-      "fechaCita": "2024-06-04 20:17"
+      "fechaCita": "2024-07-09 19:42"
     },
     {
       "id": "3",
@@ -208,7 +208,7 @@
       "nameMedico": "Dr. Laura Sanchez",
       "especialidad": "Dermatologia",
       "namePaciente": "Jane Doe",
-      "estado": "Agendada",
+      "estado": "Cancelada",
       "patientDocument": "12345678",
       "patientPhone": "321564895",
       "valorCita": "50.000",
@@ -220,39 +220,69 @@
   "patients": [
     {
       "id": "1",
-      "nombre": "Juan",
-      "apellido": "Pérez",
-      "email": "juan@example.com",
-      "telefono": "123456789",
-      "documento": "1234567890"
+      "firstName": "laura",
+      "lastName": "jiimenez",
+      "email": "laura@gmail.com",
+      "documentNumber": "1203336587",
+      "documentType": "CC",
+      "phone": "3234339389",
+      "password": "123456",
+      "acceptTerms": true
     },
     {
       "id": "2",
-      "nombre": "María",
-      "apellido": "Gómez",
-      "email": "maria@example.com",
-      "telefono": "987654321",
-      "documento": "0987654321"
+      "firstName": "Keiden",
+      "lastName": "Jimenez",
+      "email": "keidenfelipe159@gmail.com",
+      "documentNumber": "1259864785",
+      "documentType": "cc",
+      "phone": "3234339389",
+      "password": "484848",
+      "acceptTerms": true
     },
     {
       "id": "3",
-      "nombre": "Pedro",
-      "apellido": "Díaz",
-      "email": "pedro@example.com",
-      "telefono": "456789123",
-      "documento": "4567890123"
+      "firstName": "camila",
+      "lastName": "lopez",
+      "email": "camijim@gmail.com",
+      "documentNumber": "1203336587",
+      "documentType": "ce",
+      "phone": "322658459",
+      "password": "963852",
+      "acceptTerms": true
+    },
+    {
+      "id": "305b",
+      "firstName": "sofia ",
+      "lastName": "cano aguirre",
+      "email": "sofia@gmail.com",
+      "documentNumber": "1090272807",
+      "documentType": "cc",
+      "phone": "3206554899",
+      "password": "Soff2006*",
+      "acceptTerms": true
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin User",
+      "role": "admin",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTYyMzkwMjJ9.DpTAc2W-pC8JwxrF9z_oNvg7XYFgsvTD_R3MQJk_Jzk"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Patient User",
+      "role": "patient",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicGF0aWVudCIsImlhdCI6MTUxNjIzOTAyMn0.DVUIFE5Ih-Q4n4axXOSZh4GAad0SKCeuWBo06syYcH0"
+    },
+    {
+      "id": "3",
+      "name": "Doctor User",
+      "role": "doctor",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZG9jdG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.-zpMZ2TwokvWX3gKXn9v0zFOMF2zUnWJhC6cH2l89y0"
+
     }
-  ]
+  ],
+  "login": []
 }

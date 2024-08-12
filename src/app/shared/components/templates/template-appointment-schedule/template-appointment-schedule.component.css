@@ -19,7 +19,7 @@
 .principal-title {
   display: flex;
   justify-content: center;
-  padding-top: 2em;
+  margin: 10rem 1rem 1rem 1rem;
 }
 
 .filtro {

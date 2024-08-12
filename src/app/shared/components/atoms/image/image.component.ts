@@ -6,10 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent {
-  @Input() imageUrl: string = ''; 
-  
+  @Input() imageUrl: string | undefined;
+  @Input() src:string='';
   @Input() linkUrl: string = '';  
-  @Input() width: string = '100px'; 
-  @Input() height: string = '100px'; 
+  @Input() width: string = ''; 
+  @Input() height: string = ''; 
   @Input() alt: string = 'image'; 
+  @Input() disabled: boolean = false;
 }

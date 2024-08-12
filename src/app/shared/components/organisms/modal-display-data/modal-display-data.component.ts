@@ -20,7 +20,7 @@ export class ModalDisplayDataComponent implements OnInit {
   nuevaHoraTemporal: string = '';
   nuevaFecha: string = '';
   nuevaHora: string = '';
-  citaCancelada: boolean = false; // Nueva propiedad para rastrear el estado de la cita cancelada
+  citaCancelada: boolean = false;
 
   constructor(private dataService: CitaService) {}
 
@@ -47,7 +47,7 @@ export class ModalDisplayDataComponent implements OnInit {
           const citaId = this.cita!.id;
           this.dataService.cancelarCita(citaId).subscribe(
             () => {
-              this.citaCancelada = true; // Actualizar estado de cita cancelada
+              this.citaCancelada = true; 
               this.closeModal();
               this.showAlert('successCancel');
             },

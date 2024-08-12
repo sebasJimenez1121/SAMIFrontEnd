@@ -12,6 +12,9 @@ export class HistorialCitaTemplateComponent implements OnInit {
   @Output() dateChange: EventEmitter<string> = new EventEmitter();
   @Output() pageChange: EventEmitter<number> = new EventEmitter();
   @Output() viewDetails: EventEmitter<Appointment> = new EventEmitter();
+  @Input() titleText: string = 'Visualización De Citas';
+  @Input() titleClass: string = 'custom-title';
+
   citasFiltradas: Appointment[] = [];
 
   showModal: boolean = false;

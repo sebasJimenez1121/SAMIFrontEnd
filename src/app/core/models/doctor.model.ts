@@ -1,16 +1,37 @@
 export interface Doctor {
     id: number;
-    name: string;
-    apellido: string;
+    tarjetaProf: string;
+    documento: string;
+    nombre: string;
+    apellido:string;
+    rol: string;
+    email:string;
+    img:string;
+    password: string;
+    codigoEspc:string;
     specialtyId: number;
+    appointmentCost: number;
     specialtyName: string;
     rating: number;
-    rol : string;
-    img: string;
-    appointmentCost: number;
   }
-  export interface Specialty {
-    id: number;
-    name: string;
-   
+
+  
+  export interface DoctorPublic {
+    Id: string;
+    tarjetaProf: string;
+    nombre: string;
+    estado: string;
+    apellido:string;
+    imgUrl:string;
+    codigoEspc:string;
+    valorCita: number;
+    especialidad: string;
   }
+
+ export interface Specialty {
+  Codigo_Espc: string;
+  Nombre: string;
+  Descripcion: string;
+}
+
+

@@ -25,14 +25,14 @@ export class MenuComponent {
         { name: 'Notas Doctor', link: '/notas-doctor' } 
       ] 
     },
-    { name: 'Médicos', link: '/doctors' },
+    { name: 'Médicos', link: '/doctors-profiles' },
   ];    
 
   constructor(private router: Router) {}
 
   navigate(link: string, event: MouseEvent) {
+    event.stopPropagation();
     if (link) {
-      event.stopPropagation();  // Prevent event propagation to parent elements
       this.router.navigate([link]);
     }
   }

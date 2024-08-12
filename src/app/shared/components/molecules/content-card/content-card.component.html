@@ -1,11 +1,15 @@
 <div class="container-content">
-    <app-label [content]="doctor.name"></app-label>
-    <div class="input-rating">
-        <div class="coment-rating">
-        <app-text content="10 opiniones"></app-text>
-        <app-input-rating></app-input-rating>
-        </div>
-        <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.appointmentCost"></app-text> 
-        <app-button class="button-cita" value="Agendar Cita" (buttonClick)="buttonClick"></app-button>
-    </div>
-</div>
+    <app-label 
+    [content]="doctor.nombre"
+    for="doctor-name" 
+    typeContent="bold">
+  </app-label>
+      <div class="input-rating">
+          <div class="coment-rating">
+          <app-text [content]="'Tarjeta Profesional ' + doctor.tarjetaProf"></app-text>
+          </div>
+          <app-text class="costo-cita" [content]="'Costo de la cita: $' + doctor.valorCita"></app-text> 
+          <app-button class="button-cita" value="Agendar Cita" (buttonClick)="buttonClick"></app-button>
+      </div>
+  </div>
+  

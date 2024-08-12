@@ -1,0 +1,6 @@
+<div class="container-card">
+    <div class="image">
+      <app-image-card [img]="doctor.imgUrl" [especialidad]="doctor.especialidad"></app-image-card> 
+    </div>
+    <app-content-card-perfil-doctor [doctor]="doctor" (buttonClick)="buttonClick"></app-content-card-perfil-doctor>
+  </div>

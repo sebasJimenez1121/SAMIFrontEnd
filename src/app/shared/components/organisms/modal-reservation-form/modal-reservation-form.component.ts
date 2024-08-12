@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Doctor } from '../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
@@ -10,15 +10,15 @@ import { Patient } from '../../../../core/models/patient.model';
 export class ModalReservationFormComponent {
   @Input() isModalVisible: boolean = false;
   @Output() closeModalEvent = new EventEmitter<void>();
-  @Output() modalClosed = new EventEmitter<void>(); // Nuevo evento para cierre de modal
+  @Output() modalClosed = new EventEmitter<void>(); 
   @Input() selectedPatient!: Patient;
-  @Input() selectedDoctor!: Doctor;
+  @Input() selectedDoctor!: DoctorPublic;
   
 
   closeModal() {
     this.isModalVisible = false;
     this.closeModalEvent.emit();
-    this.modalClosed.emit(); // Emitir evento al cerrar el modal
+    this.modalClosed.emit(); 
   }
 
   onFinished(data: any) {

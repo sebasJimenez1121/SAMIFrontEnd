@@ -1,27 +1,26 @@
-<div>
-  <div [appRoleStyle]="userRole" adminClass="admin" patientClass="paciente">
-    <div class="principal-title">
-      <app-title-principal titleText="Agendamiento de Citas"></app-title-principal>
-    </div>
-    <div class="filtro">
-      <app-text-field content="Elige la especialidad que deseas:"></app-text-field>
-      <select (change)="onSpecialtyChange($event)">
-        <option value="0">Todos</option>
-        <option *ngFor="let specialty of specialties" [value]="specialty.id">{{ specialty.name }}</option>
-      </select>
-    </div>
-    <div class="container-cards">
-      <app-medical-card 
-        *ngFor="let doctor of paginatedDoctors" 
-        [doctor]="doctor" 
-        (click)="openModal(doctor)">
-      </app-medical-card>
-    </div>
-    <app-navigation-pagination 
-      [currentPage]="currentPage" 
-      [totalPages]="totalPages" 
-      (pageChange)="onPageChange($event)">
-    </app-navigation-pagination>
+<div [appRoleStyle]="userRole"  patientClass="paciente">
+  <div class="principal-title">
+    <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
   </div>
+  <div class="filtro">
+    <app-text-field content="Elige la especialidad que deseas:"></app-text-field>
+    <select (change)="onSpecialtyChange($event)">
+      <option value="0">Todos</option>
+      <option *ngFor="let specialty of specialties" [value]="specialty.Codigo_Espc">{{ specialty.Nombre }}</option>
+    </select>
+  </div>
+  <div class="container-cards">
+    <app-medical-card 
+      *ngFor="let doctor of paginatedDoctors" 
+      [doctor]="doctor" 
+      (click)="openModal(doctor)">
+    </app-medical-card>
+  </div>
+  <app-navigation-pagination 
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (pageChange)="onPageChange($event)">
+  </app-navigation-pagination>
 </div>
-  
+<app-chatbot></app-chatbot>
+

@@ -1,0 +1,147 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav{
+  background-color: #d9d9d924;
+  border-radius: 1.4rem;
+  width: 65rem;
+  height: 4rem;
+  margin: 3rem 0rem 0rem 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 2.5rem;
+}
+app-title-terciario{
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.title{
+  
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0rem 0rem 0rem;
+}
+app-button {
+  position: relative;
+  left: 20rem;
+  top: 5rem;
+}
+app-image{
+    width: 31vw;
+    position: relative;
+    bottom: 0.5rem;
+}
+ 
+.section2{
+    margin: 1rem;
+}
+.section1 {
+  background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+  border-radius: 0.4rem;
+  width: 68rem;
+  height: 17rem;
+  margin: 5rem 0rem 0rem 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative; 
+  color: white; 
+}
+.text-container {
+  flex: 1;
+  margin: 0rem 4rem 1rem 5rem;
+}
+
+.image-container {
+  position: relative; 
+  display: flex;
+  align-items: center;
+}
+
+.image-background {
+  position: absolute;
+  top:0rem;
+  left: 2rem;
+  width: 38vw;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.image-foreground {
+  position: relative;
+  width: 35rem;
+  top: 0.5rem;
+ 
+}
+
+  
+  table {
+    width: 67%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 1.25rem 0;
+    font-size: 1rem;
+    text-align: left;
+    padding: auto;
+    margin: 1rem 0rem 0rem 18rem;
+  }
+  
+  th {
+    background-color: #DBE9FE;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid #ddd;
+    color: #203B8F;
+  }
+  hr{
+    width: 70rem;
+    margin:2rem 0rem 0rem 14rem;;
+    border: 0;
+    border-bottom: 0.063rem solid #aab2c869;
+  }
+  
+  td {
+    padding: 0.90rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
+  }
+  
+  .imagen-medico {
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    vertical-align: middle;
+  }
+  app-button{
+    margin: 1rem 1rem 1rem 1rem;
+  }
+  
+  svg {
+    width: 1rem; 
+    height: 1rem; 
+    fill: currentColor;
+  }
+  
+  
+  #fecha {
+    margin: 0 0 1.25rem 0.625rem;
+  }
+  
+  .titulo {
+    margin: 2.5rem 20rem 1.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container{
+    display: flex;
+    margin: 4rem 0rem 0rem 10rem;
+   
+  }

@@ -9,15 +9,16 @@
       </app-image>
     </div>
     <ul class="sidebar-menu">
-      <li class="sidebar-menu-item" *ngFor="let item of menuItems"
+      <li class="sidebar-menu-item"
+          *ngFor="let item of menuItems"
           [routerLink]="[item.RouterLink]"
           routerLinkActive="active"
           (click)="selectMenuItem(item)">
         <a class="navbar__link" (mouseenter)="showTooltip(item)" (mouseleave)="hideTooltip()">
-          <div class="sidebar-menu-content" (click)="iconClick($event)">
+          <div class="sidebar-menu-content">
             <img [src]="item.icon" alt="{{ item.label }}" class="menu-icon">
           </div>
-          <span (click)="stopPropagation($event)">{{ item.label }}</span>
+          <span>{{ item.label }}</span>
           <span class="highlight-circle" *ngIf="selectedItem === item"></span>
         </a>
         <div class="tooltip" *ngIf="isSidebarClosed && hoveredItem === item">
@@ -28,6 +29,15 @@
     <div class="extra-content" *ngIf="!isSidebarClosed">
       <app-image class="large-image" imageUrl="../../../../../assets/images/espacio-cita.png"></app-image>
       <app-button class="register-button" value="Próximas citas"></app-button>
+      <div (click)="logout()">
+        <a class="content-session">
+          <div class="sidebar-menu-content">
+            <img src="../../../../../assets/icons/exit-svgrepo-com.svg" alt="Cerrar Sesión" class="menu-icon">
+          </div>
+          <span class="color-session">Cerrar Sesión</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
+<app-feedback-progess *ngIf="showProgress"></app-feedback-progess>

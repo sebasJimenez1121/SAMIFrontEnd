@@ -1,0 +1,61 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+  <div class="perfilPaciente">
+    <section>
+      <button class="close-button" (click)="closeModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+    </section>
+
+    <div class="conjunto">
+      <app-image imageUrl="../../../../assets/images/perfil.png"></app-image>
+      <div class="usuario">
+        <app-title-secundari titleText="{{PacienteProfile.Nombre}} {{PacienteProfile.Apellido}}"></app-title-secundari>
+        <app-text-field content="Mi perfil"></app-text-field>
+      </div>
+    </div>
+    <div class="container_text">
+      <app-label class="title2" content="Informacion Personal"></app-label>
+      <div class="contDatos">
+        <div class="datos">
+          <app-label content="Nombre:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Nombre" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Apellido:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Apellido" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Correo Electronico:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Email" [disabled]="!isEditing"></app-input>
+        </div>
+      </div>
+
+      <div class="contDatosD">
+        <div class="datosNum">
+          <app-label content="Numero de Documento:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Documento" [disabled]="!isEditing"></app-input>
+        </div>
+      </div>
+
+      <app-label class="title2" content="Cambiar Contraseña"></app-label>
+
+      <div class="contDatosM">
+        <div class="datosCambi">
+          <app-label content="Contraseña:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Password" [disabled]="!isEditing" type="password"></app-input>
+        </div>
+        <div class="datosConfii">
+          <app-label content="Confirmar Contraseña:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="confirmPassword" [disabled]="!isEditing" type="password"></app-input>
+        </div>
+      </div>
+      <div class="botones">
+        <app-button value="Editar" (click)="enableEditing()"></app-button>
+        <app-button value="Guardar" (click)="saveProfile()"></app-button>
+      </div>
+    </div>
+  </div>
+</div>

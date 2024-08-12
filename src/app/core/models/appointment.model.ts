@@ -1,6 +1,6 @@
 export interface Appointment { 
     id: number;
-    IdMedico: string;
+    IdMedico: number;
     IdCiente: number;
     nameMedico: string;
     namePaciente: string;
@@ -26,11 +26,8 @@ export interface AppointmentUpdate {
 }
 
 export interface AppointmentCreate {
-    id?: number;
-    idMedico: string;
-    idCliente: number;
-    metodoPago: string;
-    idPago: number;
-    fechaHora: string; // Formato: YYYY-MM-DD HH:mm:ss
-    motivo: string;
-  }
+    horaCita: string;
+    fechaCita: string;
+    fKIdDoct: string;
+    fKIdPac: string;
+}

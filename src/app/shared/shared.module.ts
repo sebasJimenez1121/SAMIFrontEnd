@@ -88,6 +88,23 @@ import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.
 import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
 import { RoleStyleDirective } from './directives/role-style.directive';
+import { HeaderUsuarioComponent } from './components/organisms/header-usuario/header-usuario.component';
+import { DoctorRegisterTemplateComponent } from './components/templates/doctor-register-template/doctor-register-template.component';
+import { TemplateDoctorDashboardComponent } from './components/templates/template-doctor-dashboard/template-doctor-dashboard.component';
+import { ContentCardEspecialidadComponent } from './components/molecules/content-card-especialidad/content-card-especialidad.component';
+import { CardEspecialidadComponent } from './components/organisms/card-especialidad/card-especialidad.component';
+import { DoctorRegisterComponent} from './components/molecules/doctor-register/doctor-register.component';
+import { AddSpecialtyComponent } from './components/organisms/add-specialty/add-specialty.component';
+import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-admin/modal-perfil-admin.component';
+import { ModalPerfilPacienteComponent   } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
+import { HomePacienteTemplateComponent } from './components/templates/home-paciente-template/home-paciente-template.component';
+import { ChatbotComponent } from './components/organisms/chatbot/chatbot.component';
+import { TemplateAppoinmentScheduleAdminComponent } from './components/templates/template-appoinment-schedule-admin/template-appoinment-schedule-admin.component';
+import { DoctorsProfilesTemplateComponent } from './components/templates/doctors-profiles-template/doctors-profiles-template.component';
+import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
+import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
+import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
+
 
 
 
@@ -177,7 +194,24 @@ import { RoleStyleDirective } from './directives/role-style.directive';
     EmptyStateComponent,
     HomeAdminTemplateComponent,
     CustomAlertComponent,
-    RoleStyleDirective
+    CustomAlertComponent,
+    RoleStyleDirective,
+    HeaderUsuarioComponent,
+    DoctorRegisterTemplateComponent,
+    TemplateDoctorDashboardComponent,
+    ContentCardEspecialidadComponent,
+    CardEspecialidadComponent,
+    DoctorRegisterComponent,
+    AddSpecialtyComponent,
+    ModalPerfilAdminComponent,
+    HomePacienteTemplateComponent,
+    ModalPerfilPacienteComponent,
+    ChatbotComponent,
+    TemplateAppoinmentScheduleAdminComponent,
+    DoctorsProfilesTemplateComponent,
+    MedicalCardPerfilComponent,
+    ContentCardPerfilDoctorComponent,
+    ModalPerfilDoctorComponent
   ],
   imports: [
     CommonModule,
@@ -198,7 +232,18 @@ import { RoleStyleDirective } from './directives/role-style.directive';
   CalendarOptionsComponent,
   HowToScheduleComponent,
   AppointmentFormComponent,
-  LateralMenuComponent
+  LateralMenuComponent,
+  FooterComponent,
+  DoctorRegisterTemplateComponent,
+  HomeAdminTemplateComponent,
+  TemplateDoctorDashboardComponent,
+  HomePacienteTemplateComponent,
+  ChatbotComponent,
+  TemplateAppoinmentScheduleAdminComponent,
+  DoctorsProfilesTemplateComponent, 
+  MedicalCardPerfilComponent,
+  ContentCardPerfilDoctorComponent,
+  ModalPerfilDoctorComponent
  ],
 
 

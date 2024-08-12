@@ -1,13 +1,20 @@
-import { Component ,Input} from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-set-buttons',
   templateUrl: './set-buttons.component.html',
-  styleUrl: './set-buttons.component.css'
+  styleUrls: ['./set-buttons.component.css']
 })
 export class SetButtonsComponent {
- @Input() value:string = "valor" 
-  handleClick() {
-    console.log('Button clicked!');
+
+  constructor(private router: Router) {}
+
+  handleLoginClick() {
+    this.router.navigate(['/login']);
+  }
+
+  handleRegisterClick() {
+    this.router.navigate(['/register']);
   }
 }

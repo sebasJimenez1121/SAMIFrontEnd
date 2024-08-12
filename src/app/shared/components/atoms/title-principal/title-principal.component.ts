@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TitlePrincipalComponent {
   @Input() titleText: string = 'Sistema de Atencion Medica Inteligente';
+  @Input() titleClass: string = '';
 }

@@ -1,42 +1,39 @@
 <div class="container-form">
     <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
-        <div class="data-form">
-            <div class="row">
-                <div class="row-input">
-                    <app-label [content]="'Nombre:'"></app-label>
-                    <app-input placeholder="Nombre" id="nombre" name="nombre"></app-input>
-                </div>
-                <div class="row-input">
-                    <app-label [content]="'Apellido:'"></app-label>
-                    <app-input  placeholder="Apellido" id="apellido"
-                        name="apellido"></app-input>
-                </div>
-                <div class="row-input">
-                    <app-label [content]="'Documento:'"></app-label>
-                    <app-input placeholder="Documento" id="documento"
-                        name="documento"></app-input>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row-input">
-                    <app-label [content]="'Correo Electronico:'"></app-label>
-                    <app-input placeholder="Correo Electronico" id="email"
-                        name="email"></app-input>
-                </div>
-                <div class="row-input">
-                    <app-label [content]="'Telefono:'"></app-label>
-                    <app-input [placeholder]="'Telefono'" [id]="'telefono'"
-                        name="telefono" ></app-input>
-                </div>
-                <div class="row-input">
-                    <app-label [content]="'inserte Un Documento'"></app-label>
-                    <app-input-file></app-input-file>
-                </div>
-            </div>
-            <div class="row-input">
-                <app-label content="Motivo:"></app-label>
-                <app-input-text-area [value]="'inserte'"></app-input-text-area>
-            </div>
+      <div class="data-form">
+        <div class="row">
+          <div class="row-input">
+            <app-label [content]="'Nombre:'"></app-label>
+            <app-input placeholder="Nombre" id="nombre" name="nombre" formControlName="nombre"></app-input>
+          </div>
+          <div class="row-input">
+            <app-label [content]="'Apellido:'"></app-label>
+            <app-input placeholder="Apellido" id="apellido" name="apellido" formControlName="apellido"></app-input>
+          </div>
+          <div class="row-input">
+            <app-label [content]="'Documento:'"></app-label>
+            <app-input placeholder="Documento" id="documento" name="documento" formControlName="documento"></app-input>
+          </div>
         </div>
+        <div class="row">
+          <div class="row-input">
+            <app-label [content]="'Correo Electronico:'"></app-label>
+            <app-input placeholder="Correo Electronico" id="email" name="email" formControlName="email"></app-input>
+          </div>
+          <div class="row-input">
+            <app-label [content]="'Telefono:'"></app-label>
+            <app-input [placeholder]="'Telefono'" [id]="'telefono'" name="telefono" formControlName="telefono"></app-input>
+          </div>
+          <div class="row-input">
+            <app-label [content]="'inserte Un Documento'"></app-label>
+            <app-input-file></app-input-file>
+          </div>
+        </div>
+        <div class="row-input">
+          <app-label content="Motivo:"></app-label>
+          <app-input-text-area [value]="'inserte'"></app-input-text-area>
+        </div>
+      </div>
     </form>
-</div>
+  </div>
+  
