@@ -1,35 +1,33 @@
 <div class="calendar">
   <div class="calendar-header">
-    <button (click)="changeMonth(-1)">&lt;</button>
+    <button (click)="changeMonth(-1)" [disabled]="isCurrentMonth()">&lt;</button>
     <div class="month-year">{{ currentDate | date: 'MMMM yyyy' }}</div>
     <button (click)="changeMonth(1)">&gt;</button>
   </div>
   <div class="calendar-grid">
-    <div class="day-header" *ngFor="let day of ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']">{{ day }}</div>
+    <div class="day-header" *ngFor="let day of ['D', 'L', 'M', 'M', 'J', 'V', 'S']">{{ day }}</div>
     <ng-container *ngFor="let week of getWeeksInMonth()">
       <ng-container *ngFor="let date of week">
-        <div 
-          *ngIf="date.getMonth() === currentDate.getMonth()" 
+        <div
+          *ngIf="date.getMonth() === currentDate.getMonth()"
           [class.day]="date.getMonth() === currentDate.getMonth()"
           [class.today]="isToday(date)"
           [class.selected]="selectedDate?.toDateString() === date.toDateString()"
-          (click)="selectDate(date)">
+          [class.disabled]="isPastDate(date)"
+          (click)="selectDate(date)"
+        >
           {{ date.getDate() }}
         </div>
         <div *ngIf="date.getMonth() !== currentDate.getMonth()" class="day"></div>
       </ng-container>
     </ng-container>
   </div>
-  <div class="time-input">
-    <input type="number" min="1" max="12" [(ngModel)]="hours" placeholder="HH">
-    <span>:</span>
-    <input type="number" min="0" max="59" [(ngModel)]="minutes" placeholder="MM">
-  </div>
-  <div class="time-period">
-    <button (click)="selectPeriod('AM')" [class.selected]="period === 'AM'">AM</button>
-    <button (click)="selectPeriod('PM')" [class.selected]="period === 'PM'">PM</button>
-  </div>
-  <div class="time-selector">
-    <button (click)="saveCita()">Save</button>
+  <div *ngIf="selectedDate" class="time-input">
+    <label for="time">Seleccione la hora:</label>
+    <select id="time" [(ngModel)]="selectedTime">
+      <option *ngFor="let time of availableTimes" [value]="time">
+        {{ time }}
+      </option>
+    </select>
   </div>
 </div>

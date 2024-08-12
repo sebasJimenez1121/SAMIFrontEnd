@@ -27,6 +27,13 @@ export class CitaService {
         switchMap(() => this.http.get<Appointment[]>(this.apiUrl))
       );
   }
+  // Obtener horas ocupadas para una cita específica por día
+  getHorasOcupadas(fecha: string): Observable<number[]> {
+    const url = `http://localhost:10102/citas/hour?fecha=${fecha}`;
+    return this.http.get<number[]>(url).pipe(
+      catchError(this.handleError<number[]>('getHorasOcupadas', []))
+    );
+  }
 
   // Obtener detalles de la cita por ID
   getCitaById(id: string): Observable<Appointment> {

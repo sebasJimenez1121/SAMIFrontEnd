@@ -1,19 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-interface Cita {
-  id: string;
-  nameMedico: string;
-  especialidad: string;
-  namePaciente: string;
-  estado: string;
-  patientDocument: string;
-  patientPhone: string;
-  valorCita: string;
-  motivoCita: string;
-  imagenMedico: string;
-  fechaCita: string;
-}
 
 @Component({
   selector: 'app-input-date',
@@ -22,24 +8,15 @@ interface Cita {
 })
 export class InputDateComponent implements OnInit {
   currentDate: Date = new Date();
-  citas: Cita[] = [];
   selectedDate: Date | null = null;
-  hours: number | null = null;
-  minutes: number | null = null;
-  period: 'AM' | 'PM' = 'AM';
+  availableTimes: string[] = [];
+  selectedTime: string = '';
+  @Output() dateSelected = new EventEmitter<{ date: Date; time: string }>();
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.getCitasFromApi();
-  }
-
-  getCitasFromApi(): void {
-    this.http.get<{ citas: Cita[] }>('http://localhost:8000/citas')  // Reemplaza con la URL de tu API
-      .subscribe(data => {
-        this.citas = data.citas;
-        console.log(this.citas);
-      });
+    this.availableTimes = this.generateTimeSlots('07:00', '18:00', 30);
   }
 
   changeMonth(monthChange: number): void {
@@ -51,7 +28,7 @@ export class InputDateComponent implements OnInit {
   getWeeksInMonth(): Date[][] {
     const weeks: Date[][] = [];
     let currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
-    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Empieza desde el domingo anterior o actual
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay());
     while (currentDate.getMonth() !== this.currentDate.getMonth() + 1 || currentDate.getDay() !== 0) {
       const week: Date[] = [];
       for (let i = 0; i < 7; i++) {
@@ -70,47 +47,51 @@ export class InputDateComponent implements OnInit {
       date.getFullYear() === today.getFullYear();
   }
 
-  hasCita(date: Date): boolean {
-    return this.citas.some(cita => new Date(cita.fechaCita).toDateString() === date.toDateString());
+  isPastDate(date: Date): boolean {
+    const today = new Date();
+    return date < today && date.getDate() !== today.getDate();
   }
 
   selectDate(date: Date): void {
-    this.selectedDate = date;
+    if (!this.isPastDate(date)) {
+      this.selectedDate = date;
+      this.fetchAvailableTimes(date);
+    }
   }
 
-  selectPeriod(period: 'AM' | 'PM'): void {
-    this.period = period;
+  isCurrentMonth(): boolean {
+    const today = new Date();
+    return this.currentDate.getMonth() === today.getMonth() && this.currentDate.getFullYear() === today.getFullYear();
   }
 
-  saveCita(): void {
-    if (this.selectedDate && this.hours !== null && this.minutes !== null) {
-      let adjustedHours = this.hours;
-      if (this.period === 'PM' && this.hours < 12) {
-        adjustedHours += 12;
-      }
-      if (this.period === 'AM' && this.hours === 12) {
-        adjustedHours = 0;
-      }
-      this.selectedDate.setHours(adjustedHours, this.minutes);
+  generateTimeSlots(start: string, end: string, interval: number): string[] {
+    const startTime = new Date(`1970-01-01T${start}:00`);
+    const endTime = new Date(`1970-01-01T${end}:00`);
+    const times = [];
+    while (startTime < endTime) {
+      times.push(startTime.toTimeString().slice(0, 5));
+      startTime.setMinutes(startTime.getMinutes() + interval);
+    }
+    return times;
+  }
 
-      const newCita: Cita = {
-        id: (this.citas.length + 1).toString(),
-        nameMedico: 'Dr. Example',
-        especialidad: 'General',
-        namePaciente: 'Example Patient',
-        estado: 'Agendada',
-        patientDocument: '00000000',
-        patientPhone: '0000000000',
-        valorCita: '50.000',
-        motivoCita: 'Consulta',
-        imagenMedico: 'path_to_image',
-        fechaCita: this.selectedDate.toISOString(),
-      };
+  fetchAvailableTimes(date: Date): void {
+    const formattedDate = date.toISOString().split('T')[0];
+    this.http.get<string[]>(`http://localhost:10102/citas/hour?date=${formattedDate}`).subscribe(
+      (occupiedTimes) => {
+        this.availableTimes = this.generateTimeSlots('07:00', '18:00', 30).filter(
+          (time) => !occupiedTimes.includes(time)
+        );
+      },
+      (error) => {
+        console.error('Error fetching available times:', error);
+      }
+    );
+  }
 
-      this.citas.push(newCita);
-      console.log('Cita guardada:', newCita);
-    } else {
-      alert('Por favor selecciona una fecha y una hora.');
+  onTimeSelected() {
+    if (this.selectedDate && this.selectedTime) {
+      this.dateSelected.emit({ date: this.selectedDate, time: this.selectedTime });
     }
   }
 }
