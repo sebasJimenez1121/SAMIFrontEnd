@@ -108,6 +108,7 @@ import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-
 
 
 
+
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -211,7 +212,6 @@ import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
     ModalPerfilDoctorComponent
-   
   ],
   imports: [
     CommonModule,

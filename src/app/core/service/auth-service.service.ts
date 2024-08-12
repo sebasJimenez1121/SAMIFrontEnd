@@ -5,6 +5,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -96,11 +97,11 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.userRole === 'admin';
+    return this.getUserRole() === 'admin';
   }
   
   isPatient(): boolean {
-    return this.userRole === 'paciente';
+    return this.getUserRole() === 'patient';
   }
   
   isDoctor(): boolean {

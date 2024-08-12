@@ -32,6 +32,7 @@ export class PagesAgendarCitaComponent implements OnInit {
   paciente!: Patient;
   rol: string = "";
 
+
   constructor(
     private doctorService: DoctorService,
     private authService: AuthService,
@@ -107,5 +108,4 @@ applyFilters() {
   closeModal(): void {
     this.showModal = false;
   }
-
 }
