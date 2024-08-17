@@ -85,7 +85,6 @@ export class DoctorRegisterComponent implements OnInit {
   
     this.isSubmitting = true;
   
-    // Crear un objeto FormData
     const formData = new FormData();
     formData.append('tarjetaProf', this.registrationForm.get('tarjetaProf')?.value);
     formData.append('documento', this.registrationForm.get('documento')?.value);
@@ -97,7 +96,6 @@ export class DoctorRegisterComponent implements OnInit {
     formData.append('valorCita', this.registrationForm.get('valorCita')?.value);
     formData.append('codigoEspc', this.registrationForm.get('specialtyId')?.value);
   
-    // Adjuntar el archivo de imagen al FormData
     if (this.imgFile) {
       formData.append('fotoUrl', this.imgFile);
     }
@@ -117,7 +115,11 @@ export class DoctorRegisterComponent implements OnInit {
           background: "#C6F0C2",
           iconColor: "#1C5314",
         }).then(() => {
-          this.router.navigate(['/home']);
+          // Clear the form
+          this.registrationForm.reset();
+          this.imgFile = null;
+          this.registrationForm.markAsPristine();
+          this.registrationForm.markAsUntouched();
         });
       },
       error: error => {
@@ -127,6 +129,7 @@ export class DoctorRegisterComponent implements OnInit {
       }
     });
   }
+  
 
   loadSpecialties(): void {
     this.specialtyService.getSpecialties().subscribe(

@@ -5,8 +5,9 @@
       <main>
         <router-outlet></router-outlet>
         <app-chatbot></app-chatbot>
+            <app-footer *ngIf="isHomePage"></app-footer>
       </main>
-      <app-footer *ngIf="isHomePage"></app-footer>
+  
     </div>
     <div *ngIf="authService.isDoctor() || authService.isAdmin()">
       <app-lateral-menu></app-lateral-menu>

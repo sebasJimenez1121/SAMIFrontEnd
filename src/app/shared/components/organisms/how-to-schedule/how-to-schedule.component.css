@@ -47,3 +47,34 @@ app-image {
   margin-left: 8.25rem;
 }
 
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+ 
+  
+  .section2 {
+    background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    color: white;
+    padding: 5rem 2rem;
+    width: 18rem;
+}
+.text-comment{
+  font-size: 1rem;
+}
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+ 
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+
+}
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+  .section2{
+    width: 53rem;
+}
+}
+
+@media only screen and (min-width: 1280px) {
+
+}

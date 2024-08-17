@@ -18,15 +18,16 @@ export class MenuComponent {
       ]
     },
     { 
-      name: 'Seguimento', 
+      name: 'Seguimiento',  
       link: '/seguimiento', 
       subMenu: [
-        { name: 'Medicamentos', link: '/medicamentos' }, 
-        { name: 'Notas Doctor', link: '/notas-doctor' } 
+        { name: 'Medicamentos', link: '/medicamentos' } 
       ] 
     },
     { name: 'Médicos', link: '/doctors-profiles' },
-  ];    
+  ];
+
+  isMenuCollapsed = true;
 
   constructor(private router: Router) {}
 
@@ -35,5 +36,10 @@ export class MenuComponent {
     if (link) {
       this.router.navigate([link]);
     }
+    this.toggleMenu();  // Cerrar el menú después de navegar
+  }
+
+  toggleMenu() {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
   }
 }

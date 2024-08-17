@@ -173,6 +173,38 @@
   .chatbot-intro:hover .intro-text {
     opacity: 1;
   }
+  .chatbot-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff09;
+  }
+  
+  .chatbot-footer input {
+    flex: 1;
+    border: 1px solid #dddddd00;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .chatbot-footer button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chatbot-footer button img {
+    width: 31px;
+    position: relative;
+    top: 0rem;
+    left: 0rem;
+    height: 41px;
+  }
+ 
   
   
 
