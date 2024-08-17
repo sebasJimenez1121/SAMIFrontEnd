@@ -21,7 +21,7 @@ export class TemplateAppoinmentScheduleAdminComponent  implements OnInit {
   @Input() titleText: string = 'Agendamiento de Citas';
   @Input() titleClass: string = 'custom-title';
   
-  @Input() specialties: Specialty[] = []; // Asegúrate de que esta propiedad está definida correctamente
+  @Input() specialties: Specialty[] = []; 
   imageUrl: string | null = '';
   isProfileModalOpen = false;
   constructor(private specialtyService: SpecialtyService) {}

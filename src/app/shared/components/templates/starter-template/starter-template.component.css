@@ -28,6 +28,10 @@ main  {
   padding: 5rem 4rem;
 }
 
+.section6{
+  padding: 5rem 4rem;
+}
+
 .card {
   position: relative;
   width: 18.75rem;
@@ -77,6 +81,9 @@ main  {
 .section3 {
   margin:6% 0 0 0%;
 }
+.section6 {
+  margin:6% 0 0 0%;
+}
 .section4 {
   margin:0% 0 0 0%;
 }
@@ -98,7 +105,7 @@ font-size: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 6rem 4rem;
+  padding: 2rem 4rem;
 }
 .color-title{
   color: #fff;
@@ -109,8 +116,18 @@ font-size: 1rem;
   font-size: 1.875rem; 
   text-align: center;
 }
+.section6 h2 {
+  color: #1B0491;
+  font-size: 1.875rem; 
+  text-align: center;
+}
 
 .section3 hr {
+  background-color: #D9D9D9;
+  width: 85%;
+  margin: auto;
+}
+.section6 hr {
   background-color: #D9D9D9;
   width: 85%;
   margin: auto;
@@ -125,4 +142,207 @@ font-size: 1rem;
 .text-comment{
   font-size: 1rem;
   margin: 0rem 0rem 0rem 24.313rem;
+}
+.scroll-indicators {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: #353fa7;
+}
+
+@media only screen and (max-width: 480px) {
+  main {
+    margin: 0.5rem;
+  }
+
+  .title-pricipal h1 {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+
+  .button {
+    position: relative;
+    font-size: 1rem;
+    bottom: 0;
+  }
+
+  .section2 {
+    padding: 3rem 1rem;
+    width: 100%;
+  }
+
+  .section2 .h3 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+  }
+
+  .title-secundari {
+    margin: 0.5rem 0.5rem;
+    justify-content: center;
+  }
+
+  .section3, .section4 {
+    padding: 2rem 1rem;
+  }
+  
+  .section6, .section4 {
+    padding: 2rem 1rem;
+  }
+
+  .container-cards[_ngcontent-ng-c2634833299] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0rem 0rem;
+}
+
+  .card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .card img {
+    width: 80%;
+  }
+
+  .section4 h2 {
+    font-size: 1.5rem;
+  }
+
+  .section4 hr {
+    width: 90%;
+    margin: 0.5rem auto;
+  }
+
+  .text-comment {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  main {
+    margin: 1rem;
+  }
+
+  .title-pricipal h1 {
+    font-size: 2.5rem;
+  }
+
+  .section2 {
+    padding: 4rem 2rem;
+  }
+
+  .title-secundari {
+    margin: 0.5rem 1rem;
+  }
+
+  .container-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card {
+    width: 45%;
+    margin: 2rem 0;
+  }
+
+  .card img {
+    width: 70%;
+  }
+
+  .section3, .section4 {
+    padding: 3rem 2rem;
+  }
+  .section6, .section4 {
+    padding: 3rem 2rem;
+  }
+
+  .section4 h2 {
+    font-size: 1.75rem;
+  }
+
+  .section4 hr {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .text-comment {
+    margin: 1rem auto;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+  main {
+    margin: 3rem;
+  }
+
+  .title-pricipal h1 {
+    font-size: 3rem;
+  }
+
+  .section2 {
+    padding: 4rem 4rem;
+  }
+
+  .title-secundari {
+    margin: 0.5rem 1rem;
+  }
+
+  .container-cards {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .card {
+    width: 28%;
+    margin: 2rem 1rem;
+  }
+
+  .card img {
+    width: 60%;
+  }
+
+  .section3, .section4 {
+    padding: 4rem 4rem;
+  }
+  .section6, .section4 {
+    padding: 4rem 4rem;
+  }
+  .section4 h2 {
+    font-size: 2.25rem;
+  }
+
+  .section4 hr {
+    width: 70%;
+    margin: 2rem auto;
+  }
+
+  .text-comment {
+    margin: 1rem auto;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+
 }

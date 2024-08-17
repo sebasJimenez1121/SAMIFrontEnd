@@ -111,37 +111,301 @@
   padding: 1rem;
 }
 
-/* Estilos para pantallas pequeñas */
+  
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    height: 3%;
+    padding: 3rem 4rem;
+}
+.content-session{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .color-session{
+    color: #203B8F;
+    font-size: 1rem;
+  }
+  .extra-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.8rem 7rem 0rem 0rem;
+    padding: 0rem 0rem 0.5rem 0rem;
+  }
+  
+  .menu-icon {
+    width: 0.50rem;
+    height: 1.5rem;
+    transition: fill 0.3s;
+  }
+  
+  .menu-icon.expanded-icon {
+    fill: #203B8F; 
+  }
+  .sidebar-menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+  }
+.button{
+    width: 32%;
+}
+.content-set{
+    width: 27%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 1rem 1rem 1rem ;
+}
+.header img{
+    width: 200px;
+    height: 160px;
+    margin: 0rem 7rem;
+}
+
+/* Estilos del botón de menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 2rem;
+  height: 0.25rem;
+  background: #203B8F;
+  margin: 0.25rem 0;
+  transition: background 0.3s;
+}
+
+/* Estilos del contenedor del menú desplegable */
+.menu-container {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Ajusta según el tamaño del encabezado */
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.menu-container.show {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+}
+
+/* Estilos responsivos para pantallas pequeñas (teléfonos móviles) */
 @media only screen and (max-width: 480px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+  }
+
+  .header img {
+      margin-bottom: 1rem;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+
+  .menu-container {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      background-color: #ffffff;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+  }
+
+  .menu-container.show {
+      display: flex;
+  }
+
   .menu {
       display: flex;
       flex-direction: column;
       width: 100%;
   }
 
+  .menu-item {
+      padding: 1rem;
+      text-align: center;
+  }
+
+  .button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+  }
+
+  .content-set {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+  }
+}
+
+/* Estilos para tabletas (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .header {
+      padding: 1rem 2rem;
+  }
+
+  .header img {
+      width: 130px;
+  }
+
   .menu-toggle {
       display: flex;
   }
-}
 
-/* Estilos para pantallas medianas */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .menu {
-      /* Ajusta según sea necesario */
-  }
-
-  .menu-toggle {
-      display: none;
-  }
-}
-
-/* Estilos para pantallas grandes */
-@media only screen and (min-width: 769px) {
   .menu-container {
       display: none;
+      width: 100%;
+      flex-direction: column;
   }
 
-  .menu-toggle {
-      display: none;
+  .menu-container.show {
+      display: flex;
+  }
+
+  .menu {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .menu-item {
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: left;
+  }
+
+  .button {
+      width: 100%;
+      justify-content: flex-end;
+  }
+
+  .content-set {
+      width: 100%;
+      justify-content: space-between;
   }
 }
+
+/* Estilos para pantallas medianas (769px - 920px) */
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+  .header {
+      padding: 1rem 2rem;
+  }
+
+  .header img {
+      width: 120px;
+  }
+
+  .menu-container {
+      justify-content: space-between;
+  }
+
+  .menu {
+      flex-direction: row;
+  }
+
+  .menu-item {
+      padding: 0 1rem;
+  
+  }
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+ .header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: -13px;
+  width: 100%;
+  z-index: 100;
+  background-color: rgb(255, 255, 255);
+  height: 3%;
+  padding: 3rem 0rem;
+ }
+ 
+
+  .header img {
+    width: 50rem;
+        height: 8rem;
+  }
+
+  .menu-container {
+      justify-content: space-between;
+  }
+
+  .menu {
+      flex-direction: row;
+  }
+
+  .menu-item {
+      padding: 0 1rem;
+  }
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+  
+ 
+  .menu-container {
+      justify-content: space-between;
+  }
+
+  .menu {
+      flex-direction: row;
+  }
+
+  .menu-item {
+      padding: 0 1.5rem;
+  }
+
+  
+
+}
+

@@ -79,11 +79,12 @@ export class AgendarCitaAdminComponent  implements OnInit {
   applyFilters() {
     let filteredDoctors = this.allDoctors;
   
-    if (this.codigoEspc !== null && this.codigoEspc !== "") {
+    if (this.codigoEspc && this.codigoEspc.trim() !== "0") {
       filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc === this.codigoEspc);
-    }
+    } 
     this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-    this.paginateDoctors(filteredDoctors); 
+    this.paginateDoctors(filteredDoctors);
+    console.log('Doctores filtrados:', filteredDoctors);
   }
 
   paginateDoctors(doctors: DoctorPublic[]) {

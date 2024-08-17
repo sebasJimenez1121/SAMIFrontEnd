@@ -22,3 +22,42 @@ button:hover {
   background-color: var(--color);
   color: #fff;
 }
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 920px) {
+
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 1279px) {
+
+  button {
+    text-align: center;
+    --color: #1F3FAE;
+    display: inline-block;
+    width: 150%;
+    height: 2.5rem;
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.75rem;
+    z-index: 1;
+    color: var(--color);
+    border: 0.125rem solid var(--color);
+    border-radius: 0.625rem;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #fff;
+   
+  }
+  
+}

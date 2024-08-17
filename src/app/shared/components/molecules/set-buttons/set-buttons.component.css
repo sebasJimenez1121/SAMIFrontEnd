@@ -4,3 +4,51 @@
     position: relative;
     right: 4.5rem;
 }
+
+
+@media only screen and (max-width: 480px) {
+    .buttom-space{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        right: 4.5rem;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .buttom-space{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        right: 4.5rem;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    .buttom-space{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        right: 4.5rem;
+    }
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+    .buttom-space{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        right: 1rem;
+    }
+  }
+  
+  @media only screen and (min-width: 1280px) {
+    .buttom-space{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        right: 4.5rem;
+    }
+  }
+  

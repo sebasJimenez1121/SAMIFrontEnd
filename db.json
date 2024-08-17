@@ -156,7 +156,7 @@
       "nameMedico": "Dr. Juan Hernandez",
       "especialidad": "Cardiología",
       "namePaciente": "Jane Doe",
-      "estado": "Agendada",
+      "estado": "Cancelada",
       "patientDocument": "12345678",
       "patientPhone": "987654321",
       "valorCita": "40.000",
@@ -169,13 +169,13 @@
       "nameMedico": "Dr. Mariana Bedoya",
       "especialidad": "Neurologia",
       "namePaciente": "Jane Doe",
-      "estado": "Cancelada",
+      "estado": "Agendada",
       "patientDocument": "12345678",
       "patientPhone": "987654321",
       "valorCita": "20.000",
       "motivoCita": "Migrañas fuertes",
       "imagenMedico": "../../../../../assets/images/Link → doctor_8.png.png",
-      "fechaCita": "2024-07-09 19:42"
+      "fechaCita": "2024-08-13 03:05"
     },
     {
       "id": "3",
@@ -281,7 +281,6 @@
       "name": "Doctor User",
       "role": "doctor",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZG9jdG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.-zpMZ2TwokvWX3gKXn9v0zFOMF2zUnWJhC6cH2l89y0"
-
     }
   ],
   "login": []

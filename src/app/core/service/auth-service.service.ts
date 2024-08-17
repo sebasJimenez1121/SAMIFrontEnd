@@ -97,11 +97,11 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.getUserRole() === 'admin';
+    return this.userRole === 'admin';
   }
   
   isPatient(): boolean {
-    return this.getUserRole() === 'patient';
+    return this.userRole === 'patient';
   }
   
   isDoctor(): boolean {
@@ -128,7 +128,7 @@ export class AuthService {
       setTimeout(() => {
         this.clearToken();
         resolve();
-      }); 
+      }, 4000); 
     });
   }
 }

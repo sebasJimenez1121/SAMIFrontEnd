@@ -37,24 +37,22 @@ export class RegistrationFormComponent implements OnInit {
       ]],
       confirmPassword: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue]
-    }, { validator: this.passwordMatchValidator });
+    }, { validators: this.passwordsMatchValidator });
   }
 
-  passwordMatchValidator(form: AbstractControl) {
-    const password = form.get('password')?.value;
-    const confirmPassword = form.get('confirmPassword')?.value;
-    if (password !== confirmPassword) {
-      form.get('confirmPassword')?.setErrors({ mismatch: true });
-    } else {
-      form.get('confirmPassword')?.setErrors(null);
+  passwordsMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+    if (password && confirmPassword && password.value !== confirmPassword.value) {
+      return { 'mismatch': true };
     }
     return null;
-  }
-
-  submitRegistrationForm() {
+  }submitRegistrationForm() {
     if (this.registrationForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;
+  
 
+    
       const userData = {
         documentoPac: this.registrationForm.value.documentNumber,
         tipoDoc: this.registrationForm.value.documentType,
@@ -66,22 +64,27 @@ export class RegistrationFormComponent implements OnInit {
         rol: 'paciente'
       };
       console.log('Datos a enviar:', userData);
+  
       this.pacienteService.registrarPatient(userData).subscribe({
         next: (response) => {
-         
           Swal.fire({
             title: 'Registro Exitoso',
-            text: `¡Te has registrado exitosamente!`,
+            text: '¡Te has registrado exitosamente!',
             icon: 'success',
-            showConfirmButton: false,
+            confirmButtonText: 'Cerrar',
+            background: "#C6F0C2",
+            iconColor: "#1C5314",
             timer: 2000,
             timerProgressBar: true,
             toast: true,
             position: 'top',
-            background: "#C6F0C2",
-            iconColor: "#1C5314",
+            showConfirmButton: true,
+            customClass: {
+              confirmButton: 'swal2-confirm-success'
+            }
+          }).then(() => {
+            this.isSubmitting = false;
           });
-          this.isSubmitting = false;
         },
         error: (err: any) => {
           console.error('Error al registrar usuario:', err);
@@ -89,9 +92,16 @@ export class RegistrationFormComponent implements OnInit {
             title: 'Error al registrarse',
             text: 'No se pudo registrar. Por favor, inténtelo nuevamente más tarde.',
             icon: 'error',
-            showConfirmButton: true
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top',
+            background: '#F5C0B8',
+            iconColor: '#D02B20'
+          }).then(() => {
+            this.isSubmitting = false;
           });
-          this.isSubmitting = false;
         }
       });
     }

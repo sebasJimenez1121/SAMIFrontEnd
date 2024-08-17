@@ -1,32 +1,33 @@
 <div class="chatbot-icon" [ngClass]="{'hidden': isChatOpen}" (click)="toggleChat()">
-    <div class="chatbot-intro">
-      <img src="../../../../../assets/images/chat.png" alt="Chatbot" />
-      <div class="intro-text">
-        {{ introText }}
+  <div class="chatbot-intro">
+    <img src="../../../../../assets/images/chat.png" alt="Chatbot" />
+    <div class="intro-text">
+      {{ introText }}
+    </div>
+  </div>
+</div>
+<div class="chatbot-container" *ngIf="isChatOpen">
+  <div class="chatbot-header">
+    <span>SAMbot</span>
+    <div class="modal-header">
+      <button class="close-button" (click)="toggleChat()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+    </div>
+  </div>
+  <div class="chatbot-body">
+    <div *ngFor="let message of messages">
+      <div [ngClass]="{'user-message': message.fromUser, 'bot-message': !message.fromUser}">
+        {{ message.text }}
       </div>
     </div>
   </div>
-  <div class="chatbot-container" *ngIf="isChatOpen">
-    <div class="chatbot-header">
-      <span>SAMbot</span>
-      <div class="modal-header">
-        <button class="close-button" (click)="toggleChat()">
-          <span class="X"></span>
-          <span class="Y"></span>
-          <div class="close">Close</div>
-        </button>
-      </div>
-    </div>
-    <div class="chatbot-body">
-      <div *ngFor="let message of messages">
-        <div [ngClass]="{'user-message': message.fromUser, 'bot-message': !message.fromUser}">
-          {{ message.text }}
-        </div>
-      </div>
-    </div>
-    <div class="chatbot-footer">
-      <input [(ngModel)]="newMessage" placeholder="Escribe tu mensaje" />
-      <button (click)="sendMessage()">Enviar</button>
-    </div>
+  <div class="chatbot-footer">
+    <input [(ngModel)]="newMessage" placeholder="Escribe tu mensaje" />
+    <button (click)="sendMessage()">
+      <img src="../../../../../assets/icons/send-svgrepo-com.svg" alt="Enviar" />
+    </button>
   </div>
-  
+</div>
