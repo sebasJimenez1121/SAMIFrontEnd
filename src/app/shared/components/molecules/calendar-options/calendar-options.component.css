@@ -1,42 +1,15 @@
 .container-cita {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2.8em;
 }
 
 .container-doctor {
-    display: flex;
-    width: 28em;
+    width: 40%;
+    max-height: 150px;
+    text-align: center;
 }
 
-.img{
-    width: 100%;
+.calendar{
+    margin-left: 0%;
+    width: 60%;
 }
-
-.container-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    width: 40%; 
-    max-height: 2rem;
-    margin: 1em 1em;
-}
-
-.calendario{
-    width: 29em;
-}
-
-.rating {
-    width: auto;
-}
-
-.coment-rating {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; 
-    justify-content: flex-start;
-}
-

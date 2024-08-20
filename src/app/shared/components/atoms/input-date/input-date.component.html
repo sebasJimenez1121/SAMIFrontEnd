@@ -1,33 +1,27 @@
-<div class="calendar">
-  <div class="calendar-header">
-    <button (click)="changeMonth(-1)" [disabled]="isCurrentMonth()">&lt;</button>
-    <div class="month-year">{{ currentDate | date: 'MMMM yyyy' }}</div>
-    <button (click)="changeMonth(1)">&gt;</button>
+<div class="calendario">
+  <div class="calendar-container">
+    <mat-calendar [(selected)]="selectedDate" [dateClass]="dateClass" [dateFilter]="dateFilter" (selectedChange)="onDateChange($event)"></mat-calendar>
   </div>
-  <div class="calendar-grid">
-    <div class="day-header" *ngFor="let day of ['D', 'L', 'M', 'M', 'J', 'V', 'S']">{{ day }}</div>
-    <ng-container *ngFor="let week of getWeeksInMonth()">
-      <ng-container *ngFor="let date of week">
-        <div
-          *ngIf="date.getMonth() === currentDate.getMonth()"
-          [class.day]="date.getMonth() === currentDate.getMonth()"
-          [class.today]="isToday(date)"
-          [class.selected]="selectedDate?.toDateString() === date.toDateString()"
-          [class.disabled]="isPastDate(date)"
-          (click)="selectDate(date)"
-        >
-          {{ date.getDate() }}
+
+  <div class="date-container">
+    <ng-container *ngIf="selectedDate && availableHours.length; else emptyState">
+      <app-text [content]="'Horas disponibles'"></app-text>
+      
+      <div class="hour-carousel-container">
+        <button class="arrow-button" (click)="scrollUp()">&#9650;</button> <!-- Flecha arriba -->
+        
+        <div class="hour-carousel">
+          <div class="hour-item" *ngFor="let hour of availableHours" [ngClass]="{'selected': selectedHour === hour}">
+            <button mat-raised-button (click)="selectHour(hour)">{{ hour }}</button>
+          </div>
         </div>
-        <div *ngIf="date.getMonth() !== currentDate.getMonth()" class="day"></div>
-      </ng-container>
+        
+        <button class="arrow-button" (click)="scrollDown()">&#9660;</button> <!-- Flecha abajo -->
+      </div>
     </ng-container>
-  </div>
-  <div *ngIf="selectedDate" class="time-input">
-    <label for="time">Seleccione la hora:</label>
-    <select id="time" [(ngModel)]="selectedTime">
-      <option *ngFor="let time of availableTimes" [value]="time">
-        {{ time }}
-      </option>
-    </select>
+    
+    <ng-template #emptyState>
+      <app-text [content]="'No hay horas disponibles para esta fecha'"></app-text>
+    </ng-template>
   </div>
 </div>

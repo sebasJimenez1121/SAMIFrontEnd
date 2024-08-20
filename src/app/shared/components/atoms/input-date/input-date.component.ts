@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CitaService } from '../../../../core/service/cita.service';
 
 @Component({
   selector: 'app-input-date',
@@ -7,91 +7,99 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./input-date.component.css'],
 })
 export class InputDateComponent implements OnInit {
-  currentDate: Date = new Date();
   selectedDate: Date | null = null;
-  availableTimes: string[] = [];
-  selectedTime: string = '';
-  @Output() dateSelected = new EventEmitter<{ date: Date; time: string }>();
+  unavailableHours: string[] = [];
+  availableHours: string[] = [];
+  selectedHour: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  allHours: string[] = [
+    '07:00', '07:30', '08:00', '08:30', '09:00', '09:30', '10:00', '10:30',
+    '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+    '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'
+  ];
 
-  ngOnInit(): void {
-    this.availableTimes = this.generateTimeSlots('07:00', '18:00', 30);
-  }
+  @Output() appointmentSubmitted = new EventEmitter<{ date: string, hour: string }>();
 
-  changeMonth(monthChange: number): void {
-    const newDate = new Date(this.currentDate);
-    newDate.setMonth(newDate.getMonth() + monthChange);
-    this.currentDate = newDate;
-  }
+  constructor(private scheduleService: CitaService) {}
 
-  getWeeksInMonth(): Date[][] {
-    const weeks: Date[][] = [];
-    let currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
-    currentDate.setDate(currentDate.getDate() - currentDate.getDay());
-    while (currentDate.getMonth() !== this.currentDate.getMonth() + 1 || currentDate.getDay() !== 0) {
-      const week: Date[] = [];
-      for (let i = 0; i < 7; i++) {
-        week.push(new Date(currentDate));
-        currentDate.setDate(currentDate.getDate() + 1);
-      }
-      weeks.push(week);
-    }
-    return weeks;
-  }
+  ngOnInit(): void {}
 
-  isToday(date: Date): boolean {
-    const today = new Date();
-    return date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear();
-  }
+  onDateChange(date: Date | any): void {
+    this.selectedDate = date;
+    this.availableHours = [];
+    this.unavailableHours = [];
 
-  isPastDate(date: Date): boolean {
-    const today = new Date();
-    return date < today && date.getDate() !== today.getDate();
-  }
-
-  selectDate(date: Date): void {
-    if (!this.isPastDate(date)) {
-      this.selectedDate = date;
-      this.fetchAvailableTimes(date);
+    if (date) {
+      const formattedDate = date.toISOString().split('T')[0];
+      this.scheduleService.getUnavailableHours(formattedDate).subscribe(
+        (response: { horas: string[] }) => {
+          this.unavailableHours = response.horas;
+          this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));
+        },
+        error => {
+          console.error('Error fetching hours:', error);
+        }
+      );
     }
   }
 
-  isCurrentMonth(): boolean {
-    const today = new Date();
-    return this.currentDate.getMonth() === today.getMonth() && this.currentDate.getFullYear() === today.getFullYear();
+  selectHour(hour: string) {
+    this.selectedHour = hour;
   }
 
-  generateTimeSlots(start: string, end: string, interval: number): string[] {
-    const startTime = new Date(`1970-01-01T${start}:00`);
-    const endTime = new Date(`1970-01-01T${end}:00`);
-    const times = [];
-    while (startTime < endTime) {
-      times.push(startTime.toTimeString().slice(0, 5));
-      startTime.setMinutes(startTime.getMinutes() + interval);
+  scrollUp() {
+    const carousel = document.querySelector('.hour-carousel');
+    if (carousel) {
+      carousel.scrollBy({
+        top: -50,
+        behavior: 'smooth'
+      });
     }
-    return times;
   }
 
-  fetchAvailableTimes(date: Date): void {
-    const formattedDate = date.toISOString().split('T')[0];
-    this.http.get<string[]>(`http://localhost:10102/citas/hour?date=${formattedDate}`).subscribe(
-      (occupiedTimes) => {
-        this.availableTimes = this.generateTimeSlots('07:00', '18:00', 30).filter(
-          (time) => !occupiedTimes.includes(time)
-        );
-      },
-      (error) => {
-        console.error('Error fetching available times:', error);
-      }
-    );
+  scrollDown() {
+    const carousel = document.querySelector('.hour-carousel');
+    if (carousel) {
+      carousel.scrollBy({
+        top: 50,
+        behavior: 'smooth'
+      });
+    }
   }
 
-  onTimeSelected() {
-    if (this.selectedDate && this.selectedTime) {
-      this.dateSelected.emit({ date: this.selectedDate, time: this.selectedTime });
+  dateClass = (cellDate: Date | null): string => {
+    if (!cellDate) {
+      return '';
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche para comparar solo las fechas
+
+    return cellDate <= today ? 'past-date' : '';
+  };
+
+  dateFilter = (date: Date | null): boolean => {
+    if (!date) {
+      return false;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche para comparar solo las fechas
+
+    // Deshabilitar hoy y cualquier fecha anterior a hoy
+    return date > today;
+  };
+
+  submitAppointment() {
+    if (this.selectedDate && this.selectedHour) {
+      const appointmentData = {
+        date: this.selectedDate.toISOString().split('T')[0],
+        hour: this.selectedHour
+      };
+      this.appointmentSubmitted.emit(appointmentData);
+      console.log('Submit appointment:', appointmentData);
+    } else {
+      console.error('Date or hour not selected');
     }
   }
 }

@@ -104,6 +104,12 @@ import { DoctorsProfilesTemplateComponent } from './components/templates/doctors
 import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
 import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
 import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -214,7 +220,16 @@ import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-
     FormsModule,
     RouterModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, // Configuración de idioma
   ],
  exports:[
   HeaderComponent,

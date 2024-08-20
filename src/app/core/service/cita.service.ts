@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, interval, of } from 'rxjs'; 
 import { switchMap, startWith } from 'rxjs/operators';
@@ -28,12 +28,12 @@ export class CitaService {
       );
   }
   // Obtener horas ocupadas para una cita específica por día
-  getHorasOcupadas(fecha: string): Observable<number[]> {
-    const url = `http://localhost:10102/citas/hour?fecha=${fecha}`;
-    return this.http.get<number[]>(url).pipe(
-      catchError(this.handleError<number[]>('getHorasOcupadas', []))
-    );
+  getUnavailableHours(fechaCita: string) {
+    return this.http.get<{ horas: string[] }>(`http://localhost:10102/citas/hour`, {
+      params: { fechaCita },
+    });
   }
+  
 
   // Obtener detalles de la cita por ID
   getCitaById(id: string): Observable<Appointment> {
