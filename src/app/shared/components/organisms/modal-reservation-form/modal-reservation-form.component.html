@@ -1,4 +1,3 @@
-
 <app-modal 
   [isVisible]="isModalVisible" 
   (closeModalEvent)="closeModal()"
@@ -6,9 +5,7 @@
   
   <div class="modal-body">
     <app-stepper-container 
-      [selectedPatient]="selectedPatient"
-      [selectedDoctor]="selectedDoctor"
-      (finished)="onFinished($event)"
+      [selectedDoctor]="selectedDoctor"  
       [currentStep]="0"
       >
     </app-stepper-container>

@@ -100,4 +100,18 @@ export class StepperContainerComponent {
       }
     );
   }
+
+  // Nueva función para borrar la cita
+  // deleteAppointment() {
+  //   const userId = this.selectedPatient.Id;
+  //   this.citaService.eliminarCita(userId).subscribe(
+  //     response => {
+  //       console.log('Cita eliminada:', response);
+  //       this.resetStepper(); // Limpiar el stepper después de borrar
+  //     },
+  //     error => {
+  //       console.error('Error al eliminar la cita:', error);
+  //     }
+  //   );
+  // }
 }

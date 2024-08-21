@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navigation-stepper.component.css']
 })
 export class NavigationStepperComponent {
-  @Input() steps: string[] = ['Fecha Y Hora', 'Informacion Personal', 'Metodo De Pago', 'COnfirmacion'];
+  @Input() steps: string[] = ['Fecha Y Hora', 'Información Personal', 'Método De Pago', 'Confirmación'];
   @Input() currentStep: number = 0;
   @Output() currentStepChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() stepChanged: EventEmitter<number> = new EventEmitter<number>();
@@ -32,6 +32,12 @@ export class NavigationStepperComponent {
 
   goToStep(step: number) {
     this.currentStep = step;
+    this.currentStepChange.emit(this.currentStep);
+    this.stepChanged.emit(this.currentStep);
+  }
+
+  resetStepper() {
+    this.currentStep = 0;
     this.currentStepChange.emit(this.currentStep);
     this.stepChanged.emit(this.currentStep);
   }
