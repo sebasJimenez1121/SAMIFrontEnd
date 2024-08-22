@@ -12,7 +12,10 @@ import { HomeDoctorDashboardComponent } from './features/features/home/pages/hom
 import { HomePacienteComponent } from './features/features/home/pages/home-paciente/home-paciente.component';
 import { AgendarCitaAdminComponent } from './features/features/gestion-citas/pages/agendar-cita-admin/agendar-cita-admin.component';
 import { DoctorsProfilesComponent } from './features/features/home/pages/doctors-profiles/doctors-profiles.component';
-
+import{TrackingRecordComponent }from'./features/features/gestion-citas/pages/tracking-record/tracking-record.component';
+import {RecoverPassworddComponent} from './features/features/home/pages/recover-passwordd/recover-passwordd.component';
+import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
+import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -26,7 +29,11 @@ const routes: Routes = [
   { path: 'home-doctor', component: HomeDoctorDashboardComponent },
   { path: 'home-paciente', component: HomePacienteComponent },
   { path: 'agendar-cita-admin', component: AgendarCitaAdminComponent },
-  { path: 'doctors-profiles', component: DoctorsProfilesComponent }
+  { path: 'doctors-profiles', component: DoctorsProfilesComponent },
+  { path: 'registro-seguimiento', component: TrackingRecordComponent },
+  { path: 'recover-passwordd', component: RecoverPassworddComponent},
+  { path: 'new-passwordd', component: NewPassworddComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ export class MenuComponent {
     },
     { 
       name: 'Seguimiento',  
-      link: '/seguimiento', 
+      link: '/registro-seguimiento', 
       subMenu: [
         { name: 'Medicamentos', link: '/medicamentos' } 
       ] 

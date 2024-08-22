@@ -7,6 +7,7 @@ import { PagesAgendarCitaComponent } from './pages/pages-agendar-cita/pages-agen
 import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/pages-visualizar-cita.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { AgendarCitaAdminComponent } from './pages/agendar-cita-admin/agendar-cita-admin.component';
+import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AgendarCitaAdminComponent } from './pages/agendar-cita-admin/agendar-ci
     PagesGestionCitasComponent,
     PagesAgendarCitaComponent,
     PagesVisualizarCitaComponent,
-    AgendarCitaAdminComponent
+    AgendarCitaAdminComponent,
+    TrackingRecordComponent
   ],
   imports: [
     CommonModule,

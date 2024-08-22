@@ -8,4 +8,5 @@ import { Component, Input} from '@angular/core';
 export class TextFieldComponent {
   @Input() content: string = '';
   @Input() placeholderText: string = '';
+  @Input() titleClass: string = '';
 }

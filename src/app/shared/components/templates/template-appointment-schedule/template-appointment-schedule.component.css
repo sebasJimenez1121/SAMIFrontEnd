@@ -14,7 +14,10 @@
   width: 80%;
   margin: 0 auto;
 }
-
+app-title-principal{
+  position: relative;
+  left: 4rem;
+}
 
 .principal-title {
   display: flex;

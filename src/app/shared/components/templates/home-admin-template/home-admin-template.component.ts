@@ -16,6 +16,7 @@ export class HomeAdminTemplateComponent implements OnInit {
   specialties: Specialty[] = [];
   @ViewChild(AddSpecialtyComponent) addSpecialtyModal!: AddSpecialtyComponent;
 
+  citasFiltradas: Appointment[] = [];
   constructor(private dataService: CitaService, private specialtyService: SpecialtyService) {}
   imageUrl: string | null = '';
   isProfileModalOpen = false;
