@@ -3,7 +3,22 @@
     <div class="price">
         <app-title-secundari titleText={{valorCita}}></app-title-secundari>
         <div class="buttons-login">
-            <button class="button">Pago Virtual </button>
+            <app-checkout 
+            [productName]="'Cita De' + doctor.especialidad"
+            [productDescription]="'Cita con el doctor(a)' + doctor.nombre + 'de la especialidad' + doctor.especialidad"
+            [invoiceNumber]="doctor.Id"
+            [currency]="'cop'"
+            [amount]="doctor.valorCita + ''"
+            [taxBase]="'4000'"
+            [tax]="'500'"
+            [taxIco]="'500'"
+            [userName]="patient.Nombre"
+            [userAddress]="patient.Direccion"
+            [userDocType]="patient.Tipo_Doc"
+            [userDocNumber]="patient.Documento"
+            [userEmail]="patient.Email"
+            [userPhone]="patient.Telefono">
+            </app-checkout>
             <button class="button">Pago Presencial </button>
         </div>
     </div>

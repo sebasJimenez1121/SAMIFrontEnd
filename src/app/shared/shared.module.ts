@@ -110,6 +110,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { CheckoutComponent } from './components/atoms/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -213,7 +214,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     DoctorsProfilesTemplateComponent,
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
-    ModalPerfilDoctorComponent  
+    ModalPerfilDoctorComponent,
+    CheckoutComponent  
   ],
   imports: [
     CommonModule,

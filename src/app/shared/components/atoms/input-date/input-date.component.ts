@@ -18,7 +18,7 @@ export class InputDateComponent implements OnInit {
     '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'
   ];
 
-  @Output() appointmentSubmitted = new EventEmitter<{ date: string, hour: string }>();
+  @Output() dateAndTimeSelected = new EventEmitter<{ date: string, time: string }>();
 
   constructor(private scheduleService: CitaService) {}
 
@@ -37,7 +37,7 @@ export class InputDateComponent implements OnInit {
           this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));
         },
         error => {
-          console.error('Error fetching hours:', error);
+          console.error('Error al obtener las horas:', error);
         }
       );
     }
@@ -73,7 +73,7 @@ export class InputDateComponent implements OnInit {
     }
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche para comparar solo las fechas
+    today.setHours(0, 0, 0, 0);
 
     return cellDate <= today ? 'past-date' : '';
   };
@@ -84,9 +84,8 @@ export class InputDateComponent implements OnInit {
     }
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Establecer la hora a medianoche para comparar solo las fechas
+    today.setHours(0, 0, 0, 0);
 
-    // Deshabilitar hoy y cualquier fecha anterior a hoy
     return date > today;
   };
 
@@ -94,12 +93,17 @@ export class InputDateComponent implements OnInit {
     if (this.selectedDate && this.selectedHour) {
       const appointmentData = {
         date: this.selectedDate.toISOString().split('T')[0],
-        hour: this.selectedHour
+        time: this.selectedHour
       };
-      this.appointmentSubmitted.emit(appointmentData);
-      console.log('Submit appointment:', appointmentData);
+      this.dateAndTimeSelected.emit(appointmentData);
     } else {
-      console.error('Date or hour not selected');
+      // Mostrar mensaje de error o alerta
     }
+  }
+
+  resetDateAndTime() {
+    this.selectedDate = null;
+    this.selectedHour = null;
+    this.availableHours = [];
   }
 }

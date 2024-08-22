@@ -11,7 +11,7 @@ import { PacienteService } from '../../../../core/service/paciente.service'; // 
 export class AppointmentFormComponent implements OnInit {
   @Input() appointmentData!: Patient; // Recibe los datos del paciente
 
-  appointmentForm!: FormGroup;
+  appointmentForm!: FormGroup; 
 
   constructor(
     private fb: FormBuilder,

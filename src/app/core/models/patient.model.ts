@@ -13,3 +13,11 @@ export interface Patient {
     Rol: string;
     Fecha_Reg: Date;
 }
+
+export interface updatePatient{
+    Documento: string;
+    Apellido: string;
+    Email:string;
+    Telefono: string;
+    Direccion: string;
+}

@@ -13,7 +13,6 @@ export class CalendarOptionsComponent {
   selectedDate!: string;
   selectedTime!: string;
 
-  // Este método se llamaría cuando el usuario seleccione la fecha y la hora
   onDateAndTimeSelected() {
     this.dateAndTimeSelected.emit({
       date: this.selectedDate,
