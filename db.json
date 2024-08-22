@@ -156,13 +156,13 @@
       "nameMedico": "Dr. Juan Hernandez",
       "especialidad": "Cardiología",
       "namePaciente": "Jane Doe",
-      "estado": "Cancelada",
+      "estado": "Agendada",
       "patientDocument": "12345678",
       "patientPhone": "987654321",
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-07-30 02:59"
+      "fechaCita": "2024-08-22 16:34"
     },
     {
       "id": "2",
@@ -175,7 +175,7 @@
       "valorCita": "20.000",
       "motivoCita": "Migrañas fuertes",
       "imagenMedico": "../../../../../assets/images/Link → doctor_8.png.png",
-      "fechaCita": "2024-08-13 03:05"
+      "fechaCita": "2024-08-22 13:51"
     },
     {
       "id": "3",

@@ -104,7 +104,13 @@ import { DoctorsProfilesTemplateComponent } from './components/templates/doctors
 import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
 import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
 import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
-
+import { TrackingRecordTemplateComponent } from './components/templates/tracking-record-template/tracking-record-template.component';
+import { ModalAppointmentRegistrationComponent } from './components/organisms/modal-appointment-registration/modal-appointment-registration.component';
+import { RecoverPasswordComponent } from './components/organisms/recover-password/recover-password.component';
+import { NewPasswordComponent } from './components/organisms/new-password/new-password.component';
+import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -207,14 +213,20 @@ import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-
     DoctorsProfilesTemplateComponent,
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
-    ModalPerfilDoctorComponent  
+    ModalPerfilDoctorComponent,
+    TrackingRecordTemplateComponent,
+    ModalAppointmentRegistrationComponent,
+    RecoverPasswordComponent,
+    NewPasswordComponent,
+    CalendarDoctorComponent  
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
  exports:[
   HeaderComponent,
@@ -239,7 +251,16 @@ import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-
   DoctorsProfilesTemplateComponent, 
   MedicalCardPerfilComponent,
   ContentCardPerfilDoctorComponent,
-  ModalPerfilDoctorComponent
+  ModalPerfilDoctorComponent,
+  TrackingRecordTemplateComponent,
+  RecoverPasswordComponent,
+  NewPasswordComponent,
+  TextComponent,
+  ButtonComponent,
+  IconComponent,
+  TitleTerciarioComponent,
+  LinkComponent,
+  CalendarDoctorComponent  
  ],
 
 

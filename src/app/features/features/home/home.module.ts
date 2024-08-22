@@ -12,6 +12,9 @@ import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register
 import { HomeDoctorDashboardComponent } from './pages/home-doctor-dashboard/home-doctor-dashboard.component';
 import { HomePacienteComponent } from './pages/home-paciente/home-paciente.component';
 import { DoctorsProfilesComponent } from './pages/doctors-profiles/doctors-profiles.component';
+import { RecoverPassworddComponent } from './pages/recover-passwordd/recover-passwordd.component';
+import { NewPassworddComponent } from './pages/new-passwordd/new-passwordd.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { DoctorsProfilesComponent } from './pages/doctors-profiles/doctors-profi
     HomeDoctorDashboardComponent,
     HomePacienteComponent,
     DoctorsProfilesComponent,
+    RecoverPassworddComponent,
+    NewPassworddComponent,
+    ConfirmationComponent,
   ],
   imports: [
     CommonModule,

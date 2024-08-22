@@ -30,7 +30,10 @@ header img {
     font-size: 1.875rem;
     text-align: center;
 }
-
+app-title-principal{
+    position: relative;
+    left: 6rem;
+  }
 .section3 hr {
     background-color: #D9D9D9;
     width: 85%;

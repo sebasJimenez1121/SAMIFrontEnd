@@ -1,1 +1,25 @@
-<p>template-doctor-dashboard works!</p>
+<main>
+    <nav>
+      <app-title-terciario titleText="Panel Medico"></app-title-terciario>
+      <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+    </nav>
+    <div>
+      <section class="section1">
+        <div class="text-container">
+          <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+          <p>La lista de medicos certificados con años de experiencia profesional.</p>
+        </div>
+        <div class="image-container">
+          <app-image class="image-background" src="../../../../../assets/images/Group.png"></app-image>
+          <app-image class="image-foreground" src="../../../../../assets/images/medico.png"></app-image>
+        </div>
+      </section>
+      <section class="section2">
+        <app-title-terciario class="title" titleText="Agenda de Citas"></app-title-terciario>
+        <hr>
+      <app-calendar-doctor></app-calendar-doctor>
+      </section>
+    </div>
+    <app-modal-perfil-admin *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-admin>
+  </main>
+  

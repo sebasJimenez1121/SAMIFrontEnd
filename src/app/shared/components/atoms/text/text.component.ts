@@ -9,4 +9,5 @@ export class TextComponent {
   @Input() typeContent: string = "text";
   @Input() class: string = "nueva";
   @Input() content: string = '';
+  @Input() width: string = '';
 }

@@ -11,6 +11,9 @@ import { FeaturesModule } from './features/features.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from '../../interceptor/AuthInterceptor.service';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { AuthInterceptorService } from '../../interceptor/AuthInterceptor.servic
     SweetAlert2Module.forRoot(),
     AppRoutingModule,
     SharedModule,
-    FeaturesModule
+    FeaturesModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     provideAnimationsAsync(),

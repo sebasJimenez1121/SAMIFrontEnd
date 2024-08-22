@@ -1,7 +1,7 @@
 body {
   
     line-height: 1.5;
-    color: #5A5D5F;
+    color: #c9c6c6;
     margin: 0;
     padding: 0;
     display: flex;
@@ -17,19 +17,29 @@ body {
 }
 
 .label-placeholder {
-    color: #aaa;
+    color:#bababa;;
     font-size: 1rem;
 }
 
+  
+.white-title{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+  }
 .underline {
     width: 10rem;
     height: 0.063rem;
     background-color: #aaa;
     margin-top: 0.313rem;
 }
+.gris-text {
+    color: #5c5c5c;
+    font-size: 1rem;
+}
 
 
-  
 @media only screen and (min-width: 352px) and (max-width: 480px) {
 
   }

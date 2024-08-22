@@ -1,8 +1,7 @@
 app-image {
-  width: 33.25rem;
-  height: 18rem;
+ 
   position: relative;
-  top: 5rem;
+  top: 8rem;
   left: 0rem;
   }
 
@@ -10,7 +9,9 @@ app-image {
     color: #fff;
     background-color: #fff;
   }
-  
+  app-video-tutorial{
+    margin: 4rem 0rem 0rem 4rem;
+  }
  
   app-text-field{
     color: #fff;

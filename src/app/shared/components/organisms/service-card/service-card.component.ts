@@ -10,4 +10,5 @@ export class ServiceCardComponent {
     @Input() img= "";
     @Input() content = "";
     @Input() link = "";
+    @Input() rhef = "";
 }
