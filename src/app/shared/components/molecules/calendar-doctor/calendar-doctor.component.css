@@ -1,0 +1,82 @@
+/* Contenedor principal del calendario */
+.fc {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Barra de herramientas del calendario (navegación y título) */
+  .fc-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .fc-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  .fc-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .fc-button-primary:not(:disabled).fc-button-active {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para los días del calendario */
+  .fc-daygrid-day-number {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .fc-daygrid-day {
+    border: 1px solid #e6e6e6;
+    height: 100px;
+  }
+  
+  /* Estilo para eventos en el calendario */
+  .fc-event {
+    background-color: #b0e57c;
+    border: 1px solid #a3cf58;
+    color: #333;
+    border-radius: 5px;
+    padding: 7px 5px;
+  }
+  
+  .fc-event:hover {
+    background-color: #9ed154;
+  }
+  
+  /* Estilo para el evento seleccionado */
+  .fc-event-selected {
+    background-color: #82c91e;
+    border-color: #70b210;
+  }
+  
+  /* Estilo para el día de hoy */
+  .fc-day-today {
+    background-color: #f5f5f5;
+    border-color: #d3d3d3;
+  }
+  
+  /* Ocultar los bordes entre los días */
+  .fc-scrollgrid-sync-inner > td {
+    border-right: none;
+  }
+  
+  .fc-scrollgrid {
+    border-bottom: none;
+  }
+  

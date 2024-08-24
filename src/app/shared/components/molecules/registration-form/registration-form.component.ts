@@ -16,7 +16,7 @@ export class RegistrationFormComponent implements OnInit {
     { value: 'Cedula Ciudadania', label: 'Cedula Cidadania' },
     { value: 'Tarjeta Identidad', label: 'Tarjeta identidad' },
     { value: 'Cedula de Extranjeria', label: 'Cédula de extranjería' },
-    { value: 'Registro civil', label: 'Registro civil' }
+    { value: 'Registro Civil', label: 'Registro civil' }
   ];
   isSubmitting = false;
 

@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../core/service/auth-service.service'; 
+import { AuthService } from '../../../../core/service/auth-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,14 +8,8 @@ import Swal from 'sweetalert2';
   templateUrl: './lateral-menu.component.html',
   styleUrls: ['./lateral-menu.component.css']
 })
-export class LateralMenuComponent {
-  @Input() menuItems = [
-    { RouterLink: '/home-admin', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
-    { RouterLink: '/agendar-cita-admin', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
-    { RouterLink: '/visualizar-cita', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
-    { RouterLink: '/register-doctor', label: 'Crear medicos', icon: 'assets/icons/crear-receta.svg' }
-  ];
-
+export class LateralMenuComponent implements OnInit {
+  @Input() menuItems: any[] = [];
   @Output() actionTriggered: EventEmitter<string> = new EventEmitter();
 
   isSidebarClosed = false;
@@ -24,6 +18,10 @@ export class LateralMenuComponent {
   showProgress: boolean = false;
 
   constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit() {
+    this.updateMenuItems();
+  }
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
@@ -91,5 +89,24 @@ export class LateralMenuComponent {
         this.showProgress = false;
       }
     }
+  }
+
+  updateMenuItems() {
+    this.authService.getUserRole().subscribe(role => {
+      if (this.authService.isAdmin()) {
+        this.menuItems = [
+          { RouterLink: '/home-admin', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
+          { RouterLink: '/agendar-cita-admin', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
+          { RouterLink: '/visualizar-cita', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
+          { RouterLink: '/register-doctor', label: 'Crear médicos', icon: 'assets/icons/crear-receta.svg' }
+        ];
+      } else if (this.authService.isDoctor()) {
+        this.menuItems = [
+          { RouterLink: '/home-doctor', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
+          { RouterLink: '/agendar-cita-doctor', label: 'Crear Receta', icon: 'assets/icons/agendar-cita.svg' },
+          { RouterLink: '/visualizar-citas-doctor', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
+        ];
+      }
+    });
   }
 }

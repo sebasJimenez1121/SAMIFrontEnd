@@ -1,0 +1,69 @@
+<div class="modal" *ngIf="showModal">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button" (click)="closeModal()">
+          <span class="X"></span>
+          <span class="Y"></span>
+          <div class="close">Close</div>
+      </button>
+      </div>
+      <div class="modal-body">
+        <app-title-terciario titleText="Registro de Cita"></app-title-terciario>
+        <hr>
+        <div *ngIf="cita" class="container">
+        
+          <div class="infoDoctor">
+            <app-label class="title-info"content="Doctor:"></app-label>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Nombre:"></app-label>
+                <app-input [disabled]="true" [value]="cita.nameMedico"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Especialidad:"></app-label>
+                <app-input [disabled]="true" [value]="cita.especialidad"></app-input>
+              </div>
+            </div>
+          </div>
+          <div class="infoPaciente">
+            <app-label class="title-info" content="Paciente:"></app-label>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Nombre:"></app-label>
+                <app-input [disabled]="true" [value]="cita.namePaciente"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Nu.documento:"></app-label>
+                <app-input [disabled]="true" [value]="'' + cita.patientDocument"></app-input>
+              </div>
+            </div>
+            <div class="container-doctor">
+              <div class="field">
+                <app-label content="Fecha Cita:"></app-label>
+                <app-input [disabled]="true" [value]="'' + cita.fechaCita"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="motivo:"></app-label>
+                <app-input [disabled]="true" [value]="cita.motivoCita"></app-input>
+              </div>
+            </div>
+            <div class="container-doctor">
+             
+              <div class="field">
+                <app-label content="Notas Doctor:"></app-label>
+                <app-input [disabled]="true" [value]="cita.motivoCita"></app-input>
+              </div>
+              <div class="field">
+                <app-label content="Medicamentos:"></app-label>
+                <app-input [disabled]="true" [value]="cita.motivoCita"></app-input>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

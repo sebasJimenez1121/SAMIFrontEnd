@@ -1,7 +1,8 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
+import { Component,  AfterViewInit, HostListener,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DoctorService } from '../../../../core/service/doctor.service';
 import { Doctor } from '../../../../core/models/doctor.model';
+import Typed from 'typed.js';
 
 @Component({
   selector: 'starter-template',
@@ -12,20 +13,30 @@ export class StarterTemplateComponent implements AfterViewInit {
   recommendedDoctors: Doctor[] = [];
   sections: string[] = ['.section3', '.section2', '.section5', '.section6', '.section4'];
   currentIndex: number = 0;
-  scrolling: boolean = true; // Flag to control scrolling
-  returnToSlider: boolean = true; // Flag to control return to slider
-
+  scrolling: boolean = true;
+  returnToSlider: boolean = true;
+  @Input() titleClass: string = 'gris-text';
+  isHomePage = false;
   constructor(private router: Router, private doctorService: DoctorService) {}
 
+  ngAfterViewInit(): void {
+    if (this.scrolling) {
+      this.scrollToSlider(); 
+    }
+    const options = {
+      strings: ["Sistema de Atencion Medica Inteligente", "Sistema de Atencion de Alta Calidad", " Sistema de Atencion Personalizada para Ti"],
+      typeSpeed: 100,  
+      backSpeed: 100,
+      loop: true
+    };
+
+    const typed = new Typed(".multiText", options);
+  }
   ngOnInit(): void {
     this.loadTopRankedDoctors();
   }
 
-  ngAfterViewInit(): void {
-    if (this.scrolling) {
-      this.scrollToSlider(); // Ensure the slider is the first visible part
-    }
-  }
+
 
   @HostListener('window:scroll')
   onScroll(): void {
@@ -52,8 +63,8 @@ export class StarterTemplateComponent implements AfterViewInit {
     if (slider) {
       slider.scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => {
-        this.startScrollCycle(); // Start the scroll cycle after the slider is in view
-      }, 1000); // Adjust timeout as necessary
+        this.startScrollCycle(); 
+      }, 1000);
     }
   }
 
@@ -64,10 +75,10 @@ export class StarterTemplateComponent implements AfterViewInit {
       if (scrollIndex < this.sections.length) {
         this.scrollToSection(this.sections[scrollIndex]);
         scrollIndex++;
-        setTimeout(scrollNextSection, 3000); // Adjust the delay as necessary
+        setTimeout(scrollNextSection, 5000); 
       } else if (this.returnToSlider) {
-        this.scrollToSection('main'); // Return to slider
-        this.scrolling = false; // Stop the cycle after returning to slider
+        this.scrollToSection('main');
+        this.scrolling = false; 
       } else {
         this.scrolling = false; // Stop the cycle after scrolling through all sections
       }

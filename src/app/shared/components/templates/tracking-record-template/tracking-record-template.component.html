@@ -1,0 +1,39 @@
+<div class="HistorialCita">
+    <div class="container">
+      <div>
+        <app-title-principal class="titulo"  [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+      </div>
+    
+      
+      <app-empty-state imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="citasFiltradas.length === 0"></app-empty-state>
+      
+      <table *ngIf="citasFiltradas.length > 0">
+        <thead>
+          <tr>
+            <th>Médicos</th>
+            <th>Especialidad</th>
+            <th>Fecha</th> 
+            <th>Acciones</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor="let cita of citasFiltradas">
+            <td>
+              <img [src]="cita.imagenMedico" alt="{{cita.nameMedico}}" class="imagen-medico">
+              {{cita.nameMedico}}
+            </td>
+            <td>{{cita.especialidad}}</td>
+            <td>{{cita.fechaCita}}</td>
+            
+            <td>
+              <app-button value="Ver más" (click)="verMas(cita)"></app-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <app-footer ></app-footer>
+  <app-modal-appointment-registration *ngIf="showModal" [cita]="selectedCita" (closeModalEvent)="closeModal()"></app-modal-appointment-registration>
+  

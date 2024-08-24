@@ -111,6 +111,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { CheckoutComponent } from './components/atoms/checkout/checkout.component';
+import { TrackingRecordTemplateComponent } from './components/templates/tracking-record-template/tracking-record-template.component';
+import { ModalAppointmentRegistrationComponent } from './components/organisms/modal-appointment-registration/modal-appointment-registration.component';
+import { RecoverPasswordComponent } from './components/organisms/recover-password/recover-password.component';
+import { NewPasswordComponent } from './components/organisms/new-password/new-password.component';
+import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
 
 @NgModule({
   declarations: [
@@ -215,7 +220,12 @@ import { CheckoutComponent } from './components/atoms/checkout/checkout.componen
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
     ModalPerfilDoctorComponent,
-    CheckoutComponent  
+    CheckoutComponent,
+    TrackingRecordTemplateComponent,
+    ModalAppointmentRegistrationComponent,
+    RecoverPasswordComponent,
+    NewPasswordComponent,
+    CalendarDoctorComponent  
   ],
   imports: [
     CommonModule,
@@ -231,7 +241,7 @@ import { CheckoutComponent } from './components/atoms/checkout/checkout.componen
     MatNativeDateModule
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, // Configuración de idioma
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, 
   ],
  exports:[
   HeaderComponent,
@@ -256,7 +266,16 @@ import { CheckoutComponent } from './components/atoms/checkout/checkout.componen
   DoctorsProfilesTemplateComponent, 
   MedicalCardPerfilComponent,
   ContentCardPerfilDoctorComponent,
-  ModalPerfilDoctorComponent
+  ModalPerfilDoctorComponent,
+  TrackingRecordTemplateComponent,
+  RecoverPasswordComponent,
+  NewPasswordComponent,
+  TextComponent,
+  ButtonComponent,
+  IconComponent,
+  TitleTerciarioComponent,
+  LinkComponent,
+  CalendarDoctorComponent  
  ],
 
 

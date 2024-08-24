@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SetLinksRegisterComponent {
 
-  forgotPasswordText: string = '¿Ya tienes una cuenta?';
-  registerText: string = 'Inicia Sesión';
+
+  registerText: string = 'Inicio Sesión';
 
   constructor(private router: Router) {}
 
