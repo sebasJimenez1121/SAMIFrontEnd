@@ -68,6 +68,17 @@
       }
     }
 
+    recoverPassword(email: string): Observable<any> {
+      return this.http.post(`${this.apiUrl}/recover-password`, { email });
+    }
+  
+    updatePassword(newPassword: string): Observable<any> {
+      const url = `${this.apiUrl}/update-password`; 
+      const body = { password: newPassword };
+      
+      return this.http.put(url, body);
+    }
+
     validateToken(): boolean {
       const token = localStorage.getItem('token');
       if (token) {
