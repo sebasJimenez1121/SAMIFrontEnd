@@ -7,9 +7,9 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PacienteService {
-  private apiUrl = 'http://localhost:10101'; // Cambia la URL según tu configuración real del backend
+  private apiUrl = 'http://localhost:10101';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {} // Inyectar AuthService
 
   // Obtener todos los pacientes
   getPatients(): Observable<Patient[]> {
@@ -18,11 +18,12 @@ export class PacienteService {
 
   // Registrar un nuevo paciente
   registrarPatient(patientData: any): Observable<Patient> {
-    return this.http.post<Patient>(`http://localhost:10101/patient/register`, patientData);
+    return this.http.post<Patient>(`${this.apiUrl}/patient/register`, patientData);
   }
 
+  // Obtener el perfil de un paciente por ID
   getPatientById(): Observable<{ patient: Patient }> {
-    return this.http.get<{patient: Patient}>(`${this.apiUrl}/patient/profile`);
+    return this.http.get<{ patient: Patient }>(`${this.apiUrl}/patient/profile`);
   }
 
   // Actualizar el perfil del paciente
@@ -30,26 +31,25 @@ export class PacienteService {
     return this.http.put<Patient>(`${this.apiUrl}/patient/updateProfile`, patient);
   }
 
+  // Actualizar foto de perfil
   updateProfilePicture(formData: FormData): Observable<any> {
     return this.http.put(`${this.apiUrl}/profile/picture`, formData);
   }
-  
+
+  // Deshabilitar cuenta del paciente
   disableAccount(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.put(`${this.apiUrl}/profile/disable`, {}, { headers });
   }
 
-  changePassword(token: string, passwords: { oldPassword: string, newPassword: string }): Observable<any> {
+  // Cambiar la contraseña del paciente
+  changePassword(token: string, passwords: { oldPassword: string; newPassword: string }): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.put(`${this.apiUrl}/profile/change-password`, passwords, { headers });
   }
-  
+
+  // Recuperar contraseña
   recoverPassword(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/recover-password`, { email });
   }
 }
-
-
-
-
-

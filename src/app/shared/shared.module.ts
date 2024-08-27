@@ -77,7 +77,7 @@ import { ModalComponent } from './components/atoms/modal/modal.component';
 import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
 import { HowToScheduleComponent } from './components/organisms/how-to-schedule/how-to-schedule.component';
 import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
-import { StepperContainerComponent } from './components/molecules/stepper-container/stepper-container.component';
+import { StepperContainerComponent } from './components/organisms/stepper-container/stepper-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
@@ -116,8 +116,6 @@ import { ModalAppointmentRegistrationComponent } from './components/organisms/mo
 import { RecoverPasswordComponent } from './components/organisms/recover-password/recover-password.component';
 import { NewPasswordComponent } from './components/organisms/new-password/new-password.component';
 import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
 
 @NgModule({
@@ -279,7 +277,8 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
   IconComponent,
   TitleTerciarioComponent,
   LinkComponent,
-  CalendarDoctorComponent  
+  CalendarDoctorComponent,
+  StepperContainerComponent 
  ],
 
 

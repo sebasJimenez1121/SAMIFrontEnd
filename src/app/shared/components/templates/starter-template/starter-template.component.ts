@@ -33,7 +33,7 @@ export class StarterTemplateComponent implements AfterViewInit {
     const typed = new Typed(".multiText", options);
   }
   ngOnInit(): void {
-    this.loadTopRankedDoctors();
+
   }
 
 
@@ -47,16 +47,6 @@ export class StarterTemplateComponent implements AfterViewInit {
     this.router.navigate(['/profile']);
   }
 
-  loadTopRankedDoctors(): void {
-    this.doctorService.loadTopRankedDoctors().subscribe(
-      recommendedDoctors => {
-        this.recommendedDoctors = recommendedDoctors;
-      },
-      error => {
-        console.error('Error al cargar los médicos mejor calificados:', error);
-      }
-    );
-  }
 
   scrollToSlider(): void {
     const slider = document.querySelector('main') as HTMLElement;

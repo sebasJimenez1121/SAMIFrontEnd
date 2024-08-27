@@ -29,7 +29,7 @@ export class CitaService {
   }
   // Obtener horas ocupadas para una cita específica por día
   getUnavailableHours(fechaCita: string) {
-    return this.http.get<{ horas: string[] }>(`http://localhost:10102/citas/hour`, {
+    return this.http.get<{ horas: string[] }>(`http://localhost:10102/cita/hour`, {
       params: { fechaCita },
     });
   }

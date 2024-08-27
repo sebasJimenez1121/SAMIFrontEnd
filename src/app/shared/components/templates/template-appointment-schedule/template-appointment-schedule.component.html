@@ -13,7 +13,7 @@
     <app-medical-card 
       *ngFor="let doctor of paginatedDoctors" 
       [doctor]="doctor" 
-      (click)="openModal(doctor)">
+      (click)="redirectToSchedulePage(doctor)">
     </app-medical-card>
   </div>
  

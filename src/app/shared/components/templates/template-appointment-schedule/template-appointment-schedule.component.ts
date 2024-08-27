@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
+import { DoctorService } from '../../../../core/service/doctor.service';
 
 @Component({
   selector: 'app-template-appointment-schedule',
@@ -21,7 +23,7 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   
   @Input() specialties: Specialty[] = [];
 
-  constructor(private specialtyService: SpecialtyService) {}
+  constructor(private doctorService: DoctorService, private router: Router, private specialtyService : SpecialtyService) {}
 
   ngOnInit(): void {
     this.loadSpecialties();
@@ -46,7 +48,8 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
     this.pageChange.emit(page);
   }
 
-  openModal(doctor: DoctorPublic) {
-    this.agendarCita.emit(doctor);
+  redirectToSchedulePage(doctor: DoctorPublic) {
+    this.doctorService.setDoctor(doctor);
+    this.router.navigate(['/stepper-agendamiento']);
   }
 }

@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   checkUserRole() {
     this.authService.getUserRole().subscribe(role => {
-      this.isPatient = role === 'patient'; // Verifica si el rol es "patient"
+      this.isPatient = role === 'paciente'; 
     }, error => {
       console.error('Error al obtener el rol del usuario:', error);
     });

@@ -7,28 +7,15 @@ import { Doctor } from '../../../../core/models/doctor.model';
   templateUrl: './home-paciente-template.component.html',
   styleUrl: './home-paciente-template.component.css'
 })
-export class HomePacienteTemplateComponent implements OnInit {
+export class HomePacienteTemplateComponent {
   recommendedDoctors: Doctor[] = [];
 
   constructor(private router: Router, private doctorService: DoctorService) {}
 
-  ngOnInit(): void {
-    this.loadTopRankedDoctors();
-  }
 
   onAvatarClick(): void {
     this.router.navigate(['/profile']);
   }
 
-  loadTopRankedDoctors(): void {
-    this.doctorService.loadTopRankedDoctors().subscribe(
-      recommendedDoctors => {
-        this.recommendedDoctors = recommendedDoctors;
-      },
-      error => {
-        console.error('Error loading top ranked doctors:', error);
-      }
-    );
-  }
 
 }

@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { SweetAlertService } from '../../../../core/service/sweet-alert.service';
-import { StepperContainerComponent } from '../../molecules/stepper-container/stepper-container.component';
+import { StepperContainerComponent } from '../../organisms/stepper-container/stepper-container.component';
 
 @Component({
   selector: 'app-modal-reservation-form',

@@ -16,6 +16,7 @@ import{TrackingRecordComponent }from'./features/features/gestion-citas/pages/tra
 import {RecoverPassworddComponent} from './features/features/home/pages/recover-passwordd/recover-passwordd.component';
 import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
+import { AppointmentSchedulePageComponentComponent } from './features/features/gestion-citas/pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'recover-passwordd', component: RecoverPassworddComponent},
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent },
 ];
 
 @NgModule({

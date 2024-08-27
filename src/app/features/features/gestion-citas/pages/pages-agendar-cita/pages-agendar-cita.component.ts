@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../../../../core/service/doctor.service';
 import { PacienteService } from '../../../../../core/service/paciente.service';
-import { Doctor, DoctorPublic } from '../../../../../core/models/doctor.model';
+import { DoctorPublic } from '../../../../../core/models/doctor.model';
 import { Patient } from '../../../../../core/models/patient.model';
 import { AuthService } from '../../../../../core/service/auth-service.service';
 import { SpecialtyService } from '../../../../../core/service/Specialty.service';
-
-
 
 interface Specialty {
   Codigo_Espc: string;
@@ -20,7 +18,7 @@ interface Specialty {
   styleUrls: ['./pages-agendar-cita.component.css']
 })
 export class PagesAgendarCitaComponent implements OnInit {
-   specialties: Specialty[] = [];
+  specialties: Specialty[] = [];
   codigoEspc: string | null = null;
   allDoctors: DoctorPublic[] = [];
   paginatedDoctors: DoctorPublic[] = [];
@@ -32,7 +30,6 @@ export class PagesAgendarCitaComponent implements OnInit {
   paciente!: Patient;
   rol: string = "";
 
-
   constructor(
     private doctorService: DoctorService,
     private authService: AuthService,
@@ -40,12 +37,12 @@ export class PagesAgendarCitaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.fetchSpecialties();
-    this.fetchDoctors();
+    this.obtenerEspecialidades();
+    this.obtenerDoctores();
     this.authService.getUserRole().subscribe({
-      next: (role) => {
-        console.log(role);
-        this.rol = role;
+      next: (rol) => {
+        console.log(rol);
+        this.rol = rol;
       },
       error: (err) => {
         console.error('Error obteniendo el rol:', err);
@@ -53,59 +50,62 @@ export class PagesAgendarCitaComponent implements OnInit {
     });
   }
 
-  fetchSpecialties() {
-    this.specialtyService.getSpecialties().subscribe((specialties: Specialty[]) => {
-      this.specialties = specialties;
+  obtenerEspecialidades() {
+    this.specialtyService.getSpecialties().subscribe((especialidades: Specialty[]) => {
+      this.specialties = especialidades;
     });
   }
 
-  fetchDoctors() {
-  this.doctorService.getDoctors().subscribe((doctors: any) => { 
-    if (Array.isArray(doctors)) {
-      this.allDoctors = doctors;
-    } else if (doctors && Array.isArray(doctors.doctors)) {
-      this.allDoctors = doctors.doctors;
+  obtenerDoctores() {
+    this.doctorService.getDoctors().subscribe((doctors: any) => {
+      console.log('Raw response from getDoctors:', doctors); // Verifica el formato de los datos recibidos
+      
+      if (Array.isArray(doctors)) {
+        this.allDoctors = doctors;
+      } else if (doctors && Array.isArray(doctors.doctors)) {
+        this.allDoctors = doctors.doctors;
+      } else {
+        console.error('Unexpected data format for doctors:', doctors);
+      }
+      this.aplicarFiltros();  // Aplica filtros iniciales
+    });
+  }
+
+  aplicarFiltros() {
+    let doctoresFiltrados = this.allDoctors;
+
+    if (this.codigoEspc && this.codigoEspc.trim() !== "0") {
+      doctoresFiltrados = doctoresFiltrados.filter(doctor => doctor.codigoEspc === this.codigoEspc);
     } 
-    this.applyFilters();  
-  });
-}
+    this.totalPages = Math.ceil(doctoresFiltrados.length / this.itemsPerPage);
+    this.paginarDoctores(doctoresFiltrados);
+    console.log('Doctores filtrados:', doctoresFiltrados);
+  }
 
-applyFilters() {
-  let filteredDoctors = this.allDoctors;
-
-  if (this.codigoEspc && this.codigoEspc.trim() !== "0") {
-    filteredDoctors = filteredDoctors.filter(doctor => doctor.codigoEspc === this.codigoEspc);
-  } 
-  this.totalPages = Math.ceil(filteredDoctors.length / this.itemsPerPage);
-  this.paginateDoctors(filteredDoctors);
-  console.log('Doctores filtrados:', filteredDoctors);
-}
-
-
-  paginateDoctors(doctors: DoctorPublic[]) {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = this.currentPage * this.itemsPerPage;
-    this.paginatedDoctors = doctors.slice(startIndex, endIndex);
-    console.log('Paginated doctors:', this.paginatedDoctors);
+  paginarDoctores(doctores: DoctorPublic[]) {
+    const indiceInicio = (this.currentPage - 1) * this.itemsPerPage;
+    const indiceFin = this.currentPage * this.itemsPerPage;
+    this.paginatedDoctors = doctores.slice(indiceInicio, indiceFin);
+    console.log('Doctores paginados:', this.paginatedDoctors);
   }
 
   onSpecialtyChange(codigoEspc: string) {
     this.codigoEspc = codigoEspc;
     this.currentPage = 1;
-    this.applyFilters();
+    this.aplicarFiltros();
   }
 
-  onPageChange(page: number) {
-    this.currentPage = page;
-    this.applyFilters();
+  onPageChange(pagina: number) {
+    this.currentPage = pagina;
+    this.aplicarFiltros();
   }
 
-  openModal(doctor: DoctorPublic): void {
+  abrirModal(doctor: DoctorPublic): void {
     this.selectedDoctor = doctor;
     this.showModal = true;
   }
 
-  closeModal(): void {
+  cerrarModal(): void {
     this.showModal = false;
   }
 }
