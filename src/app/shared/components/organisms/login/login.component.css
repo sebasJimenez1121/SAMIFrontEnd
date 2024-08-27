@@ -19,10 +19,10 @@
 @media only screen and (min-width: 352px) and (max-width: 480px) {
   .form-container[_ngcontent-ng-c4181841166] {
     width: 28%;
-    height: 73vh;
+    height: 51vh;
     position: relative;
-    right: 17rem;
-    top: -2rem;
+    right: 16rem;
+    top: 3rem;
 }
 }
 
@@ -39,11 +39,11 @@
 
 @media only screen and (min-width: 769px) and (max-width: 920px) {
   .form-container[_ngcontent-ng-c4181841166] {
-  width: 50%;
-  height: 59vh;
-  position: relative;
-  top: 6rem;
-  right: 4rem;
+    width: 50%;
+    height: 46vh;
+    position: relative;
+    top: 10rem;
+    right: 1rem;
   }
 }
 

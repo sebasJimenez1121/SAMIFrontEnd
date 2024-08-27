@@ -8,7 +8,7 @@ nav{
   border-radius: 1.4rem;
   width: 65rem;
   height: 4rem;
-  margin: 3rem 0rem 0rem 15rem;
+  margin: 3rem 0rem 0rem 19rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +24,7 @@ app-title-terciario{
   
   display: flex;
   justify-content: center;
-  margin: 4rem 0rem 0rem 0rem;
+  margin: 4rem 0rem 0rem 14rem;
 }
 app-button {
   position: relative;
@@ -45,13 +45,13 @@ app-image{
   border-radius: 0.4rem;
   width: 68rem;
   height: 17rem;
-  margin: 5rem 0rem 0rem 15rem;
+  margin: 5rem 0rem 0rem 19rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: relative; 
-  color: white; 
+  position: relative;
+  color: white;
 }
 .text-container {
   flex: 1;
@@ -100,7 +100,7 @@ app-image{
   }
   hr{
     width: 70rem;
-    margin:2rem 0rem 0rem 14rem;;
+    margin: 1rem 3rem 1rem 18rem;
     border: 0;
     border-bottom: 0.063rem solid #aab2c869;
   }
@@ -146,15 +146,17 @@ app-image{
   }
   @media only screen and (min-width: 352px) and (max-width: 480px) {
   nav{
-    background-color: #d9d9d924;
-    border-radius: 1.4rem;
-    width: 20rem;
-    height: 4rem;
-    margin: 3rem 0rem 0rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.4rem 2.5rem;
+   
+      background-color: #d9d9d924;
+      border-radius: 1.4rem;
+      width: 17rem;
+      height: 4rem;
+      margin: 0rem 0rem 0rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 2.5rem;
+ 
   }
 
 
@@ -171,12 +173,12 @@ app-image{
    
 
   .section1 {
-        width: 24rem;
-        height: 31rem;
-        margin: 4rem 0rem 0rem 0rem;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
+    width: 22rem;
+    height: 13rem;
+    margin: 4rem 0rem 0rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
  
   .image-container {
@@ -196,12 +198,17 @@ app-image{
   
   .image-foreground {
     position: relative;
-    width: 27rem;
-    top: 1.5rem;
+    width: 17rem;
+    left: 2rem;
+    top: 0.8rem;
   }
-  
+  .title[_ngcontent-ng-c3156541045] {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0rem 0rem 1rem;
+}
     hr{
-      width: 25rem;
+      width: 21rem;
       margin: 2rem 0rem 0rem 0rem;
     }
   
@@ -209,7 +216,7 @@ app-image{
       margin: 1rem 1rem 1rem 1rem;
     }
     
-   
+  
     .container{
       display: flex;
       margin: 4rem 0rem 0rem 0rem;
@@ -298,15 +305,9 @@ app-image{
   
   @media only screen and (min-width: 769px) and (max-width: 920px) {
     nav{
-      background-color: #d9d9d924;
-      border-radius: 1.4rem;
-      width: 41rem;
+      width: 34rem;
       height: 4rem;
-      margin: 3rem 0rem 0rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.4rem 2.5rem;
+      margin: 3rem 0rem 0rem 14rem;
     }
   
   
@@ -326,12 +327,12 @@ app-image{
   }
   
     .section1 {
-          width: 46rem;
-          height: 31rem;
-          margin: 4rem 0rem 0rem 0rem;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
+      width: 38rem;
+      height: 31rem;
+      margin: 4rem 0rem 0rem 14rem;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
     }
    
     .image-container {
@@ -356,21 +357,26 @@ app-image{
     }
     
       hr{
-        width: 43rem;
-        margin: 2rem 0rem 0rem 0rem;
+        width: 37rem;
+        margin: 2rem 0rem 0rem 14rem;
       }
     
-      app-button{
-        margin: 1rem 1rem 1rem 1rem;
-      }
-      
+      app-button[_ngcontent-ng-c3156541045] {
+        margin: 1rem 0rem 5rem 15rem;
+    }
      
       .container{
         display: flex;
         margin: 4rem 0rem 0rem 8rem;
-        flex-direction: column;
         position: relative;
         right: 7rem;
+        flex-wrap: wrap;
+        padding: 1rem;
+      }
+      .title{
+        display: flex;
+    justify-content: center;
+    margin: 4rem 0rem 0rem 13rem;
       }
   }
   

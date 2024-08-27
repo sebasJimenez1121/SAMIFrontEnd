@@ -111,6 +111,7 @@ import { NewPasswordComponent } from './components/organisms/new-password/new-pa
 import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -218,7 +219,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     ModalAppointmentRegistrationComponent,
     RecoverPasswordComponent,
     NewPasswordComponent,
-    CalendarDoctorComponent  
+    CalendarDoctorComponent,
+    HamburgerMenuComponent  
   ],
   imports: [
     CommonModule,

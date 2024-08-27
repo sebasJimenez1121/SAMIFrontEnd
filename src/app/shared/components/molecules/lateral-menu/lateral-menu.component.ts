@@ -13,6 +13,7 @@ export class LateralMenuComponent implements OnInit {
   @Output() actionTriggered: EventEmitter<string> = new EventEmitter();
 
   isSidebarClosed = false;
+  isHamburgerMenu = false;
   selectedItem: any = null;
   hoveredItem: any = null;
   showProgress: boolean = false;
@@ -21,6 +22,13 @@ export class LateralMenuComponent implements OnInit {
 
   ngOnInit() {
     this.updateMenuItems();
+    this.checkScreenSize();
+    window.addEventListener('resize', () => this.checkScreenSize());
+  }
+
+  checkScreenSize() {
+    const width = window.innerWidth;
+    this.isHamburgerMenu = width <= 920; // Ajusta según el punto de quiebre deseado
   }
 
   toggleSidebar() {
@@ -78,9 +86,9 @@ export class LateralMenuComponent implements OnInit {
           timer: 3000,
           timerProgressBar: true,
           toast: true,
-          position: 'top', 
-          background:"#C6F0C2",
-          iconColor:"#1C5314",
+          position: 'top',
+          background: "#C6F0C2",
+          iconColor: "#1C5314",
         });
       } catch (error) {
         console.error('Error durante el cierre de sesión:', error);

@@ -5,3 +5,37 @@ img {
     margin: 0rem;
 }
   
+
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    img[_ngcontent-ng-c1257580600] {
+        width: 69%;
+        margin: 0rem 1rem 0rem 1rem;
+    }
+    
+    
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+ 
+  }
+  
+  @media (min-width: 769px) and (max-width: 920px) {
+
+  }
+  
+  @media (min-width: 921px) and (max-width: 1279px) {
+ 
+  }
+  
+  @media (min-width: 1280px) {
+ 
+  }
+  
+  
+  
+  
+  
+  
+  

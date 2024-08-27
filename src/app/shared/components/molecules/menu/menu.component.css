@@ -87,7 +87,7 @@ a:hover::after {
 
     
 .menu-button {
-  background-color: #418E6D;
+  background-color: #1242aa;
   border: none;
   width: 40px;
   height: 40px;
@@ -115,7 +115,7 @@ a:hover::after {
 .close-icon {
   display: none;
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
   position: absolute;
   top: 50%;
   left: 50%;

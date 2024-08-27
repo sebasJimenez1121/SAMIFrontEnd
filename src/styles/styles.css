@@ -58,5 +58,24 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  p {
+    font-size: 0.5rem;
+  }
+
+}
+
+
+
 html, body { height: 100%;  scroll-behavior: smooth;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

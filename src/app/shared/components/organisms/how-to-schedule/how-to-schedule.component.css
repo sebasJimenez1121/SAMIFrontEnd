@@ -49,16 +49,34 @@ app-image {
 }
 
 @media only screen and (min-width: 352px) and (max-width: 480px) {
- 
+  .contenedor1[_ngcontent-ng-c3707699708] {
+    display: flex;
+    align-items: center;
+    padding: 0rem;
+    width: 16rem;
+    position: relative;
+    left: 1rem;
+}
+
+.p {
+  font-size: 0.8rem;
+}
+app-image[_ngcontent-ng-c3707699708] {
+  display: none;
+}
+
   
   .section2 {
     background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
     color: white;
     padding: 5rem 2rem;
-    width: 18rem;
+    width: 19.5rem;
 }
 .text-comment{
-  font-size: 1rem;
+  font-size: 0.5rem;
+}
+app-video-tutorial{
+  display: none;
 }
 }
 
@@ -67,15 +85,45 @@ app-image {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 920px) {
+  .section2 {
+    background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    color: white;
+    padding: 5rem 2rem;
+    width: 51rem;
+}
+.contenedor1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.text-comment {
+  font-size: 1rem;
+  margin: 0rem 0rem 0rem 6.313rem;
+}
 
 }
 
 @media only screen and (min-width: 921px) and (max-width: 1279px) {
   .section2{
-    width: 53rem;
+    width: 69rem;
+}
+.contenedor1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+app-image[_ngcontent-ng-c3707699708] {
+  position: relative;
+  top: 4rem;
+  left: 0rem;
 }
 }
 
 @media only screen and (min-width: 1280px) {
-
+  .section2{
+    background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    color: white;
+    padding: 5rem 2rem;
+    width: 90rem;
+  }
 }

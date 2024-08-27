@@ -24,3 +24,80 @@
   .p{
     color: #5A5D5F;
   }
+
+
+
+
+  .section--1[_ngcontent-ng-c2702936065] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0rem;
+    flex-direction: column-reverse;
+}
+
+
+
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .section--1[_ngcontent-ng-c2702936065] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0rem;
+    flex-direction: column-reverse;
+}
+app-image[_ngcontent-ng-c2702936065][_ngcontent-ng-c2702936065] {
+  width: 20.25rem;
+  margin-left: 10rem;
+}
+.p {
+  font-size: 0.8rem;
+}
+.info-doctor[_ngcontent-ng-c2702936065] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 14.25em;
+  position: relative;
+  bottom: 2.5rem;
+}
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .section--1[_ngcontent-ng-c2702936065] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0rem;
+    flex-direction: column-reverse;
+}
+app-image[_ngcontent-ng-c2702936065] {
+  width: 17.25rem;
+  margin-right: 1.25rem;
+}
+
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+
+}
+
+@media (min-width: 921px) and (max-width: 1279px) {
+ 
+}
+
+@media (min-width: 1280px) {
+  .section--1[_ngcontent-ng-c2702936065] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 0rem;
+    flex-direction: row;
+}
+}
+
+
+

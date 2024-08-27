@@ -1,0 +1,13 @@
+<button class="menu-toggle" (click)="toggleMenu()">
+    <span class="menu-icon"></span>
+    <span class="menu-icon"></span>
+    <span class="menu-icon"></span>
+</button>
+<nav [class.show]="isMenuOpen" class="menu">
+    <ul>
+        <li><a routerLink="/inicio" (click)="toggleMenu()">Inicio</a></li>
+        <li><a routerLink="/perfil" (click)="toggleMenu()">Perfil</a></li>
+        <li><a routerLink="/configuracion" (click)="toggleMenu()">Configuración</a></li>
+        <li><a (click)="logout()">Cerrar Sesión</a></li>
+    </ul>
+</nav>

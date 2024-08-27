@@ -1,42 +1,25 @@
-<header class="header" *ngIf="!authService.isPatient(); else patientHeader">
-    <img src="../../../../../assets/images/logo.png">
+<header class="header">
+    <img src="../../../../../assets/images/logo.png" alt="Logo">
+    <nav class="desktop-menu">
+      <app-menu></app-menu>
+    </nav>
     <button class="menu-toggle" (click)="toggleMenu()">
-        <span class="menu-icon"></span>
-        <span class="menu-icon"></span>
-        <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
+      <span class="menu-icon"></span>
     </button>
-    <app-menu class="menu"></app-menu>
-    <div class="button">
-        <app-set-buttons></app-set-buttons>
-    </div>
-</header>
-
-<ng-template #patientHeader>
-    <header class="header">
-        <img src="../../../../../assets/images/logo.png">
-        <button class="menu-toggle" (click)="toggleMenu()">
-            <span class="menu-icon"></span>
-            <span class="menu-icon"></span>
-            <span class="menu-icon"></span>
-        </button>
-        <app-menu class="menu"></app-menu>
-        <div class="content-set">
-            <div class="button">
-                <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
-            </div>
-            <div class="extra-content" *ngIf="!isSidebarClosed">
-                <div (click)="logout()">
-                    <a class="content-session">
-                        <div class="sidebar-menu-content">
-                            <app-icon iconUrl="../../../../../assets/icons/exit-svgrepo-com.svg" alt="Cerrar Sesión" class="menu-img"></app-icon>
-                        </div>
-                        <span class="color-session">Cerrar Sesión</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-</ng-template>
-
-<app-modal-perfil-paciente *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-paciente>
-<app-feedback-progess *ngIf="showProgress"></app-feedback-progess>
+    <nav [class.show]="isMenuOpen" class="hamburger-menu">
+      <ul>
+        <li><a routerLink="/home" (click)="toggleMenu()">Inicio</a></li>
+        <li><a routerLink="/gestion-cita" (click)="toggleMenu()">Gestión de Cita</a></li>
+        <li><a routerLink="/registro-seguimiento" (click)="toggleMenu()">Registro Seguimiento</a></li>
+        <li><a routerLink="/doctors-profiles" (click)="toggleMenu()">Médicos</a></li>
+        <li><a (click)="toggleMenu()">Cerrar Menú</a></li>
+        <li *ngIf="isPatient"><a (click)="logout()">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+    <app-set-buttons></app-set-buttons>
+  </header>
+  <app-modal-perfil-paciente *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-paciente>
+  <app-feedback-progess *ngIf="showProgress"></app-feedback-progess>
+  

@@ -114,6 +114,11 @@ app-button {
     padding: 0rem 0rem 0rem 3rem;
     
   }
+  app-button[_ngcontent-ng-c3245456279][_ngcontent-ng-c3245456279] {
+    position: relative;
+    left: 7.8rem;
+    top: 2rem;
+}
   
 }
 

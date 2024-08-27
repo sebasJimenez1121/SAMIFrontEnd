@@ -4,3 +4,13 @@
     background: #DBE9FE;
     border-radius: 0.938rem;
 }
+
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    app-image[_ngcontent-ng-c3614419121] {
+        width: 11rem;
+        position: relative;
+        left: 0.5rem;
+    }
+}

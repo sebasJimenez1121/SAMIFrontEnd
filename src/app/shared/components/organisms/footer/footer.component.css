@@ -15,3 +15,54 @@ hr{
     width: 340%;
     margin: auto;
 }
+
+
+  
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    hr {
+        position: relative;
+        left: 1rem;
+            width: 79%;
+        }
+        app-list-footer{
+            display: none;
+        }
+  }
+  
+  /* Estilos responsivos para pantallas pequeñas (teléfonos móviles) */
+  @media only screen and (max-width: 480px) {
+ 
+  }
+  
+  /* Estilos para tabletas (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+   
+  }
+  
+  /* Estilos para pantallas medianas (769px - 920px) */
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+ 
+    hr {
+    position: relative;
+    left: 1rem;
+        width: 250%;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+  
+    hr {
+    
+        width: 80%;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 1280px) {
+    
+  
+  
+  }
+  
+  
