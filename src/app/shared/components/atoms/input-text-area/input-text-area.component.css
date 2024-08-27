@@ -18,3 +18,10 @@ textarea {
     border-color: #203B8F; 
   }
   
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+    textarea{
+      height: 1.5em;
+      padding: 4px;
+    }
+
+  }
