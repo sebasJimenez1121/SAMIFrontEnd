@@ -18,4 +18,20 @@
     height: auto;
     margin-bottom: 1rem;
   }
-  
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+    .empty-state-image {
+        width: 11rem;
+        height: auto;
+        position: relative;
+        margin-bottom: 2rem;
+        left: 12rem;
+    }
+    p {
+      position: relative;
+      left: 13rem;
+      bottom: 2rem;
+      width: 9rem;
+      font-size: 0.6rem;
+  }
+     }
+    

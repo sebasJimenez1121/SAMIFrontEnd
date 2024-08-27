@@ -15,3 +15,39 @@
     width: 30rem;
   } 
  
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .white-title{
+    font-size: 1rem;
+  }
+  .custom-title {
+    font-size: 1rem;
+    font-size: 1rem;
+    width: 9rem;
+    position: relative;
+    top: 2rem;
+    right: 5rem;
+  } 
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+
+}
+
+@media (min-width: 921px) and (max-width: 1279px) {
+ 
+}
+
+@media (min-width: 1280px) {
+
+}
+
+
+
+
+
+

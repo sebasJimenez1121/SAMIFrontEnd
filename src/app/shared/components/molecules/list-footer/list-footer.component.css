@@ -35,3 +35,16 @@
   .list a:hover {
     color: #61A3F9;
   }
+
+  
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .footer-list{
+    width: 14rem;
+    position: relative;
+    right: 20rem;
+}
+}
+
+

@@ -40,19 +40,17 @@ right: 1rem;
 @media only screen and (min-width: 352px) and (max-width: 480px) {
   .logo {
     position: relative;
-    right: 47rem;
-    bottom: 20.8rem;
+    right: 46rem;
+    bottom: 15.8rem;
     width: 4rem;
     content: url('../../../../../assets/images/favicon.png'); 
   }
-  app-link {
-    display: none;
-  }
+ 
 
   .logout-icon {
     position: fixed;
     left: 11rem;
-    top: 2rem;
+    bottom: 11rem;
   }
 }
 
@@ -74,15 +72,15 @@ right: 1rem;
 @media only screen and (min-width: 769px) and (max-width: 920px) {
   .logo{
     position: relative;
-    right: 38rem;
-    bottom: 18rem;
+    right: 35rem;
+    bottom: 14rem;
     width: 12rem;
   }
-  .logout-icon{
+  .logout-icon[_ngcontent-ng-c531466275] {
     position: fixed;
-    left: 33rem;
-    bottom: 17rem;
-  }
+    left: 37rem;
+    bottom: 32rem;
+}
 }
 
 @media only screen and (min-width: 921px) and (max-width: 1279px) {

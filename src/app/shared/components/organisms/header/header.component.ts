@@ -15,16 +15,18 @@ export class HeaderComponent implements OnInit {
   isSidebarClosed = false;
   hoveredItem: any = null;
   isMenuOpen = false;
+  isPatient: boolean = false; // Propiedad para verificar si es un paciente
+
   constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
-
-  toggleSidebar() {
-    this.isSidebarClosed = !this.isSidebarClosed;
+  ngOnInit(): void {
+    this.checkUserRole(); // Verificar el rol del usuario al inicializar el componente
   }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-}
+  }
+
   showTooltip(item: any) {
     if (this.isSidebarClosed) {
       this.hoveredItem = item;
@@ -39,6 +41,14 @@ export class HeaderComponent implements OnInit {
     this.isProfileModalOpen = false;
   }
 
+  checkUserRole() {
+    this.authService.getUserRole().subscribe(role => {
+      this.isPatient = role === 'patient'; // Verifica si el rol es "patient"
+    }, error => {
+      console.error('Error al obtener el rol del usuario:', error);
+    });
+  }
+
   async logout() {
     const result = await Swal.fire({
       title: '¿Está seguro?',
@@ -50,6 +60,7 @@ export class HeaderComponent implements OnInit {
       cancelButtonText: 'No, mantener sesión',
       reverseButtons: true
     });
+    this.isMenuOpen = false;
 
     if (result.isConfirmed) {
       this.showProgress = true;
@@ -64,9 +75,9 @@ export class HeaderComponent implements OnInit {
           timer: 3000,
           timerProgressBar: true,
           toast: true,
-          position: 'top', 
-          background:"#C6F0C2",
-          iconColor:"#1C5314",
+          position: 'top',
+          background: "#C6F0C2",
+          iconColor: "#1C5314",
         });
       } catch (error) {
         console.error('Error durante el cierre de sesión:', error);

@@ -21,7 +21,7 @@ export class CitaService {
 
   // Obtener todas las citas
   getCitas(): Observable<Appointment[]> {
-    return interval(10000) // Consulta cada 10 segundos
+    return interval(1000000) // Consulta cada 10 segundos
       .pipe(
         startWith(0), // Empezar inmediatamente al suscribirse
         switchMap(() => this.http.get<Appointment[]>(this.apiUrl))

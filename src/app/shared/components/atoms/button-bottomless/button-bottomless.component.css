@@ -23,7 +23,25 @@ button:hover {
   color: #fff;
 }
 @media only screen and (min-width: 352px) and (max-width: 480px) {
-
+  button {
+    text-align: center;
+    --color: #1F3FAE;
+    display: inline-block;
+    height: 1.5rem;
+    width: 4rem; 
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.5rem;
+    z-index: 1;
+    color: var(--color);
+    border: 0.125rem solid var(--color);
+    border-radius: 0.625rem;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #fff;
+  }
 }
 
 

@@ -100,18 +100,19 @@
       margin: 4rem 0 0 0;
     }
     select {
-      width: 100%;
+      width: 68%;
       margin: 1rem 0;
+      font-size: 0.5rem;
     }
     
-.section1 {
-  width: 20rem;
-  height: 22rem;
-  margin: 9rem 0rem 0rem 0rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .section1 {
+      width: 20rem;
+      height: 13rem;
+      margin: 5rem 0rem 0rem 0rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
   .text-container {
     margin: 0rem 0rem 0rem 1rem;
   }
@@ -121,13 +122,19 @@
     align-items: center;
   }
  
-  .image-foreground {
-    width: 21.6rem;
+  .image-foreground[_ngcontent-ng-c3295672346] {
+    width: 20rem;
     top: 1rem;
-  }
+    left: 2rem;
+}
   p{
     font-size: 0.65rem;
   }
+  .filtro[_ngcontent-ng-c3295672346] {
+    margin: 0;
+    top: 2rem;
+    padding: 0 3rem;
+}
   }
   
   @media (min-width: 481px) and (max-width: 768px) {
@@ -192,7 +199,7 @@
       margin: 1.2rem 0;
     }
     .section1 {
-      width: 46rem;
+      width: 53rem;
       height: 22rem;
       margin: 9rem 0rem 0rem 0rem;
       display: flex;
@@ -227,7 +234,7 @@
     .filtro {
       margin: 0;
       top: 4.5rem;
-      padding: 0 3.5rem;
+      padding: 0 12.5rem;
     }
     .container {
       margin: 8rem 0 0 0;
@@ -237,28 +244,31 @@
       margin: 1.3rem 0;
     }
     .section1 {
-      width: 55.2rem;
+      width: 71rem;
       height: 22rem;
       margin: 9rem 0rem 0rem 0rem;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
     }
       .text-container {
         margin: 0rem 0rem 0rem 2rem;
         padding: 1rem;
       }
+      .image-background{
+       display: none;
+    }
       .image-container {
-        width: 27rem;
-        position: relative; 
+        width: 33rem;
+        position: relative;
         display: flex;
         align-items: center;
       }
      
       .image-foreground {
-        width: 26.6rem;
+        width: 32.6rem;
         left: 0rem;
-        top: 1rem;
+        top: 2.4rem;
       }
       p{
         font-size: 1rem;

@@ -26,3 +26,12 @@
 app-image{
     position: relative;
 }
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+ .title{
+    font-size: 0.5rem;
+    width: 48%;
+    left: 24%;
+ }
+  }
+  

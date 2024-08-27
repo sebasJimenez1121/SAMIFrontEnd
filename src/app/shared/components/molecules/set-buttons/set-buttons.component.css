@@ -8,10 +8,11 @@
 
 @media only screen and (max-width: 480px) {
     .buttom-space{
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-        right: 4.5rem;
+      display: flex;
+      justify-content: space-evenly;
+      position: relative;
+      right: 4rem;
+      width: 15rem;
     }
   }
   
@@ -26,11 +27,13 @@
   }
   
   @media only screen and (min-width: 769px) and (max-width: 920px) {
-    .buttom-space{
+   
+      .buttom-space[_ngcontent-ng-c1218290297] {
         display: flex;
         justify-content: space-evenly;
         position: relative;
-        right: 4.5rem;
+        right: 11.5rem;
+        width: 27rem;
     }
   }
   
@@ -45,10 +48,12 @@
   
   @media only screen and (min-width: 1280px) {
     .buttom-space{
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-        right: 4.5rem;
+      display: flex;
+      justify-content: space-evenly;
+      position: relative;
+      right: 4.5rem;
+      width: 28rem;
+
     }
   }
   

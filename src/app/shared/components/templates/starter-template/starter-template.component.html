@@ -1,19 +1,19 @@
 <main>
-<div class="wrapper">
-  <div class="cols cols0">
-    <span class="topline">Bienvenidos al</span>
-    <h1><span class="multiText"></span></h1>
-     <app-text-field [titleClass]="titleClass" content="tu plataforma para gestionar tu salud de manera fácil y segura. Agenda citas, accede a tu historial clínico y recibe recordatorios, todo en un solo lugar. Simplifica tu atención médica con tecnología avanzada y personalizada. "></app-text-field>
+  <div class="wrapper">
+    <div class="cols cols0">
+      <span class="topline">Bienvenidos al</span>
+      <h1><span class="multiText"></span></h1>
+      <app-text-field [titleClass]="titleClass" content="tu plataforma para gestionar tu salud de manera fácil y segura. Agenda citas, accede a tu historial clínico y recibe recordatorios, todo en un solo lugar. Simplifica tu atención médica con tecnología avanzada y personalizada."></app-text-field>
+    </div>
+    <div class="cols cols1">
+      <div class="imgbox">
+        <img src="" alt="" id="splash">
+        <img src="../../../../../assets/images/imagehome.png">
+      </div>
+    </div>
   </div>
-<div class=" cols cols1">
-  <div class="imgbox">
-    <img src="" alt="" id="splash">
-    <img src="../../../../../assets/images/imagehome.png">
-  </div>
-
-</div>
-</div>
 </main>
+
 <div class="section3">
   <div class="section-short">
     <app-title-secundari class="title-secundari" titleText="Servicios"></app-title-secundari>
@@ -25,13 +25,17 @@
     <app-service-card titulo="Recordatorios de Medicación Personalizados" content="Recordatorios personalizados." img="../../../../../assets/images/alarma.png"></app-service-card>
   </div>
 </div>
+
 <app-chatbot></app-chatbot>
+
 <div class="section2">
   <app-about-us></app-about-us>
 </div>
+
 <div class="section5">
   <app-how-to-schedule></app-how-to-schedule>
 </div>
+
 <section class="section6">
   <div class="section-short">
     <app-title-secundari class="title-secundari" titleText="Médicos Recomendados"></app-title-secundari>
@@ -41,6 +45,7 @@
     <app-recommended-card *ngFor="let doctor of recommendedDoctors" [doctor]="doctor"></app-recommended-card>
   </div>
 </section>
+
 <section class="section4">
   <div class="section-short">
     <app-title-secundari class="title-secundari" titleText="Comentarios sobre nuestros médicos"></app-title-secundari>
@@ -49,14 +54,14 @@
   </div>
   <div class="container-cards">
     <app-doctor-comments></app-doctor-comments>
-   
   </div>
 </section>
-<app-footer ></app-footer>
+
+<app-footer></app-footer>
+
 <div class="scroll-indicators">
   <div class="indicator" *ngFor="let section of sections; let i = index" 
        [class.active]="i === currentIndex"
        (click)="scrollToSection(section)">
   </div>
 </div>
-

@@ -80,7 +80,7 @@ export class StarterTemplateComponent implements AfterViewInit {
         this.scrollToSection('main');
         this.scrolling = false; 
       } else {
-        this.scrolling = false; // Stop the cycle after scrolling through all sections
+        this.scrolling = false; 
       }
     };
 
