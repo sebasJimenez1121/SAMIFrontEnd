@@ -1,8 +1,46 @@
-<div>
-    <app-title-secundari [titleText]="'$45.500 COP'"></app-title-secundari>
-    <p>doctor {{doctor.Id}}</p>
-    <p>paciente {{patient.Id}}</p>
-    <p>dia {{date}}</p>
-    <p>tiempo {{time}}</p>
-</div>
+<div class="appointment-card">
+    <div class="doctor-section">
+      <div class="doctor-photo">
+        <app-title-terciario [titleText]="'Medico'"></app-title-terciario>
+        <app-image-card-recommended-doctors [img]="doctor.imgUrl"></app-image-card-recommended-doctors>
+      </div>
+      <div class="doctor-info">
+        <h4>Dr.Yiner Perez</h4>
+        <p>oftalmología</p>
+      </div>
+    </div>
+    <div class="appointment-details">
+    <div class="detail-row">
+        <div>
+            <app-label [content]="'Paciente'"></app-label>
+            <app-text [content]="'patient.Nombre'"></app-text>
+        </div>
+        <div>
+            <app-label [content]="'Documento'"></app-label>
+            <app-text [content]="'patient.Documento'"></app-text>
+        </div>
+    </div>
+    <div class="detail-row">
+        <div>
+            <app-label [content]="'Fecha y Hora'"></app-label>
+            <app-text [content]="'date'"></app-text>
+        </div>
+        <div>
+            <app-label [content]="'Valor Cita'"></app-label>
+            <app-text [content]="doctor.valorCita + ''"></app-text>
+        </div>
 
+    </div>
+    <div class="detail-row">
+        <div class="label">Método De Pago:</div>
+        <div class="value">Pago Virtual</div>
+        <div class="label">Estado de Pago:</div>
+        <div class="value">Pago</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">Motivo:</div>
+        <div class="value">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</div>
+      </div>
+    </div>
+  </div>
+  

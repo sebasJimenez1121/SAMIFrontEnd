@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Patient } from '../models/patient.model';
+import { Patient, updatePatient } from '../models/patient.model';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class PacienteService {
   }
 
   // Actualizar el perfil del paciente
-  actualizarPatient(patient: Patient): Observable<Patient> {
+  actualizarPatient(patient: updatePatient): Observable<Patient> {
     return this.http.put<Patient>(`${this.apiUrl}/patient/updateProfile`, patient);
   }
 

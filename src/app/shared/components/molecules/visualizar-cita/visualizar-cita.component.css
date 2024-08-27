@@ -1,0 +1,49 @@
+.appointment-card {
+    display: flex;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .doctor-section {
+    width: 35%;
+    text-align: center;
+  }
+  
+  .doctor-photo img {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+  
+  .doctor-info h3 {
+    color: #2d6cdf;
+    margin-bottom: 5px;
+  }
+  
+  .doctor-info h4 {
+    margin-bottom: 5px;
+  }
+  
+  .appointment-details {
+    width: 60%;
+    margin-left: 20px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #2d6cdf;
+    width: 30%;
+  }
+  
+  .value {
+    width: 60%;
+  }
+  

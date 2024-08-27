@@ -30,6 +30,7 @@ button:disabled {
   cursor: not-allowed;
   background-image: none; 
 }
+
 @media only screen and (min-width: 352px) and (max-width: 480px) {
   button{
   font-size: 0.5rem;

@@ -1,17 +1,11 @@
 <div class="container-cita">
     <div class="container-doctor">
-        <app-image [imageUrl]="doctor.imgUrl" [ngClass]="{'img': true}" ></app-image>
-        <div class="container-content">
-            <app-label [content]="doctor.nombre"></app-label>
-            <app-text [content]="doctor.especialidad"></app-text>
-            <div class="coment-rating">
-                <app-text [content]="'Tarjeta Prof: ' + doctor.tarjetaProf" ngClass="Tarjeta" [class]="'tarjeta'"></app-text>
-            </div>
-            <app-text class="costo-cita" [content]="'Valor cita:'+ ' $' + doctor.valorCita + '  COP'"></app-text>
-        </div>
+        <app-image-card-recommended-doctors [img]="doctor.imgUrl"></app-image-card-recommended-doctors>
+        <app-label [content]="doctor.nombre + ' ' + doctor.apellido"></app-label>
+        <app-text [content]="doctor.especialidad"></app-text>
+        <app-text class="costo-cita" [content]="'Valor cita:'+ ' $' + doctor.valorCita + '  COP'"></app-text>
     </div>
-    <div class="calendario">
+    <div class="calendar">
         <app-input-date></app-input-date>
     </div>
-     
 </div>

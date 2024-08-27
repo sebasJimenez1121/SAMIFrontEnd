@@ -104,6 +104,13 @@ import { DoctorsProfilesTemplateComponent } from './components/templates/doctors
 import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
 import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
 import { ModalPerfilDoctorComponent } from './components/organisms/modal-perfil-doctor/modal-perfil-doctor.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { CheckoutComponent } from './components/atoms/checkout/checkout.component';
 import { TrackingRecordTemplateComponent } from './components/templates/tracking-record-template/tracking-record-template.component';
 import { ModalAppointmentRegistrationComponent } from './components/organisms/modal-appointment-registration/modal-appointment-registration.component';
 import { RecoverPasswordComponent } from './components/organisms/recover-password/recover-password.component';
@@ -112,6 +119,7 @@ import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
+
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -215,6 +223,7 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
     ModalPerfilDoctorComponent,
+    CheckoutComponent,
     TrackingRecordTemplateComponent,
     ModalAppointmentRegistrationComponent,
     RecoverPasswordComponent,
@@ -228,7 +237,15 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     RouterModule,
     CoreModule,
     ReactiveFormsModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, 
   ],
  exports:[
   HeaderComponent,

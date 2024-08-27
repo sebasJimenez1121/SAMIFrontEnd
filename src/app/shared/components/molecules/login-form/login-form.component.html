@@ -4,6 +4,13 @@
       <app-title-terciario for="text" [titleText]="'Inicio Sesión'"></app-title-terciario>
     </div>
 
+    <!-- Botones de perfil -->
+    <div class="profile-buttons">
+      <button type="button" class="profile-button" [ngClass]="{'active': selectedProfile === 'paciente'}" (click)="selectProfile('paciente')">Paciente</button>
+      <button type="button" class="profile-button" [ngClass]="{'active': selectedProfile === 'admin'}" (click)="selectProfile('admin')">Admin</button>
+      <button type="button" class="profile-button" [ngClass]="{'active': selectedProfile === 'medico'}" (click)="selectProfile('medico')">Doctor</button>
+    </div>
+
     <div class="form-group">
       <app-label for="documento" content="Número de Documento o Correo Electrónico:"></app-label>
       <app-input 

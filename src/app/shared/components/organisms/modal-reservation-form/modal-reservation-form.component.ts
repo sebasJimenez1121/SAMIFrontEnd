@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { DoctorPublic } from '../../../../core/models/doctor.model';
-import { Patient } from '../../../../core/models/patient.model';
+import { SweetAlertService } from '../../../../core/service/sweet-alert.service';
+import { StepperContainerComponent } from '../../molecules/stepper-container/stepper-container.component';
 
 @Component({
   selector: 'app-modal-reservation-form',
@@ -9,19 +10,34 @@ import { Patient } from '../../../../core/models/patient.model';
 })
 export class ModalReservationFormComponent {
   @Input() isModalVisible: boolean = false;
+  @Input() selectedDoctor!: DoctorPublic;
+
   @Output() closeModalEvent = new EventEmitter<void>();
   @Output() modalClosed = new EventEmitter<void>(); 
-  @Input() selectedPatient!: Patient;
-  @Input() selectedDoctor!: DoctorPublic;
-  
+
+  @ViewChild(StepperContainerComponent) stepperContainer!: StepperContainerComponent;
+
+  constructor(private sweetAlert: SweetAlertService) {}
 
   closeModal() {
-    this.isModalVisible = false;
-    this.closeModalEvent.emit();
-    this.modalClosed.emit(); 
+    this.sweetAlert.showConfirmation('¿Estás seguro?', 'Perderás la fecha y hora reservadas.')
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.isModalVisible = false;
+          this.closeModalEvent.emit();
+          this.modalClosed.emit();
+          this.resetComponents();
+        }
+      });
   }
 
-  onFinished(data: any) {
+  resetComponents() {
+    if (this.stepperContainer) {
+      this.stepperContainer.resetStepper();
+    }
+  }
+
+  onStepperFinished() {
     this.closeModal();
   }
 }

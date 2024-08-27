@@ -1,7 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { DoctorPublic } from '../../../../core/models/doctor.model';
 import { Patient } from '../../../../core/models/patient.model';
 import { CitaService } from './../../../../core/service/cita.service';
+import { PacienteService } from './../../../../core/service/paciente.service';
+import { InputDateComponent } from '../../atoms/input-date/input-date.component';
 
 @Component({
   selector: 'app-stepper-container',
@@ -10,7 +12,7 @@ import { CitaService } from './../../../../core/service/cita.service';
 })
 export class StepperContainerComponent {
   steps: string[] = ["Fecha y hora", "Datos Personales", "Método De Pago", "Confirmación"];
-  
+
   @Input() selectedDoctor!: DoctorPublic;
   @Input() selectedPatient!: Patient;
   @Input() currentStep: number = 0;
@@ -26,7 +28,9 @@ export class StepperContainerComponent {
   selectedDate!: string;
   selectedTime!: string;
 
-  constructor(private citaService: CitaService) {}
+  @ViewChild(InputDateComponent) inputDateComponent!: InputDateComponent;
+
+  constructor(private citaService: CitaService, private pacienteService: PacienteService) {}
 
   handlePrevClick() {
     this.prevClicked.emit();
@@ -46,7 +50,9 @@ export class StepperContainerComponent {
   handleDateAndTimeSelected(event: { date: string, time: string }) {
     this.selectedDate = event.date;
     this.selectedTime = event.time;
-    this.nextOrFinish();
+    if (this.selectedDate && this.selectedTime) {
+      this.nextOrFinish();
+    }
   }
 
   nextOrFinish() {
@@ -73,13 +79,18 @@ export class StepperContainerComponent {
 
   onFinished() {
     this.finished.emit();
-    this.resetStepper();
   }
 
   resetStepper() {
     this.currentStep = 0;
+    this.selectedDate = '';
+    this.selectedTime = '';
     this.updateButtonValue();
     this.stepChanged.emit(this.currentStep);
+    
+    if (this.inputDateComponent) {
+      this.inputDateComponent.resetDateAndTime();
+    }
   }
 
   handleConfirmAppointment() {
@@ -93,7 +104,7 @@ export class StepperContainerComponent {
     this.citaService.crearCita(appointmentData).subscribe(
       response => {
         console.log('Cita confirmada:', response);
-        this.onFinished(); // Resetear el stepper después de confirmar
+        this.onFinished();
       },
       error => {
         console.error('Error al confirmar la cita:', error);
