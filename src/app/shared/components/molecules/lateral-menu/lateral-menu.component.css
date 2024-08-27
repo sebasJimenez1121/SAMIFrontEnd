@@ -231,10 +231,10 @@ body {
     display: none;
   }
   .sidebar-menu {
-    display: none; /* Hide the default menu on small screens */
+    display: none; 
   }
   .sidebar-menu.open {
-    display: block; /* Show the hamburger menu when it's open */
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
