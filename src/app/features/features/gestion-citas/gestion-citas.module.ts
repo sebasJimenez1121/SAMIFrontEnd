@@ -8,6 +8,7 @@ import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/page
 import { SharedModule } from '../../../shared/shared.module';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
 import { AppointmentSchedulePageComponentComponent } from './pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
+import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { AppointmentSchedulePageComponentComponent } from './pages/appointment-s
     PagesAgendarCitaComponent,
     PagesVisualizarCitaComponent,
     TrackingRecordComponent,
-    AppointmentSchedulePageComponentComponent
+    AppointmentSchedulePageComponentComponent,
+    TrackingRecordComponent,
+    PagesMedicamentosPacienteComponent
   ],
   imports: [
     CommonModule,

@@ -4,16 +4,15 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
-import { CitaService } from '../../../../core/service/cita.service';  // Asegúrate de ajustar la ruta según la ubicación de tu servicio
+import { CitaService } from '../../../../core/service/cita.service';  
+import { Appointment } from '../../../../core/models/appointment.model';
 
 @Component({
   selector: 'app-calendar-doctor',
   templateUrl: './calendar-doctor.component.html',
   styleUrls: ['./calendar-doctor.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None 
 })
-
-
 export class CalendarDoctorComponent implements OnInit {
   @ViewChild('calendarContainer', { static: true }) calendarContainer!: ElementRef;
   @ViewChild('eventModal', { static: true }) eventModal!: ElementRef;
@@ -21,12 +20,26 @@ export class CalendarDoctorComponent implements OnInit {
   selectedInfo: any = null;
   selectedEvent: any = null;
   private eventsKey = 'ljs-events';
-  doctorId: number = 1; // Asume que tienes una forma de obtener el ID del doctor
+  doctorId: number = 1; 
+  citas: Appointment[] = [];
 
   constructor(private citaService: CitaService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initCalendar();
+    this.loadDoctorAppointments(this.doctorId); // Cargar citas para el doctor con ID 1
+  }
+
+  private loadDoctorAppointments(doctorId: number): void {
+    this.citaService.getDoctorAppointments(doctorId).subscribe(
+      data => {
+        this.citas = data;
+        this.updateCalendarEvents();
+      },
+      error => {
+        console.error('Error loading citas:', error);
+      }
+    );
   }
 
   private initCalendar() {
@@ -42,7 +55,22 @@ export class CalendarDoctorComponent implements OnInit {
     });
 
     this.calendar.render();
-    // this.loadDoctorAppointments(); // Carga las citas del doctor
+  }
+
+  private updateCalendarEvents() {
+    this.calendar.removeAllEvents();
+    this.citas.forEach(appointment => {
+      this.calendar.addEvent({
+        id: appointment.id ? appointment.id.toString() : '',
+        title: `Cita con ${appointment.namePaciente || 'Desconocido'}`,
+        start: appointment.fechaCita,
+        color: '#1e90ff',
+        extendedProps: {
+          description: appointment.meta?.description || '',
+          patientName: appointment.namePaciente || 'Desconocido'
+        }
+      });
+    });
   }
 
   private getEvents() {
@@ -66,24 +94,6 @@ export class CalendarDoctorComponent implements OnInit {
     localStorage.setItem(this.eventsKey, JSON.stringify(events.filter((event: any) => event.id !== id)));
   }
 
-  // private loadDoctorAppointments() {
-  //   this.citaService.getDoctorAppointments(this.doctorId).subscribe(appointments => {
-  //     appointments.forEach(appointment => {
-  //       const eventId = appointment.id ? appointment.id.toString() : '';
-
-  //       this.calendar.addEvent({
-  //         id: eventId,
-  //         // title: `Cita con ${appointment.namePaciente || 'Desconocido'}`,
-  //         color: '#1e90ff',
-  //         extendedProps: {
-  //           description: appointment.meta?.description || '',
-  //           // patientName: appointment.namePaciente || 'Desconocido'
-  //         }
-  //       });
-  //     });
-  //   });
-  // }
-
   handleOnSelect(info: any) {
     this.selectedInfo = info;
     this.eventModal.nativeElement.open();
@@ -91,11 +101,8 @@ export class CalendarDoctorComponent implements OnInit {
 
   handleOnClickEvent(data: any) {
     const form = this.eventModal.nativeElement.querySelector('form');
-    
-    // Acceder a extendedProps
     form.querySelector('[name="title"]').value = data.event.title || '';
     form.querySelector('[name="description"]').value = data.event.extendedProps?.description || '';
-    
     this.selectedEvent = data.event;
     this.eventModal.nativeElement.querySelector('.delete-event-btn').classList.remove('d-none');
     this.eventModal.nativeElement.querySelector("button[type='submit']").innerHTML = 'Editar';
@@ -106,10 +113,8 @@ export class CalendarDoctorComponent implements OnInit {
     event.preventDefault();
     
     const target = event.target as HTMLFormElement;
-  
     const titleInput = target.querySelector('[name="title"]') as HTMLInputElement;
     const descriptionInput = target.querySelector('[name="description"]') as HTMLInputElement;
-  
     const title = titleInput.value.trim();
     const description = descriptionInput.value.trim();
   

@@ -116,7 +116,8 @@ import { StepperComponent } from './components/organisms/stepper/stepper.compone
 import { StepperAgendamientoComponent } from './components/templates/stepper-agendamiento/stepper-agendamiento.component';
 import { TableComponent } from './components/atoms/table/table.component';
 import { PatientListComponent } from './components/organisms/patient-list/patient-list.component';
-
+import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor-admin/footer-doctor-admin.component';
+import { MedicinesTemplateComponent } from './components/templates/medicines-template/medicines-template.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -225,7 +226,9 @@ import { PatientListComponent } from './components/organisms/patient-list/patien
     StepperComponent,
     StepperAgendamientoComponent,
     TableComponent,
-    PatientListComponent  
+    PatientListComponent,
+    FooterDoctorAdminComponent,
+    MedicinesTemplateComponent
   ],
   imports: [
     CommonModule,
@@ -274,7 +277,9 @@ import { PatientListComponent } from './components/organisms/patient-list/patien
   TitleTerciarioComponent,
   LinkComponent,
   CalendarDoctorComponent,
-  StepperAgendamientoComponent 
+  StepperAgendamientoComponent,
+  FooterDoctorAdminComponent,
+  MedicinesTemplateComponent
  ],
 
 

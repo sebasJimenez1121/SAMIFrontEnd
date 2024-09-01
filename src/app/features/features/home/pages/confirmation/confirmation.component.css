@@ -143,29 +143,22 @@ width: 20rem;
   }
 
   @media only screen and (min-width: 352px) and (max-width: 480px) {
-    .logo {
-      position: relative;
-      right: 47rem;
-      bottom: 20.8rem;
-      width: 4rem;
-      content: url('../../../../../../assets/images/favicon.png'); 
-    }
-    app-link {
-      display: none;
-    }
-  
-    .logout-icon {
-      position: fixed;
-      left: 11rem;
-      top: 2rem;
-    }
-    .form-container[_ngcontent-ng-c4181841166] {
-        width: 28%;
-        height: 73vh;
-        position: relative;
-        right: 17rem;
-        top: -2rem;
-    }
+    .form-container{
+      padding: 3% 1%;
+      width: 35%;
+      height: 45vh;
+      top: 6rem;
+      left: -16rem;
+  }
+  .container img{
+    left: 4rem;
+  }
+  .contTex{
+    width: 16rem;
+  }
+  a{
+    margin: 0rem 0rem 37rem -38rem;
+  }
   }
   
   @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -190,48 +183,32 @@ width: 20rem;
   }
   
   @media only screen and (min-width: 769px) and (max-width: 920px) {
-    .logo{
-      position: relative;
-      right: 38rem;
-      bottom: 18rem;
-      width: 12rem;
+    .form-container {
+      height: 25vh;
+      top: 20rem;
+      left: 1rem;
     }
-    .logout-icon{
-      position: fixed;
-      left: 33rem;
-      bottom: 17rem;
+    a{
+    margin: 0rem 0rem 32rem -11rem;
     }
-    .form-container[_ngcontent-ng-c4181841166] {
-        width: 50%;
-        height: 59vh;
-        position: relative;
-        top: 6rem;
-        right: 4rem;
-        }
   }
   
   @media only screen and (min-width: 921px) and (max-width: 1279px) {
-    .logo{
-      position: relative;
-      right: 37rem;
-      bottom: 13rem;
-    }
-    .logout-icon{
-      position: fixed;
-      left: 41rem;
-      bottom: 38rem;
-    }
-    
-  .form-container[_ngcontent-ng-c4181841166] {
-    width: 48%;
-      height: 45vh;
-      position: relative;
-      top: 15rem;
-      right: 0rem;
-    }
+    .form-container {
+      padding: 5% 3%;
+      height: 27vh;
+      top: 16rem;
+      left: 26rem;
+  }
   }
   
   @media only screen and (min-width: 1280px) {
-  
+    .form-container{
+      height: 38vh;
+      top: 12rem;
+    }
+    a{
+      margin: 0rem 0rem 32rem 20rem;
+  }
   }
   

@@ -17,6 +17,8 @@ import {NewPassworddComponent} from './features/features/home/pages/new-password
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
 import { AppointmentSchedulePageComponentComponent } from './features/features/gestion-citas/pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 import { authGuard } from './core/guards/auth.guard';
+import {PagesMedicamentosPacienteComponent } from './features/features/gestion-citas/pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent},
@@ -35,6 +37,7 @@ const routes: Routes = [
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent,  canActivate: [authGuard], data:{role: ['admin','paciente']}},
+  { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent }
 ];
 
 @NgModule({
