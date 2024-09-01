@@ -16,24 +16,25 @@ import {RecoverPassworddComponent} from './features/features/home/pages/recover-
 import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
 import { AppointmentSchedulePageComponentComponent } from './features/features/gestion-citas/pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
+import { authGuard } from './core/guards/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
-  { path: 'agendar-cita', component: PagesAgendarCitaComponent },
-  { path: 'gestion-cita', component: PagesGestionCitasComponent },
-  { path: 'visualizar-cita', component: PagesVisualizarCitaComponent },
+  { path: 'home', component: HomePageComponent},
+  { path: 'agendar-cita', component: PagesAgendarCitaComponent, canActivate: [authGuard], data:{role: ['admin', 'paciente']}},
+  { path: 'gestion-cita', component: PagesGestionCitasComponent},
+  { path: 'visualizar-cita', component: PagesVisualizarCitaComponent, canActivate: [authGuard], data:{role: ['admin', 'paciente']}},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'register-doctor', component: DoctorRegisterComponent },
-  { path: 'home-admin', component: HomeAdminComponent },
-  { path: 'home-doctor', component: HomeDoctorDashboardComponent },
-  { path: 'home-paciente', component: HomePacienteComponent },
-  { path: 'doctors-profiles', component: DoctorsProfilesComponent },
-  { path: 'registro-seguimiento', component: TrackingRecordComponent },
+  { path: 'register-doctor', component: DoctorRegisterComponent, canActivate: [authGuard], data:{role: ['admin']}},
+  { path: 'home-admin', component: HomeAdminComponent, canActivate: [authGuard], data:{role: ['admin']} },
+  { path: 'home-doctor', component: HomeDoctorDashboardComponent, canActivate: [authGuard], data:{role: ['medico']} },
+  { path: 'home-paciente', component: HomePacienteComponent},
+  { path: 'doctors-profiles', component: DoctorsProfilesComponent},
+  { path: 'registro-seguimiento', component: TrackingRecordComponent,  canActivate: [authGuard], data:{role: ['paciente']}},
   { path: 'recover-passwordd', component: RecoverPassworddComponent},
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent },
+  { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent,  canActivate: [authGuard], data:{role: ['admin','paciente']}},
 ];
 
 @NgModule({

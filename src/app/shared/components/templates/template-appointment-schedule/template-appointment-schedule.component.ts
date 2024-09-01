@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DoctorPublic, Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
 import { DoctorService } from '../../../../core/service/doctor.service';
-import { AuthService } from '../../../../core/service/auth-service.service'; 
+import { AuthService } from '../../../../core/service/auth-service.service';
 
 @Component({
   selector: 'app-template-appointment-schedule',
@@ -21,14 +21,13 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   @Input() titleClass: string = 'custom-title';
   @Input() specialties: Specialty[] = [];
 
-  // Aquí almacenaremos el rol del usuario
   public userRole: string = '';
 
   constructor(
     private doctorService: DoctorService, 
     private router: Router, 
     private specialtyService: SpecialtyService,
-    private authService: AuthService // Inyecta AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {

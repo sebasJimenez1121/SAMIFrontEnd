@@ -1,4 +1,4 @@
-<div [appRoleStyle]="userRole"  patientClass="paciente">
+<div [appRoleStyle]="userRole" adminClass="admin" patientClass="paciente">
   <div class="principal-title">
     <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
   </div>
@@ -16,7 +16,6 @@
       (click)="redirectToSchedulePage(doctor)">
     </app-medical-card>
   </div>
- 
   <app-navigation-pagination 
     [currentPage]="currentPage" 
     [totalPages]="totalPages" 
@@ -24,4 +23,4 @@
   </app-navigation-pagination>
 </div>
 <app-chatbot></app-chatbot>
-<app-footer></app-footer>
+<app-footer *ngIf="userRole === 'paciente'"></app-footer>

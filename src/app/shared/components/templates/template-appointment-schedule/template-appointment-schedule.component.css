@@ -5,15 +5,11 @@
 }
 
 .admin  {
-  width: 90%;
+  width: calc(100% - 15.625em);
   position: relative;
-  margin-left: 8em;
+  margin-left: 10em;
 }
 
-.admin .container-cards{
-  width: 80%;
-  margin: 0 auto;
-}
 app-title-principal{
   position: relative;
   left: 4rem;
