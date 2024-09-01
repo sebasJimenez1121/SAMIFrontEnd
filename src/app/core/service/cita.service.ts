@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { Observable, interval, of } from 'rxjs'; 
+import { Observable, of, interval } from 'rxjs'; 
 import { switchMap, startWith } from 'rxjs/operators';
 import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
 
@@ -13,68 +13,62 @@ export class CitaService {
 
   constructor(private http: HttpClient) {}
 
-  // Obtener citas por usuario
-  getCitasByUsuario(id: number): Observable<Appointment[]> {
-    const url = `${this.apiUrl}?id=${id}`;
-    return this.http.get<Appointment[]>(url);
-  }
-
-  // Obtener todas las citas
-  getCitas(): Observable<Appointment[]> {
-    return interval(1000000) // Consulta cada 10 segundos
+  getDoctorAppointments(doctorId: number): Observable<Appointment[]> {
+    const url = `${this.apiUrl}?doctorId=${doctorId}`;
+    return this.http.get<Appointment[]>(url)
       .pipe(
-        startWith(0), // Empezar inmediatamente al suscribirse
+        catchError(this.handleError<Appointment[]>('getDoctorAppointments', []))
+      );
+  }
+  getCitas(): Observable<Appointment[]> {
+    return interval(1000000)
+      .pipe(
+        startWith(0),
         switchMap(() => this.http.get<Appointment[]>(this.apiUrl))
       );
   }
-  // Obtener horas ocupadas para una cita específica por día
+
   getHorasOcupadas(fecha: string): Observable<number[]> {
-    const url = `http://localhost:10102/citas/hour?fecha=${fecha}`;
+    const url = `http://localhost:8000/citas/hour?fecha=${fecha}`;
     return this.http.get<number[]>(url).pipe(
       catchError(this.handleError<number[]>('getHorasOcupadas', []))
     );
   }
 
-  // Obtener detalles de la cita por ID
   getCitaById(id: string): Observable<Appointment> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Appointment>(url);
   }
 
-  // Guardar fecha seleccionada para una cita específica (reagendar cita)
   guardarFechaSeleccionada(fecha: string, id: number): Observable<Appointment> {
     const update: AppointmentUpdate = {
       fechaCita: fecha,
       estado: 'Agendada'
     };
-  
     return this.http.patch<Appointment>(`${this.apiUrl}/${id}`, update).pipe(
       catchError(this.handleError<Appointment>('guardarFechaSeleccionada'))
     );
   }
-  // Cancelar una cita
+
   cancelarCita(id: number): Observable<any> {
     const update: AppointmentUpdate = { estado: 'Cancelada' };
     return this.http.patch<any>(`${this.apiUrl}/${id}`, update);
   }
 
-  // Crear una nueva cita
   crearCita(cita: AppointmentCreate): Observable<AppointmentCreate> {
     return this.http.post<AppointmentCreate>(`${this.apiUrl}/appointment/create`, cita).pipe(
       catchError(this.handleError<AppointmentCreate>('crearCita'))
     );
-}
+  }
 
-  // Verificar disponibilidad
   verificarDisponibilidad(fechaHora: string): Observable<boolean> {
     const url = `${this.apiUrl}?fechaCita=${fechaHora}`;
     return this.http.get<Appointment[]>(url).pipe(
-      map(citas => citas.length === 0),  
+      map(citas => citas.length === 0),
       catchError(this.handleError<boolean>('verificarDisponibilidad', false))
     );
   }
 
-  // Método para enviar notificaciones relacionadas con la cita modificada
   enviarNotificaciones(citaId: number): Observable<any> {
     console.log(`Enviando notificaciones para la cita con ID: ${citaId}`);
     return new Observable<any>(observer => {
@@ -85,7 +79,6 @@ export class CitaService {
     });
   }
 
-  // Función genérica para manejar errores
   private handleError<T>(operation = 'operación', result?: T) {
     return (error: any): Observable<T> => {
       console.error(`${operation} fallida: ${error.message}`);

@@ -73,6 +73,7 @@ hr{
   gap: 1.25rem;
   position: relative;
   left: 1rem;
+  bottom: 0rem;
 }
 
 
@@ -302,8 +303,5 @@ app-title-terciario {
 
 
 @media (min-width: 1280px) {
-  .modal-content {
-    width: 46%;
-    max-height: 71%;
-}
+
 }

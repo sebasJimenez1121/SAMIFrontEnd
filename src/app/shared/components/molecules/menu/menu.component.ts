@@ -21,7 +21,8 @@ export class MenuComponent {
       name: 'Seguimiento',  
       link: '/registro-seguimiento', 
       subMenu: [
-        { name: 'Medicamentos', link: '/medicamentos' } 
+        { name: 'Medicamentos', link: '/Medicamentos' },
+        { name: 'Registro de seguimiento', link: '/registro-seguimiento' } 
       ] 
     },
     { name: 'Médicos', link: '/doctors-profiles' },
@@ -36,7 +37,7 @@ export class MenuComponent {
     if (link) {
       this.router.navigate([link]);
     }
-    this.toggleMenu();  // Cerrar el menú después de navegar
+    this.toggleMenu(); 
   }
 
   toggleMenu() {

@@ -8,6 +8,7 @@ import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/page
 import { SharedModule } from '../../../shared/shared.module';
 import { AgendarCitaAdminComponent } from './pages/agendar-cita-admin/agendar-cita-admin.component';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
+import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TrackingRecordComponent } from './pages/tracking-record/tracking-record
     PagesAgendarCitaComponent,
     PagesVisualizarCitaComponent,
     AgendarCitaAdminComponent,
-    TrackingRecordComponent
+    TrackingRecordComponent,
+    PagesMedicamentosPacienteComponent
   ],
   imports: [
     CommonModule,

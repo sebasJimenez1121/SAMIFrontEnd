@@ -150,9 +150,16 @@
       "appointmentCost": 90000
     }
   ],
+
+
+
+
+
+
+
   "citas": [
     {
-      "id": "1",
+      "id": 1,
       "nameMedico": "Dr. Juan Hernandez",
       "especialidad": "Cardiología",
       "namePaciente": "Jane Doe",
@@ -162,7 +169,8 @@
       "valorCita": "40.000",
       "motivoCita": "Cambios en la presion",
       "imagenMedico": "../../../../../assets/images/Link → doctor_7.png.png",
-      "fechaCita": "2024-08-06 14:52"
+      "fechaCita": "2024-08-06 14:52",
+      "meta": {"description": "Consulta general"}
     },
     {
       "id": "2",

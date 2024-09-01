@@ -206,8 +206,8 @@ body {
 /* Media Queries */
 @media (max-width: 480px) {
   .sidebar {
-    width: 100%;
-    height: auto;
+    width: 101%;
+    height: 4rem;
     position: relative;
     top: 0;
     left: 0;
@@ -222,7 +222,7 @@ body {
     margin-left: 0;
   }
   .container-cards {
-    padding: 2rem 1rem;
+    padding: 1rem 0rem;
   }
   .hamburger-menu-toggle {
     display: block;
