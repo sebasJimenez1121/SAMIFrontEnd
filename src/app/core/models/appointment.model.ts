@@ -14,6 +14,10 @@ export interface Appointment {
     motivoCita: string;
     fechaCita: string;
     horaCita:string;
+    meta?: {
+        description?: string;
+        // otras propiedades si existen
+    };
 }
 
 
@@ -30,4 +34,11 @@ export interface AppointmentCreate {
     fechaCita: string;
     fKIdDoct: string;
     fKIdPac: string;
+}
+
+export interface medicamentos{
+    NombreMedicamento:string;
+    horaAtomar:number;
+    fechaInicio:Date;
+    fechaFin:Date;
 }

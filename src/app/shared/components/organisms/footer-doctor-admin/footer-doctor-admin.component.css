@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer {
+    height: 7rem;
+    width: 100%;
+    background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 1rem 0;
+    flex-direction: column;
+}
+
+app-image{
+    width: 19rem;
+    position: relative;
+    right: 17rem;
+    bottom: 2rem;
+}
+
+.style-list-footer {
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+}
+
+.style-list-footer img, .style-list-footer app-image, .style-list-footer app-data-display-list {
+    max-height: 90%; 
+}
+
+
+hr{
+    background-color: #D9D9D9;
+    width: 74%;
+    margin: 1rem 0rem 1rem 13rem;
+}
+
+
+  
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+    hr {
+        position: relative;
+        left: 1rem;
+            width: 79%;
+        }
+        app-list-footer{
+            display: none;
+        }
+  }
+  
+  /* Estilos responsivos para pantallas pequeñas (teléfonos móviles) */
+  @media only screen and (max-width: 480px) {
+ 
+  }
+  
+  /* Estilos para tabletas (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+   
+  }
+  
+  /* Estilos para pantallas medianas (769px - 920px) */
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+ 
+    hr {
+    position: relative;
+    left: 1rem;
+        width: 250%;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+  
+    hr {
+    
+        width: 80%;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 1280px) {
+    
+  
+  
+  }
+  
+  

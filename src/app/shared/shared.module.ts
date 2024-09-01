@@ -112,6 +112,8 @@ import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
+import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor-admin/footer-doctor-admin.component';
+import { MedicinesTemplateComponent } from './components/templates/medicines-template/medicines-template.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -220,7 +222,9 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     RecoverPasswordComponent,
     NewPasswordComponent,
     CalendarDoctorComponent,
-    HamburgerMenuComponent  
+    HamburgerMenuComponent,
+    FooterDoctorAdminComponent,
+    MedicinesTemplateComponent  
   ],
   imports: [
     CommonModule,
@@ -262,7 +266,9 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
   IconComponent,
   TitleTerciarioComponent,
   LinkComponent,
-  CalendarDoctorComponent  
+  CalendarDoctorComponent,
+  FooterDoctorAdminComponent,
+  MedicinesTemplateComponent  
  ],
 
 
