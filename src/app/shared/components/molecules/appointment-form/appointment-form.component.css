@@ -1,32 +1,37 @@
 .container-form {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 3.2em;
-  }
-  
-  .data-form {
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-flow: wrap;
-  }
+  width: 100%;
+}
 
-  .row{
-    margin: 1em 0;
-    display: flex;
-    width: 100%;
-  }
+.data-form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .row-input{
-    width: 18em;
-    display: flex;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.row-input {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 1em;
+}
+
+@media (min-width: 768px) {
+  .row-input {
+    width: calc(33.33% - 2em);
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
     flex-direction: column;
-    align-items: flex-start;
   }
-
-  .row-input app-input{
-    width: 100%;
-  }
-
-
+}

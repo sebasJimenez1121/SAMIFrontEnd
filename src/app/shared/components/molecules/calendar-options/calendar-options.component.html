@@ -3,7 +3,6 @@
         <app-image-card-recommended-doctors [img]="doctor.imgUrl"></app-image-card-recommended-doctors>
         <app-label [content]="doctor.nombre + ' ' + doctor.apellido"></app-label>
         <app-text [content]="doctor.especialidad"></app-text>
-        <app-text class="costo-cita" [content]="'Valor cita:'+ ' $' + doctor.valorCita + '  COP'"></app-text>
     </div>
     <div class="calendar">
         <app-input-date></app-input-date>

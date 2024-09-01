@@ -1,0 +1,20 @@
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let key of headers">
+            <ng-container *ngIf="key === 'Acciones'; else normalCell">
+              <app-button (click)="onActionClick(row[key])" [value]="value"></app-button>
+            </ng-container>
+            <ng-template #normalCell>{{ row[key] }}</ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  

@@ -6,7 +6,6 @@ import { PagesGestionCitasComponent } from './pages/pages-gestion-citas/pages-ge
 import { PagesAgendarCitaComponent } from './pages/pages-agendar-cita/pages-agendar-cita.component';
 import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/pages-visualizar-cita.component';
 import { SharedModule } from '../../../shared/shared.module';
-import { AgendarCitaAdminComponent } from './pages/agendar-cita-admin/agendar-cita-admin.component';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
 import { AppointmentSchedulePageComponentComponent } from './pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 
@@ -16,7 +15,6 @@ import { AppointmentSchedulePageComponentComponent } from './pages/appointment-s
     PagesGestionCitasComponent,
     PagesAgendarCitaComponent,
     PagesVisualizarCitaComponent,
-    AgendarCitaAdminComponent,
     TrackingRecordComponent,
     AppointmentSchedulePageComponentComponent
   ],

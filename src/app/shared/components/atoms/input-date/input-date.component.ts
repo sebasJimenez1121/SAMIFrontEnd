@@ -33,7 +33,10 @@ export class InputDateComponent implements OnInit {
       const formattedDate = date.toISOString().split('T')[0];
       this.scheduleService.getUnavailableHours(formattedDate).subscribe(
         (response: { horas: string[] }) => {
-          this.unavailableHours = response.horas;
+          // Mapea las horas para eliminar los segundos (hh:mm:ss => hh:mm)
+          this.unavailableHours = response.horas.map(hora => hora.substring(0, 5));
+
+          // Filtra las horas disponibles excluyendo las ocupadas
           this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));
         },
         error => {
@@ -97,7 +100,7 @@ export class InputDateComponent implements OnInit {
       };
       this.dateAndTimeSelected.emit(appointmentData);
     } else {
-      // Mostrar mensaje de error o alerta
+  
     }
   }
 

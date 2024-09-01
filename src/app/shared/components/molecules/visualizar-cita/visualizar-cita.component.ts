@@ -5,13 +5,16 @@ import { Patient } from '../../../../core/models/patient.model';
 @Component({
   selector: 'app-visualizar-cita',
   templateUrl: './visualizar-cita.component.html',
-  styleUrl: './visualizar-cita.component.css'
+  styleUrls: ['./visualizar-cita.component.css']
 })
 export class VisualizarCitaComponent {
   @Input() doctor!: DoctorPublic;
   @Input() patient!: Patient;
   @Input() date!: string;
   @Input() time!: string;
+  @Input() motivo!: string;
+  @Input() paymentMethod!: string;
+  @Input() paymentStatus: string = 'Pago';
 
   @Output() confirmAppointment = new EventEmitter<void>();
 

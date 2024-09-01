@@ -25,6 +25,7 @@ export class AppointmentFormComponent implements OnInit {
       documento: [''],
       email: [''],
       telefono: [''],
+      direccion: [''],
       motivo: ['']
     });
 

@@ -21,7 +21,6 @@ import { DataDisplayChipComponent } from './components/atoms/data-display-chip/d
 import { FeedbackProgessComponent } from './components/atoms/feedback-progess/feedback-progess.component';
 import { NavigationBreadcrumbsComponent } from './components/atoms/navigation-breadcrumbs/navigation-breadcrumbs.component';
 import { NavigationPaginationComponent } from './components/atoms/navigation-pagination/navigation-pagination.component';
-import { NavigationStepperComponent } from './components/atoms/navigation-stepper/navigation-stepper.component';
 import { DataDisplayListComponent } from './components/atoms/data-display-list/data-display-list.component';
 import { NavigationTabsComponent } from './components/atoms/navigation-tabs/navigation-tabs.component';
 import { DataDisplayBadgeComponent } from './components/atoms/data-display-badge/data-display-badge.component';
@@ -74,14 +73,11 @@ import { CoreModule } from '../core/core.module';
 import { HistorialCitaTemplateComponent } from './components/templates/historial-cita-template/historial-cita-template.component';
 import { InputFileComponent } from './components/atoms/input-file/input-file.component';
 import { ModalComponent } from './components/atoms/modal/modal.component';
-import { ModalReservationFormComponent } from './components/organisms/modal-reservation-form/modal-reservation-form.component';
 import { HowToScheduleComponent } from './components/organisms/how-to-schedule/how-to-schedule.component';
 import { InputDateHistoryComponent } from './components/atoms/input-date-history/input-date-history.component';
-import { StepperContainerComponent } from './components/organisms/stepper-container/stepper-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
-import { ButtonsPagoComponent } from './components/molecules/buttons-pago/buttons-pago.component';
 import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
 import { ButtonPriceComponent } from './components/molecules/button-price/button-price.component';
 import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
@@ -99,7 +95,6 @@ import { ModalPerfilAdminComponent } from './components/organisms/modal-perfil-a
 import { ModalPerfilPacienteComponent   } from './components/organisms/modal-perfil-paciente/modal-perfil-paciente.component';
 import { HomePacienteTemplateComponent } from './components/templates/home-paciente-template/home-paciente-template.component';
 import { ChatbotComponent } from './components/organisms/chatbot/chatbot.component';
-import { TemplateAppoinmentScheduleAdminComponent } from './components/templates/template-appoinment-schedule-admin/template-appoinment-schedule-admin.component';
 import { DoctorsProfilesTemplateComponent } from './components/templates/doctors-profiles-template/doctors-profiles-template.component';
 import { MedicalCardPerfilComponent } from './components/organisms/medical-card-perfil/medical-card-perfil.component';
 import { ContentCardPerfilDoctorComponent } from './components/molecules/content-card-perfil-doctor/content-card-perfil-doctor.component';
@@ -117,6 +112,10 @@ import { RecoverPasswordComponent } from './components/organisms/recover-passwor
 import { NewPasswordComponent } from './components/organisms/new-password/new-password.component';
 import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
+import { StepperComponent } from './components/organisms/stepper/stepper.component';
+import { StepperAgendamientoComponent } from './components/templates/stepper-agendamiento/stepper-agendamiento.component';
+import { TableComponent } from './components/atoms/table/table.component';
+import { PatientListComponent } from './components/organisms/patient-list/patient-list.component';
 
 @NgModule({
   declarations: [
@@ -140,7 +139,6 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     FeedbackProgessComponent,
     NavigationBreadcrumbsComponent,
     NavigationPaginationComponent,
-    NavigationStepperComponent,
     DataDisplayListComponent,
     NavigationTabsComponent,
     DataDisplayBadgeComponent,
@@ -191,13 +189,10 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     HistorialCitaTemplateComponent,
     InputFileComponent,
     ModalComponent,
-    ModalReservationFormComponent,
     HowToScheduleComponent,
     InputDateHistoryComponent,
     ModalDisplayDataComponent,
     ModalRescheduleAppointmentComponent,
-    StepperContainerComponent,
-    ButtonsPagoComponent,
     VisualizarCitaComponent,
     ButtonPriceComponent,
     EmptyStateComponent,
@@ -216,7 +211,6 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     HomePacienteTemplateComponent,
     ModalPerfilPacienteComponent,
     ChatbotComponent,
-    TemplateAppoinmentScheduleAdminComponent,
     DoctorsProfilesTemplateComponent,
     MedicalCardPerfilComponent,
     ContentCardPerfilDoctorComponent,
@@ -227,7 +221,11 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
     RecoverPasswordComponent,
     NewPasswordComponent,
     CalendarDoctorComponent,
-    HamburgerMenuComponent  
+    HamburgerMenuComponent,
+    StepperComponent,
+    StepperAgendamientoComponent,
+    TableComponent,
+    PatientListComponent  
   ],
   imports: [
     CommonModule,
@@ -253,7 +251,6 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
   RegisterTemplateComponent,
   AppointmentManagementTemplateComponent,
   HistorialCitaTemplateComponent,
-  ModalReservationFormComponent,
   CalendarOptionsComponent,
   HowToScheduleComponent,
   AppointmentFormComponent,
@@ -264,7 +261,6 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
   TemplateDoctorDashboardComponent,
   HomePacienteTemplateComponent,
   ChatbotComponent,
-  TemplateAppoinmentScheduleAdminComponent,
   DoctorsProfilesTemplateComponent, 
   MedicalCardPerfilComponent,
   ContentCardPerfilDoctorComponent,
@@ -278,7 +274,7 @@ import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/ha
   TitleTerciarioComponent,
   LinkComponent,
   CalendarDoctorComponent,
-  StepperContainerComponent 
+  StepperAgendamientoComponent 
  ],
 
 

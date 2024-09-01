@@ -5,11 +5,9 @@
 
 .container-doctor {
     width: 40%;
-    max-height: 150px;
     text-align: center;
 }
 
 .calendar{
-    margin-left: 0%;
     width: 60%;
 }

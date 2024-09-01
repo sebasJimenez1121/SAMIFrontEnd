@@ -1,9 +1,0 @@
-<div class="stepper">
-  <div *ngFor="let step of steps; let i = index" 
-       class="step" 
-       [ngClass]="{'active': currentStep === i, 'completed': currentStep > i}" 
-       (click)="goToStep(i)">
-    <div class="step-number">{{ i + 1 }}</div>
-    <div class="step-title">{{ step }}</div>
-  </div>
-</div>

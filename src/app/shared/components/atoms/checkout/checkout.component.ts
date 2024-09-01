@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { environment } from '../../../../../environment/environment';
+import { environment } from '../../../../../environments/environment';
 
 declare var ePayco: any;
 
@@ -21,11 +21,11 @@ export class CheckoutComponent {
   @Input() tax: string = "";
   @Input() taxIco: string = "";
   @Input() userName: string = "";
-  @Input() userAddress: string = "";
+  @Input() userAddress: any = "";
   @Input() userDocType: string = "";
   @Input() userDocNumber: string = "";
   @Input() userEmail: string = "";
-  @Input() userPhone: string = "";
+  @Input() userPhone: any = "";
 
   constructor() {
     this.initializeCheckout();

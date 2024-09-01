@@ -1,9 +1,9 @@
-import { Router } from '@angular/router';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { DoctorPublic } from '../../../../core/models/doctor.model';
-import { Specialty } from '../../../../core/models/doctor.model';
+import { Router } from '@angular/router';
+import { DoctorPublic, Specialty } from '../../../../core/models/doctor.model';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
 import { DoctorService } from '../../../../core/service/doctor.service';
+import { AuthService } from '../../../../core/service/auth-service.service'; 
 
 @Component({
   selector: 'app-template-appointment-schedule',
@@ -17,16 +17,34 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   @Output() specialtyChange = new EventEmitter<string>();
   @Output() pageChange = new EventEmitter<number>();
   @Output() agendarCita = new EventEmitter<DoctorPublic>();
-  @Input() userRole: any = "";
   @Input() titleText: string = 'Agendamiento de Citas';
   @Input() titleClass: string = 'custom-title';
-  
   @Input() specialties: Specialty[] = [];
 
-  constructor(private doctorService: DoctorService, private router: Router, private specialtyService : SpecialtyService) {}
+  // Aquí almacenaremos el rol del usuario
+  public userRole: string = '';
+
+  constructor(
+    private doctorService: DoctorService, 
+    private router: Router, 
+    private specialtyService: SpecialtyService,
+    private authService: AuthService // Inyecta AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.loadUserRole();
     this.loadSpecialties();
+  }
+
+  loadUserRole(): void {
+    this.authService.getUserRole().subscribe(
+      (role: string) => {
+        this.userRole = role;
+      },
+      (error: any) => {
+        console.error('Error obteniendo el rol del usuario:', error);
+      }
+    );
   }
 
   loadSpecialties(): void {
@@ -49,7 +67,7 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   redirectToSchedulePage(doctor: DoctorPublic) {
-    this.doctorService.setDoctor(doctor);
-    this.router.navigate(['/stepper-agendamiento']);
+    localStorage.setItem('selectedDoctor', JSON.stringify(doctor));
+    this.router.navigate(['/stepper-agendamiento'], { state: { doctor } });
   }
 }

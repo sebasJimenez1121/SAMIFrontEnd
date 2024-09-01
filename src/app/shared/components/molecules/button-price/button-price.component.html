@@ -1,8 +1,6 @@
 <div class="container">
     <img src="../../../../../assets/images/2760426.jpg" alt=""cla>
     <div class="price">
-        <app-title-secundari titleText={{valorCita}}></app-title-secundari>
-        <div class="buttons-login">
             <app-checkout 
             [productName]="'Cita De' + doctor.especialidad"
             [productDescription]="'Cita con el doctor(a)' + doctor.nombre + 'de la especialidad' + doctor.especialidad"
@@ -17,10 +15,8 @@
             [userDocType]="patient.Tipo_Doc"
             [userDocNumber]="patient.Documento"
             [userEmail]="patient.Email"
-            [userPhone]="patient.Telefono">
+            [userPhone]="patient">
             </app-checkout>
-            <button class="button">Pago Presencial </button>
-        </div>
     </div>
 </div>
 

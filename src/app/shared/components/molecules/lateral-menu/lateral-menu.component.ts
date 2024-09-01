@@ -104,7 +104,7 @@ export class LateralMenuComponent implements OnInit {
       if (this.authService.isAdmin()) {
         this.menuItems = [
           { RouterLink: '/home-admin', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
-          { RouterLink: '/agendar-cita-admin', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
+          { RouterLink: '/agendar-cita', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
           { RouterLink: '/visualizar-cita', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
           { RouterLink: '/register-doctor', label: 'Crear médicos', icon: 'assets/icons/crear-receta.svg' }
         ];
