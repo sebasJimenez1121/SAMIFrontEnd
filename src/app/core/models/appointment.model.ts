@@ -41,4 +41,5 @@ export interface medicamentos{
     horaAtomar:number;
     fechaInicio:Date;
     fechaFin:Date;
+    
 }

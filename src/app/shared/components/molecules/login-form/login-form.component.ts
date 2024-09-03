@@ -123,8 +123,8 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/home-doctor']);
         break;
       case 'paciente':
-        this.router.navigate(['/home']);
-        break;
+        this.router.navigate(['/home-paciente']);
+        break;9
       default:
         console.error('Rol de usuario no reconocido:', userRole);
         break;

@@ -114,6 +114,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
 import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor-admin/footer-doctor-admin.component';
 import { MedicinesTemplateComponent } from './components/templates/medicines-template/medicines-template.component';
+import { MedicalTableComponent } from './components/organisms/medical-table/medical-table.component';
+import { ModalDoctorComponent } from './components/organisms/modal-doctor/modal-doctor.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -224,7 +226,9 @@ import { MedicinesTemplateComponent } from './components/templates/medicines-tem
     CalendarDoctorComponent,
     HamburgerMenuComponent,
     FooterDoctorAdminComponent,
-    MedicinesTemplateComponent  
+    MedicinesTemplateComponent,
+    MedicalTableComponent,
+    ModalDoctorComponent  
   ],
   imports: [
     CommonModule,

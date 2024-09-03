@@ -86,7 +86,7 @@ export class StepperContainerComponent {
     const appointmentData = {
       horaCita: this.selectedTime,
       fechaCita: this.selectedDate,
-      fKIdDoct: this.selectedDoctor.Id,
+      fKIdDoct: this.selectedDoctor.id,
       fKIdPac: this.selectedPatient.Id,
     };
 

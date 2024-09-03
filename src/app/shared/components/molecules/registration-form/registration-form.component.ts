@@ -71,7 +71,6 @@ export class RegistrationFormComponent implements OnInit {
             title: 'Registro Exitoso',
             text: '¡Te has registrado exitosamente!',
             icon: 'success',
-            confirmButtonText: 'Cerrar',
             background: "#C6F0C2",
             iconColor: "#1C5314",
             timer: 2000,

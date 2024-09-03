@@ -1,0 +1,39 @@
+<div class="HistorialCita">
+  <div class="container">
+    <app-empty-state imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="doctors.length === 0"></app-empty-state>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Médicos</th>
+          <th>Tarjeta profesional</th>
+          <th>Especialidad</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors">
+          <td>
+            <img [src]="doctor.imgUrl" alt="{{doctor.nombre}}" class="imagen-medico">
+            {{ doctor.nombre }} {{doctor.apellido}}
+          </td>
+          <td>{{ doctor.tarjetaProf }}</td>
+          <td>{{ doctor.especialidad }}</td>
+          <td>{{ doctor.estado }}</td>
+
+          <td>
+            <img class="img-icon" src="../../../../../assets/images/Edit.png" (click)="openModal(doctor, true)">
+            <img class="img-icon" src="../../../../../assets/images/Show.png" (click)="openModal(doctor)">
+            <img class="img-icon" src="../../../../../assets/images/Delete.png" (click)="confirmDelete(doctor.tarjetaProf)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-modal-doctor 
+  [showModal]="showModal" 
+  [datos]="selectedDoctor" 
+  (closeModalEvent)="closeModal()">
+</app-modal-doctor>
