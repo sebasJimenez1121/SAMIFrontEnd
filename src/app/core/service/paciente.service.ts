@@ -12,8 +12,12 @@ export class PacienteService {
   constructor(private http: HttpClient) {}
 
   // Obtener todos los pacientes
+ 
   getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.apiUrl}/patient/patients`);
+    return this.http.get<{ message: string; patients: Patient[] }>(`${this.apiUrl}/patient/patients`)
+      .pipe(
+        map(response => response.patients) // Extrae el array de pacientes
+      );
   }
 
   // Registrar un nuevo paciente

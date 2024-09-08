@@ -1,0 +1,194 @@
+.HistorialCita {
+    padding: 0.8125rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    margin: 0.5625rem 11rem;
+    width: 81%;
+  }
+  app-title-principal{
+    position: relative;
+    left: 4rem;
+  }
+  .img-icon{
+    width: 1rem;
+    margin: 0.5rem;
+  }
+  app-button{
+    margin: 1rem 0rem 5rem 64rem;
+  }
+   
+  svg {
+    width: 1rem; 
+    height: 1rem; 
+    fill: currentColor;
+  }
+  table {
+    width: 82%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 1.25rem 0rem 0rem 11rem;
+    font-size: 1rem;
+    text-align: left;
+    padding: auto;
+   
+  }
+  
+  th {
+    background-color: #DBE9FE;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid #ddd;
+    color: #203B8F;
+  }
+  
+  td {
+    padding: 0.90rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
+  }
+  
+  .imagen-medico {
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    vertical-align: middle;
+  }
+  
+  
+  
+  
+  #fecha {
+    margin: 0 0 1.25rem 0.625rem;
+  }
+  
+  .titulo {
+    margin: 3.5rem 5rem 1.5625rem 19rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav{
+    background-color: #d9d9d924;
+    border-radius: 1.4rem;
+    width: 65rem;
+    height: 4rem;
+    margin: 3rem 0rem 0rem 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 2.5rem;
+  }
+  app-title-terciario{
+    display: flex;
+    justify-content: center;
+   
+  }
+  .styled-date-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    padding: 0.625rem 0.625rem 0.625rem 2rem;
+    margin: 1rem 0rem 1rem 11rem;
+    width: 10rem;
+    border: 0;
+    border-bottom: 0.063rem solid #9b9b9b;
+    font-size: 0.75rem;
+    color: grey;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.styled-date-input:focus {
+    outline: none;
+    box-shadow: none; 
+}
+
+
+  
+  
+  
+  @media only screen and (min-width: 352px) and (max-width: 480px) {
+  
+    .HistorialCita {
+      padding: 0rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .container{
+      margin: 0rem 0rem;
+      width: 0%;
+    }
+    app-button{
+      position: relative;
+      left: 1.5rem;
+      width: 2rem;
+    }
+    .titulo {
+      margin: 3.5rem 14rem 4.5625rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    td {
+      padding: 0.60rem;
+      border-bottom: 0.0625rem solid #DBE9FE;
+      color: rgb(116, 116, 116);
+    }
+    table {
+      width: 98%;
+      border-collapse: collapse;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+      margin: 1.25rem 17px;
+      font-size:  0.5rem;
+      text-align: left;
+      padding: auto;
+     
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+    .HistorialCita {
+      padding: 0rem;
+      font-family: "Poppins", sans-serif;}
+      .container[_ngcontent-ng-c3062830316] {
+        margin: 0rem 0rem;
+        width: 0%;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 920px) {
+    .container[_ngcontent-ng-c3947751702] {
+      margin: 0.5625rem 0rem;
+      width: 127%;
+      position: relative;
+      right: 5rem;
+  }
+  .titulo[_ngcontent-ng-c3947751702] {
+    margin: 1.5rem 13rem 0.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  }
+  
+  @media (min-width: 921px) and (max-width: 1279px) {
+    .container{
+      margin: 7.5625rem 0rem;
+      width: 104%;
+  }
+  .titulo{
+    margin: 1.5rem 0rem 0.5625rem;
+    position: relative;
+    left: 3rem;
+    bottom: 3rem;
+  
+  }
+  }
+  
+  @media (min-width: 1280px) {
+   
+  }
+  

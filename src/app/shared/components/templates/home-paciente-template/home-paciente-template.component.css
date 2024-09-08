@@ -1,0 +1,505 @@
+main {
+    margin: 6rem 2.125rem 2.125rem 15.125rem;
+    padding: 4rem 0rem 0rem 0rem;
+  }
+  
+  .title-principal h1 {
+    font-size: 2.875rem;
+  }
+  
+  .button {
+    position: absolute;
+    font-size: 1.375rem; 
+    bottom: -0.625rem;
+  }
+  
+  .wrapper {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .topline {
+    display: block;
+    position: relative;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #0F304B;
+  }
+  
+  .topline::after {
+    position: relative;
+    content: '';
+    height: 4px;
+    width: 45px;
+    bottom: 10px;
+    background-color: #1B0491;
+  }
+  
+  h1 {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #203B8F;
+  }
+  
+  .multiText {
+    color: #203B8F;
+    text-transform: capitalize;
+  }
+  
+  .cols {
+    width: 50%;
+  }
+  
+  .imgbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 1rem;
+  }
+  
+  .imgbox img {
+    position: relative;
+    top: -6px;
+    right: -19px;
+    transform: rotateY(193deg);
+    animation: animateUser 6s linear infinite;
+  }
+  
+  @keyframes animateUser {
+    50% {
+      right: 20px;
+      top: -50px;
+    }
+  }
+  
+  .section2 .h3 {
+    font-size: 1.5625rem; 
+    margin: 0.9375rem -1.625rem 0.125rem 19.125rem; 
+  }
+  
+  .title-secundari {
+    margin: 0.9375rem 0.375rem 1.125rem 2.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .section3, .section6 {
+    padding: 5rem 4rem;
+  }
+  
+  .card {
+    position: relative;
+    width: 18.75rem;
+    height: 23.4375rem; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5% 4%;
+  }
+  
+  .card img {
+    width: 50%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+  
+  .card:hover img {
+    transform: scale(1.2);
+  }
+  
+  .card:hover .content {
+    opacity: 1;
+  }
+  
+  .card p {
+    margin: 0 0 7%;
+    font-size: 0.9375rem; 
+  }
+  
+  .card a {
+    display: block;
+    background-color: #0F304B;
+    color: #ffffff;
+    padding: 0.5rem 3.125rem; 
+    text-decoration: none;
+    margin-top: 2.625rem; 
+    border-radius: 1.5625rem; 
+    width: 32%;
+    font-size: 0.9375rem; 
+  }
+  
+  .card a:hover {
+    color: #ffffff;
+  }
+  
+  .section3, .section6, .section4 {
+    margin: 6% 0;
+  }
+  
+  .section4 h2 {
+    color: #1B0491;
+    font-size: 1.875rem; 
+    text-align: center;
+  }
+  
+  .section4 hr {
+    background-color: #d9d9d96f;
+    width: 81%;
+    margin: 1rem 6px 26px 161px;
+  }
+  
+  .text-description {
+    font-size: 1rem;
+  }
+  
+  .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2rem 4rem;
+  }
+  
+  .color-title {
+    color: #fff;
+  }
+  
+  .section3 h2, .section6 h2 {
+    color: #1B0491;
+    font-size: 1.875rem; 
+    text-align: center;
+  }
+  
+  .section3 hr, .section6 hr {
+    background-color: #D9D9D9;
+    width: 85%;
+    margin: auto;
+  }
+  
+  .section-short {
+    padding: 4rem 4rem;
+  }
+  
+  .info-doctor p {
+    color: #5A5D5F;
+  }
+  
+  .text-comment {
+    font-size: 1rem;
+    margin: 0rem 0rem 0rem 24.313rem;
+  }
+  
+  .scroll-indicators {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .indicator.active {
+    background-color: #353fa7;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    main {
+      margin: 0.5rem;
+    }
+    .topline[_ngcontent-ng-c1497479597] {
+      display: block;
+      position: relative;
+      font-size: 1rem;
+      width: 12rem;
+      margin: 1rem;
+      /* letter-spacing: 5px; */
+      color: #0F304B;
+    }
+    .multiText {
+      color: #203B8F;
+      text-transform: capitalize;
+      font-size: 1rem;
+      position: relative;
+      left: 1rem;
+     
+    }
+    h1[_ngcontent-ng-c1497479597] {
+      display: block;
+      font-size: 1rem;
+      width: 17rem;
+      font-weight: 900;
+      color: #203B8F;
+  }
+  .imgbox[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] img[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] {
+    position: relative;
+    bottom: 9px;
+    right: 37px;
+    transform: rotateY(193deg);
+    animation: none;
+    width: 18rem;
+  }
+  
+  
+  app-text-field{
+    display: none;
+  }
+  .section2[_ngcontent-ng-c3707699708] {
+    background: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    color: white;
+    padding: 5rem 2rem;
+    width: 20rem;
+  }
+  .wrapper[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] {
+    position: relative;
+    left: 2rem;
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 78%;
+    height: -32%;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+    
+    .title-principal h1 {
+      font-size: 1.875rem;
+      text-align: center;
+    }
+  
+    .button {
+      position: relative;
+      font-size: 1rem;
+      bottom: 0;
+    }
+  
+    .section2 {
+      padding: 3rem 1rem;
+      width: 100%;
+    }
+  
+    .section2 .h3 {
+      font-size: 1.25rem;
+      margin: 0.5rem 0;
+    }
+  
+    .title-secundari {
+      margin: 0.5rem 0.5rem;
+      justify-content: center;
+    }
+  
+    .section3, .section4, .section6 {
+      padding: 0rem 2rem;
+    }
+  
+    .container-cards {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 0;
+    }
+  
+    .card {
+      width: 100%;
+      margin: 1rem 0;
+    }
+  
+    .card img {
+      width: 80%;
+    }
+  
+    .section4 h2 {
+      font-size: 1.5rem;
+    }
+  
+    .section4 hr {
+      width: 90%;
+      margin: 0.5rem auto;
+    }
+  
+    .text-comment {
+      margin: 0;
+      text-align: center;
+    }
+    .cols[_ngcontent-ng-c1497479597] {
+      width: 50%;
+      position: relative;
+      left: 2rem;
+  }
+  .section-short[_ngcontent-ng-c1497479597] {
+    padding: 4rem 0rem;
+  }
+  
+  
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    main {
+      margin: 1rem;
+    }
+  
+    .title-principal h1 {
+      font-size: 2.5rem;
+    }
+  
+    .section2 {
+      padding: 4rem 2rem;
+    }
+  
+    .title-secundari {
+      margin: 0.5rem 1rem;
+    }
+  
+    .container-cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    .card {
+      width: 45%;
+      margin: 2rem 0;
+    }
+  
+    .card img {
+      width: 70%;
+    }
+  
+    .section3, .section4, .section6 {
+      padding: 3rem 2rem;
+    }
+  
+    .section4 h2 {
+      font-size: 1.75rem;
+    }
+  
+    .section4 hr {
+      width: 80%;
+      margin: 1rem auto;
+    }
+  
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      height: 100%;
+      justify-content: center;
+      align-items: stretch;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+  
+    .text-comment {
+      margin: 1rem auto;
+      text-align: center;
+    }
+   
+  }
+  @media only screen and (min-width: 769px) and (max-width: 920px) {
+    .section4 hr {
+      width: 85%;
+      margin: 0.5rem auto;
+    }
+    .text-comment {
+      font-size: 1rem;
+      margin: 0rem 0rem 0rem 4.313rem;
+  }
+  .wrapper[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] {
+    display: flex;
+    width: 114%;
+    height: 15%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  main[_ngcontent-ng-c1497479597] {
+    margin: 9rem 0rem 0.125rem 14rem;
+    padding: 4rem 0rem 0rem 0rem;
+    position: relative;
+    right: 11rem;
+  }
+  .text-container[_ngcontent-ng-c788071845] {
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+  }
+  .section3[_ngcontent-ng-c1497479597], .section6[_ngcontent-ng-c1497479597], .section4[_ngcontent-ng-c1497479597] {
+    margin: 2% 0;
+  }
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1279px) {
+    main {
+      margin: 3rem;
+    }
+  
+    .wrapper {
+      margin: 3rem 0rem 0rem 4rem;
+    }
+  
+    .title-principal h1 {
+      font-size: 3rem;
+    }
+  
+    .section2 {
+      padding: 4rem 4rem;
+    }
+  
+    .title-secundari {
+      margin: 0.5rem 1rem;
+    }
+  
+    .container-cards {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 1rem;
+    }
+  
+    .card {
+      width: 28%;
+      margin: 2rem 1rem;
+    }
+  
+    .card img {
+      width: 60%;
+    }
+  
+    .section3, .section4, .section6 {
+      padding: 4rem 4rem;
+    }
+  
+    .section4 h2 {
+      font-size: 2.25rem;
+    }
+  
+    .section4 hr {
+      width: 70%;
+      margin: 1rem auto;
+    }
+  }
+  

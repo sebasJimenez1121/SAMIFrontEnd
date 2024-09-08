@@ -11,6 +11,10 @@
     position: relative;
     left: 3rem;
   }
+  .img-icon{
+    width: 1rem;
+    margin: 0.5rem;
+  }
   table {
     width: 98%;
     border-collapse: collapse;

@@ -1,7 +1,7 @@
 
 .section1 {
   background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
-  border-radius: 0rem;
+  border-radius: 1rem;
   width: 85rem;
   height: 20rem;
   margin: 9rem 0rem 0rem 4rem;
@@ -14,7 +14,8 @@
 }
   .text-container {
     flex: 1;
-    margin: 0rem 4rem 1rem 5rem;
+    margin: 0rem 0rem 0rem 4rem;
+    padding: 4rem
   }
   .image-container {
     position: relative; 
@@ -23,16 +24,17 @@
   }
   .image-background {
     position: absolute;
-    top:0rem;
+    top: 9rem;
     left: 2rem;
-    width: 38vw;
+    width: 32vw;
     z-index: 1;
     opacity: 0.5;
   }
   .image-foreground {
     position: relative;
-    width: 35.6rem;
+    width: 28.6rem;
     top: 0.5rem;
+    right: 7rem;
    
   }
   .container {

@@ -66,7 +66,7 @@
                class="error-bubble">
             <small class="error" *ngIf="registrationForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
             <small class="error" *ngIf="registrationForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</small>
-            <small class="error" *ngIf="registrationForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos una letra mayúscula y un carácter especial.</small>
+            <small class="error" *ngIf="registrationForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos una letra mayúscula y minuscula y un carácter especial.</small>
           </div>
         </div>
       </div>

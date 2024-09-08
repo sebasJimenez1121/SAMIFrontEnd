@@ -6,6 +6,7 @@ export interface Doctor {
     apellido:string;
     rol: string;
     email:string;
+    estado: string; 
     img:string;
     password: string;
     codigoEspc:string;
@@ -17,7 +18,7 @@ export interface Doctor {
 
   
   export interface DoctorPublic {
-    Id: string;
+    id: string;
     tarjetaProf: string;
     nombre: string;
     estado: string;

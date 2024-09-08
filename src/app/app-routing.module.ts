@@ -17,7 +17,7 @@ import {RecoverPassworddComponent} from './features/features/home/pages/recover-
 import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
 import {PagesMedicamentosPacienteComponent } from './features/features/gestion-citas/pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
-
+import { MedicalHistoryDoctorComponent} from './features/features/gestion-citas/pages/medical-history-doctor/medical-history-doctor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,7 +37,8 @@ const routes: Routes = [
   { path: 'recover-passwordd', component: RecoverPassworddComponent},
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent }
+  { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent },
+  { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent }
 ];
 
 @NgModule({

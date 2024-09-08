@@ -101,8 +101,59 @@ app-button {
  top: 1rem;
 }
 
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
 
+.profile-button {
+  text-align: center;
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+  border-radius: 0.625rem;
+  background-size: 200% auto;
+  font-size: 0.75rem;
+  height: 2.5rem;
+  width: 7rem; 
+  position: relative;
+  transition: background-position 0.5s, background-size 0.5s;
+  margin: 0 .2rem;
+  cursor: pointer;
+}
 
+.profile-button.active {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse 1.5s infinite;
+}
+
+.profile-button:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse 1.5s infinite;
+}
+
+@media only screen and (max-width: 480px) {
+  .profile-buttons {
+    flex-direction: column;
+  }
+app-button{
+  left: 8.2rem;
+    top: 0rem;
+}
+  .profile-button {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .profile-button {
+    padding: 0.5rem 2rem;
+  }
+}
 
 @media only screen and (min-width: 352px) and (max-width: 480px) {
  

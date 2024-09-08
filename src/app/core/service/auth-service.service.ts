@@ -113,7 +113,7 @@ export class AuthService {
   }
   
   isPatient(): boolean {
-    return this.userRole === 'patient';
+    return this.userRole === 'paciente';
   }
   
   isDoctor(): boolean {

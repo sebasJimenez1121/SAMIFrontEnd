@@ -1,0 +1,52 @@
+<div class="modal" *ngIf="showModal">
+  <div class="modal-overlay" (click)="closeModal()"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close-button" (click)="closeModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-title-terciario titleText="Datos del Doctor"></app-title-terciario>
+      <hr>
+      <div *ngIf="datos" class="container">
+        <div class="infoDoctor">
+          <app-label class="title-info" content="Doctor:"></app-label>
+          <div class="container-doctor">
+            <div class="field">
+              <app-label content="Nombre:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.nombre"></app-input>
+            </div>
+            <div class="field">
+              <app-label content="Apellido:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.apellido"></app-input>
+            </div>
+            <div class="field">
+              <app-label content="Tarjeta Profesional:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.tarjetaProf"></app-input>
+            </div>
+          </div>
+          <div class="container-doctor">
+            <div class="field">
+              <app-label content="Especialidad:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.especialidad"></app-input>
+            </div>
+            <div class="field">
+              <app-label content="Valor Cita:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.valorCita"></app-input>
+            </div>
+            <div class="field">
+              <app-label content="Estado:"></app-label>
+              <app-input [disabled]="!isEditMode" [(ngModel)]="datos.estado"></app-input>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isEditMode" class="save-button-container">
+          <button (click)="saveChanges()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
