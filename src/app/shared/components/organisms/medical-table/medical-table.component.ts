@@ -12,7 +12,7 @@ export class MedicalTableComponent implements OnInit {
   doctors: DoctorPublic[] = [];
   selectedDoctor: DoctorPublic | null = null;
   showModal: boolean = false;
-  isEditMode: boolean = false; // To track if the modal is in edit mode
+  isEditMode: boolean = false; 
 
   constructor(private doctorService: DoctorService) {}
 
@@ -20,7 +20,7 @@ export class MedicalTableComponent implements OnInit {
     this.loadDoctors();
   }
 
-  // Load doctors from the service
+ 
   loadDoctors(): void {
     this.doctorService.getDoctors().subscribe(
       (doctors: any) => {
@@ -36,14 +36,14 @@ export class MedicalTableComponent implements OnInit {
     );
   }
 
-  // Open modal with doctor details, enabling edit mode if necessary
+
   openModal(doctor: DoctorPublic, isEditMode: boolean = false): void {
-    this.selectedDoctor = { ...doctor }; // Create a copy to avoid directly modifying the list
+    this.selectedDoctor = { ...doctor }; 
     this.isEditMode = isEditMode;
     this.showModal = true;
   }
 
-  // Close the modal and reset the state
+ 
   closeModal(): void {
     this.showModal = false;
     this.selectedDoctor = null;

@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   isSubmitting = false;
   loginError: string | null = null;
+  selectedProfile: string = 'paciente';  // "Paciente" seleccionado por defecto
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,6 +29,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  // Validador para documento o correo electrónico
   documentOrEmailValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -48,6 +50,7 @@ export class LoginFormComponent implements OnInit {
     };
   }
 
+ 
   strongPasswordValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -64,14 +67,21 @@ export class LoginFormComponent implements OnInit {
     };
   }
 
+  // Seleccionar perfil
+  selectProfile(profile: string) {
+    this.selectedProfile = profile;
+  }
+
+  // Enviar formulario de inicio de sesión
   submitLoginForm() {
-    if (this.loginForm.valid && !this.isSubmitting) {
+    if (this.loginForm.valid && !this.isSubmitting && this.selectedProfile) {
       this.isSubmitting = true;
 
       const credentials = {
         document: this.loginForm.value.documento && !this.loginForm.value.documento.includes('@') ? this.loginForm.value.documento : '',
         email: this.loginForm.value.documento.includes('@') ? this.loginForm.value.documento : '',
-        password: this.loginForm.value.password
+        password: this.loginForm.value.password,
+        profile: this.selectedProfile
       };
 
       this.authService.login(credentials).subscribe({
@@ -114,6 +124,7 @@ export class LoginFormComponent implements OnInit {
       control.markAsTouched();
     });
   }
+
   private redirectBasedOnRole(userRole: string) {
     switch (userRole) {
       case 'admin':
@@ -124,11 +135,10 @@ export class LoginFormComponent implements OnInit {
         break;
       case 'paciente':
         this.router.navigate(['/home-paciente']);
-        break;9
+        break;
       default:
         console.error('Rol de usuario no reconocido:', userRole);
         break;
     }
   }
-  
 }

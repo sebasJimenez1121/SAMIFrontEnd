@@ -28,7 +28,7 @@ export class LateralMenuComponent implements OnInit {
 
   checkScreenSize() {
     const width = window.innerWidth;
-    this.isHamburgerMenu = width <= 920; // Ajusta según el punto de quiebre deseado
+    this.isHamburgerMenu = width <= 920; 
   }
 
   toggleSidebar() {
@@ -107,14 +107,14 @@ export class LateralMenuComponent implements OnInit {
         this.menuItems = [
           { RouterLink: '/home-admin', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
           { RouterLink: '/agendar-cita-admin', label: 'Agendar Cita', icon: 'assets/icons/agendar-cita.svg' },
-          { RouterLink: '/visualizar-cita', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
+          { RouterLink: '/kjjnk', label: 'Visualizar citas pacientes', icon: 'assets/icons/pacientes.svg' },
           { RouterLink: '/register-doctor', label: 'Crear médicos', icon: 'assets/icons/crear-receta.svg' }
         ];
       } else if (this.authService.isDoctor()) {
         this.menuItems = [
           { RouterLink: '/home-doctor', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
           { RouterLink: '/agendar-cita-doctor', label: 'Crear Receta', icon: 'assets/icons/agendar-cita.svg' },
-          { RouterLink: '/visualizar-citas-doctor', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
+          { RouterLink: '/Historia-clinica', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
         ];
       }
     });

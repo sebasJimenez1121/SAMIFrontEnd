@@ -71,16 +71,14 @@ export class RegistrationFormComponent implements OnInit {
             title: 'Registro Exitoso',
             text: '¡Te has registrado exitosamente!',
             icon: 'success',
-            background: "#C6F0C2",
-            iconColor: "#1C5314",
-            timer: 2000,
-            timerProgressBar: true,
-            toast: true,
-            position: 'top',
-            showConfirmButton: true,
-            customClass: {
-              confirmButton: 'swal2-confirm-success'
-            }
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'top',
+                background: "#C6F0C2",
+                iconColor: "#1C5314",
+           
           }).then(() => {
             this.isSubmitting = false;
           });

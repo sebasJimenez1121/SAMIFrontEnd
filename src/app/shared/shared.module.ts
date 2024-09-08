@@ -116,6 +116,10 @@ import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor
 import { MedicinesTemplateComponent } from './components/templates/medicines-template/medicines-template.component';
 import { MedicalTableComponent } from './components/organisms/medical-table/medical-table.component';
 import { ModalDoctorComponent } from './components/organisms/modal-doctor/modal-doctor.component';
+import { TemplateMedicalHistoryComponent } from './components/templates/template-medical-history/template-medical-history.component';
+import { TemplatePrescriptionMedicationsComponent } from './components/templates/template-prescription-medications/template-prescription-medications.component';
+import { TemplateHistorialCitaAdminComponent } from './components/templates/template-historial-cita-admin/template-historial-cita-admin.component';
+import { ModalPrescriptionMedicationsComponent } from './components/organisms/modal-prescription-medications/modal-prescription-medications.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -228,7 +232,11 @@ import { ModalDoctorComponent } from './components/organisms/modal-doctor/modal-
     FooterDoctorAdminComponent,
     MedicinesTemplateComponent,
     MedicalTableComponent,
-    ModalDoctorComponent  
+    ModalDoctorComponent,
+    TemplateMedicalHistoryComponent,
+    TemplatePrescriptionMedicationsComponent,
+    TemplateHistorialCitaAdminComponent,
+    ModalPrescriptionMedicationsComponent  
   ],
   imports: [
     CommonModule,
@@ -272,7 +280,11 @@ import { ModalDoctorComponent } from './components/organisms/modal-doctor/modal-
   LinkComponent,
   CalendarDoctorComponent,
   FooterDoctorAdminComponent,
-  MedicinesTemplateComponent  
+  MedicinesTemplateComponent ,
+  TemplateMedicalHistoryComponent,
+  TemplatePrescriptionMedicationsComponent,
+  TemplateHistorialCitaAdminComponent,
+  ModalPrescriptionMedicationsComponent 
  ],
 
 

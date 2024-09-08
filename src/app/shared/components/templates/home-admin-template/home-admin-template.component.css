@@ -158,6 +158,13 @@ app-image{
       padding: 0.4rem 2.5rem;
  
   }
+  .title[_ngcontent-ng-c1214362580] {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0rem 0rem 0rem;
+}
+
+
 
 
   app-button {

@@ -9,7 +9,7 @@ export interface Patient {
     Password:string;
     Direccion: string;
     Fecha_Nac: Date;
-    Foto_Url: string;
+    Foto_Url?: string;
     Rol: string;
     Fecha_Reg: Date;
 }

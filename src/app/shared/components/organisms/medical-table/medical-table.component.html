@@ -1,8 +1,9 @@
 <div class="HistorialCita">
   <div class="container">
-    <app-empty-state imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="doctors.length === 0"></app-empty-state>
+   
     
     <table>
+      <app-empty-state class="espacio-vacio" imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="doctors.length === 0"></app-empty-state>
       <thead>
         <tr>
           <th>Médicos</th>

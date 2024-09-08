@@ -7,14 +7,14 @@
   }
   p{
     position: relative;
-    left: 2rem;
-    bottom: 2rem;
-    font-size: 1.20rem;
+    left: 1rem;
+    bottom: 1rem;
+    font-size: 1rem;
   }
   
   
   .empty-state-image {
-    width: 16rem;
+    width: 14rem;
     height: auto;
     margin-bottom: 1rem;
   }

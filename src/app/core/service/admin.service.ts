@@ -49,6 +49,14 @@ export class AdminService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.put(`${this.apiUrl}/profile/change-password`, passwords, { headers });
   }
+ // Obtener la imagen del perfil del administrador desde el localStorage o desde el backend
+ getProfileImage(): string | null {
+  return localStorage.getItem('adminProfileImage');
+}
 
+// Guardar la imagen de perfil en el localStorage
+saveProfileImage(imageBase64: string) {
+  localStorage.setItem('adminProfileImage', imageBase64);
+}
 
 }
