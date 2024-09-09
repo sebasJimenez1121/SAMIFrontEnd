@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, of, interval } from 'rxjs'; 
 import { switchMap, startWith } from 'rxjs/operators';
-import { AppointmentResponse } from '../models/response';
+import { AppointmentResponse } from '../models/response.model';
 import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
 
 @Injectable({
@@ -14,31 +14,26 @@ export class CitaService {
 
   constructor(private http: HttpClient) {}
 
-  getDoctorAppointments(doctorId: number): Observable<Appointment[]> {
-    const url = `${this.apiUrl}?doctorId=${doctorId}`;
-    return this.http.get<Appointment[]>(url)
-      .pipe(
-        catchError(this.handleError<Appointment[]>('getDoctorAppointments', []))
-      );
-  }
   getCitas(): Observable<Appointment[]> {
-    return interval(1000000)
+    return this.http.get<{ citas: Appointment[] }>(`${this.apiUrl}/get`)
       .pipe(
-        startWith(0),
-        switchMap(() => this.http.get<Appointment[]>(this.apiUrl))
+        map(response => response.citas),  
+        catchError(this.handleError<Appointment[]>('getCitas', []))
       );
   }
   // Obtener horas ocupadas para una cita específica por día
-  getUnavailableHours(fechaCita: string) {
+  getUnavailableHours(fechaCita: string, IdMedico: string) {
     return this.http.get<{ horas: string[] }>(`http://localhost:10102/cita/hour`, {
-      params: { fechaCita },
+      params: { fechaCita, IdMedico },
     });
   }
 
-  getCitaById(id: string): Observable<Appointment> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.get<Appointment>(url);
-  }
+  getCitaById(codigoCita: string): Observable<Appointment>  {
+    const url = `${this.apiUrl}/getCita`;
+    console.log(codigoCita);
+    const params = new HttpParams().set('codigoCita', codigoCita); // Parámetro de consulta
+    return this.http.get<Appointment>(url, { params });
+}
 
   guardarFechaSeleccionada(fecha: string, id: number): Observable<Appointment> {
     const update: AppointmentUpdate = {
@@ -76,6 +71,17 @@ export class CitaService {
       }, 2000);
     });
   }
+
+  updateMotivoCita(citaId: string, motivo: string): Observable<any> {
+    const url = `${this.apiUrl}/motivo`;
+    return this.http.put(url, { citaId, motivo });
+  }
+
+  uploadDocument(formData: FormData): Observable<any> {
+    const url = `${this.apiUrl}/documentos`;
+    return this.http.post(url, formData);
+  }
+  
 
   private handleError<T>(operation = 'operación', result?: T) {
     return (error: any): Observable<T> => {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, input, Input } from '@angular/core';
 import { CitaService } from '../../../../core/service/cita.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { CitaService } from '../../../../core/service/cita.service';
   styleUrls: ['./input-date.component.css'],
 })
 export class InputDateComponent implements OnInit {
+  @Input() IdMedico:string = "";
   selectHoraPosible : boolean = false;
   selectedDate: Date | null = null;
   unavailableHours: string[] = [];
@@ -34,7 +35,7 @@ export class InputDateComponent implements OnInit {
       const formattedDate = this.selectedDate.toISOString().split('T')[0];
       
 
-      this.scheduleService.getUnavailableHours(formattedDate).subscribe(
+      this.scheduleService.getUnavailableHours(formattedDate,this.IdMedico).subscribe(
         (response: { horas: string[] }) => {
           this.unavailableHours = response.horas.map(hora => hora.substring(0, 5));
           this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));

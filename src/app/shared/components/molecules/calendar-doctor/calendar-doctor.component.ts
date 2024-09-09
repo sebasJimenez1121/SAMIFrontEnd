@@ -31,7 +31,7 @@ export class CalendarDoctorComponent implements OnInit {
   }
 
   private loadDoctorAppointments(doctorId: number): void {
-    this.citaService.getDoctorAppointments(doctorId).subscribe(
+    this.citaService.getCitas().subscribe(
       data => {
         this.citas = data;
         this.updateCalendarEvents();
@@ -61,13 +61,13 @@ export class CalendarDoctorComponent implements OnInit {
     this.calendar.removeAllEvents();
     this.citas.forEach(appointment => {
       this.calendar.addEvent({
-        id: appointment.id ? appointment.id.toString() : '',
-        title: `Cita con ${appointment.namePaciente || 'Desconocido'}`,
+        id: appointment.codigoCita ? appointment.codigoCita.toString() : '',
+        title: `Cita con ${appointment.nombreDoctor || 'Desconocido'}`,
         start: appointment.fechaCita,
         color: '#1e90ff',
         extendedProps: {
-          description: appointment.meta?.description || '',
-          patientName: appointment.namePaciente || 'Desconocido'
+          description: appointment.motivoCita || '',
+          patientName: appointment.nombrePaciente || 'Desconocido'
         }
       });
     });

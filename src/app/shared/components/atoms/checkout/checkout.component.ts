@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { environment } from '../../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 declare var ePayco: any;
 
@@ -25,8 +26,11 @@ export class CheckoutComponent {
   @Input() userDocNumber: string = "";
   @Input() userEmail: string = "";
   @Input() userPhone: any = "";
+  @Input() codigoCita!: string;  // Código de la cita
 
-  constructor() {
+  @Output() transactionCompleted: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private http: HttpClient) {
     this.initializeCheckout();
   }
 
@@ -50,25 +54,36 @@ export class CheckoutComponent {
       country: "co",
       lang: "es",
       external: "false",
-      
-      confirmation: "http://tu-backend.com/payment-confirmation",
-      response: "http://tu-frontend.com/payment-response",
-      
+      confirmation: "http://localhost:10102/pago/create",  // URL de tu backend
+
       name_billing: this.userName || 'Usuario',
       address_billing: this.userAddress || 'Dirección',
       type_doc_billing: this.userDocType || 'CC',
       mobilephone_billing: this.userPhone || '3000000000',
       number_doc_billing: this.userDocNumber || '12345678',
       email_billing: this.userEmail || 'correo@ejemplo.com',
-      
+
+      extra1: this.codigoCita,  // Código de la cita como parámetro extra
       methodsDisable: ["CASH"]
     };
-  
+
     if (!this.handler) {
       this.initializeCheckout();
     }
-  
+
+    // Abre el checkout de ePayco
     this.handler.open(data);
+
+    // Aquí puedes simular la captura de la respuesta de pago en el frontend si deseas
+    this.handler.on('response', (response: any) => {
+      if (response.success) {
+        this.onPaymentCompleted(response);
+      }
+    });
+  }
+
+  onPaymentCompleted(response: any) {
+    // Emitimos el evento con el resultado del pago
+    this.transactionCompleted.emit(response);
   }
 }
-

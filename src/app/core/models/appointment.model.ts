@@ -1,25 +1,25 @@
-export interface Appointment { 
-    id: number;
-    IdMedico: number;
-    IdCiente: number;
-    nameMedico: string;
-    namePaciente: string;
-    patientDocument:number;
-    patientPhone: number; 
-    especialidad: string;
-    imagenMedico: string;
-    estado: string;
-    estadoPago: string;
-    valorCita: string;
-    motivoCita: string;
+export interface Appointment {
+    codigoCita: number;
+    motivoCita: string | null;
+    estadoCita: string;
+    horaCita: string;
     fechaCita: string;
-    horaCita:string;
-    meta?: {
-        description?: string;
-        // otras propiedades si existen
-    };
-}
-
+    fkIdAdmin: string;
+    idDoctor: string;
+    nombreDoctor: string;
+    apellidoDoctor: string;
+    emailDoctor: string;
+    tarjetaProfDoctor: string;
+    imagenMedico: string;
+    valorCita: string;
+    idPaciente: string;
+    nombrePaciente: string;
+    apellidoPaciente: string;
+    emailPaciente: string;
+    documentoPaciente: string;
+    codigoEspecialidad: string;
+    nombreEspecialidad: string;
+  }
 
 export interface AppointmentUpdate {
     fechaCita?: string;

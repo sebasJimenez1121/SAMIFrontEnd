@@ -21,9 +21,9 @@ export class StepperComponent implements AfterViewInit, OnChanges {
   @Input() steps: { label: string, component: any, data?: any }[] = [];
   @Input() doctor!: DoctorPublic;
   @Input() patient!: Patient;
-  @Output() onComponentRendered = new EventEmitter<void>(); // Emisor para cuando el componente se renderiza
+  @Output() onComponentRendered = new EventEmitter<void>();
   currentStepIndex: number = 0;
-  canProceed: boolean = true;
+  canProceed: boolean = false;
   componentRef!: ComponentRef<any>;
   userRole: string = '';
   private canProceedSubscription!: Subscription;
@@ -38,42 +38,34 @@ export class StepperComponent implements AfterViewInit, OnChanges {
     private stepperService: StepperService
   ) {}
 
-  // Se ejecuta cuando hay cambios en las entradas
   ngOnChanges(changes: SimpleChanges) {
     if (changes['steps'] || changes['doctor'] || changes['patient']) {
-      this.loadUserRole(); // Cargar el rol del usuario
-      this.loadStepComponent(); // Cargar el componente del paso actual
+      this.loadUserRole();
+      this.loadStepComponent();
     }
   }
 
-  // Se ejecuta después de que la vista se haya inicializado
   ngAfterViewInit() {
-    this.loadStepComponent(); // Cargar el componente del paso actual
-    // Suscribirse a los eventos del stepper
-    // this.subscribeToStepperEvents();  // Comentado para no suscribirse a los eventos
+    this.loadStepComponent();
+    this.subscribeToStepperEvents();
   }
 
-  // Suscribirse a los eventos del StepperService
+  // Subscribe to service events
   subscribeToStepperEvents() {
-    // Comentado para desactivar el manejo de eventos de "can proceed" y "submit step"
-    /*
     this.canProceedSubscription = this.stepperService.canProceed$.subscribe(
       (canProceed: boolean) => {
         this.canProceed = canProceed;
-        this.cdr.detectChanges();
+        this.cdr.detectChanges();  // Ensure view updates
       }
     );
 
     this.submitStepSubscription = this.stepperService.getSubmitStep().subscribe(() => {
-      this.submitStep();
+      this.submitStep();  // Trigger the submit action when service emits it
     });
-    */
   }
 
-  // Cargar el componente del paso actual
   loadStepComponent() {
     if (this.dynamicContent && this.steps.length > 0) {
-      this.canProceed = true
       this.dynamicContent.clear();
 
       const step = this.steps[this.currentStepIndex];
@@ -96,50 +88,43 @@ export class StepperComponent implements AfterViewInit, OnChanges {
         });
       }
 
-      // Comentado para desactivar la escucha de eventos de "can proceed"
-      /*
       if (this.componentRef.instance.canProceed instanceof EventEmitter) {
         this.componentRef.instance.canProceed.subscribe((canProceed: boolean) => {
-          this.stepperService.setCanProceed(canProceed);
+          this.stepperService.setCanProceed(canProceed);  // Emit canProceed to service
         });
       }
 
       if (this.componentRef.instance.stepConfirmed instanceof EventEmitter) {
         this.componentRef.instance.stepConfirmed.subscribe((status: boolean) => {
           if (status) {
-            this.nextStep();
+            this.nextStep();  // Proceed only when step is confirmed
           }
         });
       }
-      */
 
       this.cdr.detectChanges();
       this.onComponentRendered.emit();
     }
   }
 
-  // Enviar el paso actual
   submitStep() {
-    this.nextStep(); // Provisionalmente solo avanza al siguiente paso
+    this.stepperService.emitSubmitStep();  // Emit submit to current step
   }
 
-  // Avanza al siguiente paso sin eventos ni validaciones
   nextStep() {
     if (this.currentStepIndex < this.steps.length - 1) {
       this.currentStepIndex++;
-      this.canProceed = false; // No depende de validación
+      this.canProceed = false;
       this.loadStepComponent();
     } else if (this.isLastStep()) {
       this.completeProcess();
     }
   }
 
-  // Verificar si es el último paso
   isLastStep(): boolean {
     return this.currentStepIndex === this.steps.length - 1;
   }
 
-  // Cargar el rol del usuario desde el AuthService
   loadUserRole(): void {
     this.authService.getUserRole().subscribe(
       (role: string) => {
@@ -151,7 +136,6 @@ export class StepperComponent implements AfterViewInit, OnChanges {
     );
   }
 
-  // Completar el proceso
   completeProcess() {
     Swal.fire({
       icon: 'success',
@@ -163,19 +147,37 @@ export class StepperComponent implements AfterViewInit, OnChanges {
     });
   }
 
-  // Limpiar datos del LocalStorage
   cleanLocalStorage() {
     localStorage.removeItem('someItem1');
     localStorage.removeItem('someItem2');
     console.log('LocalStorage cleaned');
   }
 
-  // Limpiar las suscripciones al destruir el componente
+  resetStepper() {
+    this.currentStepIndex = 0;
+    this.canProceed = false;
+    this.loadStepComponent();
+    console.log('Stepper reset');
+  }
+
+  handleExit() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Si sales, se perderán los datos actuales.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, salir'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/inicio']);
+      }
+    });
+  }
+
   ngOnDestroy() {
-    // No es necesario limpiar suscripciones ya que están comentadas
-    /*
     if (this.canProceedSubscription) this.canProceedSubscription.unsubscribe();
     if (this.submitStepSubscription) this.submitStepSubscription.unsubscribe();
-    */
   }
 }

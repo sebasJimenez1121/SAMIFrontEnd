@@ -74,10 +74,10 @@ export class HistorialCitaTemplateComponent implements OnInit {
 
   cancelarCita(id: number): void {
     this.dataService.cancelarCita(id).subscribe(() => {
-      const cita = this.citas.find(c => c.id === id);
+      const cita = this.citas.find(c => c.codigoCita === id);
       if (cita) {
-        cita.estado = 'Cancelada';
-        this.citasFiltradas = this.citasFiltradas.map(c => c.id === id ? { ...c, estado: 'Cancelada' } : c);
+        cita.estadoCita = 'Cancelada';
+        this.citasFiltradas = this.citasFiltradas.map(c => c.codigoCita === id ? { ...c, estado: 'Cancelada' } : c);
       }
     });
   }

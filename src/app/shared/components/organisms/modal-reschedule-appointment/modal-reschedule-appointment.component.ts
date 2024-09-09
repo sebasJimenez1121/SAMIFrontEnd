@@ -110,7 +110,7 @@ export class ModalRescheduleAppointmentComponent {
 
   handleAlertButtonClick(id: number | null): void {
     if (id === 1) {
-      const citaId = this.cita?.id;
+      const citaId = this.cita?.codigoCita;
       if (citaId) {
         const nuevaFechaHora = `${this.nuevaFecha} ${this.nuevaHora}`;
         this.dataService.guardarFechaSeleccionada(nuevaFechaHora, citaId).subscribe(() => {

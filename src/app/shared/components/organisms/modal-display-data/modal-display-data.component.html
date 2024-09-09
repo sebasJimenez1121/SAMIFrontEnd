@@ -18,11 +18,11 @@
             <div class="container-doctor">
               <div class="field">
                 <app-label content="Nombre:"></app-label>
-                <app-input [disabled]="true" [value]="cita.nameMedico"></app-input>
+                <app-input [disabled]="true" [value]="cita.nombreDoctor"></app-input>
               </div>
               <div class="field">
                 <app-label content="Especialidad:"></app-label>
-                <app-input [disabled]="true" [value]="cita.especialidad"></app-input>
+                <app-input [disabled]="true" [value]="cita.nombreEspecialidad"></app-input>
               </div>
             </div>
           </div>
@@ -31,17 +31,17 @@
             <div class="container-doctor">
               <div class="field">
                 <app-label content="Nombre:"></app-label>
-                <app-input [disabled]="true" [value]="cita.namePaciente"></app-input>
+                <app-input [disabled]="true" [value]="cita.nombrePaciente"></app-input>
               </div>
               <div class="field">
                 <app-label content="Nu.documento:"></app-label>
-                <app-input [disabled]="true" [value]="'' + cita.patientDocument"></app-input>
+                <app-input [disabled]="true" [value]="'' + cita.documentoPaciente"></app-input>
               </div>
             </div>
             <div class="container-doctor">
               <div class="field">
                 <app-label content="Telefono:"></app-label>
-                <app-input [disabled]="true" [value]="'' + cita.patientPhone"></app-input>
+                <app-input [disabled]="true" [value]="''"></app-input>
               </div>
               <div class="field">
                 <app-label content="Valor cita:"></app-label>
@@ -55,7 +55,7 @@
               </div>
               <div class="field">
                 <app-label content="Motivo cita:"></app-label>
-                <app-input-text-area [value]="cita.motivoCita"></app-input-text-area>
+                <app-input-text-area [value]="cita.motivoCita + ''"></app-input-text-area>
               </div>
             </div>
             <div class="button-space">

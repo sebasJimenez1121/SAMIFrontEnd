@@ -24,14 +24,14 @@
       <tbody>
         <tr *ngFor="let cita of citasFiltradas">
           <td>
-            <img [src]="cita.imagenMedico" alt="{{cita.nameMedico}}" class="imagen-medico">
-            {{cita.nameMedico}}
+            <img [src]="cita.imagenMedico" alt="{{cita.nombreDoctor}}" class="imagen-medico">
+            {{cita.nombreDoctor}}
           </td>
-          <td>{{cita.especialidad}}</td>
-          <td>{{cita.namePaciente}}</td>
+          <td>{{cita.nombreEspecialidad}}</td>
+          <td>{{cita.nombreDoctor}}</td>
           <td>
-            <span class="estado-circulo" [ngClass]="obtenerClaseCirculo(cita.estado)"></span>
-            <span>{{ traducirEstado(cita.estado) }}</span>
+            <span class="estado-circulo" [ngClass]="obtenerClaseCirculo(cita.estadoCita)"></span>
+            <span>{{ traducirEstado(cita.estadoCita) }}</span>
           </td>
           <td>
             <app-button value="Ver más" (click)="verMas(cita)"></app-button>

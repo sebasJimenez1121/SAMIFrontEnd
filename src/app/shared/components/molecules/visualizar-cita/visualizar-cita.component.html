@@ -1,4 +1,6 @@
-<div class="appointment-card">
+
+<div class="appointment-card" *ngIf="!isLoading">
+  <!-- Información del Médico -->
   <div class="doctor-section">
     <div class="doctor-photo">
       <app-title-terciario [titleText]="'Médico'"></app-title-terciario>
@@ -10,6 +12,7 @@
     </div>
   </div>
 
+  <!-- Detalles de la Cita -->
   <div class="appointment-details">
     <!-- Paciente y Documento -->
     <div class="detail-row">
@@ -23,37 +26,16 @@
       </div>
     </div>
 
-    <!-- Fecha y Hora, Valor Cita -->
+    <!-- Fecha, Hora y Método de Pago -->
     <div class="detail-row">
       <div>
         <app-label [content]="'Fecha y Hora'"></app-label>
-        <app-text [content]="date + ' ' + time"></app-text>
+        <app-text [content]="selectedDate + ' ' + selectedTime"></app-text>
       </div>
       <div>
-        <app-label [content]="'Valor Cita'"></app-label>
-        <app-text [content]="doctor.valorCita + ' COP'"></app-text> <!-- Añadí COP para mayor claridad -->
+        <app-label [content]="'Método de Pago'"></app-label>
+        <app-text [content]="paymentMethod"></app-text>
       </div>
-    </div>
-
-    <!-- Método de Pago, Estado de Pago -->
-    <div class="detail-row">
-      <div class="label">Método De Pago:</div>
-      <div class="value">{{ paymentMethod }}</div>
-    </div>
-    <div class="detail-row">
-      <div class="label">Estado de Pago:</div>
-      <div class="value">{{ paymentStatus }}</div>
-    </div>
-
-    <!-- Motivo (opcional) -->
-    <div class="detail-row" *ngIf="motivo">
-      <div class="label">Motivo:</div>
-      <div class="value">{{ motivo }}</div>
-    </div>
-
-    <!-- Botón de Confirmación -->
-    <div class="button-row">
-      <button (click)="onConfirm()">Confirmar Cita</button>
     </div>
   </div>
 </div>

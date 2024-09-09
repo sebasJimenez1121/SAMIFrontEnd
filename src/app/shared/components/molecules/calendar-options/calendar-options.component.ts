@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, Inject, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DoctorPublic } from '../../../../core/models/doctor.model';
-import { AppointmentResponse } from '../../../../core/models/response';
+import { AppointmentResponse } from '../../../../core/models/response.model';
 import { CitaService } from '../../../../core/service/cita.service';
 import { StepperService } from '../../../../core/service/stepper.service';
 import { DYNAMIC_DATA } from '../../../../core/tokens/dynamic-data.token';
@@ -51,8 +51,9 @@ export class CalendarOptionsComponent implements OnInit, OnDestroy {
     this.selectedDate = $event.date;
     this.selectedTime = $event.time;
 
-    console.log('Selected date:', this.selectedDate);
-    console.log('Selected time:', this.selectedTime);
+    // Guardar la fecha y la hora en localStorage
+    localStorage.setItem('selectedDate', this.selectedDate);
+    localStorage.setItem('selectedTime', this.selectedTime);
 
     // Emitimos canProceed solo si se ha seleccionado tanto la fecha como la hora
     if (this.selectedDate && this.selectedTime) {

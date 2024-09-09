@@ -21,10 +21,10 @@
         <tbody>
           <tr *ngFor="let cita of citasFiltradas">
             <td>
-              <img [src]="cita.imagenMedico" alt="{{cita.nameMedico}}" class="imagen-medico">
-              {{cita.nameMedico}}
+              <img [src]="cita.imagenMedico" alt="{{cita.nombreDoctor}}" class="imagen-medico">
+              {{cita.nombreDoctor}}
             </td>
-            <td>{{cita.especialidad}}</td>
+            <td>{{cita.nombreEspecialidad}}</td>
             <td>{{cita.fechaCita}}</td>
             
             <td>

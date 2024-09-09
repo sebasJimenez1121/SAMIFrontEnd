@@ -33,7 +33,7 @@ export class ModalAppointmentRegistrationComponent implements OnInit {
   }
 
   cancelAppointment(): void {
-    if (this.cita?.id !== null && this.cita?.id !== undefined) {
+    if (this.cita?.codigoCita !== null && this.cita?.codigoCita !== undefined) {
       Swal.fire({
         title: '¿Está seguro?',
         text: '¿Está seguro de que desea cancelar esta cita?',
@@ -44,7 +44,7 @@ export class ModalAppointmentRegistrationComponent implements OnInit {
         cancelButtonText: 'No, mantener cita'
       }).then((result) => {
         if (result.isConfirmed) {
-          const citaId = this.cita!.id;
+          const citaId = this.cita!.codigoCita;
           this.dataService.cancelarCita(citaId).subscribe(
             () => {
               this.citaCancelada = true; 

@@ -5,6 +5,6 @@
         <app-text [content]="doctor.especialidad"></app-text>
     </div>
     <div class="calendar">
-        <app-input-date (dateAndTimeSelected)="handleDateAndTimeSelection($event)"></app-input-date>
+        <app-input-date (dateAndTimeSelected)="handleDateAndTimeSelection($event)" [IdMedico]="doctor.Id"></app-input-date>
     </div>
 </div>

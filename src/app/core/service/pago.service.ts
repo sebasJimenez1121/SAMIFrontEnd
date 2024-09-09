@@ -6,8 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PagoService {
-  private apiUrl = 'http://localhost:10102/pagos'; // Cambia la URL por la de tu backend
+  private apiUrl = 'http://localhost:10102/pagos'; // URL de tu backend
 
   constructor(private http: HttpClient) {}
 
+  // Registrar pago en el backend
+  registrarPago(pagoData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/create`, pagoData);
+  }
 }
