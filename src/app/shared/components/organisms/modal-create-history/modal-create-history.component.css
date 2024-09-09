@@ -53,7 +53,8 @@ app-title-secundari{
 
 .contDatosD{
     display: flex;
-    margin: 0rem 0rem 0rem 7rem;
+    margin: 3rem 6rem 3rem 7rem;
+    justify-content: space-evenly;
 }
 .datosTipo{
     margin: 0 0 0 0.8rem;
@@ -92,16 +93,16 @@ app-title-secundari{
   .modal-content {
     position: fixed;
     top: 50%;
-    border-radius:1rem;
+    border-radius: 1rem;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    padding: 20px;
+    padding: 6rem 0rem 0rem 0rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1001;
     width: 60%;
-    max-width: 900px;
-    max-height: 40rem;
+    max-width: 865px;
+    max-height: 90rem;
   }
   app-input {
     width: 20rem;
@@ -112,8 +113,8 @@ app-title-secundari{
     width: 2em;
     height: 2em;
     border: none;
-    left: 53rem;
-    top: 1rem;
+    left: 50rem;
+    bottom: 4rem;
     background: rgba(180, 83, 107, 0.11);
     border-radius: 20px;
     transition: background 0.5s;

@@ -32,6 +32,9 @@
   font-size: 24px;
   color: #333;
 }
+.fc-day-sat, .fc-day-sun {
+  background-color: #f9f9f9; /* Ajusta el color de fondo para los fines de semana */
+}
 
 /* Cambiar el estilo de los botones de navegación (mes, semana, día) */
 .fc-button {
@@ -66,8 +69,4 @@
 .fc .fc-button-primary:disabled {
   background-color: #01419c;
   border-color: #013e7a;
-}
-/* Ocultar fines de semana (opcional) */
-.fc-day-sat, .fc-day-sun {
-  display: none;
 }

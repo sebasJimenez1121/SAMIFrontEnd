@@ -1,85 +1,85 @@
 section{
     background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
     height: 8rem;
-}
-.conjunto {
+  }
+  .conjunto {
     display: flex;
     flex-direction: column;
     position: relative;
     align-items: center;
     bottom: 4rem;
     left: 0rem;
-}
-app-image{
+  }
+  app-image{
     width: 8rem;
-}
-
-app-text-field{
+  }
+  
+  app-text-field{
     margin: 1rem 2rem 1rem;
     position: relative;
-    left: 7rem;
-}
-.tituPerfil{
+    left: 4rem;
+  }
+  .tituPerfil{
     margin: 0 0 0 24rem;
-}
-.title2{
+  }
+  .title2{
     margin: 0rem 0rem 0rem 7rem;
-}
-.titu{
+  }
+  .titu{
     margin: 1rem 0 1rem 13rem;
-}
-.usuario{
+  }
+  .usuario{
     margin: 0 0rem 0 0rem;
-}
-.rol{
- margin: 0 0 0 3rem;
-}
-.input{
+  }
+  .rol{
+  margin: 0 0 0 3rem;
+  }
+  .input{
     width: 12rem;
-}
-app-title-secundari{
+  }
+  app-title-secundari{
     margin: 0 0rem 0 0;
     width: 11rem;
-}
-.contDatos{
+  }
+  .contDatos{
     display: flex;
     justify-content: space-evenly;
-    margin:1.5rem 1rem 1rem 1rem;
-}
-.contDatosM{
+    margin:0.5rem 1rem 1rem 1rem;
+  }
+  .contDatosM{
     display: flex;
-    margin: 1.5rem 0rem 0rem 7rem
-}
-
-.contDatosD{
+    margin: 0.5rem 0rem 0rem 7rem;
+  }
+  
+  .contDatosD{
     display: flex;
-    margin: 0rem 0rem 0rem 7rem;
-}
-.datosTipo{
+    margin: 2.5rem 0rem 2rem 7rem
+  }
+  .datosTipo{
     margin: 0 0 0 0.8rem;
-}
-.datosNum{
+  }
+  .datosNum{
     margin: 0 0 0 0rem;
-}
-.datosCambi{
+  }
+  .datosCambi{
     margin: 0 0 0 0rem;
-}
-.datosConfii{
+  }
+  .datosConfii{
     margin:0 0 0 5rem;
-}
-.datosConfi{
+  }
+  .datosConfi{
     margin: 0 0 0 0rem;
-}
-
-.botones{
+  }
+  
+  .botones{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin: 1rem 0 0rem 0;
-
-}
-
-.modal-overlay {
+  
+  }
+  
+  .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -119,9 +119,9 @@ app-title-secundari{
     transition: background 0.5s;
   }
   
-
   
-.X {
+  
+  .X {
     content: "";
     position: absolute;
     top: 50%;
@@ -143,7 +143,7 @@ app-title-secundari{
     transform: translateX(-50%) rotate(-45deg);
   }
   
-.close {
+  .close {
     position: absolute;
     display: flex;
     padding: 0.8rem 1.5rem;
@@ -171,7 +171,7 @@ app-title-secundari{
     background-color: rgb(130, 0, 0);
   }
   
-
+  
   
   @keyframes close {
     100% {
@@ -189,4 +189,91 @@ app-title-secundari{
     position: relative;
     bottom: 4rem;
   }
- 
+  
+   @media only screen and (min-width: 352px) and (max-width: 480px) {
+    .title2[_ngcontent-ng-c3478273961] {
+      margin: 0rem 0rem 0rem 6rem;
+  }
+  .contDatosM[_ngcontent-ng-c3478273961] {
+    display: flex;
+    margin: 0.5rem 0rem 0rem 5rem;
+  }
+    app-text-field[_ngcontent-ng-c3478273961] {
+      margin: 1rem 0rem 0rem;
+      position: relative;
+      left: 4rem;
+  }
+    .contDatos[_ngcontent-ng-c3478273961] {
+      display: flex;
+      margin: 0.5rem 1rem 1rem 2rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+  .modal-content[_ngcontent-ng-c3478273961] {
+    position: fixed;
+    top: 50%;
+    border-radius: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    width: 81%;
+    max-width: 908px;
+    max-height: 42rem;
+  }
+   }
+   
+  .image-container {
+    position: relative;
+    width: 8rem; 
+    height: 8rem; 
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #B6DFFF;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  section {
+    background: linear-gradient(to bottom right, #61A3F9, #294A9E, #203B8F);
+    height: 8rem;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .camera-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem; 
+    height: 3rem; 
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    color: #333;
+    font-size: 1.5rem;
+    pointer-events: none;
+  }
+  
+  .camera-icon img {
+    width: 2rem; 
+    height: 2rem; 
+  }
+  
+  .image-container.editable .camera-icon {
+    display: block;
+  }

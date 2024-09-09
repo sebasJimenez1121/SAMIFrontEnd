@@ -1,0 +1,53 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+  <div class="perfilPaciente">
+    
+      <button class="close-button" (click)="closeModal()">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+
+    <div class="conjunto">
+      
+    
+        <app-title-terciario titleText="Historia Clinica"></app-title-terciario>
+  
+    </div>
+    <div class="container_text">
+      <app-label class="title2" content="Informacion "></app-label>
+      <div class="contDatos">
+        <div class="datos">
+          <app-label content="Nombre paciente:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Nombre" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Documento:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Apellido" [disabled]="!isEditing"></app-input>
+        </div>
+        <div class="datos">
+          <app-label content="Diagnostico:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Email" [disabled]="!isEditing"></app-input>
+        </div>
+      </div>
+
+      <div class="contDatosD">
+        <div class="datosNum">
+          <app-label content="Nota Doctor:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Documento" [disabled]="!isEditing"></app-input>
+        </div>
+
+         <div class="datosCambi">
+          <app-label content="Atecendentes:"></app-label>
+          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Password" [disabled]="!isEditing" type="password"></app-input>
+        </div>
+      </div>
+
+     
+      <div class="botones">
+        <!-- <app-button value="Editar" (click)="enableEditing()"></app-button>
+        <app-button value="Guardar" (click)="saveProfile()"></app-button> -->
+      </div>
+    </div>
+  </div>
+</div>

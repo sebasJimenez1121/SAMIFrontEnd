@@ -152,7 +152,7 @@
   ],
   "citas": [
     {
-      "id": "1",
+      "id": 1,
       "nameMedico": "Dr. Juan Hernandez",
       "especialidad": "Cardiología",
       "namePaciente": "Jane Doe",

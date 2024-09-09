@@ -39,18 +39,30 @@ export class DoctorService {
 
   // Cargar los doctores mejor calificados
   loadTopRankedDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(`${this.apiUrl}/`).pipe(
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`).pipe(
       map(doctors => doctors.sort((a, b) => b.rating - a.rating)), 
       map(sortedDoctors => sortedDoctors.slice(0, 3))
     );
   }
 
 
+
   getDoctorByEmail(token: string): Observable<Doctor> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<Doctor>(`${this.apiUrl}/profile`, { headers });
+    return this.http.get<Doctor>(`${this.apiUrl}/profile`);
   }
 
+  updateDocProfile(token: string, doctor: Doctor): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const updateDTO = {
+      TokenEmail: token,
+      documento: doctor.documento,
+      nombre: doctor.nombre,
+      apellido: doctor.apellido,
+      email: doctor.email,
+      Foto_Url: doctor.img 
+    };
+    return this.http.put(`${this.apiUrl}/updateProfile`, updateDTO, { headers });
+  }
  
   updateProfilePicture(token: string, formData: FormData): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
