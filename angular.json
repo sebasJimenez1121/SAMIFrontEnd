@@ -72,6 +72,9 @@
             "production": {
               "buildTarget": "SAMI:build:production"
             },
+            "options": {
+              "proxyConfig": "proxy.conf.json"
+            },
             "development": {
               "buildTarget": "SAMI:build:development"
             }

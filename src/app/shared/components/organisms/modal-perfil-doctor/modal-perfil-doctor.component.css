@@ -19,6 +19,12 @@
     .text-container {
       flex: 1;
       margin: 0rem 4rem 1rem 5rem;
+      display: flex;
+      position: relative;
+      top: 6rem;
+      left: 4rem;
+      flex-direction: column;
+      align-items: center;
     }
   
     .image-background {
@@ -33,6 +39,14 @@
       position: relative;
       width: 35.6rem;
       top: 0.5rem;
+      background-color: #DBE9FE;
+      border-radius: 50%;
+      width: 11rem;
+      height: 11rem;
+      position: relative;
+      object-fit: cover;
+      right: 17rem;
+      top: -2rem;
      
     }
     .modal-overlay {
@@ -45,18 +59,21 @@
     z-index: 1000;
   }
   .modal-content {
-    position: fixed;
-    top: 45%;
-    border-radius:1rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-    width: 60%;
-    max-width: 43rem;
-    max-height: 42rem;
+  
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      width: 60%;
+      max-width: 43rem;
+      max-height: 39rem; /* Establecer una altura máxima para el modal */
+      border-radius: 1rem;
+      overflow-y: auto; /* Habilitar el scroll vertical */
+    
   }
   
   app-input {
@@ -128,5 +145,107 @@
     background-color: rgb(130, 0, 0);
   }
   
-
+  .section1 {
+    background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    border-radius: 1rem 1rem 0rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+  }
   
+  .text-container h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .text-container p {
+    font-size: 1.2rem;
+  }
+  
+  .image-foreground {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+  }
+  
+  .comments-section {
+    padding: 2rem;
+  }
+  
+  .comment-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .comments-list {
+    max-height: 12rem;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  .comment {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .newComment{
+display: flex;
+flex-direction: column;
+align-items: center;
+  }
+  textarea {
+    width: 59%;
+    height: 4rem;
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    resize: none;
+    left: 2rem;
+    margin: 1rem;
+
+  }
+  
+  app-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    position: relative;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    left: 5rem;
+  }
+  
+  button:hover {
+    background-color: #2187c7;
+  }
+  
+  h3{
+    font-size: 1.5rem;
+    margin: 1rem 1rem 2rem 14rem;
+    color: #203B8F;
+  }
+  .coment{
+    display: flex;
+    justify-content: space-around;
+    color: #203B8F;
+  }
+  .comment-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 22rem;
+    margin: 2rem 0rem 2rem 11rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }

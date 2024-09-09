@@ -10,16 +10,38 @@
     </section>
 
     <section class="section1">
-        <div class="text-container">
-        
-        
+      <div class="text-container">
+        <h2>{{ doctor.nombre }} {{ doctor.apellido }}</h2>
+        <p>{{ doctor.especialidad }}</p>
+      </div>
+      <div class="image-container">
+        <img class="image-foreground" [src]="doctor.imgUrl" alt="Doctor Image">
+
+      </div>
+    </section>
+
+    <section class="section-comments">
+      <h3>SESIÓN COMENTARIOS</h3>
+      <div class="coment">
+        <p>Comentarios</p>
+        <p>{{ comments.length }} Opiniones</p>
+      </div>
+
+      <!-- Mostrar los comentarios simulados -->
+      <div *ngFor="let comment of comments" class="comment-card">
+        <div class="comment-header">
+          <strong>{{ comment.name }}</strong> | {{ comment.location }} | {{ comment.date }}
         </div>
-        <div class="image-container">
-            <app-image class="image-background" src="../../../../../assets/images/Group.png"></app-image>
-         
-          </div>
-          
-        </section>
-  
+        <p>{{ comment.text }}</p>
+      </div>
+
+      <!-- Campo para añadir nuevo comentario -->
+      <div class="newComment">
+        <label for="newComment">Añade un comentario</label>
+        <textarea id="newComment" placeholder="Escribe tu comentario"></textarea>
+        <app-button (click)="addComment()" value="Añadir"></app-button
+          >
+      </div>
+    </section>
   </div>
 </div>

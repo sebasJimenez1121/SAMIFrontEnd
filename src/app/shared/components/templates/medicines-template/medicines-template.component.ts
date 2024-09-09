@@ -12,7 +12,7 @@ export class MedicinesTemplateComponent  implements OnInit {
   @Output() dateChange: EventEmitter<string> = new EventEmitter();
   @Output() pageChange: EventEmitter<number> = new EventEmitter();
   @Output() viewDetails: EventEmitter<Appointment> = new EventEmitter();
-  @Input() titleText: string = 'Medicamentos agendados';
+  @Input() titleText: string = 'Recordatorio Medicamentos';
   @Input() titleClass: string = 'custom-title';
 
   citasFiltradas: Appointment[] = [];

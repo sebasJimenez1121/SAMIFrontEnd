@@ -1,0 +1,65 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+  <section>
+    <button class="close-button" (click)="closeModal()">
+      <span class="X"></span>
+      <span class="Y"></span>
+      <div class="close">Cerrar</div>
+    </button>
+  </section>
+
+  <div class="conjunto">
+    <div class="image-container" (click)="triggerFileInput()">
+      <app-image [imageUrl]="doctorProfile.img ? 'data:image/png;base64,' + doctorProfile.img : '../../../../assets/images/Component 51.png'"></app-image>
+      <div class="camera-icon" *ngIf="!doctorProfile.img && isEditing">
+        <img src="../../../../assets/images/camera-icon.png" alt="Agregar foto">
+      </div>
+    </div>
+    <div class="usuario">
+      <app-title-secundari titleText="{{doctorProfile.nombre}} {{doctorProfile.apellido}}"></app-title-secundari>
+      <app-text-field content="Mi perfil"></app-text-field>
+    </div>
+  </div>
+
+  <div class="container_text">
+    <app-label class="title2" content="Información Personal"></app-label>
+    <div class="contDatos">
+      <div class="datos">
+        <app-label content="Nombre:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="doctorProfile.nombre" [disabled]="!isEditing"></app-input>
+      </div>
+      <div class="datos">
+        <app-label content="Apellido:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="doctorProfile.apellido" [disabled]="!isEditing"></app-input>
+      </div>
+      <div class="datos">
+        <app-label content="Correo Electrónico:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="doctorProfile.email" [disabled]="!isEditing"></app-input>
+      </div>
+    </div>
+
+    <div class="contDatosD">
+      <div class="datosNum">
+        <app-label content="Número de Documento:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="doctorProfile.documento" [disabled]="!isEditing"></app-input>
+      </div>
+    </div>
+
+    <app-label class="title2" content="Cambiar Contraseña"></app-label>
+    <div class="contDatosM">
+      <div class="datosCambi">
+        <app-label content="Contraseña:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="doctorProfile.password" [disabled]="!isEditing" type="password"></app-input>
+      </div>
+      <div class="datosConfii">
+        <app-label content="Confirmar Contraseña:"></app-label>
+        <app-input [width]="'10rem'" [(ngModel)]="confirmPassword" [disabled]="!isEditing" type="password"></app-input>
+      </div>
+    </div>
+    <div class="botones">
+      <app-button value="Editar" *ngIf="!isEditing" (click)="enableEditing()"></app-button>
+      <app-button value="Guardar" *ngIf="isEditing" (click)="saveProfile()"></app-button>
+    </div>
+  </div>
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+</div>
