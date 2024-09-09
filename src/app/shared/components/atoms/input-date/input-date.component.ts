@@ -7,6 +7,7 @@ import { CitaService } from '../../../../core/service/cita.service';
   styleUrls: ['./input-date.component.css'],
 })
 export class InputDateComponent implements OnInit {
+  selectHoraPosible : boolean = false;
   selectedDate: Date | null = null;
   unavailableHours: string[] = [];
   availableHours: string[] = [];
@@ -24,33 +25,42 @@ export class InputDateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onDateChange(date: Date | any): void {
-    this.selectedDate = date;
-    this.availableHours = [];
-    this.unavailableHours = [];
+  onDateChange(date: Date | null): void {
+    this.resetDateAndTime();
 
     if (date) {
-      const formattedDate = date.toISOString().split('T')[0];
+      this.selectedDate = date;
+
+      const formattedDate = this.selectedDate.toISOString().split('T')[0];
+      
+
       this.scheduleService.getUnavailableHours(formattedDate).subscribe(
         (response: { horas: string[] }) => {
-          // Mapea las horas para eliminar los segundos (hh:mm:ss => hh:mm)
           this.unavailableHours = response.horas.map(hora => hora.substring(0, 5));
-
-          // Filtra las horas disponibles excluyendo las ocupadas
           this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));
         },
         error => {
-          console.error('Error al obtener las horas:', error);
+          console.error('Error al obtener las horas no disponibles:', error);
         }
       );
     }
   }
 
-  selectHour(hour: string) {
+  selectHour(hour: string): void {
     this.selectedHour = hour;
+    this.emitDateAndTime();
   }
 
-  scrollUp() {
+  emitDateAndTime() {
+    if (this.selectedDate && this.selectedHour) {
+      this.dateAndTimeSelected.emit({
+        date: this.selectedDate.toISOString().split('T')[0],
+        time: this.selectedHour
+      });
+    }
+  }
+
+  scrollUp(): void {
     const carousel = document.querySelector('.hour-carousel');
     if (carousel) {
       carousel.scrollBy({
@@ -60,7 +70,7 @@ export class InputDateComponent implements OnInit {
     }
   }
 
-  scrollDown() {
+  scrollDown(): void {
     const carousel = document.querySelector('.hour-carousel');
     if (carousel) {
       carousel.scrollBy({
@@ -92,21 +102,10 @@ export class InputDateComponent implements OnInit {
     return date > today;
   };
 
-  submitAppointment() {
-    if (this.selectedDate && this.selectedHour) {
-      const appointmentData = {
-        date: this.selectedDate.toISOString().split('T')[0],
-        time: this.selectedHour
-      };
-      this.dateAndTimeSelected.emit(appointmentData);
-    } else {
-  
-    }
-  }
-
-  resetDateAndTime() {
+  resetDateAndTime(): void {
     this.selectedDate = null;
     this.selectedHour = null;
     this.availableHours = [];
+    this.unavailableHours = [];
   }
 }

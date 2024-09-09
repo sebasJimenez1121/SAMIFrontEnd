@@ -9,7 +9,6 @@ declare var ePayco: any;
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-
   private handler: any;
 
   @Input() productName: string = "";
@@ -40,7 +39,6 @@ export class CheckoutComponent {
 
   openCheckout() {
     const data = {
-      // Parámetros de la compra (obligatorios)
       name: this.productName || 'Producto',
       description: this.productDescription || 'Descripción del producto',
       invoice: this.invoiceNumber || '0001',
@@ -53,11 +51,9 @@ export class CheckoutComponent {
       lang: "es",
       external: "false",
       
-      // Atributos opcionales
       confirmation: "http://tu-backend.com/payment-confirmation",
       response: "http://tu-frontend.com/payment-response",
       
-      // Atributos del cliente
       name_billing: this.userName || 'Usuario',
       address_billing: this.userAddress || 'Dirección',
       type_doc_billing: this.userDocType || 'CC',
@@ -65,7 +61,6 @@ export class CheckoutComponent {
       number_doc_billing: this.userDocNumber || '12345678',
       email_billing: this.userEmail || 'correo@ejemplo.com',
       
-      // Deshabilitar métodos de pago que no son virtuales
       methodsDisable: ["CASH"]
     };
   

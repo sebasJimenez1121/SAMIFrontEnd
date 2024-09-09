@@ -1,5 +1,23 @@
 .container{
-    width: 90%;
     margin: 0 auto;
     margin-top: 10rem;
+}
+
+.title{
+   width: 95%;
+   margin: 0 auto;
+}
+
+.line{
+    margin: 0 auto;
+    width: 95%;
+    height: .5px;
+    margin-bottom: 2%; 
+    background-color: #19348f;
+}
+
+.stepper{
+    width: 95%;
+    margin: 0 auto;
+
 }

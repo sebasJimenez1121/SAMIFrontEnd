@@ -279,9 +279,9 @@ import { MedicinesTemplateComponent } from './components/templates/medicines-tem
   CalendarDoctorComponent,
   StepperAgendamientoComponent,
   FooterDoctorAdminComponent,
-  MedicinesTemplateComponent
+  MedicinesTemplateComponent,
+  PatientListComponent
  ],
-
 
 })
 export class SharedModule { }

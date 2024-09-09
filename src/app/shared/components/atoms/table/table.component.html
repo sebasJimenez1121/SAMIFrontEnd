@@ -1,4 +1,5 @@
-<div class="table-container">
+<div class="HistorialCita">
+  <div class="container"> 
     <table>
       <thead>
         <tr>
@@ -7,8 +8,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let row of rows">
-          <td *ngFor="let key of headers">
-            <ng-container *ngIf="key === 'Acciones'; else normalCell">
+          <td *ngFor="let key of headers" [ngClass]="{'actions-cell': key === 'Acciones'}">
+            <ng-container *ngIf="key === 'Acciones'; else normalCell" class="actions">
               <app-button (click)="onActionClick(row[key])" [value]="value"></app-button>
             </ng-container>
             <ng-template #normalCell>{{ row[key] }}</ng-template>
@@ -16,5 +17,5 @@
         </tr>
       </tbody>
     </table>
+  </div>
 </div>
-  

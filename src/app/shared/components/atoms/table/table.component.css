@@ -1,69 +1,129 @@
-.table-container {
-    width: 100%;
-    overflow-x: auto;
+.HistorialCita {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: 0.5625rem 11rem;
+  width: 81%;
+}
+
+app-title-principal {
+  position: relative;
+  left: 3rem;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  margin: 1.25rem 0;
+  font-size: 1rem;
+  text-align: left;
+  padding: auto;
+}
+
+th {
+  background-color: #DBE9FE;
+  padding: 0.625rem;
+  border-bottom: 0.0625rem solid #ddd;
+  color: #203B8F;
+}
+
+td {
+  padding: 0.90rem;
+  border-bottom: 0.0625rem solid #DBE9FE;
+  color: rgb(116, 116, 116);
+}
+
+.imagen-medico {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+  vertical-align: middle;
+}
+
+/* Estilos para la columna de acciones */
+.actions-cell {
+  width: 150px; /* Ajusta el ancho según tus necesidades */
+  text-align: center; /* Centra los botones en la celda */
+}
+
+.actions-cell app-button {
+  margin-left: 10px; /* Espacio entre el botón y el borde de la celda */
+}
+
+
+
+#fecha {
+  margin: 0 0 1.25rem 0.625rem;
+}
+
+.titulo {
+  margin: 1.5rem 0rem 4.5625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .HistorialCita {
+    padding: 0rem;
+    font-family: 'Poppins', sans-serif;
   }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
+
+  .container {
+    margin: 0rem 0rem;
+    width: 0%;
   }
-  
-  thead {
-    background-color: #f9fbfd;
+
+  app-button {
+    position: relative;
+    left: 1.5rem;
   }
-  
-  th, td {
-    text-align: left;
-    padding: 12px;
-  }
-  
-  th {
-    font-weight: bold;
-    color: #4f4f4f;
-  }
-  
-  td {
-    color: #333;
-  }
-  
-  td:last-child {
-    text-align: center;
-  }
-  
-  button {
-    background-color: #0066cc;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #005bb5;
-  }
-  
-  .status {
+
+  .titulo {
+    margin: 3.5rem 14rem 4.5625rem;
     display: flex;
+    justify-content: center;
     align-items: center;
   }
-  
-  .status .dot {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
+
+  td {
+    padding: 0.89rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
   }
-  
-  .status.green .dot {
-    background-color: #28a745;
+
+  table {
+    width: 98%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 1.25rem 23px;
+    font-size: 0.6rem;
+    text-align: left;
+    padding: auto;
   }
-  
-  .status.red .dot {
-    background-color: #dc3545;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+  .container {
+    margin: 0.5625rem 0rem;
+    width: 116%;
+    position: relative;
+    right: 3rem;
   }
-  
+}
+
+@media (min-width: 921px) and (max-width: 1279px) {
+  .container {
+    margin: 0.5625rem 7rem;
+    width: 85%;
+  }
+}
+
+@media (min-width: 1280px) {
+}

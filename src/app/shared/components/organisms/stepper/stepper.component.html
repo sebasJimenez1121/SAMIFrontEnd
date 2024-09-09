@@ -1,49 +1,46 @@
-<div class="stepper-container">
-    <div class="stepper">
-      <div
-        *ngFor="let step of steps; let i = index"
-        class="stepper-item"
-        [class.active]="i === currentStepIndex"
-        [class.completed]="i < currentStepIndex"
-        (click)="selectStep(i)"
-      >
-        <div
-          class="step-number"
-          [class.active]="i === currentStepIndex"
-          [class.completed]="i < currentStepIndex"
-        >
-          <ng-container *ngIf="i < currentStepIndex">
-            <i class="fa fa-check"></i>
-          </ng-container>
-          <ng-container *ngIf="i >= currentStepIndex">
-            {{ i + 1 | number: '2.0' }}
-          </ng-container>
-        </div>
-        <div
-          class="step-label"
-          [class.active]="i === currentStepIndex"
-          [class.completed]="i < currentStepIndex"
-        >
-          {{ step.label }}
-        </div>
-        <div *ngIf="i < steps.length - 1" class="step-line"></div>
+<!-- Título con directiva appRoleStyle -->
+<div class="title" [appRoleStyle]="userRole" adminClass="title-admin">
+  <app-title-terciario [titleText]="'Agendamiento Cita'"></app-title-terciario>
+  <a class="logout-icon">
+    <app-icon iconUrl="../../../../../assets/icons/door.svg" alt="Logout Icon"></app-icon>
+    <app-link [links]="[{ url: '', label: 'Cancelar' }]"></app-link>
+  </a>
+</div>
+
+<!-- Contenedor del Stepper con directivas -->
+<div class="stepper-container" [appRoleStyle]="userRole" adminClass="admin" patientClass="paciente">
+  <div class="stepper">
+    <div
+      *ngFor="let step of steps; let i = index"
+      class="stepper-item"
+      [class.active]="i === currentStepIndex"
+      [class.completed]="i < currentStepIndex"
+    >
+      <div class="step-number" [class.active]="i === currentStepIndex" [class.completed]="i < currentStepIndex">
+        <ng-container *ngIf="i < currentStepIndex">
+          <i class="fa fa-check"></i>
+        </ng-container>
+        <ng-container *ngIf="i >= currentStepIndex">
+          {{ i + 1 | number: '2.0' }}
+        </ng-container>
       </div>
-    </div>
-  
-    <div class="step-content">
-      <ng-template #dynamicContent></ng-template>
+      <div class="step-label" [class.active]="i === currentStepIndex" [class.completed]="i < currentStepIndex">
+        {{ step.label }}
+      </div>
+      <div *ngIf="i < steps.length - 1" class="step-line"></div>
     </div>
   </div>
-  
-  <div class="stepper-actions">
-    <app-button
-      (click)="nextStep()"
-      [isDisabled]="!canProceed"
-      [value]="'Continuar'"
-    ></app-button>
-    <app-button
-      (click)="handleExit()"
-      [value]="'Salir'"
-    ></app-button>
+
+  <div class="step-content">
+    <ng-template #dynamicContent></ng-template>
   </div>
-  
+</div>
+
+<!-- Acciones del Stepper -->
+<div class="stepper-actions" [appRoleStyle]="userRole" adminClass="admin-actions" patientClass="paciente">
+  <app-button
+    (click)="submitStep()"
+    [isDisabled]="!canProceed"
+    [value]="isLastStep() ? 'Confirmar' : 'Continuar'"
+  ></app-button>
+</div>

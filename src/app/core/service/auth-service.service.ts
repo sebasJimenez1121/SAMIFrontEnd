@@ -58,6 +58,21 @@
       );
     }
 
+    getUserIdFromToken(): string {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const decodedToken: any = jwtDecode(token);
+          console.log('Decoded Token:', decodedToken); // Verificar el contenido del token decodificado
+          return decodedToken.data.id; // Asegúrate de que `data.id` sea la ruta correcta al ID del paciente
+        } catch (error) {
+          console.error("Error decodificando el token para obtener el ID:", error);
+          return '';
+        }
+      }
+      return '';
+    }
+
     getUserRoleFromToken(token: string): string {
       try {
         const decodedToken: any = jwtDecode(token);

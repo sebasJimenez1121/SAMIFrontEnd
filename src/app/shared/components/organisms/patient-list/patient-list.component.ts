@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PacienteService } from '../../../../core/service/paciente.service';
-import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-patient-list',
@@ -11,6 +10,8 @@ export class PatientListComponent implements OnInit {
   headers = ['Paciente', 'Documento', 'Email', 'Estado', 'Acciones'];
   patients: any[] = [];
 
+  @Output() patientSelected = new EventEmitter<any>();  // EventEmitter for full patient
+
   constructor(private pacienteService: PacienteService) {}
 
   ngOnInit(): void {
@@ -19,10 +20,8 @@ export class PatientListComponent implements OnInit {
         const patientsData = response.patients; 
         if (Array.isArray(patientsData)) {
           this.patients = patientsData.map(patient => ({
+            ...patient,  // Preserve the full patient object
             Paciente: `${patient.Nombre} ${patient.Apellido}`,
-            Documento: patient.Documento,
-            Email: patient.Email,
-            Estado: patient.Estado,
             Acciones: patient.Id
           }));
         }
@@ -33,7 +32,10 @@ export class PatientListComponent implements OnInit {
     );
   }
   
-  verMas(id: number) {
-    console.log('Ver más sobre el paciente con ID:', id);
+  onActionClick(id: number) {
+    const selectedPatient = this.patients.find(patient => patient.Acciones === id);
+    if (selectedPatient) {
+      this.patientSelected.emit(selectedPatient);  // Emitir el paciente seleccionado
+    }
   }
 }

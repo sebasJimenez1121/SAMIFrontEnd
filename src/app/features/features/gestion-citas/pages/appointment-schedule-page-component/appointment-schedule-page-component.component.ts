@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../../../core/service/auth-service.service';
+import { PacienteService } from '../../../../../core/service/paciente.service';
+import { StepperService } from '../../../../../core/service/stepper.service';
+import { StorageService } from '../../../../../core/service/storage.service';
 import { DoctorPublic } from '../../../../../core/models/doctor.model';
+import { Patient } from '../../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-appointment-schedule-page-component',
@@ -9,15 +13,72 @@ import { DoctorPublic } from '../../../../../core/models/doctor.model';
 })
 export class AppointmentSchedulePageComponentComponent implements OnInit {
   doctor!: DoctorPublic;
+  patient!: Patient;
+  userRole!: string;
+  isDataReady: boolean = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private authService: AuthService,
+    private pacienteService: PacienteService,
+    private stepperService: StepperService,
+    private storageService: StorageService,
+  ) {}
 
-  ngOnInit() {
-    // Intentamos recuperar el doctor del estado de la navegación
-    this.route.paramMap.subscribe(() => {
-      this.doctor = history.state.doctor || JSON.parse(localStorage.getItem('selectedDoctor')!);
-      if (!this.doctor) {
-        console.error('No se encontró el doctor.');
+  async ngOnInit() {
+    await this.loadUserRole();
+    await this.loadDoctor();
+    await this.loadUserData();
+    this.isDataReady = true;
+  }
+
+  private loadUserRole(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      this.authService.getUserRole().subscribe(role => {
+        this.userRole = role;
+        resolve();
+      });
+    });
+  }
+
+  private loadDoctor(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      const storedDoctor = this.storageService.getDecryptedItem('selectedDoctor');
+      if (storedDoctor) {
+        this.doctor = storedDoctor;
+        resolve();
+      } else {
+        this.stepperService.getDoctor().subscribe(doctor => {
+          this.doctor = doctor as DoctorPublic;
+          resolve();
+        });
+      }
+    });
+  }
+
+  private loadUserData(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      if (this.userRole === 'paciente') {
+        const storedPatient = this.storageService.getDecryptedItem('patientData');
+        if (storedPatient) {
+          this.patient = storedPatient;
+          resolve();
+        } else {
+          this.pacienteService.getPatientById().subscribe(response => {
+            this.patient = response.patient;
+            resolve();
+          });
+        }
+      } else if (this.userRole === 'admin') {
+        const storedPatient = this.storageService.getDecryptedItem('selectedPatient');
+        if (storedPatient) {
+          this.patient = storedPatient;
+          resolve();
+        } else {
+          this.stepperService.getPatient().subscribe(patient => {
+            this.patient = patient as Patient;
+            resolve();
+          });
+        }
       }
     });
   }

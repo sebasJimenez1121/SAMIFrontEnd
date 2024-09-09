@@ -1,2 +1,8 @@
-<!-- appointment-schedule-page-component.component.html -->
-<app-stepper-agendamiento [doctor]="doctor"></app-stepper-agendamiento>
+<ng-container *ngIf="isDataReady">
+  <app-stepper-agendamiento 
+    [doctor]="doctor" 
+    [patient]="patient">
+  </app-stepper-agendamiento>
+</ng-container>
+
+

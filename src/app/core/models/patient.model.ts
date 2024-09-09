@@ -16,7 +16,9 @@ export interface Patient {
 }
 
 export interface updatePatient {
-    Documento: string;         
+    Id: string;
+    Documento: string;  
+    Nombre: string;      
     Apellido?: string;      
     Email?: string;         
     Telefono?: string;       

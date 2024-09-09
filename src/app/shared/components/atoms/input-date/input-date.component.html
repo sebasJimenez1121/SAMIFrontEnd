@@ -8,7 +8,7 @@
       <app-text [content]="'Horas disponibles'"></app-text>
       
       <div class="hour-carousel-container">
-        <button class="arrow-button" (click)="scrollUp()">&#9650;</button> <!-- Flecha arriba -->
+        <a class="arrow-button" (click)="scrollUp()">&#9650;</a> <!-- Flecha arriba -->
         
         <div class="hour-carousel">
           <div class="hour-item" *ngFor="let hour of availableHours" [ngClass]="{'selected': selectedHour === hour}">
@@ -16,7 +16,7 @@
           </div>
         </div>
         
-        <button class="arrow-button" (click)="scrollDown()">&#9660;</button> <!-- Flecha abajo -->
+        <a class="arrow-button" (click)="scrollDown()">&#9660;</a> <!-- Flecha abajo -->
       </div>
     </ng-container>
     
