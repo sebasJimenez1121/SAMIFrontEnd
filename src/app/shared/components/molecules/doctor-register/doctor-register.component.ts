@@ -4,7 +4,7 @@ import { DoctorService } from '../../../../core/service/doctor.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
-import { Specialty } from '../../../../core/models/doctor.model';
+import { Specialty, DoctorPublic } from '../../../../core/models/doctor.model';
 
 @Component({
   selector: 'app-doctor-register',
@@ -22,7 +22,7 @@ export class DoctorRegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private doctorService: DoctorService,
     private router: Router,
-    private specialtyService: SpecialtyService // Inyección del SpecialtyService
+    private specialtyService: SpecialtyService
   ) {
     this.registrationForm = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -44,7 +44,7 @@ export class DoctorRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadSpecialties(); // Cargar las especialidades al iniciar
+    this.loadSpecialties();
   }
 
   passwordsMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -115,11 +115,11 @@ export class DoctorRegisterComponent implements OnInit {
           background: "#C6F0C2",
           iconColor: "#1C5314",
         }).then(() => {
-          // Clear the form
           this.registrationForm.reset();
           this.imgFile = null;
           this.registrationForm.markAsPristine();
           this.registrationForm.markAsUntouched();
+          this.loadDoctors();
         });
       },
       error: error => {
@@ -129,7 +129,18 @@ export class DoctorRegisterComponent implements OnInit {
       }
     });
   }
-  
+
+  loadDoctors(): void {
+    this.doctorService.getDoctors().subscribe(
+      (data: DoctorPublic[]) => { // Asegúrate de que este tipo sea el correcto
+        console.log('Doctors data:', data);
+        // Actualiza la lista de médicos en el componente si es necesario
+      },
+      error => {
+        console.error('Error al cargar la lista de médicos', error);
+      }
+    );
+  }
 
   loadSpecialties(): void {
     this.specialtyService.getSpecialties().subscribe(
@@ -139,7 +150,7 @@ export class DoctorRegisterComponent implements OnInit {
           label: specialty.Nombre
         }));
       },
-      (error) => {
+      error => {
         console.error('Error al cargar especialidades', error);
       }
     );

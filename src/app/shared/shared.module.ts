@@ -118,6 +118,12 @@ import { TableComponent } from './components/atoms/table/table.component';
 import { PatientListComponent } from './components/organisms/patient-list/patient-list.component';
 import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor-admin/footer-doctor-admin.component';
 import { MedicinesTemplateComponent } from './components/templates/medicines-template/medicines-template.component';
+import { MedicalTableComponent } from './components/organisms/medical-table/medical-table.component';
+import { ModalDoctorComponent } from './components/organisms/modal-doctor/modal-doctor.component';
+import { TemplateMedicalHistoryComponent } from './components/templates/template-medical-history/template-medical-history.component';
+import { TemplatePrescriptionMedicationsComponent } from './components/templates/template-prescription-medications/template-prescription-medications.component';
+import { TemplateHistorialCitaAdminComponent } from './components/templates/template-historial-cita-admin/template-historial-cita-admin.component';
+import { ModalPrescriptionMedicationsComponent } from './components/organisms/modal-prescription-medications/modal-prescription-medications.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -228,7 +234,14 @@ import { MedicinesTemplateComponent } from './components/templates/medicines-tem
     TableComponent,
     PatientListComponent,
     FooterDoctorAdminComponent,
-    MedicinesTemplateComponent
+    MedicinesTemplateComponent,
+    MedicinesTemplateComponent,
+    MedicalTableComponent,
+    ModalDoctorComponent,
+    TemplateMedicalHistoryComponent,
+    TemplatePrescriptionMedicationsComponent,
+    TemplateHistorialCitaAdminComponent,
+    ModalPrescriptionMedicationsComponent  
   ],
   imports: [
     CommonModule,
@@ -278,9 +291,13 @@ import { MedicinesTemplateComponent } from './components/templates/medicines-tem
   LinkComponent,
   CalendarDoctorComponent,
   StepperAgendamientoComponent,
-  FooterDoctorAdminComponent,
-  MedicinesTemplateComponent,
-  PatientListComponent
+  FooterDoctorAdminComponent, MedicinesTemplateComponent,
+  PatientListComponent,
+  MedicinesTemplateComponent ,
+  TemplateMedicalHistoryComponent,
+  TemplatePrescriptionMedicationsComponent,
+  TemplateHistorialCitaAdminComponent,
+  ModalPrescriptionMedicationsComponent 
  ],
 
 })

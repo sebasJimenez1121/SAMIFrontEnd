@@ -4,7 +4,8 @@
       <app-header></app-header>
       <main>
         <router-outlet></router-outlet>
-            <app-footer *ngIf="isHomePage"></app-footer>
+        <app-chatbot></app-chatbot>
+            <app-footer-doctor-admin *ngIf="isHomePage"></app-footer-doctor-admin>
       </main>
   
     </div>
@@ -12,7 +13,7 @@
       <app-lateral-menu></app-lateral-menu>
       <main>
         <router-outlet></router-outlet>
-        <app-footer-doctor-admin></app-footer-doctor-admin>
+        <app-chatbot></app-chatbot>
       </main>
     </div>
   </div>

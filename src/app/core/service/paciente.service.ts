@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient, updatePatient } from '../models/patient.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,7 @@ export class PacienteService {
   constructor(private http: HttpClient) {} // Inyectar AuthService
 
   // Obtener todos los pacientes
+ 
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(`${this.apiUrl}/patient/patients`);
   }

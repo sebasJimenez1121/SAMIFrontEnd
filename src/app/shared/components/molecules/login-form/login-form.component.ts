@@ -50,7 +50,6 @@ export class LoginFormComponent implements OnInit {
     };
   }
 
-  // Validador para contraseña fuerte
   strongPasswordValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -134,7 +133,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/home-doctor']);
         break;
       case 'paciente':
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home-paciente']);
         break;
       default:
         console.error('Rol de usuario no reconocido:', userRole);

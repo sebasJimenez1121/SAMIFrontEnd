@@ -1,0 +1,132 @@
+.HistorialCita{
+  padding: 3rem 2rem 3rem 10rem;
+  font-family: "Poppins", sans-serif;
+}
+  
+  .container {
+    margin: 0.5625rem 11rem;
+    width: 81%;
+  }
+  app-title-principal{
+    position: relative;
+    left: 3rem;
+  }
+  .espacio-vacio{
+    position: relative;
+    left: 20rem;
+  }
+  table {
+    width: 98%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+    margin: 1.25rem 0;
+    font-size:  1rem;
+    text-align: left;
+    padding: auto;
+   
+  }
+  
+  th {
+    background-color: #DBE9FE;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid #ddd;
+    color: #203B8F;
+  }
+  
+  td {
+    padding: 0.90rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
+  }
+  .img-icon{
+    width: 1rem;
+    margin: 0.5rem;
+  }
+  .imagen-medico {
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    vertical-align: middle;
+  }
+  
+  
+  
+  
+  #fecha {
+    margin: 0 0 1.25rem 0.625rem;
+  }
+  
+  .titulo {
+    margin: 1.5rem 0rem 4.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+
+
+  
+
+
+@media only screen and (min-width: 352px) and (max-width: 480px) {
+  .HistorialCita {
+    padding: 0rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+  .container[_ngcontent-ng-c4055739071] {
+    margin: 0rem 0rem;
+    width: 16%;
+}
+  app-button{
+    position: relative;
+    left: 1.5rem;
+  }
+  .titulo {
+    margin: 3.5rem 14rem 4.5625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  td {
+    padding: 0.89rem;
+    border-bottom: 0.0625rem solid #DBE9FE;
+    color: rgb(116, 116, 116);
+  }
+  table {
+    width: 88%;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 3.25rem 3px;
+    font-size: 0.6rem;
+    text-align: left;
+    padding: auto;
+   
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+  .container[_ngcontent-ng-c3062830316] {
+    margin: 0.5625rem 0rem;
+    width: 116%;
+    position: relative;
+    right: 3rem;
+}
+}
+
+@media (min-width: 921px) and (max-width: 1279px) {
+  .container {
+    margin: 0.5625rem 7rem;
+    width: 85%;
+}
+}
+
+@media (min-width: 1280px) {
+ 
+}

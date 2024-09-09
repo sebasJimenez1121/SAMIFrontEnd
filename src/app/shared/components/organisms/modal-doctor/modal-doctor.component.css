@@ -1,0 +1,307 @@
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  }
+  
+  
+  .modal-content {
+  
+    position: fixed;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.875rem;
+    border-radius: 0.938rem;
+    box-shadow: 0 0.125rem 0.313rem rgba(0, 0, 0, 0.2);
+    z-index: 1001; 
+    width: 43%; 
+    max-height: 88%; 
+  
+  }
+  
+  
+  
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cancelarCita{
+    margin: 0rem 4rem 1rem 1rem;
+    
+  }
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed; 
+  }
+  
+  hr{
+    width: 37rem;
+    position: relative;
+    left: 1rem;
+    border: 0;
+    border-bottom: 0.063rem solid #aab2c869;
+    margin: 1rem 1rem 0.5rem 1rem ;
+  
+  }
+  .title-info{
+    position: relative;
+    left: 1rem;
+  }
+  
+  
+  
+  .modal-body {
+    padding: 0;
+  }
+  
+  
+  .modal-content h2 {
+    text-align: center;
+  }
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    left: 1rem;
+    bottom: 0rem;
+  }
+  
+  
+  .infoDoctor{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    align-items: flex-start;
+    position: relative;
+    margin: 3rem 1rem 5rem 1rem;
+    left: 0rem;
+  }
+  
+  
+  .field {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.313rem;
+    flex-direction: column;
+    margin: 0rem 5rem 1rem 1rem
+  }
+  
+  .field app-label {
+    width: 70%;
+   
+    
+  }
+  
+  
+  .field app-input,
+  .field app-input-file,
+  .field app-input-text-area {
+    width: 180%;
+  }
+  
+  .fieldd {
+    display: flex;
+    gap: 0rem;
+    flex-direction: column;
+    margin: 0rem 2rem 1rem 1rem;
+    align-content: stretch;
+  
+  }
+  
+  .fieldd app-label {
+    width: 70%;
+    
+  }
+  
+  .fieldd app-input,
+  .fieldd app-input-file,
+  .fieldd app-input-text-area {
+    width: 150%;
+  }
+  
+  .button-space {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0rem 0.688rem 8.125rem 6.25rem;
+    position: relative;
+    bottom: 0.5rem;
+  }
+  
+  
+  app-title-terciario {
+    position: relative;
+    left: 14rem;
+   
+  }
+  
+  .container-doctor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  
+    .close-button {
+      position: relative;
+      width: 2em;
+      height: 2em;
+      border: none;
+      left: 0rem;
+      bottom: 0rem;
+      background: rgba(54, 53, 53, 0.367);
+      border-radius: 20px;
+      transition: background 0.5s;
+    }
+    
+  
+    
+  .X {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1em;
+      height: 1.5px;
+      background-color: rgb(255, 255, 255);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    
+    .Y {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1em;
+      height: 1.5px;
+      background-color: #fff;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+    
+  .close {
+      position: absolute;
+      display: flex;
+      padding: 0.8rem 1.5rem;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-50%);
+      top: -70%;
+      left: 50%;
+      width: 3em;
+      height: 1.7em;
+      font-size: 12px;
+      background-color: rgb(19, 22, 24);
+      color: rgb(187, 229, 236);
+      border: none;
+      border-radius: 3px;
+      pointer-events: none;
+      opacity: 0;
+    }
+    
+    .close-button:hover {
+      background-color: rgba(184, 191, 255, 0.447);
+    }
+    
+    .close-button:active {
+      background-color: rgb(58, 58, 58);
+    }
+    
+  
+    
+    @keyframes close {
+      100% {
+        opacity: 1;
+      }
+    }
+    
+  
+  
+    @media only screen and (min-width: 352px) and (max-width: 480px) {
+      .modal-content{
+        padding: 0.5rem 0.6rem 0.8rem 0.6rem;
+          width: 90%;
+          max-height: 94%;
+      }
+      .container{
+        display: flex;
+        gap: 0rem;
+        position: relative;
+        left: -4rem;
+      } 
+      app-title-terciario {
+        left: 3.5rem;
+       }
+     
+       .infoDoctor,
+       .infoPaciente {
+         gap: 0rem;
+         left: 4.3rem;
+       }
+        
+      hr{
+        width: 14rem;
+        margin: 0 0 0 1rem;
+      }
+      .field {
+        gap: 0rem;
+        margin: 0rem 3rem 0rem 1rem;
+      }
+      #container-doctores{
+        flex-direction: column;
+      } 
+      .fieldd{
+        margin: 0rem 2rem 0rem 1rem;
+     }
+     .button-space {
+      margin: 0.6rem 0rem 1rem 0rem;
+      bottom: 0.2rem;
+    }
+    .cancelarCita{
+      margin: 0rem 1rem 0rem 3.5rem;
+    }
+    .close-button{
+      width: 1.3em;
+      height: 1.3em;
+    }
+    }
+    
+    @media (min-width: 481px) and (max-width: 768px) {
+      .modal-content {
+        top: 47%;
+        padding: 0.875rem;
+        width: 77%;
+        max-height: 59%;
+      }
+    }
+    
+  @media (min-width: 769px) and (max-width: 920px) {
+    .modal-content {
+      top: 47%;
+      padding: 0.875rem;
+      width: 76%;
+      max-height: 59%;
+    }
+  }
+  
+  @media (min-width: 921px) and (max-width: 1279px) {
+    
+    .modal-content{
+      width: 41%;
+      max-height: 62%;
+    }
+  }
+  
+  
+  @media (min-width: 1280px) {
+  
+  }

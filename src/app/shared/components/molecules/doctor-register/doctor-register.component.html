@@ -148,7 +148,8 @@
           <div *ngIf="registrationForm.get('valorCita')?.invalid && (registrationForm.get('valorCita')?.dirty || registrationForm.get('valorCita')?.touched)"
                class="error-bubble">
             <small class="error" *ngIf="registrationForm.get('valorCita')?.errors?.['required']">El valor de la cita es obligatorio.</small>
-            <small class="error" *ngIf="registrationForm.get('valorCita')?.errors?.['pattern']">El valor de la cita debe ser un número válido.</small>
+            <small class="error" *ngIf="registrationForm.get('valorCita')?.errors?.['pattern']">El valor de la cita no debe contener puntos
+            </small>
           </div>
         </div>
         

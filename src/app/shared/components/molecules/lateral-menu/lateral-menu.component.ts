@@ -28,7 +28,7 @@ export class LateralMenuComponent implements OnInit {
 
   checkScreenSize() {
     const width = window.innerWidth;
-    this.isHamburgerMenu = width <= 920; // Ajusta según el punto de quiebre deseado
+    this.isHamburgerMenu = width <= 920; 
   }
 
   toggleSidebar() {
@@ -74,27 +74,29 @@ export class LateralMenuComponent implements OnInit {
     });
 
     if (result.isConfirmed) {
-      this.showProgress = true;
+      this.showProgress = true;  // Mostrar la carga progresiva
+
       try {
         await this.authService.logout();
-        this.router.navigate(['/home']);
-        Swal.fire({
-          title: 'Sesión cerrada',
-          text: 'Has cerrado sesión exitosamente.',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          toast: true,
-          position: 'top',
-          background: "#C6F0C2",
-          iconColor: "#1C5314",
+        this.router.navigate(['/home']).then(() => {
+          this.showProgress = false;  // Ocultar la carga después de la redirección
+          Swal.fire({
+            title: 'Sesión cerrada',
+            text: 'Has cerrado sesión exitosamente.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top',
+            background: "#C6F0C2",
+            iconColor: "#1C5314",
+          });
         });
       } catch (error) {
         console.error('Error durante el cierre de sesión:', error);
+        this.showProgress = false;  // Ocultar la carga en caso de error
         Swal.fire('Error', 'Ocurrió un error al cerrar sesión.', 'error');
-      } finally {
-        this.showProgress = false;
       }
     }
   }
@@ -112,7 +114,7 @@ export class LateralMenuComponent implements OnInit {
         this.menuItems = [
           { RouterLink: '/home-doctor', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
           { RouterLink: '/agendar-cita-doctor', label: 'Crear Receta', icon: 'assets/icons/agendar-cita.svg' },
-          { RouterLink: '/visualizar-citas-doctor', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
+          { RouterLink: '/Historia-clinica', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
         ];
       }
     });

@@ -9,6 +9,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
 import { AppointmentSchedulePageComponentComponent } from './pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
+import { MedicalHistoryDoctorComponent } from './pages/medical-history-doctor/medical-history-doctor.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-p
     TrackingRecordComponent,
     AppointmentSchedulePageComponentComponent,
     TrackingRecordComponent,
-    PagesMedicamentosPacienteComponent
+    PagesMedicamentosPacienteComponent,
+    MedicalHistoryDoctorComponent
   ],
   imports: [
     CommonModule,

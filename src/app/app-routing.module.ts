@@ -11,13 +11,15 @@ import { HomeAdminComponent } from './features/features/home/pages/home-admin/ho
 import { HomeDoctorDashboardComponent } from './features/features/home/pages/home-doctor-dashboard/home-doctor-dashboard.component';
 import { HomePacienteComponent } from './features/features/home/pages/home-paciente/home-paciente.component';
 import { DoctorsProfilesComponent } from './features/features/home/pages/doctors-profiles/doctors-profiles.component';
-import{TrackingRecordComponent }from'./features/features/gestion-citas/pages/tracking-record/tracking-record.component';
+import { TrackingRecordComponent }from'./features/features/gestion-citas/pages/tracking-record/tracking-record.component';
 import {RecoverPassworddComponent} from './features/features/home/pages/recover-passwordd/recover-passwordd.component';
 import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
 import { AppointmentSchedulePageComponentComponent } from './features/features/gestion-citas/pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 import { authGuard } from './core/guards/auth.guard';
 import {PagesMedicamentosPacienteComponent } from './features/features/gestion-citas/pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
+import { MedicalHistoryDoctorComponent} from './features/features/gestion-citas/pages/medical-history-doctor/medical-history-doctor.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,7 +39,8 @@ const routes: Routes = [
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent,  canActivate: [authGuard], data:{role: ['admin','paciente']}},
-  { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent }
+  { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent },
+  { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent }
 ];
 
 @NgModule({
