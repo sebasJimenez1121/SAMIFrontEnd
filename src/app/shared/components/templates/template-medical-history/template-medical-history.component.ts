@@ -18,6 +18,7 @@ export class TemplateMedicalHistoryComponent implements OnInit {
   imageUrl: string | null = '';
   isProfileModalOpen = false;
   showModal: boolean = false;
+  showCreateHistoryModal: boolean = false;  // Nuevo flag para mostrar el modal
   selectedpaciente: Patient | null = null;
   DocumentoFiltro: Patient[] = []; 
 
@@ -42,6 +43,7 @@ export class TemplateMedicalHistoryComponent implements OnInit {
         }
       );
   }
+
   filtroDocumento(event: any): void {
     const documento = event.target.value;
     this.DocumentoFiltro = this.pacientes.filter(paciente =>
@@ -58,7 +60,13 @@ export class TemplateMedicalHistoryComponent implements OnInit {
     this.showModal = false;
   }
 
- 
+  // Método para abrir el modal de crear historia
+  openCreateHistoryModal(): void {
+    this.showCreateHistoryModal = true;
+  }
 
- 
+  // Método para cerrar el modal de crear historia
+  closeCreateHistoryModal(): void {
+    this.showCreateHistoryModal = false;
+  }
 }

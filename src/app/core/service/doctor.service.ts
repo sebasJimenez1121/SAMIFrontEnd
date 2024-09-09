@@ -45,6 +45,7 @@ export class DoctorService {
     return this.http.delete<any>(`${this.apiUrl}/${doctorId}`);
   }
 
+
   // Obtener el perfil de un doctor por email
   getDoctorByEmail(token: string): Observable<Doctor> {
     return this.http.get<Doctor>(`${this.apiUrl}/doctor`, {
@@ -54,6 +55,18 @@ export class DoctorService {
     });
   }
 
+  updateDocProfile(token: string, doctor: Doctor): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const updateDTO = {
+      TokenEmail: token,
+      documento: doctor.documento,
+      nombre: doctor.nombre,
+      apellido: doctor.apellido,
+      email: doctor.email,
+      Foto_Url: doctor.img 
+    };
+    return this.http.put(`${this.apiUrl}/updateProfile`, updateDTO, { headers });
+  }
  
   updateProfilePicture(token: string, formData: FormData): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

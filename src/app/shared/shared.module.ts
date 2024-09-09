@@ -124,6 +124,8 @@ import { TemplateMedicalHistoryComponent } from './components/templates/template
 import { TemplatePrescriptionMedicationsComponent } from './components/templates/template-prescription-medications/template-prescription-medications.component';
 import { TemplateHistorialCitaAdminComponent } from './components/templates/template-historial-cita-admin/template-historial-cita-admin.component';
 import { ModalPrescriptionMedicationsComponent } from './components/organisms/modal-prescription-medications/modal-prescription-medications.component';
+import { ModalPerfilDoctorDoComponent } from './components/organisms/modal-perfil-doctor-do/modal-perfil-doctor-do.component';
+import { ModalCreateHistoryComponent } from './components/organisms/modal-create-history/modal-create-history.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -241,7 +243,9 @@ import { ModalPrescriptionMedicationsComponent } from './components/organisms/mo
     TemplateMedicalHistoryComponent,
     TemplatePrescriptionMedicationsComponent,
     TemplateHistorialCitaAdminComponent,
-    ModalPrescriptionMedicationsComponent  
+    ModalPrescriptionMedicationsComponent,
+    ModalPerfilDoctorDoComponent,
+    ModalCreateHistoryComponent  
   ],
   imports: [
     CommonModule,
