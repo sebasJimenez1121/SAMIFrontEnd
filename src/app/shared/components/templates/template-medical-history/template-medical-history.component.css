@@ -16,7 +16,7 @@
     margin: 0.5rem;
   }
   app-button{
-    margin: 1rem 0rem 5rem 64rem;
+    margin: 1rem 0rem 5rem 1rem;
   }
    
   svg {
@@ -113,39 +113,16 @@
   
   @media only screen and (min-width: 352px) and (max-width: 480px) {
   
-    .HistorialCita {
-      padding: 0rem;
-      font-family: 'Poppins', sans-serif;
+    nav{
+      width: 21rem;
+      margin: 1rem 0rem 0rem 0rem;
+      padding: 0.4rem 0.5rem;
     }
     .container{
-      margin: 0rem 0rem;
-      width: 0%;
+      margin: 0.5625rem 0rem;
     }
-    app-button{
-      position: relative;
-      left: 1.5rem;
-      width: 2rem;
-    }
-    .titulo {
-      margin: 3.5rem 14rem 4.5625rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    td {
-      padding: 0.60rem;
-      border-bottom: 0.0625rem solid #DBE9FE;
-      color: rgb(116, 116, 116);
-    }
-    table {
-      width: 98%;
-      border-collapse: collapse;
-      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
-      margin: 1.25rem 17px;
-      font-size:  0.5rem;
-      text-align: left;
-      padding: auto;
-     
+    .styled-date-input{
+      padding: 0.625rem 0.625rem 0.625rem 2rem;
     }
   }
   

@@ -36,6 +36,13 @@ app-image{
     position: relative;
     bottom: 0.5rem;
 }
+.footer{
+  display: flex;
+  margin: 2rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
  
 .section2{
   margin: 0rem 0rem 0rem 19rem;
@@ -197,17 +204,17 @@ app-image{
   
   .image-background {
     position: absolute;
-    top: 7rem;
+    top: 0rem;
     left: 4rem;
-    width: 98vw;
+    width: 61vw;
     z-index: 1;
     opacity: 0.5;
   }
-  .text-container[_ngcontent-ng-c3016943888] {
+  .text-container {
     flex: 1;
     margin: 3rem 4rem 0rem 5rem;
 }
-.section2[_ngcontent-ng-c3016943888] {
+.section2 {
   margin: 0rem 0rem 0rem 1rem;
   position: relative;
   right: 0rem;
@@ -328,12 +335,12 @@ app-image{
       justify-content: space-between;
       padding: 0.4rem 2.5rem;
     }
-    .title[_ngcontent-ng-c3016943888] {
+    .title {
       display: flex;
       justify-content: center;
       margin: 4rem 0rem 0rem 1rem;
   }
-  .section2[_ngcontent-ng-c3016943888] {
+  .section2 {
     margin: 0rem 0rem 0rem 15rem;
     position: relative;
     right: 2rem;
