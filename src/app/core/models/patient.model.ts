@@ -16,12 +16,14 @@ export interface Patient {
 }
 
 export interface updatePatient {
-    Id: string;
-    Documento: string;  
-    Nombre: string;      
-    Apellido?: string;      
-    Email?: string;         
-    Telefono?: string;       
-    Direccion?: string;      
-    Estado?: string;  
+    Id?: string;
+    documentoPac?: string;  
+    nombre?: string;      
+    apellido?: string;      
+    email?: string;         
+    telefono?: string;       
+    direccion?: string;      
+    estado?: string;  
+    tipoDoc?: string;
+    fechaNac?:  Date;
 }

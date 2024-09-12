@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class ModalRescheduleAppointmentComponent {
   @Input() showRescheduleModal: boolean = false;
   @Input() cita: Appointment | null = null;
+  @Input() IdDoctor: string = "";
   @Output() closeRescheduleModalEvent: EventEmitter<void> = new EventEmitter<void>();
   nuevaFecha: string = '';
   nuevaHora: string = '';

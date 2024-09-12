@@ -15,7 +15,6 @@ import { TrackingRecordComponent }from'./features/features/gestion-citas/pages/t
 import {RecoverPassworddComponent} from './features/features/home/pages/recover-passwordd/recover-passwordd.component';
 import {NewPassworddComponent} from './features/features/home/pages/new-passwordd/new-passwordd.component';
 import {ConfirmationComponent} from './features/features/home/pages/confirmation/confirmation.component';
-import { AppointmentSchedulePageComponentComponent } from './features/features/gestion-citas/pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 import { authGuard } from './core/guards/auth.guard';
 import {PagesMedicamentosPacienteComponent } from './features/features/gestion-citas/pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 import { MedicalHistoryDoctorComponent} from './features/features/gestion-citas/pages/medical-history-doctor/medical-history-doctor.component';
@@ -38,7 +37,6 @@ const routes: Routes = [
   { path: 'recover-passwordd', component: RecoverPassworddComponent},
   { path: 'new-passwordd', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'stepper-agendamiento', component: AppointmentSchedulePageComponentComponent,  canActivate: [authGuard], data:{role: ['admin','paciente']}},
   { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent },
   { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent }
 ];

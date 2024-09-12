@@ -52,8 +52,4 @@ export class TemplateDoctorDashboardComponent implements OnInit {
       }
     );
   }
-
-
-
-
 }

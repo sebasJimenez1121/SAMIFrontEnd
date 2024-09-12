@@ -1,0 +1,6 @@
+<app-modal 
+  (closeModalEvent)="closeModal()"
+  [isVisible]="isModalVisible"
+  [title]="'Agendamiento Cita'">
+  <app-calendar-options [doctor]="doctor" [patientId]="patientId"></app-calendar-options>
+</app-modal>

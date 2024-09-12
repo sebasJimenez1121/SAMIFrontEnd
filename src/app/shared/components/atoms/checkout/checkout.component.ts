@@ -74,11 +74,9 @@ export class CheckoutComponent {
     // Abre el checkout de ePayco
     this.handler.open(data);
 
-    // Aquí puedes simular la captura de la respuesta de pago en el frontend si deseas
+    // Manejar la respuesta de pago
     this.handler.on('response', (response: any) => {
-      if (response.success) {
-        this.onPaymentCompleted(response);
-      }
+      this.onPaymentCompleted(response);
     });
   }
 

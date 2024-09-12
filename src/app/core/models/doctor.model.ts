@@ -11,6 +11,7 @@ export interface Doctor {
   codigoEspc:string;
   specialtyId: number;
   appointmentCost: number;
+  estado: string;
   specialtyName: string;
   rating: number;
 }

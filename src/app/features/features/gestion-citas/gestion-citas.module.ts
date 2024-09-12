@@ -7,7 +7,6 @@ import { PagesAgendarCitaComponent } from './pages/pages-agendar-cita/pages-agen
 import { PagesVisualizarCitaComponent } from './pages/pages-visualizar-cita/pages-visualizar-cita.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
-import { AppointmentSchedulePageComponentComponent } from './pages/appointment-schedule-page-component/appointment-schedule-page-component.component';
 import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 import { MedicalHistoryDoctorComponent } from './pages/medical-history-doctor/medical-history-doctor.component';
 
@@ -18,7 +17,6 @@ import { MedicalHistoryDoctorComponent } from './pages/medical-history-doctor/me
     PagesAgendarCitaComponent,
     PagesVisualizarCitaComponent,
     TrackingRecordComponent,
-    AppointmentSchedulePageComponentComponent,
     TrackingRecordComponent,
     PagesMedicamentosPacienteComponent,
     MedicalHistoryDoctorComponent

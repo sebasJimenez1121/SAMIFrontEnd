@@ -33,7 +33,6 @@ import { ImageCardComponent } from './components/molecules/image-card/image-card
 import { ContentCardComponent } from './components/molecules/content-card/content-card.component';
 import { RegistrationFormComponent } from './components/molecules/registration-form/registration-form.component';
 import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
-import { AppointmentFormComponent } from './components/molecules/appointment-form/appointment-form.component';
 import { LateralMenuComponent } from './components/molecules/lateral-menu/lateral-menu.component';
 import { CalendarOptionsComponent } from './components/molecules/calendar-options/calendar-options.component';
 import { SetButtonsComponent } from './components/molecules/set-buttons/set-buttons.component';
@@ -78,8 +77,6 @@ import { InputDateHistoryComponent } from './components/atoms/input-date-history
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalDisplayDataComponent } from './components/organisms/modal-display-data/modal-display-data.component';
 import { ModalRescheduleAppointmentComponent } from './components/organisms/modal-reschedule-appointment/modal-reschedule-appointment.component';
-import { VisualizarCitaComponent } from './components/molecules/visualizar-cita/visualizar-cita.component';
-import { ButtonPriceComponent } from './components/molecules/button-price/button-price.component';
 import { EmptyStateComponent } from './components/atoms/empty-state/empty-state.component';
 import { HomeAdminTemplateComponent } from './components/templates/home-admin-template/home-admin-template.component';
 import { CustomAlertComponent } from './components/organisms/custom-alert/custom-alert.component';
@@ -112,8 +109,6 @@ import { RecoverPasswordComponent } from './components/organisms/recover-passwor
 import { NewPasswordComponent } from './components/organisms/new-password/new-password.component';
 import { CalendarDoctorComponent } from './components/molecules/calendar-doctor/calendar-doctor.component';
 import { HamburgerMenuComponent } from './components/molecules/hamburger-menu/hamburger-menu.component';
-import { StepperComponent } from './components/organisms/stepper/stepper.component';
-import { StepperAgendamientoComponent } from './components/templates/stepper-agendamiento/stepper-agendamiento.component';
 import { TableComponent } from './components/atoms/table/table.component';
 import { PatientListComponent } from './components/organisms/patient-list/patient-list.component';
 import { FooterDoctorAdminComponent } from './components/organisms/footer-doctor-admin/footer-doctor-admin.component';
@@ -126,6 +121,7 @@ import { TemplateHistorialCitaAdminComponent } from './components/templates/temp
 import { ModalPrescriptionMedicationsComponent } from './components/organisms/modal-prescription-medications/modal-prescription-medications.component';
 import { ModalPerfilDoctorDoComponent } from './components/organisms/modal-perfil-doctor-do/modal-perfil-doctor-do.component';
 import { ModalCreateHistoryComponent } from './components/organisms/modal-create-history/modal-create-history.component';
+import { AppointmentModalReservetionComponent } from './components/organisms/appointment-modal-reservetion/appointment-modal-reservetion.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -159,7 +155,6 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
     ContentCardComponent,
     RegistrationFormComponent,
     LoginFormComponent,
-    AppointmentFormComponent,
     LateralMenuComponent,
     CalendarOptionsComponent,
     SetButtonsComponent,
@@ -202,8 +197,6 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
     InputDateHistoryComponent,
     ModalDisplayDataComponent,
     ModalRescheduleAppointmentComponent,
-    VisualizarCitaComponent,
-    ButtonPriceComponent,
     EmptyStateComponent,
     HomeAdminTemplateComponent,
     CustomAlertComponent,
@@ -231,8 +224,6 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
     NewPasswordComponent,
     CalendarDoctorComponent,
     HamburgerMenuComponent,
-    StepperComponent,
-    StepperAgendamientoComponent,
     TableComponent,
     PatientListComponent,
     FooterDoctorAdminComponent,
@@ -245,7 +236,8 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
     TemplateHistorialCitaAdminComponent,
     ModalPrescriptionMedicationsComponent,
     ModalPerfilDoctorDoComponent,
-    ModalCreateHistoryComponent  
+    ModalCreateHistoryComponent,
+    AppointmentModalReservetionComponent  
   ],
   imports: [
     CommonModule,
@@ -273,7 +265,6 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
   HistorialCitaTemplateComponent,
   CalendarOptionsComponent,
   HowToScheduleComponent,
-  AppointmentFormComponent,
   LateralMenuComponent,
   FooterComponent,
   DoctorRegisterTemplateComponent,
@@ -294,7 +285,6 @@ import { ModalCreateHistoryComponent } from './components/organisms/modal-create
   TitleTerciarioComponent,
   LinkComponent,
   CalendarDoctorComponent,
-  StepperAgendamientoComponent,
   FooterDoctorAdminComponent, MedicinesTemplateComponent,
   PatientListComponent,
   MedicinesTemplateComponent ,
