@@ -3,6 +3,12 @@ main {
   padding: 4rem 0rem 0rem 0rem;
 }
 
+.container{
+  margin: 6rem 2rem;
+  padding: 0rem 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
 .title-principal h1 {
   font-size: 2.875rem;
 }
@@ -225,7 +231,7 @@ h1 {
   main {
     margin: 0.5rem;
   }
-  .topline[_ngcontent-ng-c1497479597] {
+  .topline {
     display: block;
     position: relative;
     font-size: 1rem;
@@ -239,25 +245,31 @@ h1 {
     text-transform: capitalize;
     font-size: 1rem;
     position: relative;
-    left: 1rem;
+    left: 0rem;
    
   }
-  h1[_ngcontent-ng-c1497479597] {
+  h1 {
     display: block;
     font-size: 1rem;
     width: 17rem;
     font-weight: 900;
     color: #203B8F;
 }
-.imgbox[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] img[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] {
+.imgbox img {
   position: relative;
-  bottom: 9px;
-  right: 37px;
-  transform: rotateY(193deg);
-  animation: none;
-  width: 18rem;
+  top: 1px;
+  right: 17px;
+  width: 14rem;
+ 
 }
-
+.topline{
+  display: block;
+  position: relative;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: #0F304B;
+  WIDTH: 14rem;
+}
 
 app-text-field{
   display: none;
@@ -268,7 +280,7 @@ app-text-field{
   padding: 5rem 2rem;
   width: 20rem;
 }
-.wrapper[_ngcontent-ng-c1497479597][_ngcontent-ng-c1497479597] {
+.wrapper {
   position: relative;
   left: 2rem;
   top: 3rem;
@@ -342,12 +354,18 @@ app-text-field{
     margin: 0;
     text-align: center;
   }
-  .cols[_ngcontent-ng-c1497479597] {
+  .cols {
     width: 50%;
     position: relative;
     left: 2rem;
 }
-.section-short[_ngcontent-ng-c1497479597] {
+h1 {
+  display: block;
+  font-size: 0rem;
+  font-weight: 900;
+  color: #203B8F;
+}
+.section-short {
   padding: 4rem 0rem;
 }
 

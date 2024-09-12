@@ -125,5 +125,7 @@ app-image[_ngcontent-ng-c3707699708] {
     color: white;
     padding: 5rem 2rem;
     width: 90rem;
+    position: relative;
+    right: 6rem;
   }
 }
