@@ -10,6 +10,7 @@
   
     </div>
     <div *ngIf="authService.isDoctor() || authService.isAdmin()">
+      
       <app-lateral-menu></app-lateral-menu>
       <main>
         <router-outlet></router-outlet>

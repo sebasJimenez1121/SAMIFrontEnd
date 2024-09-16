@@ -52,7 +52,7 @@ export class CalendarOptionsComponent implements OnChanges {
             title: 'Reserva confirmada',
             text: `Código de cita: ${codigoCita}`,
           }).then(() => {
-            this.closeModalEvent.emit();  // Emitimos el evento para cerrar el modal
+            window.location.reload(); 
           });
         },
         (error) => {
