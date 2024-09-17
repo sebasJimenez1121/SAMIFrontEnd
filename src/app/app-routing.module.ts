@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'doctors-profiles', component: DoctorsProfilesComponent},
   { path: 'registro-seguimiento', component: TrackingRecordComponent,  canActivate: [authGuard], data:{role: ['paciente']}},
   { path: 'recover-passwordd', component: RecoverPassworddComponent},
-  { path: 'new-passwordd', component: NewPassworddComponent },
+  { path: 'new-password', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent },
   { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent }
