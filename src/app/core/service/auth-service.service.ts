@@ -87,12 +87,26 @@
       return this.http.post(`${this.apiUrl}/recover-password`, { email });
     }
 
+<<<<<<< Updated upstream
     updatePassword(newPassword: string): Observable<any> {
       const url = `${this.apiUrl}/update-password`; 
       const body = { password: newPassword };
       
       return this.http.put(url, body);
     }
+=======
+  isAdmin(): boolean {
+    return this.userRole === 'admin';
+  }
+  
+  isPatient(): boolean {
+    return this.userRole === 'paciente';
+  }
+  
+  isDoctor(): boolean {
+    return this.userRole === 'medico';
+  }
+>>>>>>> Stashed changes
 
     validateToken(): boolean {
       const token = localStorage.getItem('token');

@@ -19,7 +19,7 @@ interface CustomCalendarEvent extends CalendarEvent {
 })
 export class TemplateDoctorDashboardComponent implements OnInit {
   titleClass: string = 'white-title';
-  titleText: string = 'Bienvenido Medico ';
+  titleText: string = 'Bienvenido Médico ';
   specialties: Specialty[] = [];
   @Input() viewDate: Date = new Date();
   @Input() events: CustomCalendarEvent[] = [];
