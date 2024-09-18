@@ -9,7 +9,7 @@ export class ListFooterComponent {
 
   menuItems1 = [
     { label: 'Sobre Nosotros', link: '#' },
-    { label: 'Médicos', link: '#' },
+    { label: 'Medicos', link: '#' },
     { label: 'Horario', link: '#' },
     { label: 'Cita', link: '#' },
     { label: 'Comentarios', link: '#' }
@@ -17,7 +17,7 @@ export class ListFooterComponent {
 
   menuItems2 = [
     { label: 'Contacto', link: '#' },
-    { label: 'Privacidad y política', link: '#' }
+    { label: 'Privacidad y Política', link: '#' }
   ];
 
   listItems = [
