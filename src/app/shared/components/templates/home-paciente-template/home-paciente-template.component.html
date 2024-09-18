@@ -5,75 +5,14 @@
       <h1><span class="multiText"></span></h1>
       <app-text-field [titleClass]="titleClass" content="tu plataforma para gestionar tu salud de manera fácil y segura. Agenda citas, accede a tu historial clínico y recibe recordatorios, todo en un solo lugar. Simplifica tu atención médica con tecnología avanzada y personalizada."></app-text-field>
     </div>
-<<<<<<< Updated upstream
-    <div class="cols cols1">
-      <div class="imgbox">
-        <img src="" alt="" id="splash">
-        <img src="../../../../../assets/images/imagehome.png">
-      </div>
-=======
     <div class="container-cards">
       <app-service-card titulo="Gestion de citas" content="Programa tu cita médica podras subir exámenes y otros documentos." img="../../../../../assets/images/cita.png"></app-service-card>
       <app-service-card titulo="Registro de seguimiento" content="Monitoree el progreso de su atención médica a lo largo del tiempo." img="../../../../../assets/images/Rectangle 15 (1).png"></app-service-card>
       <app-service-card titulo="Recordatorios de Medicación Personalizados" content="Recordatorios personalizados." img="../../../../../assets/images/alarma.png"></app-service-card>
->>>>>>> Stashed changes
     </div>
   </div>
 </main>
 
-<<<<<<< Updated upstream
-<div class="section3">
-  <div class="section-short">
-    <app-title-secundari class="title-secundari" titleText="Servicios"></app-title-secundari>
-    <hr>
-  </div>
-  <div class="container-cards">
-    <app-service-card titulo="Gestión de citas" content="Programa tu cita médica, podrás subir exámenes y otros documentos." img="../../../../../assets/images/cita.png"></app-service-card>
-    <app-service-card titulo="Registro de seguimiento" content="Monitorea el progreso de tu atención médica a lo largo del tiempo." img="../../../../../assets/images/Rectangle 15 (1).png"></app-service-card>
-    <app-service-card titulo="Recordatorios de Medicación Personalizados" content="Recordatorios personalizados." img="../../../../../assets/images/alarma.png"></app-service-card>
-  </div>
-</div>
-
-<app-chatbot></app-chatbot>
-
-<div class="section2">
-  <app-about-us></app-about-us>
-</div>
-
-<div class="section5">
-  <app-how-to-schedule></app-how-to-schedule>
-</div>
-
-<section class="section6">
-  <div class="section-short">
-    <app-title-secundari class="title-secundari" titleText="Médicos Recomendados"></app-title-secundari>
-    <hr>
-  </div>
-  <div class="container-cards">
-    <app-recommended-card *ngFor="let doctor of recommendedDoctors" [doctor]="doctor"></app-recommended-card>
-  </div>
-</section>
-
-<section class="section4">
-  <div class="section-short">
-    <app-title-secundari class="title-secundari" titleText="Comentarios sobre nuestros médicos"></app-title-secundari>
-    <hr>
-    <app-text-field class="text-comment" [titleClass]="titleClass" content="En SAMI solo hay opiniones de pacientes reales que sí han acudido a la consulta."></app-text-field>
-  </div>
-  <div class="container-cards">
-    <app-doctor-comments></app-doctor-comments>
-  </div>
-</section>
-
-<app-footer></app-footer>
-
-<div class="scroll-indicators">
-  <div class="indicator" *ngFor="let section of sections; let i = index" 
-       [class.active]="i === currentIndex"
-       (click)="scrollToSection(section)">
-  </div>
-</div>
-=======
 <app-about-us></app-about-us>
 <app-how-to-schedule></app-how-to-schedule>
   <section class="section3">
@@ -97,4 +36,3 @@
     </div>
   </section>
  
->>>>>>> Stashed changes
