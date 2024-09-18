@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './content-card-services.component.css'
 })
 export class ContentCardServicesComponent {
-  @Input() titulo:string = "Agendar cita";
-  @Input() descripcion:string = "Agende una cita con alguno de los médicos registrados en el aplicativo.";
+  @Input() titulo:string = "agendar cita";
+  @Input() descripcion:string = "agende una cita con alguno de los medicos registrados en el aplicativo";
   @Input() link:string = "/agendar-cita";
 }
