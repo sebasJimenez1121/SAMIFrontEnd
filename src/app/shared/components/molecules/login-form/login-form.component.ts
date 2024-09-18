@@ -50,6 +50,7 @@ export class LoginFormComponent implements OnInit {
     };
   }
 
+  // Validador para contraseña fuerte
   strongPasswordValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -140,4 +141,8 @@ export class LoginFormComponent implements OnInit {
         break;
     }
   }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
