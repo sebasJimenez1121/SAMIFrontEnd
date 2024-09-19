@@ -1,1 +1,7 @@
-<textarea class="custom-textarea" [(ngModel)]="text" placeholder="Escribe aquí..."></textarea>
+<textarea 
+  class="custom-textarea" 
+  [(ngModel)]="text"
+  (ngModelChange)="onInputChange($event)" 
+  [ngClass]="{'small': isSmall, 'large': !isSmall}"
+  placeholder="{{value}}">
+</textarea>

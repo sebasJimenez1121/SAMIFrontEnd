@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, input, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CitaService } from '../../../../core/service/cita.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { CitaService } from '../../../../core/service/cita.service';
   styleUrls: ['./input-date.component.css'],
 })
 export class InputDateComponent implements OnInit {
-  @Input() IdMedico:string = "";
-  selectHoraPosible : boolean = false;
+  @Input() IdMedico: string = "";
+  selectHoraPosible: boolean = false;
   selectedDate: Date | null = null;
   unavailableHours: string[] = [];
   availableHours: string[] = [];
@@ -24,7 +24,11 @@ export class InputDateComponent implements OnInit {
 
   constructor(private scheduleService: CitaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const today = new Date();
+    this.selectedDate = new Date(today.setDate(today.getDate() + 1)); // Día de mañana
+    this.onDateChange(this.selectedDate);
+  }
 
   onDateChange(date: Date | null): void {
     this.resetDateAndTime();
@@ -33,12 +37,13 @@ export class InputDateComponent implements OnInit {
       this.selectedDate = date;
 
       const formattedDate = this.selectedDate.toISOString().split('T')[0];
-      
 
-      this.scheduleService.getUnavailableHours(formattedDate,this.IdMedico).subscribe(
+      this.scheduleService.getUnavailableHours(formattedDate, this.IdMedico).subscribe(
         (response: { horas: string[] }) => {
           this.unavailableHours = response.horas.map(hora => hora.substring(0, 5));
           this.availableHours = this.allHours.filter(hour => !this.unavailableHours.includes(hour));
+
+          // Si no hay horas disponibles, el mensaje ya se mostrará automáticamente en el template
         },
         error => {
           console.error('Error al obtener las horas no disponibles:', error);
@@ -104,7 +109,6 @@ export class InputDateComponent implements OnInit {
   };
 
   resetDateAndTime(): void {
-    this.selectedDate = null;
     this.selectedHour = null;
     this.availableHours = [];
     this.unavailableHours = [];

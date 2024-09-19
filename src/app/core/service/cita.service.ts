@@ -5,12 +5,13 @@ import { Observable, of, interval } from 'rxjs';
 import { switchMap, startWith } from 'rxjs/operators';
 import { AppointmentResponse } from '../models/response.model';
 import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitaService {
-  private apiUrl = 'http://localhost:10102/cita';
+  private apiUrl = `'${environment.servicioCitas}/cita'`;
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +24,9 @@ export class CitaService {
   }
   // Obtener horas ocupadas para una cita específica por día
   getUnavailableHours(fechaCita: string, IdMedico: string) {
-    return this.http.get<{ horas: string[] }>(`http://localhost:10102/cita/hour`, {
+    console.log('Fecha de la cita:', fechaCita);  // Verificar que sea correcto
+    console.log('ID del médico:', IdMedico);
+    return this.http.get<{ horas: string[] }>(`${this.apiUrl}/hour`, {
       params: { fechaCita, IdMedico },
     });
   }
