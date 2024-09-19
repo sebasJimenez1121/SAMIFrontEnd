@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ListFooterComponent {
 
   menuItems1 = [
-    { label: 'Sobre Nosotros', link: '#' },
+    { label: 'Sobre nosotros', link: '#' },
     { label: 'Medicos', link: '#' },
     { label: 'Horario', link: '#' },
     { label: 'Cita', link: '#' },
@@ -17,7 +17,7 @@ export class ListFooterComponent {
 
   menuItems2 = [
     { label: 'Contacto', link: '#' },
-    { label: 'Privacidad y Política', link: '#' }
+    { label: 'Privacidad y política', link: '#' }
   ];
 
   listItems = [

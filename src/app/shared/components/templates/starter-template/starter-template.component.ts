@@ -24,7 +24,7 @@ export class StarterTemplateComponent implements AfterViewInit {
       this.scrollToSlider(); 
     }
     const options = {
-      strings: ["Sistema de Atencion Medica Inteligente", "Sistema de Atencion de Alta Calidad", " Sistema de Atencion Personalizada para Ti"],
+      strings: ["Sistema de Atención Médica Inteligente", "Sistema de Atención de Alta Calidad", " Sistema de Atención Personalizada para Ti"],
       typeSpeed: 100,  
       backSpeed: 100,
       loop: true
