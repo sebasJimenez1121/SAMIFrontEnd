@@ -11,7 +11,6 @@ import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/app
 })
 export class CitaService {
   private apiUrl = 'http://localhost:10102/cita';
-
   constructor(private http: HttpClient) {}
 
   getCitas(): Observable<Appointment[]> {

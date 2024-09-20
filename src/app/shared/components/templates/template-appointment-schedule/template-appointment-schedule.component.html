@@ -17,6 +17,9 @@
       [doctor]="doctor" 
       (click)="onDoctorSelected(doctor)">
     </app-medical-card>
+    <div *ngIf="paginatedDoctors.length === 0">
+      <app-empty-state imageSrc="../../../../../assets/images/No se encontraron resultados.png" message=" No se encontraron resultados." ></app-empty-state>
+    </div>
   </div>
 
   <app-patient-list *ngIf="selectedDoctor && userRole === 'admin'"

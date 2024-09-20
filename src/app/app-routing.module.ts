@@ -18,6 +18,7 @@ import {ConfirmationComponent} from './features/features/home/pages/confirmation
 import { authGuard } from './core/guards/auth.guard';
 import {PagesMedicamentosPacienteComponent } from './features/features/gestion-citas/pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 import { MedicalHistoryDoctorComponent} from './features/features/gestion-citas/pages/medical-history-doctor/medical-history-doctor.component';
+import { RecetaDoctorComponent} from './features/features/gestion-citas/pages/receta-doctor/receta-doctor.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'new-password', component: NewPassworddComponent },
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'Medicamentos', component: PagesMedicamentosPacienteComponent },
-  { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent }
+  { path: 'Historia-clinica', component: MedicalHistoryDoctorComponent },
+  { path: 'receta', component: RecetaDoctorComponent },
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@
       <section class="section1">
         <div class="text-container">
           <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
-          <p>La lista de medicos certificados con años de experiencia profesional.</p>
+          <p>La lista de médicos certificados con años de experiencia profesional.</p>
         </div>
         <div class="image-container">
           <app-image class="image-background" src="../../../../../assets/images/Group.png"></app-image>
@@ -19,6 +19,9 @@
         <hr>
       <app-calendar-doctor></app-calendar-doctor>
       </section>
+      <div class="footer">
+      <app-text content="Sami@gmail.com"> </app-text> <app-text content="sistema de atencion medica inteligente"> </app-text>
+    </div>
     </div>
     <app-modal-perfil-doctor-do *ngIf="isProfileModalOpen" (close)="closeProfileModal()"></app-modal-perfil-doctor-do>
   </main>

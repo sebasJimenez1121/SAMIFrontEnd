@@ -1,0 +1,24 @@
+<div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <button class="close-button" (click)="closeModal()">
+        <div class="X"></div>
+        <div class="Y"></div>
+      </button>
+      
+      <app-title-terciario titleText="Seleccionar Especialidades para Activar"></app-title-terciario>
+      
+      <form>
+        <ul>
+          <li *ngFor="let specialty of specialties">
+            <label class="switch">
+              <input type="checkbox" (change)="toggleSelection(specialty)">
+              <span class="slider"></span>
+            </label>
+            {{ specialty.Nombre }}
+          </li>
+        </ul>
+        
+      </form>
+    </div>
+  </div>
+  

@@ -38,21 +38,20 @@ export class DoctorService {
     return this.http.post<Doctor>(`${this.apiUrl}/doctor/register`, formData, { headers });
   }
   updateDoctor(doctor: DoctorPublic): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${doctor.tarjetaProf}`, doctor);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.put<void>(`${this.apiUrl}/doctor/updateProfile`, doctor, { headers });
   }
+  
   // Eliminar un doctor existente
   eliminarDoctor(doctorId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${doctorId}`);
   }
 
-
   // Obtener el perfil de un doctor por email
   getDoctorByEmail(token: string): Observable<Doctor> {
-    return this.http.get<Doctor>(`${this.apiUrl}/doctor`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
+    return this.http.get<Doctor>(`${this.apiUrl}/profile`);
   }
 
   updateDocProfile(token: string, doctor: Doctor): Observable<any> {

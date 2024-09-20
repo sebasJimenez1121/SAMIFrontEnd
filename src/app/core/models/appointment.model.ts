@@ -19,6 +19,8 @@ export interface Appointment {
     documentoPaciente: string;
     codigoEspecialidad: string;
     nombreEspecialidad: string;
+    descripcion: string;
+    hora:string;
   }
 
 export interface AppointmentUpdate {
@@ -38,10 +40,23 @@ export interface AppointmentCreate {
     EmailPac: string;
 }
 
-export interface medicamentos{
-    NombreMedicamento:string;
-    horaAtomar:number;
-    fechaInicio:Date;
-    fechaFin:Date;
+
+  // recordatorio.model.ts
+export interface Recordatorio {
+  codigoRec : number,
+	fechaReceta : string,
+	medicamentoNom: string,
+  emailPac : string,
+	descripcionMed? : string,
+	fechaIncio : string,
+	fechaFin : string,
+	horaInicio : string,
+	intervalo: number;
+  estado: string;
+  fkCodigoCita: number;
+  }
+ 
+  
+
+
     
-}

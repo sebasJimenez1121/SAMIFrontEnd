@@ -72,7 +72,8 @@
       max-width: 43rem;
       max-height: 39rem; /* Establecer una altura máxima para el modal */
       border-radius: 1rem;
-      overflow-y: auto; /* Habilitar el scroll vertical */
+      overflow-y: auto;
+      overflow-x: hidden;
     
   }
   
@@ -249,3 +250,4 @@ align-items: center;
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
