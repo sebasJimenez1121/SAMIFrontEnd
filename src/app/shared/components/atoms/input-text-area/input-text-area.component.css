@@ -1,21 +1,24 @@
-textarea {
-  width: 15em; /* Ajusta el ancho según tus necesidades */
-  height: 2em; /* Ajusta la altura según tus necesidades */
-  padding: 10px; /* Ajusta el padding según tus necesidades */
-  border: none; /* Quita los bordes */
-  border-bottom: 2px solid #D1D1D1; /* Solo el borde inferior */
-  border-radius: 0; /* Quita el borde redondeado */
-  box-shadow: none; /* Quita la sombra */
-  font-size: 12px; /* Tamaño de la fuente */
-  font-family: Arial, sans-serif; /* Familia de la fuente */
-  resize: none; /* Deshabilita el redimensionamiento */
-  color: grey;
-  outline: none; /* Quita el borde azul al hacer click */
+.custom-textarea {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #D1D1D1;
+  resize: none;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  outline: none;
 }
-
+  
   .custom-textarea:focus {
-    outline: none; 
-    border-color: #203B8F; 
+    border-color: #203B8F;
+  }
+  
+  .small {
+    height: 2em;
+  }
+  
+  .large {
+    height: 5em; /* Puedes ajustar según sea necesario */
   }
   
   @media only screen and (min-width: 352px) and (max-width: 480px) {

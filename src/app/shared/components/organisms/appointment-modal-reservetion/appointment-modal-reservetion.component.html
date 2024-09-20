@@ -2,5 +2,11 @@
   (closeModalEvent)="closeModal()"
   [isVisible]="isModalVisible"
   [title]="'Agendamiento Cita'">
-  <app-calendar-options [doctor]="doctor" [patientId]="patientId"></app-calendar-options>
+  <app-calendar-options 
+    [doctor]="doctor" 
+    [patientId]="patientId" 
+    (closeModalEvent)="closeModal()" 
+    (closeWithoutConfirmation)="closeModalWithoutConfirmation()"
+    (resetFormEvent)="calendarOptions.resetForm()">
+  </app-calendar-options>
 </app-modal>

@@ -1,5 +1,5 @@
 
-import { Component,Input,Output } from '@angular/core';
+import { Component,EventEmitter,Input,Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-text-area',
@@ -9,12 +9,11 @@ import { Component,Input,Output } from '@angular/core';
 export class InputTextAreaComponent{
   text: string = '';
   @Input() value: string = '';
- 
+  @Output() valueChange = new EventEmitter<string>();
+  @Input() isSmall: boolean = false;  // Para cambiar el tamaño del textarea
 
-  onInputChange(event: Event): void {
-    const inputValue = (event.target as HTMLInputElement).value;
-    this.value = inputValue;
-   
-}
-  constructor() { }
+  onInputChange(value: string): void {
+    this.text = value;
+    this.valueChange.emit(this.text); // Emitir el valor cuando cambia
+  }
 }
