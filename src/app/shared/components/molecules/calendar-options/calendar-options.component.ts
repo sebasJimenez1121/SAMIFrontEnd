@@ -11,22 +11,21 @@ import { AppointmentCreate } from '../../../../core/models/appointment.model';
   styleUrls: ['./calendar-options.component.css']
 })
 export class CalendarOptionsComponent implements OnChanges {
-
   @Input() doctor!: DoctorPublic;
-  @Input() patientId: string = ""; 
-
-  @Output() closeModalEvent = new EventEmitter<void>();
+  @Input() patientId: string = ''; 
+  @Output() closeModalEvent = new EventEmitter<void>();  // Evento para cerrar modal sin confirmación
+  @Output() closeWithoutConfirmation = new EventEmitter<void>(); // Evento para cerrar después de éxito
+  @Output() resetFormEvent = new EventEmitter<void>(); // Evento para resetear el formulario desde el padre
 
   selectedDate!: string;
   selectedTime!: string;
+  notes: string = ''; // Variable para el textarea
 
   constructor(private citaService: CitaService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['doctor'] || changes['patientId']) {
-      // Restablecer estado interno cuando cambien las entradas
-      this.selectedDate = '';
-      this.selectedTime = '';
+      this.resetForm();  // Resetear el formulario cuando cambien los inputs
     }
   }
 
@@ -34,16 +33,17 @@ export class CalendarOptionsComponent implements OnChanges {
     this.selectedDate = $event.date;
     this.selectedTime = $event.time;
   }
-  
+
   confirmReservation() {
-    if (this.selectedDate && this.selectedTime) {
+    if (this.selectedDate && this.selectedTime && this.notes) { // Asegurarse de que todos los campos estén llenos
       const reservationData: AppointmentCreate = {
+        motivoCita: this.notes, 
         horaCita: this.selectedTime,
         fechaCita: this.selectedDate,
         fKIdDoct: this.doctor.Id,
-        fKIdPac: this.patientId
+        fKIdPac: this.patientId,
       };
-  
+
       this.citaService.crearCita(reservationData).subscribe(
         (response: AppointmentResponse) => {
           const codigoCita = response.codigoCita;
@@ -52,7 +52,8 @@ export class CalendarOptionsComponent implements OnChanges {
             title: 'Reserva confirmada',
             text: `Código de cita: ${codigoCita}`,
           }).then(() => {
-            window.location.reload(); 
+            this.resetForm(); // Resetea el formulario tras el éxito
+            this.closeWithoutConfirmation.emit();  // Cierra el modal sin mostrar alerta de confirmación
           });
         },
         (error) => {
@@ -67,7 +68,19 @@ export class CalendarOptionsComponent implements OnChanges {
     }
   }
 
+  closeModal() {
+    this.resetForm();  // Resetear el formulario al cerrar
+    this.closeModalEvent.emit();  // Emitir el evento para cerrar el modal
+  }
+
+  resetForm() {
+    this.selectedDate = '';
+    this.selectedTime = '';
+    this.notes = '';
+    this.resetFormEvent.emit(); // Notifica al padre que el formulario ha sido reseteado
+  }
+
   isReservationDisabled(): boolean {
-    return !this.selectedDate || !this.selectedTime;
+    return !this.selectedDate || !this.selectedTime || !this.notes; // Condición para deshabilitar el botón
   }
 }

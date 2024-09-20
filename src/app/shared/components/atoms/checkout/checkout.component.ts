@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { environment } from '../../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 declare var ePayco: any;
@@ -36,8 +35,8 @@ export class CheckoutComponent {
 
   initializeCheckout() {
     this.handler = ePayco.checkout.configure({
-      key: environment.ePaycoPublicKey,
-      test: environment.ePaycoTestMode
+      key: 'jjj',
+      test: 'jjj'
     });
   }
 

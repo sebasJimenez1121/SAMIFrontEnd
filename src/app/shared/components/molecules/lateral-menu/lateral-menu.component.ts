@@ -113,7 +113,7 @@ export class LateralMenuComponent implements OnInit {
       } else if (this.authService.isDoctor()) {
         this.menuItems = [
           { RouterLink: '/home-doctor', label: 'Inicio', icon: 'assets/icons/home-2-svgrepo-com.svg' },
-          { RouterLink: '/agendar-cita-doctor', label: 'Crear Receta', icon: 'assets/icons/agendar-cita.svg' },
+          { RouterLink: '/receta', label: 'Crear Receta', icon: 'assets/icons/agendar-cita.svg' },
           { RouterLink: '/Historia-clinica', label: 'Historia Clinica', icon: 'assets/icons/pacientes.svg' }
         ];
       }

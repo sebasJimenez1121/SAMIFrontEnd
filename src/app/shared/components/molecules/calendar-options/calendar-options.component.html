@@ -1,20 +1,27 @@
 <div class="container-cita">
-    <div class="container-doctor">
-      <app-image-card-recommended-doctors [img]="doctor.imgUrl"></app-image-card-recommended-doctors>
-      <app-label [content]="doctor.nombre + ' ' + doctor.apellido"></app-label>
-      <app-text [content]="doctor.especialidad"></app-text>
-    </div>
-  
-    <div class="calendar">
-      <app-input-date (dateAndTimeSelected)="handleDateAndTimeSelection($event)" [IdMedico]="doctor.Id"></app-input-date>
+  <div class="container-doctor">
+    <app-image-card-recommended-doctors [img]="doctor.imgUrl"></app-image-card-recommended-doctors>
+    <app-label [content]="doctor.nombre + ' ' + doctor.apellido"></app-label>
+    <app-text [content]="doctor.especialidad"></app-text>
+    <div class="motivo">
+      <app-label [content]="'Motivo'"></app-label>
+      <app-input-text-area 
+        [(value)]="notes"
+        [isSmall]="true" 
+        [value]="'Ingrese el motivo de la cita aquí'">
+      </app-input-text-area>
     </div>
   </div>
-    <div class="confirm-button">
-        <button 
-          class="btn btn-primary" 
-          (click)="confirmReservation()" 
-          [disabled]="isReservationDisabled()">
-          Confirmar Reserva
-        </button>
-    </div>
-  
+
+  <div class="calendar">
+    <app-input-date (dateAndTimeSelected)="handleDateAndTimeSelection($event)" [IdMedico]="doctor.Id"></app-input-date>
+  </div>
+</div>
+
+<div class="confirm-button">
+  <app-button
+    [value]="'Reservar'"
+    (click)="confirmReservation()" 
+    [isDisabled]="isReservationDisabled()">
+  </app-button>
+</div>

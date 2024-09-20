@@ -27,7 +27,7 @@ export class CalendarDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCalendar();
-    this.loadDoctorAppointments(this.doctorId); // Cargar citas para el doctor con ID 1
+    this.loadDoctorAppointments(this.doctorId); 
   }
 
   private loadDoctorAppointments(doctorId: number): void {
@@ -46,16 +46,41 @@ export class CalendarDoctorComponent implements OnInit {
     this.calendar = new Calendar(this.calendarContainer.nativeElement, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
-      locale: 'es',
+      locale: 'es', // Esto configura el idioma de las fechas
       editable: true,
       selectable: true,
       events: this.getEvents(),
       select: this.handleOnSelect.bind(this),
-      eventClick: this.handleOnClickEvent.bind(this)
+      eventClick: this.handleOnClickEvent.bind(this),
+      customButtons: {
+        hoy: {
+          text: 'Hoy', // Botón "Hoy" personalizado en español
+          click: () => {
+            this.calendar.today(); // Navegar a la fecha de hoy
+          }
+        }
+      },
+      headerToolbar: {
+        left: 'prev,next hoy', 
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      buttonText: {
+        today: 'Hoy',
+        month: 'Mes',
+        week: 'Semana',
+        day: 'Día',
+        list: 'Agenda'
+      },
+      weekText: 'Sm',
+      allDayText: 'Todo el día',
+      moreLinkText: (n) => `+ ver ${n} más`,
+      noEventsText: 'No hay eventos para mostrar'
     });
-
+  
     this.calendar.render();
   }
+  
 
   private updateCalendarEvents() {
     this.calendar.removeAllEvents();

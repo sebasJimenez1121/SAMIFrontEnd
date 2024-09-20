@@ -70,3 +70,8 @@
   background-color: #01419c;
   border-color: #013e7a;
 }
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+  background-color: #316ba7d1;
+  border-color: #316ba7d1;
+  color: var(--fc-button-text-color);
+}

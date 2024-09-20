@@ -1,10 +1,11 @@
 
+
 .section1 {
   background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
   border-radius: 1rem;
   width: 85rem;
   height: 20rem;
-  margin: 9rem 0rem 0rem 4rem;
+  margin: 9rem 0rem 0rem 0rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,8 +110,8 @@
     
     .section1 {
       width: 20rem;
-      height: 13rem;
-      margin: 5rem 0rem 0rem 0rem;
+      height: 22rem;
+      margin: 5rem 0rem 0rem 0.6rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -124,15 +125,15 @@
     align-items: center;
   }
  
-  .image-foreground[_ngcontent-ng-c3295672346] {
+  .image-foreground {
     width: 20rem;
-    top: 1rem;
+    top: -4rem;
     left: 2rem;
 }
   p{
     font-size: 0.65rem;
   }
-  .filtro[_ngcontent-ng-c3295672346] {
+  .filtro{
     margin: 0;
     top: 2rem;
     padding: 0 3rem;
@@ -282,12 +283,27 @@
       padding: 6rem 4rem;
     }
    
-    .container {
-      margin: 8rem 0 0 0;
-    }
+  .container{
+  margin: 6rem 2rem;
+  padding: 0rem 2rem;
+  font-family: 'Poppins', sans-serif;
+}
     select {
       width: 53%;
       margin: 1.438rem 0rem 1.438rem 3.813rem;
     }
+    .section1[_ngcontent-ng-c3099117729] {
+      background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+      border-radius: 1rem;
+      width: 85rem;
+      height: 20rem;
+      margin: 9rem 0rem 0rem 0rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      position: relative;
+      color: white;
+  }
   }
   
