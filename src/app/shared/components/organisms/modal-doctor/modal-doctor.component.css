@@ -9,7 +9,11 @@
     z-index: 1000; 
   }
   
-  
+  app-button{
+    position: relative;
+    left: 18rem;
+    bottom: 4rem;
+  }
   .modal-content {
   
     position: fixed;

@@ -8,13 +8,7 @@
     <div>
       <app-title-principal class="titulo" [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
     </div>
-    
-    <app-button width="10rem" value="Crear Historia" (click)="openCreateHistoryModal()"> <!-- Evento click agregado -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-        <path d="M8 1a1 1 0 0 1 1 1v6h6a1 1 0 0 1 0 2H9v6a1 1 0 0 1-2 0V10H1a1 1 0 0 1 0-2h6V2a1 1 0 0 1 1-1z"/>
-      </svg>
-    </app-button>
-    
+
     <div class="filtro-documento">
       <input type="text" placeholder="Filtrar por documento" class="styled-date-input" (input)="filtroDocumento($event)">
     </div>
@@ -37,22 +31,27 @@
         <tr *ngFor="let paciente of DocumentoFiltro">
           <td>
             <img [src]="paciente.Foto_Url" alt="{{paciente.Nombre}}" class="imagen-medico" *ngIf="paciente.Foto_Url">
-            {{paciente.Nombre}}   {{paciente.Apellido}}
+            {{paciente.Nombre}} {{paciente.Apellido}}
           </td>
+          <td>{{paciente.Documento}}</td>
           <td>
-            {{paciente.Documento}}
+            <app-button value="Ver" (click)="openHistoriaClinicaModal(paciente)"></app-button>
           </td>
-          <td>
-            <img class="img-icon" src="../../../../../assets/images/Edit.png" alt="Edit" >
-            <img class="img-icon" src="../../../../../assets/images/Show.png" alt="Show" >
-            <img class="img-icon" src="../../../../../assets/images/Delete.png" alt="Delete">
-          </td>
+          
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Modal de Crear Historia -->
-  <app-modal-create-history *ngIf="showCreateHistoryModal" (close)="closeCreateHistoryModal()"></app-modal-create-history>
+  <!-- Modal visible -->
+  <p>Modal visible: {{ showCreateHistoryModal }}</p>
+  
+  <!-- Modal Create History -->
+<!-- Modal Create History -->
+<!-- template-medical-history.component.html -->
+<app-modal-create-history 
+  *ngIf="showCreateHistoryModal" 
+  [paciente]="patientSelected"
+  (close)="closeHistoriaClinicaModal()">
+</app-modal-create-history>
 
-</div>

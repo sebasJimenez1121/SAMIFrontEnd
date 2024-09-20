@@ -1,4 +1,5 @@
-<div [appRoleStyle]="userRole"  patientClass="paciente">
+<div class="container">
+  <div [appRoleStyle]="userRole"  patientClass="paciente">
   <section class="section1">
   <div class="text-container">
     <app-title-principal [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
@@ -22,12 +23,16 @@
       *ngFor="let doctor of paginatedDoctors" 
       [doctor]="doctor" >
     </app-medical-card-perfil>
+    <div *ngIf="paginatedDoctors.length === 0">
+      <app-empty-state imageSrc="../../../../../assets/images/No se encontraron resultados.png" message=" No se encontraron resultados." ></app-empty-state>
+    </div>
   </div>
+  
   <app-navigation-pagination 
     [currentPage]="currentPage" 
     [totalPages]="totalPages" 
     (pageChange)="onPageChange($event)">
   </app-navigation-pagination>
-</div>
+</div></div>
 <app-footer ></app-footer>
 <app-chatbot></app-chatbot>

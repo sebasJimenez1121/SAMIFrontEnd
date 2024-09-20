@@ -1,45 +1,37 @@
 <div class="HistorialCita">
-    <div class="container">
-      <div>
-        <app-title-principal class="titulo"  [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
-      </div>
-    
-      
-      <app-empty-state imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="citasFiltradas.length === 0"></app-empty-state>
-      
-      <table *ngIf="citasFiltradas.length > 0">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>hora</th>
-            <th>Fecha inicio</th> 
-            <th>Fecha Fin</th> 
-            <th>Acciones</th>
-          </tr>
-        </thead>
-      
-        <tbody>
-          <tr *ngFor="let cita of citasFiltradas">
-            <td>
-              <img [src]="cita.imagenMedico" alt="{{cita.nombreDoctor}}" class="imagen-medico">
-              {{cita.nombreDoctor}}
-            </td>
-            <td>{{cita.nombreEspecialidad}}</td>
-            <td>{{cita.fechaCita}}</td>
-            
-            <td>
-           
-            </td>
-            <td>
-            <img class="img-icon" src="../../../../../assets/images/Edit.png">
-            <img class="img-icon" src="../../../../../assets/images/Show.png">
-            <img class="img-icon" src="../../../../../assets/images/Delete.png">
+  <div class="container">
+    <app-title-principal class="titulo" [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+
+    <app-empty-state imageSrc="../../../../../assets/images/Group 35024.png" message="Aun no tienes citas" *ngIf="citasFiltradas.length === 0"></app-empty-state>
+
+    <table *ngIf="citasFiltradas.length > 0">
+      <thead>
+        <tr>
+          <th>Medicamento</th>
+          <th>Fecha Receta</th>
+          <th>Fecha Inicio</th>
+          <th>Fecha Fin</th>
+          <th>Hora Inicio</th>
+          <th>Intervalo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let cita of citasFiltradas">
+          <td>{{cita.medicamentoNom}}</td>
+          <td>{{cita.fechaReceta}}</td>
+          <td>{{cita.fechaIncio}}</td>
+          <td>{{cita.fechaFin}}</td>
+          <td>{{cita.horaInicio}}</td>
+          <td>Cada {{cita.intervalo}} horas</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" (change)="toggleRecordatorio(cita, $event)">
+              <span class="slider"></span>
+            </label>
           </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <app-footer ></app-footer>
-  <app-modal-appointment-registration *ngIf="showModal" [cita]="selectedCita" (closeModalEvent)="closeModal()"></app-modal-appointment-registration>
-  
+        </tr>
+      </tbody>
+      
+    </table>
