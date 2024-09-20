@@ -22,6 +22,7 @@ export interface DoctorPublic {
   tarjetaProf: string;
   nombre: string;
   estado: string;
+  email:string;
   apellido:string;
   imgUrl:string;
   codigoEspc:string;

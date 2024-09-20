@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Appointment } from '../../../../core/models/appointment.model';
 import { Specialty } from '../../../../core/models/doctor.model';
 import { CitaService } from '../../../../core/service/cita.service';
-import { AddSpecialtyComponent } from '../../organisms/add-specialty/add-specialty.component';
 import { SpecialtyService } from '../../../../core/service/Specialty.service';
+import { SelectSpecialtiesModalComponent } from '../../organisms/select-specialties-modal/select-specialties-modal.component';
 
 @Component({
   selector: 'app-home-admin-template',
@@ -14,12 +14,18 @@ export class HomeAdminTemplateComponent implements OnInit {
   titleClass: string = 'white-title';
   titleText: string = 'Bienvenido Admin';
   specialties: Specialty[] = [];
-  @ViewChild(AddSpecialtyComponent) addSpecialtyModal!: AddSpecialtyComponent;
-
+  
+  @ViewChild(SelectSpecialtiesModalComponent) SelectSpecialtiesModal!: SelectSpecialtiesModalComponent;
   citasFiltradas: Appointment[] = [];
-  constructor(private dataService: CitaService, private specialtyService: SpecialtyService) {}
   imageUrl: string | null = '';
   isProfileModalOpen = false;
+  isSelectSpecialtiesModalOpen = false;
+
+  constructor(private dataService: CitaService, private specialtyService: SpecialtyService) {}
+
+  ngOnInit(): void {
+    this.loadSpecialties();
+  }
 
   openProfileModal() {
     this.isProfileModalOpen = true;
@@ -28,14 +34,11 @@ export class HomeAdminTemplateComponent implements OnInit {
   closeProfileModal() {
     this.isProfileModalOpen = false;
   }
-  ngOnInit(): void {
-    this.loadSpecialties();
-  }  
 
   loadSpecialties(): void {
     this.specialtyService.getSpecialties().subscribe(
       (specialties) => {
-        this.specialties = specialties;        
+        this.specialties = specialties;
         console.log(this.specialties); 
       },
       (error) => {
@@ -45,13 +48,20 @@ export class HomeAdminTemplateComponent implements OnInit {
   }
 
   openAddSpecialtyModal(): void {
-    this.addSpecialtyModal.openModal();
+    this.isSelectSpecialtiesModalOpen = true;
+    this.SelectSpecialtiesModal.openModal();
   }
 
-  addSpecialty(newSpecialty: Specialty): void {
-    this.specialtyService.addSpecialty(newSpecialty).subscribe((specialty: Specialty) => {
-      this.specialties.push(specialty); 
+  activateSpecialties(specialties: Specialty[]): void {
+    specialties.forEach(specialty => {
+      this.specialtyService.activateSpecialty(specialty.Codigo_Espc).subscribe(() => {
+        console.log('Specialty activated:', specialty.Codigo_Espc);
+        this.loadSpecialties();
+      });
     });
-    this.loadSpecialties();
+  }
+
+  closeSelectSpecialtiesModal() {
+    this.isSelectSpecialtiesModalOpen = false;
   }
 }

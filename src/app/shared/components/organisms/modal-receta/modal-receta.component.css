@@ -64,7 +64,7 @@ li{
   border-radius: 0.938rem;
   box-shadow: 0 0.125rem 0.313rem rgba(0, 0, 0, 0.2);
   z-index: 1001; 
-  width: 43%; 
+  width: 57%; 
   max-height: 88%; 
 
 }
@@ -72,8 +72,8 @@ li{
 
 
 .modal-header {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: center;
 }
 .cancelarCita{
   margin: 0rem 4rem 1rem 1rem;
@@ -85,7 +85,7 @@ li{
 }
 
 hr{
-  width: 37rem;
+  width: 51rem;
   position: relative;
   left: 1rem;
   border: 0;
@@ -122,12 +122,13 @@ hr{
 
 .infoDoctor,
 .infoPaciente {
-  display: flex;
-  flex-direction: column;
-  gap: 1.125rem;
-  align-items: flex-start;
-  position: relative;
-  left: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    align-items: flex-start;
+    position: relative;
+    left: 1rem;
+    top: 2rem;
 }
 
 
@@ -190,23 +191,21 @@ app-button{
   margin: 0.5rem;
 }
 button{
-  text-align: center;
-  --color: #1F3FAE;
-  display: inline-block;
-  width: 11%;
-  height: 2.5rem;
-  line-height: 2.5em;
-  overflow: hidden;
-  cursor: pointer;
-  font-size: 0.75rem;
-  z-index: 1;
-  color: var(--color);
-  border: 0.125rem solid var(--color);
-  border-radius: 0.625rem;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(40deg, #2187c7, #19348F, #16255d);
+    border-radius: 0.625rem;
+    background-size: 200% auto;
+    font-size: 0.75rem;
+    height: 2.5rem;
+    width: 12rem; 
+    position: relative;
+    transition: background-position 0.5s, background-size 0.5s;
+    cursor: pointer;
   position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  background-color: #fff;
+  left: 21rem;
+  bottom: 2rem;
 }
 app-title-terciario {
   position: relative;
@@ -214,9 +213,9 @@ app-title-terciario {
 }
 
 .container-doctor{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 
@@ -225,7 +224,7 @@ app-title-terciario {
     width: 2em;
     height: 2em;
     border: none;
-    left: 39.2rem;
+    left: 19.2rem;
     bottom: 0rem;
     background: rgba(54, 53, 53, 0.23);
     border-radius: 20px;
@@ -373,3 +372,46 @@ app-title-terciario {
 @media (min-width: 1280px) {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

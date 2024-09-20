@@ -18,9 +18,10 @@ export class TemplateMedicalHistoryComponent implements OnInit {
   imageUrl: string | null = '';
   isProfileModalOpen = false;
   showModal: boolean = false;
-  showCreateHistoryModal: boolean = false;  // Nuevo flag para mostrar el modal
-  selectedpaciente: Patient | null = null;
+  showCreateHistoryModal = false;
+  selectedPacienteId: string = '';  
   DocumentoFiltro: Patient[] = []; 
+  patientSelected : Patient| null = null;; 
 
   constructor(private dataService: PacienteService) {}
 
@@ -34,39 +35,42 @@ export class TemplateMedicalHistoryComponent implements OnInit {
 
   loadPacientes(): void {
     this.dataService.getPatients().subscribe(
-        (data: Patient[]) => {
-          this.pacientes = data;
-          this.DocumentoFiltro = this.pacientes;
-        },
-        (error: any) => {
-          console.error('Error loading pacientes:', error);
-        }
-      );
+      (response: any) => {
+        this.pacientes = response.patients;
+        this.DocumentoFiltro = this.pacientes;
+        console.log(this.DocumentoFiltro);
+      },
+      (error: any) => {
+        console.error('Error loading pacientes:', error);
+      }
+    );
   }
 
   filtroDocumento(event: any): void {
     const documento = event.target.value;
     this.DocumentoFiltro = this.pacientes.filter(paciente =>
       paciente.Documento.startsWith(documento)
-    ); 
+    );
+  }
+  openHistoriaClinicaModal(paciente: Patient): void {    
+    this.patientSelected = paciente;
+    this.showCreateHistoryModal = true;
   }
 
+  closeHistoriaClinicaModal(): void {    
+    this.patientSelected = null;
+    this.showCreateHistoryModal = false;
+    console.log(this.showCreateHistoryModal);
+    
+  }
+  
+
   verMas(paciente: Patient): void {
-    this.selectedpaciente = paciente;
+    this.selectedPacienteId = paciente.Id || ''; 
     this.showModal = true;
   }
 
   closeModal(): void {
     this.showModal = false;
-  }
-
-  // Método para abrir el modal de crear historia
-  openCreateHistoryModal(): void {
-    this.showCreateHistoryModal = true;
-  }
-
-  // Método para cerrar el modal de crear historia
-  closeCreateHistoryModal(): void {
-    this.showCreateHistoryModal = false;
   }
 }

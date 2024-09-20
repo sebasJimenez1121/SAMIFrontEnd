@@ -1,53 +1,41 @@
-<div class="modal-overlay" (click)="closeModal()"></div>
-<div class="modal-content">
-  <div class="perfilPaciente">
-    
-      <button class="close-button" (click)="closeModal()">
-        <span class="X"></span>
-        <span class="Y"></span>
-        <div class="close">Close</div>
-      </button>
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button" (click)="closeModal()">
+          <span class="X"></span>
+          <span class="Y"></span>
+          <div class="close">Close</div>
+        </button>
+        <h2>Historia clínica de {{ paciente!.Nombre }} {{ paciente!.Apellido }}</h2>
+      </div>
+      <div *ngIf="paginatedCitas.length > 0; else noCitas">
+        <app-title-terciario titleText="Citas Previas"></app-title-terciario>
+        <ul>
+          <li *ngFor="let cita of paginatedCitas">
+            <p><strong>Fecha:</strong> {{ cita.fechaCita }}</p>
+            <p><strong>Motivo:</strong> {{ cita.motivoCita }}</p>
+            <p><strong>Descripción:</strong> {{ cita.descripcion }}</p>
 
-    <div class="conjunto">
-      
-    
-        <app-title-terciario titleText="Historia Clinica"></app-title-terciario>
-  
-    </div>
-    <div class="container_text">
-      <app-label class="title2" content="Información "></app-label>
-      <div class="contDatos">
-        <div class="datos">
-          <app-label content="Nombre paciente:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Nombre" [disabled]="!isEditing"></app-input>
-        </div>
-        <div class="datos">
-          <app-label content="Documento:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Apellido" [disabled]="!isEditing"></app-input>
-        </div>
-        <div class="datos">
-          <app-label content="Diagnostico:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Email" [disabled]="!isEditing"></app-input>
+            <div class="fieldd">
+              <app-label>Agregar nueva descripción:</app-label>
+              <app-input-text-area [(ngModel)]="nuevaDescripcion" placeholder="Agregar nueva descripción"></app-input-text-area>
+              <app-button value="Agregar descripción"></app-button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="pagination">
+          <button (click)="cambiarPagina(-1)" [disabled]="currentPage === 0">Anterior</button>
+          <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+          <button (click)="cambiarPagina(1)" [disabled]="currentPage + 1 >= totalPages">Siguiente</button>
         </div>
       </div>
 
-      <div class="contDatosD">
-        <div class="datosNum">
-          <app-label content="Nota Doctor:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Documento" [disabled]="!isEditing"></app-input>
-        </div>
-
-         <div class="datosCambi">
-          <app-label content="Atecendentes:"></app-label>
-          <app-input [width]="'10rem'" [(ngModel)]="PacienteProfile.Password" [disabled]="!isEditing" type="password"></app-input>
-        </div>
-      </div>
-
-     
-      <div class="botones">
-        <!-- <app-button value="Editar" (click)="enableEditing()"></app-button>
-        <app-button value="Guardar" (click)="saveProfile()"></app-button> -->
-      </div>
+      <ng-template #noCitas>
+        <p>No hay citas registradas para este paciente.</p>
+      </ng-template>
     </div>
   </div>
 </div>
