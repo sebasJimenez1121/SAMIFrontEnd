@@ -33,9 +33,11 @@ export class PacienteService {
   }
 
   // Obtener el perfil de un paciente por ID
-  getPatientById(): Observable<{ patient: Patient }> {
+ getPatientById(): Observable<{ patient: Patient }> {
     return this.http.get<{ patient: Patient }>(`${this.apiUrl}/patient/profile`);
   }
+
+
 
   // Actualizar el perfil del paciente
   actualizarPatient(patient: updatePatient): Observable<Patient> {

@@ -9,6 +9,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { TrackingRecordComponent } from './pages/tracking-record/tracking-record.component';
 import { PagesMedicamentosPacienteComponent } from './pages/pages-medicamentos-paciente/pages-medicamentos-paciente.component';
 import { MedicalHistoryDoctorComponent } from './pages/medical-history-doctor/medical-history-doctor.component';
+import {RecetaDoctorComponent  } from './pages/receta-doctor/receta-doctor.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { MedicalHistoryDoctorComponent } from './pages/medical-history-doctor/me
     TrackingRecordComponent,
     TrackingRecordComponent,
     PagesMedicamentosPacienteComponent,
-    MedicalHistoryDoctorComponent
+    MedicalHistoryDoctorComponent,
+    RecetaDoctorComponent
   ],
   imports: [
     CommonModule,

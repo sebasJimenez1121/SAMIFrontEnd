@@ -23,6 +23,10 @@ export class SpecialtyService {
   addSpecialty(specialty: Specialty): Observable<Specialty> {
     return this.http.post<Specialty>(`${this.apiUrl}/specialty/create`, specialty);
   }
+  activateSpecialty(CodigoEspc: string): Observable<Specialty> {
+    return this.http.put<Specialty>(`${this.apiUrl}/specialty/activate/${CodigoEspc}`, {});
+  }
+  
 }
 
   

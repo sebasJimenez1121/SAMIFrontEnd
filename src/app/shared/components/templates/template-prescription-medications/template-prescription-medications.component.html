@@ -1,1 +1,56 @@
-<p>template-prescription-medications works!</p>
+<div class="HistorialCita">
+  <nav>
+    <app-title-terciario titleText="Panel Medico"></app-title-terciario>
+    <app-profile-button [imageUrl]="imageUrl" (avatarClick)="openProfileModal()"></app-profile-button>
+  </nav>
+
+  <div class="container">
+    <div>
+      <app-title-principal class="titulo" [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
+    </div>
+
+    <div class="filtro-documento">
+      <input type="text" placeholder="Filtrar por documento" class="styled-date-input" (input)="filtroDocumento($event)">
+    </div>
+
+    <app-empty-state 
+      imageSrc="../../../../../assets/images/No se encontraron resultados.png" 
+      message="No se encontraron resultados" 
+      *ngIf="DocumentoFiltro.length === 0">
+    </app-empty-state>
+
+    <table *ngIf="DocumentoFiltro.length > 0">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Documento</th>
+          <th>Médico</th>
+          <th>Especialidad</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of DocumentoFiltro">
+          <td>
+            {{ cita.nombrePaciente }} {{ cita.apellidoPaciente }}
+          </td>
+          <td>{{ cita.documentoPaciente }}</td>
+          <td>{{ cita.nombreDoctor }} {{ cita.apellidoDoctor }}</td>
+          <td>{{ cita.nombreEspecialidad }}</td>
+          <td>{{ cita.fechaCita }}</td>
+          <td>
+            <app-button value="Ver" (click)="openHistoriaClinicaModal(cita)"></app-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal Create History -->
+  <app-modal-receta
+    *ngIf="showCreateHistoryModal" 
+    [cita]="citaSelected" 
+    (close)="closeHistoriaClinicaModal()">
+  </app-modal-receta>
+</div>

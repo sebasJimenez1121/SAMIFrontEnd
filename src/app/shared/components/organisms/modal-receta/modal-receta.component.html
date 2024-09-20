@@ -1,0 +1,82 @@
+<div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal">
+      <div class="modal-overlay" (click)="closeModal()"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Crear Receceta</h2>
+         
+          <button class="close-button" (click)="closeModal()">
+            <span class="X"></span>
+            <span class="Y"></span>
+            <div class="close">Close</div>
+          </button>
+        </div>
+         <hr>
+        <form (ngSubmit)="onSubmit()" #recordatorioForm="ngForm">
+            <div class="infoDoctor">
+                <div class="container-doctor">
+        
+  
+          <!-- Nombre del medicamento -->
+          <div class="field">
+            <app-label for="medicamentoNom" content="Nombre del Medicamento:"></app-label>
+            <app-input type="text" id="medicamentoNom" [(ngModel)]="recordatorio.medicamentoNom" name="medicamentoNom" [required]="true"></app-input>
+          </div>
+  
+           <!-- Hora de Inicio -->
+           <div class="field">
+            <app-label for="horaInicio" content="Hora de Inicio:" ></app-label>
+            <app-input type="time" id="horaInicio" [(ngModel)]="recordatorio.horaInicio" name="horaInicio" [required]="true"></app-input>
+          </div>
+         
+          <!-- Fecha de Inicio -->
+          <div class="field">
+            <app-label for="fechaIncio" content="Fecha de Inicio:"></app-label>
+            <app-input type="date" id="fechaIncio" [(ngModel)]="recordatorio.fechaIncio" name="fechaIncio" [required]="true"></app-input>
+          </div>
+              <!-- Fecha de Fin -->
+              <div class="field">
+                <app-label for="fechaFin" content="Fecha de Fin:"></app-label>
+                <app-input type="date" id="fechaFin" [(ngModel)]="recordatorio.fechaFin" name="fechaFin" [required]="true"></app-input>
+              </div>
+            </div>
+        </div>
+        <div class="infoPaciente">
+            <div class="container-doctor">
+  
+          <!-- Intervalo -->
+          <div class="field">
+            <app-label for="intervalo" content="Intervalo (horas):"></app-label>
+            <app-input type="number" id="intervalo" [(ngModel)]="recordatorio.intervalo" name="intervalo" [required]="true"></app-input>
+          </div>
+    <!-- Código de la Cita -->
+    <div class="field">
+        <app-label for="fkCodigoCita" content="Código de la Cita:"></app-label>
+        <app-input type="number" id="fkCodigoCita" [(ngModel)]="recordatorio.fkCodigoCita" name="fkCodigoCita" [required]="true"></app-input>
+      </div>
+          <!-- Estado -->
+          <div class="field">
+            <app-label for="estado" content="Estado:"></app-label>
+            <select id="estado" [(ngModel)]="recordatorio.estado" name="estado" required>
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+  
+        
+           <!-- Descripción (opcional) -->
+           <div class="field">
+            <app-label for="descripcionMed" content="Descripción:"></app-label>
+            <app-input-text-area id="descripcionMed" [(ngModel)]="recordatorio.descripcionMed" name="descripcionMed"></app-input-text-area>
+          </div>
+  
+            </div>
+          <div>
+          </div>
+            <button type="submit">Crear Recordatorio</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

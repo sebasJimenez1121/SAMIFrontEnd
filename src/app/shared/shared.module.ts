@@ -122,6 +122,8 @@ import { ModalPrescriptionMedicationsComponent } from './components/organisms/mo
 import { ModalPerfilDoctorDoComponent } from './components/organisms/modal-perfil-doctor-do/modal-perfil-doctor-do.component';
 import { ModalCreateHistoryComponent } from './components/organisms/modal-create-history/modal-create-history.component';
 import { AppointmentModalReservetionComponent } from './components/organisms/appointment-modal-reservetion/appointment-modal-reservetion.component';
+import { SelectSpecialtiesModalComponent } from './components/organisms/select-specialties-modal/select-specialties-modal.component';
+import { ModalRecetaComponent } from './components/organisms/modal-receta/modal-receta.component';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -237,7 +239,9 @@ import { AppointmentModalReservetionComponent } from './components/organisms/app
     ModalPrescriptionMedicationsComponent,
     ModalPerfilDoctorDoComponent,
     ModalCreateHistoryComponent,
-    AppointmentModalReservetionComponent  
+    AppointmentModalReservetionComponent,
+    SelectSpecialtiesModalComponent,
+    ModalRecetaComponent  
   ],
   imports: [
     CommonModule,

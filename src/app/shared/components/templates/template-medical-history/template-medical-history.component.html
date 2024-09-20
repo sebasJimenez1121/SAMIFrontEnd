@@ -8,9 +8,7 @@
     <div>
       <app-title-principal class="titulo" [titleText]="titleText" [titleClass]="titleClass"></app-title-principal>
     </div>
-    
-  
-    
+
     <div class="filtro-documento">
       <input type="text" placeholder="Filtrar por documento" class="styled-date-input" (input)="filtroDocumento($event)">
     </div>
@@ -33,20 +31,27 @@
         <tr *ngFor="let paciente of DocumentoFiltro">
           <td>
             <img [src]="paciente.Foto_Url" alt="{{paciente.Nombre}}" class="imagen-medico" *ngIf="paciente.Foto_Url">
-            {{paciente.Nombre}}   {{paciente.Apellido}}
+            {{paciente.Nombre}} {{paciente.Apellido}}
           </td>
+          <td>{{paciente.Documento}}</td>
           <td>
-            {{paciente.Documento}}
+            <app-button value="Ver" (click)="openHistoriaClinicaModal(paciente)"></app-button>
           </td>
-          <td>
-            <app-button value="Ver" ></app-button>
-          </td>
+          
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Modal de Crear Historia -->
-  <app-modal-create-history *ngIf="showCreateHistoryModal" (close)="closeCreateHistoryModal()"></app-modal-create-history>
+  <!-- Modal visible -->
+  <p>Modal visible: {{ showCreateHistoryModal }}</p>
+  
+  <!-- Modal Create History -->
+<!-- Modal Create History -->
+<!-- template-medical-history.component.html -->
+<app-modal-create-history 
+  *ngIf="showCreateHistoryModal" 
+  [paciente]="patientSelected"
+  (close)="closeHistoriaClinicaModal()">
+</app-modal-create-history>
 
-</div>

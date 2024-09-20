@@ -33,6 +33,7 @@
               <app-label content="Especialidad:"></app-label>
               <app-input [disabled]="!isEditMode" [(ngModel)]="datos.especialidad"></app-input>
             </div>
+           
             <div class="field">
               <app-label content="Valor Cita:"></app-label>
               <app-input [disabled]="!isEditMode" [(ngModel)]="datos.valorCita"></app-input>
@@ -43,8 +44,13 @@
             </div>
           </div>
         </div>
+
+        <div class="edit-button-container">
+          <app-button *ngIf="!isEditMode" (click)="enableEditMode()" value="Editar"></app-button>
+        </div>
+
         <div *ngIf="isEditMode" class="save-button-container">
-          <button (click)="saveChanges()">Guardar</button>
+          <app-button (click)="saveChanges()" value="Guardar"></app-button>
         </div>
       </div>
     </div>

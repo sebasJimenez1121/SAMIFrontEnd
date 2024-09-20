@@ -5,14 +5,12 @@ import { Observable, of, interval } from 'rxjs';
 import { switchMap, startWith } from 'rxjs/operators';
 import { AppointmentResponse } from '../models/response.model';
 import { Appointment, AppointmentCreate, AppointmentUpdate } from '../models/appointment.model';
-import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitaService {
-  private apiUrl = `'${environment.servicioCitas}/cita'`;
-
+  private apiUrl = 'http://localhost:10102/cita';
   constructor(private http: HttpClient) {}
 
   getCitas(): Observable<Appointment[]> {
