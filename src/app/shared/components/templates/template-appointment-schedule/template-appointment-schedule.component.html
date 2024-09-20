@@ -19,7 +19,6 @@
     </app-medical-card>
   </div>
 
-  <!-- Mostrar lista de pacientes solo si el usuario es admin y seleccionó un doctor -->
   <app-patient-list *ngIf="selectedDoctor && userRole === 'admin'"
     (patientSelected)="onPatientSelected($event)">
   </app-patient-list>
@@ -31,10 +30,9 @@
   </app-navigation-pagination>
 </div>
 
-<!-- Modal para agendamiento de cita -->
 <app-appointment-modal-reservetion 
   [isModalVisible]="isModalVisible"
   [doctor]="selectedDoctor" 
-  [patientId]="IdPatient" 
+  [patient]="Patient" 
   (closeModalEvent)="closeModal()">
 </app-appointment-modal-reservetion>

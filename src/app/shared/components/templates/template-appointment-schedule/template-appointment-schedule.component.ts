@@ -24,8 +24,7 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
 
   public userRole: string = '';
   public selectedDoctor!: DoctorPublic;
-  public selectedPatient!: Patient;
-  public IdPatient: string = '';
+  public Patient!: Patient;
   
   public isModalVisible: boolean = false;  // Controla la visibilidad del modal
 
@@ -62,14 +61,15 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   loadPatientData(): void {
-    const IdPatient = this.authService.getUserIdFromToken();  // Obtener el ID del paciente desde el token
-    if (IdPatient) {
-      this.IdPatient = IdPatient;  // Asignar el ID del paciente directamente
-      console.log('ID del paciente obtenido:', this.IdPatient);
-    } else {
-      console.error('Error: No se pudo obtener el ID del paciente desde el token.');
-    }
-  }
+      this.pacienteService.getPatientById().subscribe(
+        (response) => {
+          this.Patient = response.patient;  // Asignar los datos del paciente obtenidos
+        },
+        (error) => {
+          console.error('Error al obtener los datos del paciente:', error);
+        }
+      );
+    }  
 
   onSpecialtyChange(event: any) {
     this.specialtyChange.emit(event.target.value);
@@ -84,14 +84,14 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
 
     // Verificar si el paciente está seleccionado antes de abrir el modal
     if (this.userRole === 'paciente') {
-      if (this.IdPatient) {
-        this.openAppointmentModal(doctor, this.IdPatient);
+      if (this.Patient) {
+        this.openAppointmentModal(doctor, this.Patient);
       } else {
         console.error('No se puede abrir el modal: ID del paciente no disponible');
       }
     } else if (this.userRole === 'admin') {
-      if (this.selectedPatient?.Id) {
-        this.openAppointmentModal(doctor, this.selectedPatient.Id);
+      if (this.Patient) {
+        this.openAppointmentModal(doctor, this.Patient);
       } else {
         console.error('No se puede abrir el modal: ID del paciente no disponible');
       }
@@ -100,14 +100,14 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
     }
   }
 
-  openAppointmentModal(doctor: DoctorPublic, IdPatient: string): void {
-    if (doctor && IdPatient) {
+  openAppointmentModal(doctor: DoctorPublic, Patient: Patient): void {
+    if (doctor && Patient) {
       this.selectedDoctor = doctor;
-      this.IdPatient = IdPatient;
+      this.Patient = Patient;
       this.isModalVisible = true;  // Asegura que el modal se abra
       console.log('Modal abierto con doctor:', doctor.nombre);
     } else {
-      console.error('No se puede abrir el modal: faltan datos', { doctor, IdPatient });
+      console.error('No se puede abrir el modal: faltan datos', { doctor, Patient });
     }
   }
 
@@ -117,9 +117,9 @@ export class TemplateAppointmentScheduleComponent implements OnInit {
   }
 
   onPatientSelected(patient: Patient) {
-    this.selectedPatient = patient;
+    this.Patient = patient;
     if (this.selectedDoctor) {
-      this.openAppointmentModal(this.selectedDoctor, patient.Id);
+      this.openAppointmentModal(this.selectedDoctor, patient);
     }
   }
 }

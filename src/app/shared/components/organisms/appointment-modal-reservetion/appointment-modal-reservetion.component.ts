@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core
 import { DoctorPublic } from './../../../../core/models/doctor.model';
 import Swal from 'sweetalert2';
 import { CalendarOptionsComponent } from '../../molecules/calendar-options/calendar-options.component';
+import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-appointment-modal-reservetion',
@@ -10,7 +11,7 @@ import { CalendarOptionsComponent } from '../../molecules/calendar-options/calen
 })
 export class  AppointmentModalReservetionComponent {
   @Input() doctor!: DoctorPublic;
-  @Input() patientId: string = '';
+  @Input() patient!: Patient ;
   @Input() isModalVisible: boolean = false;
   @Output() closeModalEvent = new EventEmitter<void>();  // Evento para cerrar modal
 

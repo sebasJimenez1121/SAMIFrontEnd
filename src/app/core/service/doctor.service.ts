@@ -2,12 +2,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Doctor, DoctorPublic } from '../models/doctor.model';
-import { environment } from '../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
-  private apiUrl = `${environment.servicioUser}/doctor`; 
+  private apiUrl = 'http://localhost:10101'; 
 
   constructor(private http: HttpClient) {}
 
@@ -19,31 +19,44 @@ export class DoctorService {
 
   getDoctor(): DoctorPublic | null {
     return this.doctor;
-  }  
+  }  // Obtener todos los doctores
   
   getDoctors(): Observable<DoctorPublic[]> {
-    return this.http.get<DoctorPublic[]>(`${this.apiUrl}/catalog`);
+    return this.http.get<DoctorPublic[]>(`${this.apiUrl}/doctor/catalog`);
   }
 
   // Obtener un doctor por su ID
   getDoctorById(doctorId: number): Observable<Doctor> {
-    return this.http.get<Doctor>(`${this.apiUrl}/profile`);
+    return this.http.get<Doctor>(`${this.apiUrl}/${doctorId}`);
   }
 
   // Crear un nuevo doctor
   crearDoctor(formData: FormData): Observable<Doctor> {
-    return this.http.post<Doctor>(`${this.apiUrl}/register`, formData);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.post<Doctor>(`${this.apiUrl}/doctor/register`, formData, { headers });
   }
   updateDoctor(doctor: DoctorPublic): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/${doctor.tarjetaProf}`, doctor);
   }
+  // Eliminar un doctor existente
+  eliminarDoctor(doctorId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${doctorId}`);
+  }
+
 
   // Obtener el perfil de un doctor por email
   getDoctorByEmail(token: string): Observable<Doctor> {
-    return this.http.get<Doctor>(`${this.apiUrl}/profile`);
+    return this.http.get<Doctor>(`${this.apiUrl}/doctor`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   }
 
   updateDocProfile(token: string, doctor: Doctor): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const updateDTO = {
       TokenEmail: token,
       documento: doctor.documento,
@@ -52,7 +65,7 @@ export class DoctorService {
       email: doctor.email,
       Foto_Url: doctor.img 
     };
-    return this.http.put(`${this.apiUrl}/updateProfile`, updateDTO);
+    return this.http.put(`${this.apiUrl}/updateProfile`, updateDTO, { headers });
   }
  
   updateProfilePicture(token: string, formData: FormData): Observable<any> {
@@ -62,11 +75,15 @@ export class DoctorService {
 
   disableAccount(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put(`${this.apiUrl}/disable`, {}, { headers });
+    return this.http.put(`${this.apiUrl}/profile/disable`, {}, { headers });
   }
 
   changePassword(token: string, passwords: { oldPassword: string, newPassword: string }): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put(`${this.apiUrl}/change-password`, passwords, { headers });
+    return this.http.put(`${this.apiUrl}/profile/change-password`, passwords, { headers });
+  }
+
+  recoverPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/recover-password`, { email });
   }
 }

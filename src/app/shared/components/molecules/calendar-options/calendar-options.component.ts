@@ -4,6 +4,7 @@ import { AppointmentResponse } from '../../../../core/models/response.model';
 import { CitaService } from '../../../../core/service/cita.service';
 import Swal from 'sweetalert2';
 import { AppointmentCreate } from '../../../../core/models/appointment.model';
+import { Patient } from '../../../../core/models/patient.model';
 
 @Component({
   selector: 'app-calendar-options',
@@ -12,7 +13,7 @@ import { AppointmentCreate } from '../../../../core/models/appointment.model';
 })
 export class CalendarOptionsComponent implements OnChanges {
   @Input() doctor!: DoctorPublic;
-  @Input() patientId: string = ''; 
+  @Input() patient!: Patient; 
   @Output() closeModalEvent = new EventEmitter<void>();  // Evento para cerrar modal sin confirmación
   @Output() closeWithoutConfirmation = new EventEmitter<void>(); // Evento para cerrar después de éxito
   @Output() resetFormEvent = new EventEmitter<void>(); // Evento para resetear el formulario desde el padre
@@ -41,7 +42,8 @@ export class CalendarOptionsComponent implements OnChanges {
         horaCita: this.selectedTime,
         fechaCita: this.selectedDate,
         fKIdDoct: this.doctor.Id,
-        fKIdPac: this.patientId,
+        fKIdPac: this.patient.Id,
+        EmailPac: this.patient.Email
       };
 
       this.citaService.crearCita(reservationData).subscribe(

@@ -34,7 +34,8 @@ export interface AppointmentCreate {
     fechaCita: string;
     fKIdDoct: string;
     fKIdPac: string;
-    motivoCita?: string;
+    motivoCita: string;
+    EmailPac: string;
 }
 
 export interface medicamentos{
