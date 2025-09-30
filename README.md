@@ -1,24 +1,31 @@
-# SAMI
+🩺 SAMI - Sistema de Atención Médica Inteligente
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+SAMI es una aplicación web desarrollada con Angular 17 que busca optimizar la gestión de pacientes, doctores y citas médicas dentro de un entorno clínico. Su propósito es brindar una solución ágil y moderna para la administración de información en el sector salud, facilitando la interacción entre usuarios y profesionales médicos.
 
-## Development server
+🚀 Características principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+👨‍⚕️ Gestión de usuarios: Registro y autenticación de pacientes y doctores con roles diferenciados.
 
-## Code scaffolding
+📅 Manejo de citas: Los pacientes pueden agendar y consultar citas, mientras que los doctores administran su agenda.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🗂️ Perfiles personalizados: Cada usuario cuenta con su propio perfil editable (paciente o doctor).
 
-## Build
+💬 Chatbot dinámico: Integración de un asistente virtual para resolver dudas y brindar información.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📊 Interfaz responsiva: Compatible con dispositivos móviles, tablets y computadores.
 
-## Running unit tests
+🛠️ Tecnologías utilizadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Angular 17 (framework principal)
 
-## Running end-to-end tests
+TypeScript (tipado y lógica de negocio)
+
+HTML5 y CSS3 (estructura y estilos)
+
+SweetAlert2 (notificaciones interactivas)
+
+MockAPI (backend simulado para pruebas)
+link documentación:https://fuchsia-rail-96e.notion.site/SAMI-Sistema-de-atenci-n-medica-inteligente-19788d53c5334185b9cfe4948e97e1aa
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
